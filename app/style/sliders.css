@@ -1,0 +1,7 @@
+/* ----------------------Comment Slider---------------------- */
+.commentSlider{
+  background-image: url('/right-top-comma.svg'), url('/left-bottom-comma.svg');
+  background-position: right top, left bottom;
+  background-repeat: no-repeat, no-repeat;
+  background-size: 20%, 20%;
+}

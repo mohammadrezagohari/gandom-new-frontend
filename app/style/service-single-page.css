@@ -1,0 +1,6 @@
+.CommentsSection{
+    background-image: url('/service-single-logo-gray.svg'), url('/service-single-logo-yellow.svg');
+    background-position: right bottom, left top;
+    background-repeat: no-repeat, no-repeat;
+    background-size: 20%, 20%;
+}
