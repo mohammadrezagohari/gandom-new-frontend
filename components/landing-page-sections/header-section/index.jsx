@@ -5,7 +5,8 @@ import Image from "next/image";
 function HeadSection() {
   return (
     <section className="w-full bg-g21">
-      <div className="serviceCont divide-x py-[3vw] grid grid-cols-1 lg:grid-cols-2 text-gf ">
+      {/* headerlandingGandomLogo */}
+      <div className="serviceCont py-[4vw] grid grid-cols-1 lg:grid-cols-2 text-gf ">
         <div className=" relative h-full order-2 lg:order-1">
             <div className="absolute bottom-3 left-0 w-[12.5vw] lg:block hidden ">
               <Image
@@ -25,6 +26,15 @@ function HeadSection() {
                 className="w-full"
               />
             </div>
+            {/* <div className="absolute -top-[30%] left-0 w-[30vw] lg:block hidden z-0">
+              <Image
+                width={100}
+                height={100}
+                alt={"head picture"}
+                src={"/landing/headerlandingGandomLogo.svg"}
+                className="w-full"
+              />
+            </div> */}
             {/* <div claassName="" ></div> */}
             <div className="container h-full flex flex-col items-start justify-center">
 
@@ -50,7 +60,7 @@ function HeadSection() {
             </div>
         </div>
         <div className="order-1 lg:order-2 flex lg:justify-end justify-center">
-          <div className="w-[40.5vw] hidden lg:block border-2">
+          <div className="w-[40.5vw] hidden lg:block ">
             <Image
               width={100}
               height={100}
