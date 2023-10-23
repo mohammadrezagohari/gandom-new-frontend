@@ -99,12 +99,12 @@
   .landingHeaderHeight{
     min-height:600px
   }
-  .aboutSectionLeftColBg{
+  /* .aboutSectionLeftColBg{
     background-image: url('/landing/aboutSectionGandomLogo.svg');
     background-position: left center;
     background-repeat: no-repeat;
     background-size: 45%;
-   }
+   } */
    .parentCircle{
     width: 1020px;
     height:1020px
@@ -130,12 +130,12 @@
   .landingHeaderHeight{
     height:600px
   }
-  .aboutSectionLeftColBg{
+  /* .aboutSectionLeftColBg{
     background-image: url('/landing/aboutSectionGandomLogo.svg');
     background-position: left center;
     background-repeat: no-repeat;
     background-size: 50%;
-  }
+  } */
   .parentCircle{
     width: 1276px;
     height:1276px
@@ -157,12 +157,12 @@
   .landingHeaderHeight{
     height:700px
   }
-  .aboutSectionLeftColBg{
+  /* .aboutSectionLeftColBg{
     background-image: url('/landing/aboutSectionGandomLogo.svg');
     background-position: left center;
     background-repeat: no-repeat;
     background-size: 55%;
-  }
+  } */
   .parentCircle{
     width: 1530px;
     height:1530px
@@ -184,12 +184,12 @@
   .landingHeaderHeight{
     height:700px
   }
-  .aboutSectionLeftColBg{
+  /* .aboutSectionLeftColBg{
     background-image: url('/landing/aboutSectionGandomLogo.svg');
     background-position: left center;
     background-repeat: no-repeat;
     background-size: 60%;
-  }
+  } */
   .parentCircle{
     width: 1788px;
     height:1788px
@@ -211,12 +211,12 @@
   .landingHeaderHeight{
     height:700px
   }
-  .aboutSectionLeftColBg{
+  /* .aboutSectionLeftColBg{
     background-image: url('/landing/aboutSectionGandomLogo.svg');
     background-position: left center;
     background-repeat: no-repeat;
     background-size: 65%;
-  }
+  } */
   .parentCircle{
     width: 2044px;
     height:2044px
