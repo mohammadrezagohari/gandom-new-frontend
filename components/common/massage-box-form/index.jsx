@@ -23,6 +23,7 @@ function MassageBox({
           type="text"
           name="name"
           placeholder="Name"
+          required
           className={`bg-transparent placeholder-opacity-100 text-[1.2rem] lg:text-[1.4rem] py-2 lg:py-3 font-PoppinsRegular focus:outline-none w-full ${inputClasses}`}
           value={name}
           onChange={(e) => setName(e.target.value)}
@@ -35,6 +36,7 @@ function MassageBox({
           type="email"
           name="email"
           placeholder="Email"
+          required
           className={`bg-transparent placeholder-opacity-100 text-[1.2rem] lg:text-[1.4rem] py-2 lg:py-3 font-PoppinsRegular focus:outline-none w-full ${inputClasses}`}
           value={email}
           onChange={(e) => setEmail(e.target.value)}
@@ -47,6 +49,7 @@ function MassageBox({
           type="text"
           name="content"
           placeholder="Message"
+          required
           className={`bg-transparent placeholder-opacity-100 text-[1.2rem] lg:text-[1.4rem] py-2 lg:py-3 font-PoppinsRegular focus:outline-none w-full ${inputClasses}`}
           value={content}
           onChange={(e) => setContent(e.target.value)}
