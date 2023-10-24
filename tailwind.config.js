@@ -50,6 +50,7 @@ module.exports = {
         'gf': '#ffffff',
         'g6f':'#6F6F6F',
         'g3':'#333333',
+        'gd9':'#D9D9D9',
         'gYellow': '#ffd101',
         'gDarkYellow': '#FAA71D',
         'gRed': '#faa71d',
