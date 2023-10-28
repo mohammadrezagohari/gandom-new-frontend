@@ -13,8 +13,11 @@ function AboutUs() {
         <HeaderSection />
         <PropertySection />
         <TeamSection />
-        <JoinSection />
-        <ContactUsSection />
+        <div className="">
+
+          <JoinSection />
+          <ContactUsSection />
+        </div>
       </div>
     </main>
   )

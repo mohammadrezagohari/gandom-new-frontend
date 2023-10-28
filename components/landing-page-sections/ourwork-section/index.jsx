@@ -27,7 +27,7 @@ function OurworkSection() {
 
         <div className="py-4 flex justify-center items-center">
 
-         <OutlinedButton  title='See More' link='/' />
+         <OutlinedButton classes="border-g8 text-g8"  title='See More' link='/' />
         </div>
       </div>
     </section>

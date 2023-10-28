@@ -19,6 +19,8 @@ module.exports = {
     fontFamily: {
       'Holispay':'Holispay',
 
+      
+
       'PoppinsExtraLight':'PoppinsExtraLight',
       'PoppinsLight':'PoppinsLight',
       'PoppinsMedium':'PoppinsMedium',
@@ -46,6 +48,7 @@ module.exports = {
         'ge4': '#e4e4e4',
         'gec': '#ececec',
         'gbc': '#BCBCBC',
+        'gb8': '#B8B8B8',
         'gf5': '#f5f5f5',
         'gf': '#ffffff',
         'g6f':'#6F6F6F',

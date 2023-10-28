@@ -4,10 +4,10 @@ import CircleSmYellow from '../circle-yellow/sm'
 import Link from "next/link";
 function PictureBox({classes,circleClasses,circleLgYellow,circleSmYellow,href}) {
   return (
-    
+     
       <div 
         
-        className={`lg:h-[29.67rem] h-[13.188rem] relative bg-no-repeat bg-center bg-cover  ${classes} `}>
+        className={` relative bg-no-repeat bg-center bg-cover  ${classes} `}>
         {/* PictureBox */}
 
 

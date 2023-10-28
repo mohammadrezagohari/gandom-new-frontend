@@ -63,7 +63,7 @@ function PropertySection() {
           />
           <div className="my-[10%] lg:my-[2%] grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-5">
             {reasons.map((item, i) => (
-              <div key={i} className="col-span-1">
+              <div key={i} className="col-span-1"> 
                 <CardBox
                   parentClasses="cardBoxHover cursor-pointer hover:bg-g30 hover:border-g30 border-g4c gap-3 lg:gap-5 p-4 lg:p-6 lg:py-9"
                   circleClasses="w-[4rem] h-[4rem] lg:w-[6rem] lg:h-[6rem] bg-g30 text-gYellow hover:bg-gYellow text-2xl lg:text-3xl"
