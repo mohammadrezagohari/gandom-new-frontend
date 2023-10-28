@@ -37,7 +37,7 @@ function TeamSection() {
               <h5 className="hidden lg:block text-g8 text-xs lg:text-[1.2rem] leading-[1.8rem]  text-justify font-PoppinsRegular line-clamp-5 ">
                 Log in here to get to know all our team members
               </h5>
-              <OutlinedButton  title='see all' link='/' />
+              <OutlinedButton classes="border-g8 text-g8" title='see all' link='/' />
             </div>
           </div>
 

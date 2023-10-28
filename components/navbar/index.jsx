@@ -10,20 +10,26 @@ function Navbar() {
   const pathname = usePathname();
   const [keyWord, setKeyWord] = useState("");
   const [isOpen, setIsOpen] = useState(false);
+  const [fade, setFade] = useState(false);
   const openLangList = () => {
-    setIsOpen((prev) => !prev);
-    // setIsOpen(true);
+    // setIsOpen((prev) => !prev);
+    setFade((prev) => !prev);
   };
   const closeMenu = () => {
-    setIsOpen(false);
-    // setIsOpen(true);
+    // setIsOpen(false);
+    setFade(false);
   };
+  // const [fade, setFade] = useState(false);
+  // const handleClickMegaMenu = (event) => {
+  //   setFade((prev) => !prev);
+  // };
   useEffect(() => {
     const html = document.querySelector("html");
     if (html) {
+      // html.style.transition = "all 0.2s ease-in-out";
       html.style.overflow = isOpen ? "hidden" : "auto";
     }
-  }, [isOpen]);
+  }, [isOpen]); 
 
   return (
     <nav className={`w-full z-50 ${pathname == "/" || pathname=="/service/seo" || pathname=="/about-us" ? "bg-g21" : "bg-gf"} `}>
@@ -82,10 +88,9 @@ function Navbar() {
           </div>
         </div>
 
-        {isOpen ? (
-          <>
+        {/* ${fade ? "opacity-100 visible" : "opacity-0 invisible"} */}
             <div
-              className={`overflow-y-scroll lg:overflow-hidden transition ease-in-out delay-150  fixed z-40 top-[0] bottom-0 left-0 right-0  ${
+              className={`transition-all duration-200 ${fade ? "opacity-100 visible" : "opacity-0 invisible"}  overflow-y-scroll lg:overflow-hidden transition ease-in-out delay-150  fixed z-40 top-[0] bottom-0 left-0 right-0  ${
                 pathname == "/" || pathname=="/service/seo" || pathname=="/about-us" ? "bg-g21" : "bg-gf"
               }  py-6 lg:py-10`}
             >
@@ -208,7 +213,7 @@ function Navbar() {
                   </Link>
                   <Link
                     onClick={closeMenu}
-                    href="/"
+                    href="/weblog"
                     className="menuItem lg:h-[145px] h-[71px] border-[1px] border-gec text-center rounded-lg col-span-1 lg:col-span-2"
                   >
                     <h4 className="text-gec lg:text-[67px] lg:leading-[84.75px] text-[38px] leading-[40.68px] font-Holispay ">
@@ -245,10 +250,7 @@ function Navbar() {
                 </div>
               </div>
             </div>
-          </>
-        ) : (
-          <></>
-        )}
+
       </div>
     </nav>
   );

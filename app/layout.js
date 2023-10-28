@@ -4,6 +4,7 @@ import './style/media.css'
 import './style/sliders.css'
 import './style/service-single-page.css'
 import './style/about.css'
+import './style/weblog.css'
 
 // import { Inter } from 'next/font/google'
 require("dotenv").config();

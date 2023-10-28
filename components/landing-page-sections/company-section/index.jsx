@@ -63,7 +63,7 @@ function CompanySection() {
       <div className="container flex justify-between items-center">
        <SectionTitle classes="text-g21" title='trusted by +50 company worldwide' />
         <div className="hidden lg:inline-block">
-          <OutlinedButton  title='See More' link='/' />
+          <OutlinedButton classes="border-g8 text-g8" title='See More' link='/' />
         </div>
       </div>
 
@@ -85,7 +85,7 @@ function CompanySection() {
       </div>
 
       <div className=" flex items-center justify-center lg:hidden">
-        <OutlinedButton title='See More' link='/' />
+        <OutlinedButton classes="border-g8 text-g8" title='See More' link='/' />
       </div>
     </section>
   );

@@ -36,6 +36,28 @@
 .parentCircle div{
   padding:20%;
 }
+
+
+.recentArticleBox >div.pictureBox {
+  order:1
+}
+
+.recentArticleBox >div.textBox{
+  order:2
+}
+
+
+.recentArticleBox:nth-child(even) >div.pictureBox {
+  /* background: red; */
+  order:1;
+  transform: rotateY(0deg)
+}
+
+.recentArticleBox:nth-child(even) >div.textBox{
+  order:2
+}
+
+
 @media (min-width: 640px) {
   .container {
     max-width: 640px;
@@ -54,6 +76,27 @@
     width: 636px;
     height:636px
   }
+
+
+  .recentArticleBox >div.pictureBox {
+    order:1
+  }
+
+  .recentArticleBox >div.textBox{
+      order:2
+  }
+
+
+  .recentArticleBox:nth-child(even) >div.pictureBox {
+      /* background: red; */
+      order:2;
+      transform: rotateY(180deg)
+  }
+
+  .recentArticleBox:nth-child(even) >div.textBox{
+      order:1
+  }
+
 }
 @media (min-width: 768px) {
   .container {
