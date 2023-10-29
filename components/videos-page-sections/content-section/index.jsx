@@ -1,0 +1,36 @@
+import React from 'react'
+import VideoCardBox from '../../common/cards/video-box';
+// import videoItem from '@/core/services/api/videos';
+import { getPostsData } from '@/core/services/api/videos'; 
+
+
+async function ContentSection() {
+    const data = await getPostsData();
+  return (
+    <section className="w-full ">
+       <div className="container ">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-5">
+                {
+                    data.map((item,i)=>(
+                        <VideoCardBox key={i}  
+                        parentClasses='border-gec bg-gec'
+                        titleClasses='text-g4c'
+                        descClasses='text-g8'
+                        linkClasses='text-gDarkYellow'
+                        dateClasses='text-g8'
+                        img="/vImg.svg"
+                        title={item.title}
+                        desc={item.body}
+                        link="see more"
+                        date="29 July"
+                        href={`/article/${item.id}/${item.title}`}
+                        /> 
+                    ))
+                }
+            </div>
+        </div>
+    </section>
+  )
+}
+
+export default ContentSection
