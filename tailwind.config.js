@@ -19,8 +19,6 @@ module.exports = {
     fontFamily: {
       'Holispay':'Holispay',
 
-      
-
       'PoppinsExtraLight':'PoppinsExtraLight',
       'PoppinsLight':'PoppinsLight',
       'PoppinsMedium':'PoppinsMedium',
@@ -41,6 +39,7 @@ module.exports = {
         'g3c': '#3c3c3c',
         'g4c': '#4c4c4c',
         'g70': '#707070',
+        'g75': '#757575',
         'g8': '#888888',
         'g92': '#929292',
         'g96': '#969696',
@@ -49,11 +48,13 @@ module.exports = {
         'gec': '#ececec',
         'gbc': '#BCBCBC',
         'gb8': '#B8B8B8',
+        'gb9': '#B9B9B9',
         'gf5': '#f5f5f5',
         'gf': '#ffffff',
         'g6f':'#6F6F6F',
         'g3':'#333333',
         'gd9':'#D9D9D9',
+        'gd5':'#D5D5D5',
         'gYellow': '#ffd101',
         'gDarkYellow': '#FAA71D',
         'gRed': '#faa71d',
