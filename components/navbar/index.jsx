@@ -225,11 +225,11 @@ function Navbar() {
                   </Link>
                   <Link
                     onClick={closeMenu}
-                    href="/"
+                    href="/portfolio"
                     className="menuItem lg:h-[145px] h-[71px] border-[1px] border-gec text-center rounded-lg col-span-1 lg:col-span-4"
                   >
                     <h4 className="text-gec lg:text-[67px] lg:leading-[84.75px] text-[38px] leading-[40.68px] font-Holispay ">
-                      Our Work
+                      Portfolio
                     </h4>
                     <span className="text-gDarkYellow lg:text-2xl lg:leading-[28.13px] text-[12px] leading-[14.06px] font-Holispay ">
                       Current page
