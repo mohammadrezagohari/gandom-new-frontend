@@ -15,7 +15,7 @@ export const getPostsData=async ()=>{
 }
 
 export const getSinglePostData=async (id)=>{
-    const data = await fetch(`http://moviesapi.ir/api/v1/movies/${4}`,
+    const data = await fetch(`http://moviesapi.ir/api/v1/movies/${id}`,
     {cache:"no-store"} // in default is "ssg"  when you write {cache:"no-store"}  change to "ssr"  and for "isr" you write {next:{ravalidate:"60"}} (60 means refres besho har 60 sanie)
     );
     return data.json();

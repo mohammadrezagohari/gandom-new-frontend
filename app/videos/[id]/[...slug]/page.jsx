@@ -1,15 +1,57 @@
 import React from 'react'
 import videoItem from '@/core/services/api/videos';
 import { getSinglePostData } from '@/core/services/api/videos';
+import VideoPlayerSection from '@/components/videos-single-page-sections/video-player-section';
+import VideoContent from '@/components/videos-single-page-sections/video-content';
+import CommentSection from "@/components/videos-single-page-sections/comment-section";
+import RelatedPostSection from "@/components/videos-single-page-sections/related-post-section";
+
+
+
 async function VideoSinglePage({ params }) {
   const data = await getSinglePostData(params.id);
   return (
     <main className="">
-      VideoSinglePage
+      {/* VideoSinglePage
       <p>
 
-       {data.title}
-      </p>
+        {data.title} 
+      </p> */}
+      <VideoPlayerSection />
+      <VideoContent>
+        <h1
+          className={`text-g25 lg:text-[3.7rem] text-start lg:leading-[84.75px] text-[1.7rem] leading-[40.68px] font-Holispay`}
+        >
+          {data.title}
+          {/* We are a leader in the field of web and mobile software services */}
+        </h1>
+
+         <p className="text-g8 lg:text-[19px] text-justify lg:leading-7 text-base leading-6 font-PoppinsRegular py-6">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna.Lorem ipsum dolor sit amet,
+            consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+            et dolore magna.Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+            sed do eiusmod tempor incididunt ut labore et dolore magna.Lorem ipsum
+            dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+            incididunt ut labore et dolore magna.Lorem ipsum dolor sit amet,
+            consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+            et dolore magna.Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+            sed do eiusmod tempor incididunt ut labore et dolore magna.Lorem ipsum
+            dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+            incididunt ut labore et dolore magna.Lorem ipsum dolor sit amet,
+            consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+            et dolore magna.Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+            sed do eiusmod tempor incididunt ut labore et dolore magna.Lorem ipsum
+            dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+            incididunt ut labore et dolore magna.Lorem ipsum dolor sit amet,
+            consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.
+         </p>
+
+
+        <CommentSection />
+        
+        <RelatedPostSection />
+      </VideoContent>
     </main>
   )
 }

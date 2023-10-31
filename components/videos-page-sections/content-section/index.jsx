@@ -8,7 +8,7 @@ async function ContentSection() {
     const data = await getPostsData();
   return (
     <section className="w-full ">
-       <div className="container ">
+        <div className="container ">
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-5">
                 {
                     data.map((item,i)=>(
@@ -23,7 +23,7 @@ async function ContentSection() {
                         desc={item.body}
                         link="see more"
                         date="29 July"
-                        href={`/article/${item.id}/${item.title}`}
+                        href={`/videos/${item.id}/${item.title}`}
                         /> 
                     ))
                 }
