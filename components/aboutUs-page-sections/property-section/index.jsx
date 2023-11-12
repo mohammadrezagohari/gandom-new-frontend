@@ -85,7 +85,7 @@ function PropertySection() {
               <Image
                 width={100}
                 height={100}
-                alt={"logo picture"}
+                alt={"logo picture | img | لوگو | گندم | سایت | طراحی | وبسایت | موبایل | نرم افزار | دیزای| شرکت نرم افزاری گندم | لوگوی گندم"}
                 src={"/about/aboutlogo.svg"}
                 className="w-full h-full"
               />

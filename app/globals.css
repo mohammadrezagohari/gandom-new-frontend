@@ -335,3 +335,37 @@ section .bg h2 {
 section .bg .clip-text {
   overflow: hidden;
 }
+
+/* --------------------------- */
+
+
+.PhoneInputInput{
+  outline:none
+}
+/* input{
+  position:relative
+}
+input::placeholder {
+  color: green !important ;
+}
+input::placeholder::after{
+  content:'( ! )';
+  position: absolute;
+  top:0
+
+} */
+/* ::-webkit-input-placeholder:after {
+  content: '*';
+}
+
+:-moz-placeholder:after { 
+  content: '*'; 
+}
+
+::-moz-placeholder:after {  
+  content: '*';
+}
+
+:-ms-input-placeholder:after {  
+  content: '*';
+} */

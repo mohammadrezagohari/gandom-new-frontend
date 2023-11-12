@@ -74,7 +74,7 @@ const ServiceSinglePage = async ({ params }) => {
           height={100}
           className=" h-full w-full rounded-xl object-cover "
           src={"/artti.svg"}
-          alt={"article img"}
+          alt={"article | img | مقاله | گندم | سایت | طراحی | وبسایت | موبایل | نرم افزار | دیزای| شرکت نرم افزاری گندم"}
         />
         {/* artti */}
       </div>
