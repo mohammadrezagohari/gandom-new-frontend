@@ -35,7 +35,7 @@ function ContactSection() {
           </Link>
         </div>
         <div className="w-full h-[210px] lg:h-[237px] lg:w-[21%] lg:col-span-2 p-5 py-6 rounded-xl border-2 gap-5 lg:text-start text-center inline-flex flex-col lg:justify-start justify-between items-center">
-          <div class="flex -space-x-4 overflow-hidden">
+          <div className="flex -space-x-4 overflow-hidden">
             <Image
               width={10}
               height={10}
@@ -97,7 +97,7 @@ export default ContactSection;
     </Link>
   </div>
   <div className="col-span-1 lg:col-span-2 py-5 rounded-xl border-2 gap-5 lg:text-start text-center inline-flex flex-col lg:justify-start justify-between items-center">
-    <div class="flex -space-x-4 overflow-hidden">
+    <div className="flex -space-x-4 overflow-hidden">
       <Image
         width={10}
         height={10}

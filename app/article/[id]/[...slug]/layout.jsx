@@ -7,15 +7,15 @@ import { getPostsData } from '@/core/services/api/videos';
  const RootLayout= async ({ children })=> {
   const data = await getPostsData();
   return (
-    <div className="container gap-8 relative  grid grid-cols-12 lg:grid-cols-12 ">
-      <aside className="lg:sticky lg:top-0 lg:left-0 col-span-12 lg:col-span-4  lg:p-6 ">
+    <div className="container pt-[50%] gap-8 relative  grid grid-cols-12 lg:grid-cols-12 ">
+      <aside className="hidden lg:flex lg:sticky lg:top-0 lg:left-0 col-span-12 lg:col-span-4  lg:p-6 ">
         <div className=" relative w-full h-[67vh] rounded-xl lg:mb-12 ">
           <Image 
             width={100}
             height={100}
             className=" h-full w-full rounded-xl object-cover "
             src={"/artti.svg"}
-            alt={"article img"}
+            alt={"article | img | مقاله | گندم | سایت | طراحی | وبسایت | موبایل | نرم افزار | دیزای| شرکت نرم افزاری گندم"}
           />
           <div className=" flex items-end justify-start absolute top-0 left-0 right-0 bottom-0 bg-g4c bg-opacity-[50%] rounded-xl">
             <h4 className=" w-full text-center absolute top-[50%] left-[50%] transform -translate-x-[50%] -translate-y-[50%] text-gf lg:text-[2.7rem] text-[1.7rem]  font-Holispay">Lorem ipsum Lorem   </h4>

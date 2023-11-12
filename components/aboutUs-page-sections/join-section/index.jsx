@@ -136,7 +136,7 @@ function JoinSection() {
                 <Image
                   width={30}
                   height={30}
-                  alt={"logo picture"}
+                  alt={"logo picture | img | لوگو | گندم | سایت | طراحی | وبسایت | موبایل | نرم افزار | دیزای| شرکت نرم افزاری گندم | لوگوی گندم"}
                   src={"/Polygon 2.svg"}
                   className="absolute -bottom-[15.5px] left-[45%]"
                 />
@@ -157,7 +157,7 @@ function JoinSection() {
                 <Image
                   width={30}
                   height={30}
-                  alt={"logo picture"}
+                  alt={"logo picture | img | لوگو | گندم | سایت | طراحی | وبسایت | موبایل | نرم افزار | دیزای| شرکت نرم افزاری گندم | لوگوی گندم"}
                   src={"/Polygon 2.svg"}
                   className="absolute -top-[16px] left-[50%] transform rotate-180"
                 />
@@ -191,7 +191,7 @@ function JoinSection() {
                 <Image
                   width={30}
                   height={30}
-                  alt={"logo picture"}
+                  alt={"logo picture | img | لوگو | گندم | سایت | طراحی | وبسایت | موبایل | نرم افزار | دیزای| شرکت نرم افزاری گندم | لوگوی گندم"}
                   src={"/Polygon 2.svg"}
                   className="lg:block hidden absolute -bottom-[15.5px] left-[45%]"
                 />
@@ -218,7 +218,7 @@ function JoinSection() {
                 <Image
                   width={30}
                   height={30}
-                  alt={"logo picture"}
+                  alt={"logo picture | img | لوگو | گندم | سایت | طراحی | وبسایت | موبایل | نرم افزار | دیزای| شرکت نرم افزاری گندم | لوگوی گندم"}
                   src={"/Polygon 2.svg"}
                   className="absolute -top-[16px] left-[50%] transform rotate-180"
                 />

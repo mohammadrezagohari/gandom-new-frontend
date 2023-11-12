@@ -35,7 +35,9 @@ function Navbar() {
     <nav className={`w-full z-50 ${pathname == "/" || pathname=="/service/seo" || pathname=="/about-us" ? "bg-g21" : "bg-gf"} `}>
       <div className="relative transition ease-in-out delay-150 container pt-[1.5%]">
         <div
-          className={`relative flex justify-between py-5 items-center border-b-[1.5px] border-gec`}
+          className={`relative flex justify-between py-5 items-center border-b-[1.5px]  ${
+            pathname == "/" || pathname=="/service/seo" || pathname=="/about-us" ? "border-gec" : "border-g70"
+          }`}
         >
           
             <button onClick={openLangList}>
@@ -97,9 +99,10 @@ function Navbar() {
               <div className={`transition ease-in-out delay-150 container `}>
 
                 <div
-                className={` flex justify-between  items-center pb-5 border-b-[1.5px] border-gec`}
-              >
-
+                  className={` flex justify-between  items-center pb-5 border-b-[1.5px]  ${
+                    pathname == "/" || pathname=="/service/seo" || pathname=="/about-us" ? "border-gec" : "border-g70"
+                  } `}
+                >
                   <button>
                     <CgClose
                       onClick={closeMenu}
@@ -108,46 +111,44 @@ function Navbar() {
                       }  w-6 h-6 lg:w-9 lg:h-9`}
                     />
                   </button>
-
-                {pathname == "/" || pathname=="/service/seo" || pathname=="/about-us"? (
-                  <>
-                    <Image
-                      width={198}
-                      height={50}
-                      className=" hidden lg:inline-block"
-                      src={"/menugandomlogo.svg"}
-                      alt={"menu icon"}
-                    />
-                    <Image
-                      width={104}
-                      height={25}
-                      className="inline-block lg:hidden"
-                      src={"/menugandomlogosm.svg"}
-                      alt={"menu icon"}
-                    />
-                  </>
-                ) : (
-                  <>
-                    <Image
-                      width={198}
-                      height={50}
-                      className=" hidden lg:inline-block"
-                      src={"/menugandomlogolightpage.svg"}
-                      alt={"menu icon"}
-                    />
-                    <Image
-                      width={104}
-                      height={25}
-                      className="inline-block lg:hidden"
-                      src={"/menugandomlogosmlightpage.svg"}
-                      alt={"menu icon"}
-                    />
-                  </>
-                )}
-
-                <div className="relative">
-                  <LanguageButton />
-                </div>
+                  {pathname == "/" || pathname=="/service/seo" || pathname=="/about-us"? (
+                    <>
+                      <Image
+                        width={198}
+                        height={50}
+                        className=" hidden lg:inline-block"
+                        src={"/menugandomlogo.svg"}
+                        alt={"menu icon"}
+                      />
+                      <Image
+                        width={104}
+                        height={25}
+                        className="inline-block lg:hidden"
+                        src={"/menugandomlogosm.svg"}
+                        alt={"menu icon"}
+                      />
+                    </>
+                  ) : (
+                    <>
+                      <Image
+                        width={198}
+                        height={50}
+                        className=" hidden lg:inline-block"
+                        src={"/menugandomlogolightpage.svg"}
+                        alt={"menu icon"}
+                      />
+                      <Image
+                        width={104}
+                        height={25}
+                        className="inline-block lg:hidden"
+                        src={"/menugandomlogosmlightpage.svg"}
+                        alt={"menu icon"}
+                      />
+                    </>
+                  )}
+                  <div className="relative">
+                    <LanguageButton />
+                  </div>
                 </div>
               </div>
               <div className="container transition ease-in-out delay-150 pt-5 flex flex-col gap-5">
@@ -189,7 +190,7 @@ function Navbar() {
                   </Link>
                   <Link
                     onClick={closeMenu}
-                    href="/"
+                    href="/contact"
                     className="menuItem lg:h-[145px] h-[71px] border-[1px] border-gYellow text-center rounded-lg col-span-1 lg:col-span-2"
                   >
                     <h4 className="text-gYellow lg:text-[67px] lg:leading-[84.75px] text-[38px] leading-[40.68px] font-Holispay ">
