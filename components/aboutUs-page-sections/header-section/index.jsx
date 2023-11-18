@@ -4,24 +4,32 @@ import Image from "next/image";
 
 function HeaderSection() {
   return (
-    <section className="w-full bg-g21 relative  flex flex-col items-center justify-start">
-      {/* <div style={{backgroundImage:'radial-gradient(#212121,#D9D9D903)'}} className=" z-0 parentCircle absolute -top-[0%]  rounded-full border-2 border-red-400 h-[95rem] flex items-center justify-center">
-        <div style={{backgroundImage:'radial-gradient(#212121,#D9D9D903)'}} className=" border-2  rounded-full w-full h-full flex items-center justify-center">
-          <div style={{backgroundImage:'radial-gradient(#212121,#D9D9D903)'}} className=" border-2  rounded-full w-full h-full flex items-center justify-center">
-            <div className=" border-2 bg-[#FFD101] blur-[300px] w-full h-full flex items-center justify-center"></div>
+    <section className=" w-full h-screen bg-g21 relative flex flex-col items-center justify-start">
+
+      <div style={{zIndex:'0'}} className="bg-[#D9D9D903] shadow-[0px_0px_100px_50px_#212121]  parentCircle absolute -top-[70%]  rounded-full h-[95rem] flex items-center justify-center">
+        <div className="bg-[#D9D9D903] shadow-[0px_0px_100px_50px_#212121]  rounded-full w-full h-full flex items-center justify-center">
+          <div className="relative bg-[#D9D9D903] shadow-[0px_0px_100px_50px_#212121]  rounded-full w-full h-full flex items-center justify-center">
+              {/* <div className="absolute left-0 top-[30%]">
+                <div className=" bg-gd9 w-[3rem] h-[3rem] rounded-md flex items-center justify-center  "></div>
+              </div> */}
+              <Image className="absolute -left-6 top-[40%]" src={'/icon/orbir1.svg'} alt="icon" width={50} height={50}  />
+              <Image className="absolute -right-0 top-[30%]" src={'/icon/orbir1.2.svg'} alt="icon" width={50} height={50}  />
+            <div className="bg-[#D9D9D903] shadow-[0px_0px_100px_50px_#212121]  rounded-full w-full h-full flex items-center justify-center relative"></div> 
           </div>
         </div>
-      </div> */}
-      {/* <div className="parentCircle absolute left-0 right-0 -top-[25%] bg-[#D9D9D905] rounded-full border-2 w-full h-[95rem] flex items-center justify-center">
-        <div className=" border-2 bg-[#D9D9D903] rounded-full w-[75rem] h-[75rem] flex items-center justify-center">
-          <div className=" border-2 bg-[#D9D9D903] rounded-full w-[56.125rem] h-[56.125rem] flex items-center justify-center">
-            <div className=" border-2 bg-[#FFD101] blur-[100px] w-[27.563rem] h-[27.563rem] flex items-center justify-center"></div>
-          </div>
+      </div>
+      {/* 0px 0px 30px 15px lightblue */}
+      
+      {/* <div style={{zIndex:'0'}} className="bg-[#D9D9D903] shadow-[0px_0px_25px_40px_#212121]  parentCircle absolute -top-[70%]  rounded-full border-2 border-red-400 h-[95rem] flex items-center justify-center">
+        <div className="bg-[#D9D9D903] shadow-[0px_0px_25px_40px_#212121] border-2  rounded-full w-full h-full flex items-center justify-center">
+          <div className="bg-[#D9D9D903] shadow-[0px_0px_25px_40px_#212121] border-2  rounded-full w-full h-full flex items-center justify-center">
+            <div className="bg-[#D9D9D903] shadow-[0px_0px_25px_40px_#212121] border-2  rounded-full w-full h-full flex items-center justify-center"></div> 
+          </div>//bg-[#FFD101] blur-[300px]
         </div>
       </div> */}
 
-      <div className="z-10 container flex flex-col items-center justify-center">
-        <div className="relative before:content-[''] before:absolute before:bg-[#FFD101] before:blur-[250px] before:w-[200px] before:h-[200px] before:lg:w-[300px] before:lg:h-[300px] before:rounded-full before:border-2 before:border-red-400 border-2 w-[6rem] h-[6rem] lg:w-[10rem] lg:h-[10rem] flex items-center justify-center">
+      <div className="z-10 mt-24 container flex flex-col items-center justify-center">
+        <div className="relative before:content-[''] before:absolute before:bg-[#FFD101] before:blur-[150px] before:w-[100px] before:h-[100px] before:lg:w-[150px] before:lg:h-[150px] before:rounded-full before:border-2 before:border-red-400 border-2 w-[6rem] h-[6rem] lg:w-[10rem] lg:h-[10rem] flex items-center justify-center">
           <Image
             width={100}
             height={100}
@@ -43,8 +51,9 @@ function HeaderSection() {
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem
             ipsum dolor sit amet,
           </p>
-        </div>
+        </div> 
       </div>
+
     </section>
   );
 }

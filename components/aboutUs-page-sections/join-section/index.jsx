@@ -33,10 +33,9 @@ function JoinSection() {
   };
   return (
     <section className="w-full bg-g21 py-[5%]">
-      <div className="container  text-gf grid grid-cols-12 lg:grid-cols-12">
-        {/* <div className="w-full text-gf grid grid-cols-12 lg:grid-cols-12"> */}
-
-        <div className="col-span-12 lg:col-span-5 ">
+      <div className="container  text-gf grid grid-cols-12 lg:grid-cols-12 lg:gap-16">
+      
+        <div className="col-span-12 lg:col-span-5 flex flex-col justify-center items-start ">
           <SectionTitle classes="text-gYellow" title="Join our team" />
           <p className="mb-[2vw]  text-gb0 text-xs lg:text-[1.1rem] leading-[1.8rem]  text-justify font-PoppinsRegular ">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -95,142 +94,116 @@ function JoinSection() {
           </Modal>
         </div>
         <div className="col-span-12 lg:col-span-7 ">
-          <div className="relative flex justify-center items-start divide-x-[3px] divide-g96">
+          {/* <div className="relative">
+              <div className="z-20 absolute left-[10rem] -top-7 w-[8vw] p-4 bg-gYellow text-center text-g21  rounded-full">
+                <span className="my-[2vw]  text-g21 text-xs lg:text-[1.1rem] leading-[1.8rem]  text-justify font-PoppinsRegular ">Content</span>
+              </div>
+              <div className="z-20 absolute left-[9rem] -bottom-16 w-[8vw] p-4 bg-gd9 text-center text-g21  rounded-full">
+                <span className="my-[2vw]  text-g21 text-xs lg:text-[1.1rem] leading-[1.8rem]  text-justify font-PoppinsRegular ">Develop</span>
+              </div>
+              <div className="z-20 absolute right-0 -top-2 w-[8vw] p-4 bg-gYellow text-center text-g21  rounded-full">
+                <span className="my-[2vw]  text-g21 text-xs lg:text-[1.1rem] leading-[1.8rem]  text-justify font-PoppinsRegular ">Design</span>
+              </div>
+              <div className="z-20 absolute right-[9.5rem] -bottom-8 w-[8vw] p-4 bg-gd9 text-center text-g21  rounded-full">
+                <span className="my-[2vw]  text-g21 text-xs lg:text-[1.1rem] leading-[1.8rem]  text-justify font-PoppinsRegular ">Marketing</span>
+              </div>
 
-            {/*  texts */}
-            <div className="absolute left-[11.625rem] -top-10 w-[8vw] p-4 bg-gYellow text-center text-g21  rounded-full">
-              <span className="my-[2vw]  text-g21 text-xs lg:text-[1.1rem] leading-[1.8rem]  text-justify font-PoppinsRegular ">Content</span>
-            </div>
-            <div className="absolute left-[10.813rem] -bottom-10 w-[8vw] p-4 bg-gd9 text-center text-g21  rounded-full">
-              <span className="my-[2vw]  text-g21 text-xs lg:text-[1.1rem] leading-[1.8rem]  text-justify font-PoppinsRegular ">Develop</span>
-            </div>
+            <ul className=" relative flex justify-center items-start divide-x-[3px] divide-g96">
+              
 
-            <div className="absolute right-10 -top-3 w-[8vw] p-4 bg-gYellow text-center text-g21  rounded-full">
-              <span className="my-[2vw]  text-g21 text-xs lg:text-[1.1rem] leading-[1.8rem]  text-justify font-PoppinsRegular ">Design</span>
-            </div>
-            <div className="absolute right-[11.5rem] -bottom-10 w-[8vw] p-4 bg-gd9 text-center text-g21  rounded-full">
-              <span className="my-[2vw]  text-g21 text-xs lg:text-[1.1rem] leading-[1.8rem]  text-justify font-PoppinsRegular ">Marketing</span>
-            </div>
-
-              {/*  pictures */}
-            <div className="h-[53vh] lg:h-[73vh] py-[5%] overflow-hidden  flex flex-col justify-end items-center">
-              <span className="my-[2vw]  text-gb0 text-xs lg:text-[1.1rem] leading-[1.8rem]  text-justify font-PoppinsRegular ">
-                Junior UI Designer
-              </span>
-              <div
-                style={{
-                  backgroundRepeat: "no-repeat",
-                  backgroundSize: "cover",
-                  backgroundPosition: "center",
-                  backgroundImage: `url(https://picsum.photos/523/768/?random4)`,
-                }}
-                className="relative grayscale -right-10 lg:-right-16 bottom-10 w-[11rem] h-[11rem] lg:w-[15rem] lg:h-[15rem] border-[1px] border-red-400 rounded-full"
-              >
-                {/* <Image
+              <li className="z-0 h-[15.625rem] lg:h-[35rem] flex-1 overflow-hidden relative flex flex-col justify-end items-center" >
+                <span className="my-[3vw] mx-auto text-center text-gb0 text-xs lg:text-[1.1rem] leading-[1.8rem] font-PoppinsRegular ">
+                  Junior UI <br /> Designer 1
+                </span>
+                <div className=" relative bottom-5 left-9 lg:left-16 w-[10.625rem] h-[10.625rem] lg:w-[20rem] lg:h-[20rem] rounded-full border-[1px] " >
+                  <Image
                     width={30}
                     height={30}
-                    alt={"logo picture"}
-                    src={"/about/images (2).jpg"}
-                    className="w-full h-full grayscale rounded-full object-cover"
-                  /> */}
-                <Image
-                  width={30}
-                  height={30}
-                  alt={"logo picture | img | لوگو | گندم | سایت | طراحی | وبسایت | موبایل | نرم افزار | دیزای| شرکت نرم افزاری گندم | لوگوی گندم"}
-                  src={"/Polygon 2.svg"}
-                  className="absolute -bottom-[15.5px] left-[45%]"
-                />
-              </div>
-            </div>
+                    alt={"logo picture | img | لوگو | گندم | سایت | طراحی | وبسایت | موبایل | نرم افزار | دیزای| شرکت نرم افزاری گندم | لوگوی گندم"}
+                    src={"/g3-2.jpg"}
+                    className=" rounded-full w-full h-full grayscale object-cover"
+                  />
 
-            <div className="h-[53vh] lg:h-[73vh] py-[5%] flex flex-col justify-start items-center">
-              <div
-                style={{
-                  backgroundRepeat: "no-repeat",
-                  backgroundSize: "cover",
-                  backgroundPosition: "center",
-                  backgroundImage: `url(https://picsum.photos/523/768/?random3)`,
-                }}
-                className="relative w-[5.5rem] lg:w-[10.5rem] h-[30vh] lg:h-[40vh] border-[1px] border-red-400 rounded-full"
-              >
-                <div className="absolute top-0 bottom-0 left-0 right-0 bg-gYellow opacity-50 rounded-full"></div>
-                <Image
-                  width={30}
-                  height={30}
-                  alt={"logo picture | img | لوگو | گندم | سایت | طراحی | وبسایت | موبایل | نرم افزار | دیزای| شرکت نرم افزاری گندم | لوگوی گندم"}
-                  src={"/Polygon 2.svg"}
-                  className="absolute -top-[16px] left-[50%] transform rotate-180"
-                />
-              </div>
-              <span className="my-[2vw]  text-gb0 text-xs lg:text-[1.1rem] leading-[1.8rem]  text-justify font-PoppinsRegular ">
-                Junior UI Designer
-              </span>
-            </div>
-
-            <div className="h-[53vh] lg:h-[73vh] py-[5%] flex flex-col justify-end items-center">
-              <span className="my-[2vw]  text-gb0 text-xs lg:text-[1.1rem] leading-[1.8rem]  text-justify font-PoppinsRegular ">
-                Junior UI Designer
-              </span>
-              <div
-                style={{
-                  backgroundRepeat: "no-repeat",
-                  backgroundSize: "cover",
-                  backgroundPosition: "center",
-                  backgroundImage: `url(https://picsum.photos/523/768/?random1)`,
-                }}
-                className="relative  w-[5rem] lg:w-[10rem]  h-[30vh] lg:h-[40vh] border-[1px] border-red-400 rounded-full"
-              >
-                <div className="absolute top-0 bottom-0 left-0 right-0 bg-gYellow opacity-50 rounded-full"></div>
-                {/* <Image
+                  <Image
                     width={30}
                     height={30}
-                    alt={"logo picture"}
-                    src={"/about/images (2).jpg"}
-                    className="w-full h-full grayscale rounded-full object-cover"
-                  /> */}
-                <Image
-                  width={30}
-                  height={30}
-                  alt={"logo picture | img | لوگو | گندم | سایت | طراحی | وبسایت | موبایل | نرم افزار | دیزای| شرکت نرم افزاری گندم | لوگوی گندم"}
-                  src={"/Polygon 2.svg"}
-                  className="lg:block hidden absolute -bottom-[15.5px] left-[45%]"
-                />
-              </div>
-            </div>
-
-            <div className="h-[53vh] lg:h-[73vh] py-[5%] overflow-hidden">
-              <div
-                style={{
-                  backgroundRepeat: "no-repeat",
-                  backgroundSize: "cover",
-                  backgroundPosition: "center",
-                  backgroundImage: `url(https://picsum.photos/523/768/?random2)`,
-                }}
-                className="relative grayscale -left-20 lg:-left-16 top-10 w-[11rem] h-[11rem] lg:w-[15rem] lg:h-[15rem] border-[1px] border-red-400 rounded-full"
-              >
-                {/* <Image
+                    alt={"logo picture | img | لوگو | گندم | سایت | طراحی | وبسایت | موبایل | نرم افزار | دیزای| شرکت نرم افزاری گندم | لوگوی گندم"}
+                    src={"/Polygon 2.svg"}
+                    className="z-50 absolute -bottom-[19px] left-[45%]"
+                  />
+                </div>
+              </li>
+              <li className="z-0 h-[15.625rem] lg:h-[35rem] flex-1 overflow-hidden relative flex flex-col justify-start items-center" >
+                <div className="relative top-12 w-full h-[14.076rem] lg:h-[21.688rem] rounded-full border-[1px] " >
+                  <Image
                     width={30}
                     height={30}
-                    alt={"logo picture"}
-                    src={"/about/images (2).jpg"}
-                    className="w-full h-full grayscale rounded-full object-cover"
-                  /> */}
-                <Image
-                  width={30}
-                  height={30}
-                  alt={"logo picture | img | لوگو | گندم | سایت | طراحی | وبسایت | موبایل | نرم افزار | دیزای| شرکت نرم افزاری گندم | لوگوی گندم"}
-                  src={"/Polygon 2.svg"}
-                  className="absolute -top-[16px] left-[50%] transform rotate-180"
-                />
-              </div>
-              <span className="my-[2vw] text-gb0 text-xs lg:text-[1.1rem] leading-[1.8rem]  text-justify font-PoppinsRegular ">
-                Junior UI Designer
-              </span>
-            </div>
+                    alt={"logo picture | img | لوگو | گندم | سایت | طراحی | وبسایت | موبایل | نرم افزار | دیزای| شرکت نرم افزاری گندم | لوگوی گندم"}
+                    src={"/g2.jpg"}
+                    className="w-full h-full object-cover grayscale rounded-full "
+                  />
+                  <Image
+                    width={30}
+                    height={30}
+                    alt={"logo picture | img | لوگو | گندم | سایت | طراحی | وبسایت | موبایل | نرم افزار | دیزای| شرکت نرم افزاری گندم | لوگوی گندم"}
+                    src={"/Polygon 2.svg"}
+                    className="z-50 absolute -top-[18px] left-[45%]  transform rotate-180"
+                  />
+                  <div className="rounded-full z-0 absolute bottom-0 top-0 right-0 left-0 bg-[#FFD101] opacity-30 "></div>
+                </div>
+                <span className="my-[4vw] mx-auto text-center text-gb0 text-xs lg:text-[1.1rem] leading-[1.8rem] font-PoppinsRegular ">
+                  Junior UI <br /> Designer 3
+                </span>
+              </li>
+              <li className="z-0 h-[15.625rem] lg:h-[35rem] flex-1 overflow-hidden relative flex flex-col justify-end items-center " >
+                <span className="my-[4vw] mx-auto text-center text-gb0 text-xs lg:text-[1.1rem] leading-[1.8rem] font-PoppinsRegular ">
+                  Junior UI <br /> Designer 2
+                </span>
+                <div className=" relative bottom-10 w-full h-[14.076rem] lg:h-[21.688rem] rounded-full border-[1px] " >
+                  <Image
+                    width={30}
+                    height={30}
+                    alt={"logo picture | img | لوگو | گندم | سایت | طراحی | وبسایت | موبایل | نرم افزار | دیزای| شرکت نرم افزاری گندم | لوگوی گندم"}
+                    src={"/g2.jpg"}
+                    className="w-full h-full object-cover grayscale rounded-full"
+                  />
+                  <Image
+                    width={30}
+                    height={30}
+                    alt={"logo picture | img | لوگو | گندم | سایت | طراحی | وبسایت | موبایل | نرم افزار | دیزای| شرکت نرم افزاری گندم | لوگوی گندم"}
+                    src={"/Polygon 2.svg"}
+                    className="z-50 absolute -bottom-[18px] left-[45%] "
+                  />
+                </div>
+              </li>
+              <li className="z-0 h-[15.625rem] lg:h-[35rem] flex-1 overflow-hidden relative flex flex-col justify-start items-center " >
+                <div className=" relative top-20 right-9 lg:right-16 w-[10.625rem] h-[10.625rem] lg:w-[20rem] lg:h-[20rem] rounded-full border-[1px] " >
+                  <Image
+                    width={30}
+                    height={30}
+                    alt={"logo picture | img | لوگو | گندم | سایت | طراحی | وبسایت | موبایل | نرم افزار | دیزای| شرکت نرم افزاری گندم | لوگوی گندم"}
+                    src={"/g3-2.jpg"}
+                    className="w-full h-full object-cover grayscale rounded-full"
+                  />
+                  <Image
+                    width={30}
+                    height={30}
+                    alt={"logo picture | img | لوگو | گندم | سایت | طراحی | وبسایت | موبایل | نرم افزار | دیزای| شرکت نرم افزاری گندم | لوگوی گندم"}
+                    src={"/Polygon 2.svg"}
+                    className="z-50 absolute -top-[19px] left-[50%]"
+                  />
+                  <div className="rounded-full z-0 absolute bottom-0 top-0 right-0 left-0 bg-[#FFD101] opacity-30 "></div>
+                </div>
+                <span className="my-[6.5vw] mx-auto text-center text-gb0 text-xs lg:text-[1.1rem] leading-[1.8rem] font-PoppinsRegular ">
+                  Junior UI <br /> Designer 4
+                </span>
+              </li>
 
-          </div>
+            </ul>
+          </div> */}
+
         </div>
-        {/* </div> */}
+
       </div>
     </section>
   );

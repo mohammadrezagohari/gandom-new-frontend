@@ -7,8 +7,8 @@ import { getPostsData } from '@/core/services/api/videos';
  const RootLayout= async ({ children })=> {
   const data = await getPostsData();
   return (
-    <div className="container pt-[50%] gap-8 relative  grid grid-cols-12 lg:grid-cols-12 ">
-      <aside className="hidden lg:flex lg:sticky lg:top-0 lg:left-0 col-span-12 lg:col-span-4  lg:p-6 ">
+    <div className="container  gap-8 relative  grid grid-cols-12 lg:grid-cols-12 ">
+      <aside className="hidden lg:flex flex-col lg:sticky lg:top-0 lg:left-0 col-span-12 lg:col-span-4  lg:p-6 ">
         <div className=" relative w-full h-[67vh] rounded-xl lg:mb-12 ">
           <Image 
             width={100}
@@ -32,13 +32,15 @@ import { getPostsData } from '@/core/services/api/videos';
           <ul className="w-full " >
           
           {data.slice(0,6).map((item, i) => (
-          <Link
-            href={`/article/${item.id}/${item.title}`}
-            key={i}
-          >
-            <li className="py-2 relative 
-              
-              text-g4c lg:text-[1.2rem] text-base  font-PoppinsRegular  ">{item.title}</li>
+            <Link
+              href={`/article/${item.id}/${item.title}`}
+              key={i}
+              className=""
+            >
+              <li className="flex itmes-center justify-start gap-2 py-2 relative text-g4c lg:text-[1.2rem] text-base font-PoppinsRegular ">
+                <span className="text-gDarkYellow text-[3rem]">&#8226;</span>
+                <span className="">{item.title}</span>
+              </li>
             </Link>
           ))}
           </ul>
@@ -50,7 +52,7 @@ import { getPostsData } from '@/core/services/api/videos';
       </aside>
       <ArticleContent classes="col-span-12 lg:col-span-8  " >
 
-      <>{children}</>
+        <>{children}</>
 
       </ArticleContent>
     </div>

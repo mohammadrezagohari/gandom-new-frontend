@@ -54,9 +54,9 @@ function PropertySection() {
     },
   ]
   return (
-    <section className="w-full bg-g21">
+    <section  className="w-full bg-g21">
       <div className="container flex flex-col justify-start items-start">
-        <div>
+        <div style={{zIndex:'10'}}>
           <SectionTitle
             classes="text-gYellow"
             title="What we care about makes us who we are"
@@ -65,7 +65,7 @@ function PropertySection() {
             {reasons.map((item, i) => (
               <div key={i} className="col-span-1"> 
                 <CardBox
-                  parentClasses="cardBoxHover cursor-pointer hover:bg-g30 hover:border-g30 border-g4c gap-3 lg:gap-5 p-4 lg:p-6 lg:py-9"
+                  parentClasses="cardBoxHover cursor-pointer bg-g21 hover:bg-g30 hover:border-g30 border-g4c gap-3 lg:gap-5 p-4 lg:p-6 lg:py-9"
                   circleClasses="w-[4rem] h-[4rem] lg:w-[6rem] lg:h-[6rem] bg-g30 text-gYellow hover:bg-gYellow text-2xl lg:text-3xl"
                   titleClasses="text-gf lg:text-2xl  text-justify font-Holispay"
                   descClasses="text-gb0 text-xs lg:text-[0.813rem] leading-5 text-justify font-PoppinsLight line-clamp-5"
@@ -78,7 +78,7 @@ function PropertySection() {
           </div>
         </div>
 
-        <div className="w-full grid grid-cols-12 lg:grid-cols-12 ">
+        <div style={{zIndex:'10'}} className="w-full grid grid-cols-12 lg:grid-cols-12 ">
           <div className="col-span-12 lg:col-span-5 text-red-300">
             <div className="w-[98%]">
 

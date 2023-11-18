@@ -35,14 +35,12 @@ function ServiceSlider({service}) {
         <div className="flex items-center justify-start  gap-8 mt-16 ">
 
           <button
-           className="w-[30px] h-[30px] lg:w-[56px] lg:h-[56px] rounded-full flex justify-center items-center border-[1px] border-g21 "
-            ref={navigationNextRef}
+           className="servise_land_next_btn w-[30px] h-[30px] lg:w-[56px] lg:h-[56px] rounded-full flex justify-center items-center border-[1px] border-g21 "
           >
              <GoArrowDownLeft className="lg:text-2xl text-xl" />
           </button>
           <button
-            className="w-[30px] h-[30px] lg:w-[56px] lg:h-[56px] rounded-full flex justify-center items-center  bg-gYellow"
-            ref={navigationPrevRef}
+            className="servise_land_prev_btn w-[30px] h-[30px] lg:w-[56px] lg:h-[56px] rounded-full flex justify-center items-center  bg-gYellow"
           >
             <GoArrowDownLeft className="transform rotate-180 lg:text-2xl text-xl" />
           </button>
@@ -56,8 +54,8 @@ function ServiceSlider({service}) {
           className="mySwiper h-full serviceSlider  "
           modules={[Pagination, Navigation]}
           navigation={{
-            prevEl: navigationPrevRef.current,
-            nextEl: navigationNextRef.current,
+            prevEl: '.servise_land_prev_btn',
+            nextEl: '.servise_land_next_btn',
           }}
         >
           {service.map((item, i) => (
@@ -87,7 +85,7 @@ function ServiceSlider({service}) {
                   {item.desc}
                 </p>
 
-                <FilledYellowButton classes="w-full" link={"/"} title="Read More" />
+                <FilledYellowButton classes="w-full" link={item.link} title="Read More" />
               </div>
             </SwiperSlide>
           ))}
