@@ -6,3 +6,18 @@ logo picture | img | لوگو | گندم | سایت | طراحی | وبسایت 
 https://www.toptal.com/designers/htmlarrows/symbols/
 
  filter: invert(26%) sepia(76%) saturate(1788%) hue-rotate(95deg) brightness(92%) contrast(101%);
+
+
+
+
+
+
+
+--tw-backdrop-blur: blur(8px);
+    -webkit-backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
+    backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
+
+1- <div class="app-overlay fixed w-full h-full top-0 left-0 bg-black/40 z-40 md:backdrop-blur transition-all hide"></div>
+
+2- <div class="app-overlay fixed w-full h-full top-0 left-0 bg-black/40 z-40 md:backdrop-blur transition-all show"></div>
+

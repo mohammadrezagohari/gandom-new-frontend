@@ -32,9 +32,10 @@ function Navbar() {
   }, [isOpen]); 
 
   return (
-    <nav className={`w-full z-50 ${pathname == "/" || pathname=="/service/seo" || pathname=="/about-us" ? "bg-g21" : "bg-gf"} `}>
+    <nav  className={`w-full  ${pathname == "/" || pathname=="/service/seo" || pathname=="/about-us" ? "bg-g21" : "bg-gf"} `}>
       <div className="relative transition ease-in-out delay-150 container pt-[1.5%]">
         <div
+          style={{zIndex:'5'}}
           className={`relative flex justify-between py-5 items-center border-b-[1.5px]  ${
             pathname == "/" || pathname=="/service/seo" || pathname=="/about-us" ? "border-gec" : "border-g70"
           }`}
@@ -167,9 +168,13 @@ function Navbar() {
                   <Link
                     onClick={closeMenu}
                     href="/service"
-                    className="menuItem lg:h-[145px] h-[71px] border-[1px] border-gec text-center rounded-lg col-span-1 lg:col-span-3"
+                    className={`${
+                      pathname == "/" || pathname=="/service/seo" || pathname=="/about-us" ? "menuItem border-gec " : "menuItemWhiteBg border-g8"
+                    }  lg:h-[145px] h-[71px] border-[1px]  text-center rounded-lg col-span-1 lg:col-span-3`}
                   >
-                    <h4 className="text-gec lg:text-[67px] lg:leading-[84.75px] text-[38px] leading-[40.68px] font-Holispay ">
+                    <h4 className={`${
+                      pathname == "/" || pathname=="/service/seo" || pathname=="/about-us" ? "text-gec " : "text-g8"
+                    } lg:text-[67px] lg:leading-[84.75px] text-[38px] leading-[40.68px] font-Holispay`} >
                       Our services
                     </h4>
                     <span className="text-gDarkYellow lg:text-2xl lg:leading-[28.13px] text-[12px] leading-[14.06px] font-Holispay ">
@@ -179,7 +184,9 @@ function Navbar() {
                   <Link
                     onClick={closeMenu}
                     href="/"
-                    className="menuItem lg:h-[145px] h-[71px] border-[1px] border-gYellow text-center rounded-lg col-span-1 lg:col-span-4"
+                    className={`${
+                      pathname == "/" || pathname=="/service/seo" || pathname=="/about-us" ? "menuItem" : "menuItemWhiteBg"
+                    } lg:h-[145px] h-[71px] border-[1px] border-gYellow text-center rounded-lg col-span-1 lg:col-span-4`}
                   >
                     <h4 className="text-gYellow lg:text-[67px] lg:leading-[84.75px] text-[38px] leading-[40.68px] font-Holispay ">
                       Home
@@ -191,7 +198,9 @@ function Navbar() {
                   <Link
                     onClick={closeMenu}
                     href="/contact"
-                    className="menuItem lg:h-[145px] h-[71px] border-[1px] border-gYellow text-center rounded-lg col-span-1 lg:col-span-2"
+                    className={`${
+                      pathname == "/" || pathname=="/service/seo" || pathname=="/about-us" ? "menuItem" : "menuItemWhiteBg"
+                    } lg:h-[145px] h-[71px] border-[1px] border-gYellow text-center rounded-lg col-span-1 lg:col-span-2`}
                   >
                     <h4 className="text-gYellow lg:text-[67px] lg:leading-[84.75px] text-[38px] leading-[40.68px] font-Holispay ">
                       Contact Us
@@ -203,9 +212,13 @@ function Navbar() {
                   <Link
                     onClick={closeMenu}
                     href="/"
-                    className="menuItem lg:h-[145px] h-[71px] border-[1px] border-gec text-center rounded-lg col-span-1 lg:col-span-3"
+                    className={`${
+                      pathname == "/" || pathname=="/service/seo" || pathname=="/about-us" ? "menuItem border-gec " : "menuItemWhiteBg border-g8"
+                    } lg:h-[145px] h-[71px] border-[1px] text-center rounded-lg col-span-1 lg:col-span-3`}
                   >
-                    <h4 className="text-gec lg:text-[67px] lg:leading-[84.75px] text-[38px] leading-[40.68px] font-Holispay ">
+                    <h4 className={`${
+                      pathname == "/" || pathname=="/service/seo" || pathname=="/about-us" ? "text-gec " : "text-g8"
+                    } lg:text-[67px] lg:leading-[84.75px] text-[38px] leading-[40.68px] font-Holispay`}>
                       Customers
                     </h4>
                     <span className="text-gDarkYellow lg:text-2xl lg:leading-[28.13px] text-[12px] leading-[14.06px] font-Holispay ">
@@ -215,9 +228,13 @@ function Navbar() {
                   <Link
                     onClick={closeMenu}
                     href="/weblog"
-                    className="menuItem lg:h-[145px] h-[71px] border-[1px] border-gec text-center rounded-lg col-span-1 lg:col-span-2"
+                    className={`${
+                      pathname == "/" || pathname=="/service/seo" || pathname=="/about-us" ? "menuItem border-gec " : "menuItemWhiteBg border-g8"
+                    } lg:h-[145px] h-[71px] border-[1px] text-center rounded-lg col-span-1 lg:col-span-2`}
                   >
-                    <h4 className="text-gec lg:text-[67px] lg:leading-[84.75px] text-[38px] leading-[40.68px] font-Holispay ">
+                    <h4 className={`${
+                      pathname == "/" || pathname=="/service/seo" || pathname=="/about-us" ? "text-gec " : "text-g8"
+                    } lg:text-[67px] lg:leading-[84.75px] text-[38px] leading-[40.68px] font-Holispay`}>
                       Weblog
                     </h4>
                     <span className="text-gDarkYellow lg:text-2xl lg:leading-[28.13px] text-[12px] leading-[14.06px] font-Holispay ">
@@ -227,9 +244,13 @@ function Navbar() {
                   <Link
                     onClick={closeMenu}
                     href="/portfolio"
-                    className="menuItem lg:h-[145px] h-[71px] border-[1px] border-gec text-center rounded-lg col-span-1 lg:col-span-4"
+                    className={`${
+                      pathname == "/" || pathname=="/service/seo" || pathname=="/about-us" ? "menuItem border-gec " : "menuItemWhiteBg border-g8"
+                    } lg:h-[145px] h-[71px] border-[1px] text-center rounded-lg col-span-1 lg:col-span-4`}
                   >
-                    <h4 className="text-gec lg:text-[67px] lg:leading-[84.75px] text-[38px] leading-[40.68px] font-Holispay ">
+                    <h4 className={`${
+                      pathname == "/" || pathname=="/service/seo" || pathname=="/about-us" ? "text-gec " : "text-g8"
+                    } lg:text-[67px] lg:leading-[84.75px] text-[38px] leading-[40.68px] font-Holispay`} >
                       Portfolio
                     </h4>
                     <span className="text-gDarkYellow lg:text-2xl lg:leading-[28.13px] text-[12px] leading-[14.06px] font-Holispay ">
@@ -239,7 +260,9 @@ function Navbar() {
                   <Link
                     onClick={closeMenu}
                     href="/about-us"
-                    className="menuItem lg:h-[145px] h-[71px] border-[1px] border-gYellow text-center rounded-lg col-span-1 lg:col-span-3"
+                    className={`${
+                      pathname == "/" || pathname=="/service/seo" || pathname=="/about-us" ? "menuItem" : "menuItemWhiteBg"
+                    } lg:h-[145px] h-[71px] border-[1px] border-gYellow text-center rounded-lg col-span-1 lg:col-span-3`}
                   >
                     <h4 className="text-gYellow lg:text-[67px] lg:leading-[84.75px] text-[38px] leading-[40.68px] font-Holispay ">
                       About Us

@@ -9,13 +9,14 @@ function AboutUs() {
   return (
     <main> 
       <div className="flex flex-col justify-start items-center gap-[3rem] ">
-
-        <HeaderSection />
-        <PropertySection />
+        <div className="">
+          <HeaderSection />
+          <PropertySection />
+        </div>
         <TeamSection />
         <div className="">
 
-          <JoinSection />
+          {/* <JoinSection /> */}
           <ContactUsSection />
         </div>
       </div>

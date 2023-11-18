@@ -19,6 +19,7 @@ function ServiceSection() {
       title: "Web",
       desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Egestas purus viverra  ",
       shortDesc: "Web Design Services",
+      link:'/'
     },
     {
       id: 2,
@@ -28,6 +29,7 @@ function ServiceSection() {
       title: "App",
       desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Egestas purus viverra  ",
       shortDesc: "App Design Services",
+      link:'/'
     },
     {
       id: 3,
@@ -37,6 +39,7 @@ function ServiceSection() {
       title: "SEO",
       desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Egestas purus viverra  ",
       shortDesc: "SEO keywords",
+      link:'/service/seo'
     },
     {
       id: 4,
@@ -46,6 +49,7 @@ function ServiceSection() {
       title: "Graphic",
       desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Egestas purus viverra  ",
       shortDesc: "Graphic Design Services",
+      link:'/'
     },
     {
       id: 5,
@@ -55,6 +59,7 @@ function ServiceSection() {
       title: "Ui/Ux",
       desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Egestas purus viverra  ",
       shortDesc: "Ui/Ux Design Services",
+      link:'/'
     },
     {
       id: 6,
@@ -64,6 +69,7 @@ function ServiceSection() {
       title: "Softwar",
       desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Egestas purus viverra  ",
       shortDesc: "Softwar Services",
+      link:'/'
     },
     
   ];
@@ -82,31 +88,31 @@ function ServiceSection() {
           <div className="container lg:hidden">
               <SectionTitle classes="text-g21" title="Our services" />
 
-            <p className="text-g8 lg:text-2xl lg:leading-9 text-justify text-base leading-6 font-PoppinsLight pb-6">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Egestas
-              purus viverra accumsan in nisl nisi. Arcu cursus vitae
-            </p>
+              <p className="text-g8 lg:text-2xl lg:leading-9 text-justify text-base leading-6 font-PoppinsLight pb-6">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Egestas
+                purus viverra accumsan in nisl nisi. Arcu cursus vitae
+              </p>
             
               <div className="  grid grid-cols-2  gap-3 ">
-              {service.map((item, i) => (
+                {service.map((item, i) => (
 
-              <div  key={i} className=" !flex !flex-col !justify-between !items-start !gap-5  border-[1px] border-g6f  rounded-lg p-4 ">
+                  <div  key={i} className=" !flex !flex-col !justify-between !items-start !gap-5  border-[1px] border-g6f  rounded-lg p-4 ">
 
-                <h5 className="text-[26px] leading-[30.47px] lg:text-[48px] lg:leading-[56.25px] inline-block text-ge4 pb-[5%] border-b-[1.5px] border-gYellow">
-                  {item.number}
-                </h5>
-                <div className="w-[62px] text-g21 h-[62px] rounded-full border-[1px] border-ge4 flex justify-center items-center ">
-                  {item.svg}
-                </div>
-                <h4 className="lg:text-[64px] lg:leading-[28.13px] text-[30px] leading-[33.9px] font-Holispay ">
-                  {item.title}
-                </h4>
-                <h3 className="text-gDarkYellow lg:text-2xl lg:leading-[28.13px] text-[12px] leading-[14.06px] font-PoppinsLight ">
-                  {item.shortDesc}
-                </h3>
-              </div>
-              ))}
+                    <h5 className="text-[26px] leading-[30.47px] lg:text-[48px] lg:leading-[56.25px] inline-block text-ge4 pb-[5%] border-b-[1.5px] border-gYellow">
+                      {item.number}
+                    </h5>
+                    <div className="w-[62px] text-g21 h-[62px] rounded-full border-[1px] border-ge4 flex justify-center items-center ">
+                      {item.svg}
+                    </div>
+                    <h4 className="lg:text-[64px] lg:leading-[28.13px] text-[30px] leading-[33.9px] font-Holispay ">
+                      {item.title}
+                    </h4>
+                    <h3 className="text-gDarkYellow lg:text-2xl lg:leading-[28.13px] text-[12px] leading-[14.06px] font-PoppinsLight ">
+                      {item.shortDesc}
+                    </h3>
+                  </div>
+                ))}
 
               </div>
           </div>
