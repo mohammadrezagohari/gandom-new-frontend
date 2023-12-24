@@ -39,7 +39,7 @@ function ReasonsToWorkSection() {
     {
       id: 6,
       svg: (<TbWorldSearch /> ),
-      title: "Softwar",
+      title: "Software",
       desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt .  ",
     },
     

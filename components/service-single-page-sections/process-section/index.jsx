@@ -36,7 +36,7 @@ function ProcessSection() {
     {
       id: 6,
       number: "06",
-      title: "Softwar",
+      title: "Software",
       desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt .  ",
     },
     

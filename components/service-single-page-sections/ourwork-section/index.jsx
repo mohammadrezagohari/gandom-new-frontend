@@ -53,7 +53,7 @@ function OurworkSection() {
       bgImg:'/pic3.png',
       number: "06",
       svg: (<TbWorldSearch /> ),
-      title: "Softwar",
+      title: "Software",
       desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Egestas purus viverra  ",
     },
     

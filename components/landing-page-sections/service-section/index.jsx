@@ -66,9 +66,9 @@ function ServiceSection() {
       number: "06",
       svg: (<TbWorldSearch /> ),
       alt: "company picture",
-      title: "Softwar",
+      title: "Software",
       desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Egestas purus viverra  ",
-      shortDesc: "Softwar Services",
+      shortDesc: "Software Services",
       link:'/'
     },
     
