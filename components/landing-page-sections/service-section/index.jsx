@@ -75,7 +75,7 @@ function ServiceSection() {
   ];
  
   return (
-    <section className="w-full  bg-gf5  ">
+    <section className="w-full  bg-gf5 relative ">
       <div className="serviceCont py-7 lg:py-0">
 
           <div className="hidden lg:grid lg:grid-cols-12 h-[650px] divide-x divide-g6f mid:gap-9 lg:gap-5">
