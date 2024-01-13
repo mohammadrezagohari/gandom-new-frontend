@@ -1,4 +1,3 @@
-
 import SectionTitle from "@/components/common/section-title";
 import OutlinedButton from "@/components/common/buttons/outlined";
 import ParallaxPart from "@/components/landing-parallax-section";
@@ -12,22 +11,30 @@ import ParallaxPart from "@/components/landing-parallax-section";
 // gsap.registerPlugin(ScrollTrigger);
 
 function OurworkSection() {
-
-
   return (
     <section className="w-full mt-24">
       <div className="container">
         <SectionTitle classes="text-g21" title="Our Work" />
         <p className="text-g4c lg:text-xl lg:leading-9 text-base leading-6 font-PoppinsMedium pb-6">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Egestas
-          purus viverra accumsan in nisl nisi. Arcu cursus vitae
+          Our dedicated support doesn't end when the project is complete. We are
+          always there to support our projects from their basic conception to
+          their final state. Our commitment to our clients extends beyond the
+          development phase, as we provide ongoing maintenance and updates to
+          ensure that our software solutions continue to perform at their best
+          and remain compatible with evolving technologies and standards. We
+          believe in building long-lasting partnerships based on trust and
+          reliability, and we are always ready to assist our clients in
+          maximizing the value of our products as their businesses grow and
+          evolve.
         </p>
-        <ParallaxPart  />
+        <ParallaxPart />
 
         <div className="py-4 flex justify-center items-center">
-
-         <OutlinedButton classes="border-g8 text-g8"  title='See More' link='/' />
+          <OutlinedButton
+            classes="border-g8 text-g8"
+            title="See More"
+            link="/"
+          />
         </div>
       </div>
     </section>
