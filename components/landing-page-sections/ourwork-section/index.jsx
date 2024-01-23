@@ -16,9 +16,9 @@ function OurworkSection() {
       <div className="container">
         <SectionTitle classes="text-g21" title="Our Work" />
         <p className="text-g4c lg:text-xl lg:leading-9 text-base leading-6 font-PoppinsMedium pb-6">
-          Our dedicated support doesn't end when the project is complete. We are
-          always there to support our projects from their basic conception to
-          their final state. Our commitment to our clients extends beyond the
+          Our dedicated support doesn`t end when the project is complete. We
+          are always there to support our projects from their basic conception
+          to their final state. Our commitment to our clients extends beyond the
           development phase, as we provide ongoing maintenance and updates to
           ensure that our software solutions continue to perform at their best
           and remain compatible with evolving technologies and standards. We

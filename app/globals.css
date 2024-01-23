@@ -368,12 +368,12 @@ section .bg {
   background-size: cover;
   background-position: center;
 }
-section .bg h2 {
-  z-index: 2;
-}
-section .bg .clip-text {
-  overflow: hidden;
-}
+/*section .bg h2 {*/
+/*  z-index: 2;*/
+/*}*/
+/*section .bg .clip-text {*/
+/*  overflow: hidden;*/
+/*}*/
 
 /* --------------------------- */
 

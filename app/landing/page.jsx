@@ -7,6 +7,7 @@ import ServiceSection from '@/components/landing-page-sections/service-section'
 import React from 'react'
 
 function Landing() {
+    
   return (
     <main className="">
       <HeadSection />

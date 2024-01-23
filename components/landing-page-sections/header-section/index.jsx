@@ -44,9 +44,16 @@ function HeadSection() {
               is the reason for your trust
             </h2>
             <p className="text-gf lg:text-xl text-justify lg:leading-9 text-base leading-6 font-PoppinsLight pb-6">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              Egestas purus viverra accumsan in nisl nisi. Arcu cursus vitae
+              Our service software company is dedicated to creating cutting-edge
+              software solutions for mobile, website, and desktop platforms,
+              with a strong focus on bespoke UI/UX designs. Our team of
+              talented developers and designers work collaboratively to craft
+              custom-tailored software products that not only meet the
+              functional needs of our clients but also provide a seamless and
+              visually engaging user experience. With a strong commitment to
+              innovation and excellence, we strive to empower businesses and
+              individuals with high-quality, user-friendly software solutions
+              that stand out in today`s competitive digital landscape.
             </p>
             <div className="flex items-center lg:justify-start justify-between gap-3">
               <FilledButton link="/" title="About Us" />
