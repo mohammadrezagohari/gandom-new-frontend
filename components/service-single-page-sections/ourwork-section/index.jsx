@@ -10,7 +10,7 @@ function OurworkSection() {
   const service = [
     {
       id: 1,
-      bgImg:'/pic1.png',
+      bgImg:'/pic1.png', 
       number: "01",
       svg: (<CiLaptop />),
       title: "Web",

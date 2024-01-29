@@ -22,20 +22,20 @@ const Landing = () => {
     if (typeof window !== "undefined") {
         // const {innerHeight} = window;
         window.onscroll=scrollPercentage
+        window.onload=scrollPercentage
     }
-    useEffect(() => {
-        scrollPercentage()
-    }, []);
-    return (
+    // useEffect(() => {
+    //     scrollPercentage()
+    // }, []);
+    return ( 
         <main className="">
-
-        <ScrollIndicator scrollProgress={scrollProgress}  />
-        <HeadSection />
-        <ServiceSection />
-        <OurworkSection />
-        <ContactSection />
-        <AboutSection />
-        <CompanySection />
+            <ScrollIndicator scrollProgress={scrollProgress}  />
+            <HeadSection />
+            <ServiceSection />
+            <OurworkSection />
+            <ContactSection />
+            <AboutSection />
+            <CompanySection />
         </main>
     );
 }

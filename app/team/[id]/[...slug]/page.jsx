@@ -22,28 +22,28 @@ async function TeamSinglePage({ params }) {
     {id:9,title:"Flutter"},
   ]
   return (
-    <main className="container h-auto  overflow-hidden grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-5 lg:gap-8">
+    <main className="container h-auto  overflow-hidden grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-5 lg:gap-8 ">
       {/* {data.id} */}
-      <div className="relative order-2 lg:order-1 border-2 camma">
+      <div className="relative order-2 lg:order-1  camma ">
         {/* <div className="z-0 absolute top-0 left-0 h-[12rem] lg:h-[21vw]">
           <Image className="w-full h-full " width={'100'} height={'100'} alt={''} src={`/img/commatwo.png`} />
         </div> */}
 
         <h1 className="z-10 font-Holispay flex flex-col" >
-          <span className="text-gb0 text-[2.25rem] lg:text-[5.625rem] " >Kasra</span>
-          <span className="text-g21 text-[3.125rem] lg:text-[8.75rem] " >Yaseri </span>
+          <span className="text-gb0 text-[2.25rem] lg:text-[4rem] " >Kasra</span>
+          <span className="text-g21 text-[3.125rem] lg:text-[6rem] " >Yaseri </span>
         </h1>
 
-        <h2 className="text-gDarkYellow text-[1.25rem] lg:text-[2rem] font-PoppinsLight ">Futter Developer</h2>
-        <div className="z-10 font-PoppinsLight flex gap-2" >
+        <h2 className="text-gDarkYellow text-[1.25rem] lg:text-[2rem] font-PoppinsLight">Futter Developer</h2>
+        <div className="z-10  my-3 lg:my-6 font-PoppinsLight flex gap-2" >
           <span className="text-gb0 text-[0.75rem] lg:text-[1.5rem] " >joined us :</span>
           <span className="text-g70 text-[0.75rem] lg:text-[1.5rem] " >December , 2022 </span>
         </div>
         <p className="text-g70 text-justify text-[0.75rem] lg:text-[1.5rem] font-PoppinsLight" >
           Lorem ipsum dolor sit amet, consectetur adipiscing  sed do eiusmod tempor.Lorem ipsum dolor sit amet, consectetur adipiscing  sed do eiusmod tempor.Lorem ipsum dolor sit amet, consectetur adipiscing  sed
         </p>
-        <h3 className="text-gDarkYellow text-[1.25rem] lg:text-[2rem] font-PoppinsLight ">Skills :</h3>
-        <ul className="flex flex-wrap gap-4" >
+        <h3 className="text-gDarkYellow text-[1.25rem] lg:text-[2rem] font-PoppinsLight  mb-2 mt-6 lg:mb-3 ">Skills :</h3>
+        <ul className="flex flex-wrap gap-4 " >
           {
             skills.map((sk,i)=>(
               <li key={i} className='border border-gd9 rounded-[0.9375rem] text-g70 text-[0.75rem] lg:text-[1.25rem] py-1 px-2 lg:py-2 lg:px-3' >{sk.title}</li>
