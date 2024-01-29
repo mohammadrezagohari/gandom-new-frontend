@@ -54,7 +54,7 @@ function CoommentBox() {
 
       <div>
         <Accordion
-          className="!shadow-none !bg-red-200 !px-0"
+          className="!shadow-none  !px-0"
           expanded={expanded === "panel1"}
           onChange={handleChange("panel1")}
         >

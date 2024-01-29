@@ -26,7 +26,7 @@ function ServiceSlider({service}) {
           
        <SectionTitle title="Our services" />
 
-        <p className="text-g8 lg:text-xl lg:leading-9 text-justify text-base leading-6 font-PoppinsLight pb-6">
+        <p className="text-g8 lg:text-[1.3vw] lg:leading-9 text-justify text-base leading-6 font-PoppinsLight pb-6">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Egestas
           purus viverra accumsan in nisl nisi. Arcu cursus vitae
@@ -66,7 +66,7 @@ function ServiceSlider({service}) {
               {/* {i} */}
              <div className=" !flex !flex-col !justify-between !items-start !gap-10 ">
 
-              <h5 className="text-[26px] leading-[30.47px] lg:text-[40px] lg:leading-[56.25px] inline-block text-ge4 pb-[5%] border-b-[1.5px] border-gYellow">
+              <h5 className="text-[26px] leading-[30.47px] lg:text-[2.6vw] lg:leading-[3.6vw] inline-block text-ge4 pb-[5%] border-b-[1.5px] border-gYellow">
                 {item.number}
               </h5>
               <div className="text-[45px] w-[85px] h-[85px] text-g21 rounded-full border-[1px] border-ge4 flex justify-center items-center ">
@@ -81,7 +81,7 @@ function ServiceSlider({service}) {
               </div>
 
               <div className=" h-[45%] flex flex-col justify-between items-center">
-                <p className=" mt-3 text-g8 text-justify lg:text-[15px] lg:leading-[27px] text-[12px] leading-[14.06px] font-PoppinsLight ">
+                <p className=" mt-3 text-g8 text-justify lg:text-[0.9765625vw] lg:leading-[1.7578125vw] text-[12px] leading-[14.06px] font-PoppinsLight ">
                   {item.desc}
                 </p>
 

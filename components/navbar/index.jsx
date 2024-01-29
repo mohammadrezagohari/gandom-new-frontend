@@ -26,10 +26,9 @@ function Navbar() {
   useEffect(() => {
     const html = document.querySelector("html");
     if (html) {
-      // html.style.transition = "all 0.2s ease-in-out";
-      html.style.overflow = isOpen ? "hidden" : "auto";
+      html.style.overflow = fade ? "hidden" : "auto";
     }
-  }, [isOpen]); 
+  }, [fade]); 
 
   return (
     <nav  className={`w-full  ${pathname == "/" || pathname=="/service/seo" || pathname=="/about-us" ? "bg-g21" : "bg-gf"} `}>
@@ -91,10 +90,10 @@ function Navbar() {
           </div>
         </div>
 
-        {/* ${fade ? "opacity-100 visible" : "opacity-0 invisible"} */}
+     
             <div
-              className={`transition-all duration-200 ${fade ? "opacity-100 visible" : "opacity-0 invisible"}  overflow-y-scroll lg:overflow-hidden transition ease-in-out delay-150  fixed z-40 top-[0] bottom-0 left-0 right-0  ${
-                pathname == "/" || pathname=="/service/seo" || pathname=="/about-us" ? "bg-g21" : "bg-gf"
+              className={`transition-all  ${fade ? "opacity-100 visible" : "opacity-0 invisible"}  overflow-y-scroll lg:overflow-hidden transition ease-in-out fixed z-40 top-[0] bottom-0 left-0 right-0  ${
+                pathname == "/" || pathname=="/service/seo" || pathname=="/abocontainerpxut-us" ? "bg-g21" : "bg-gf"
               }  py-6 lg:py-10`}
             >
               <div className={`transition ease-in-out delay-150 container `}>
@@ -170,7 +169,7 @@ function Navbar() {
                     href="/service"
                     className={`${
                       pathname == "/" || pathname=="/service/seo" || pathname=="/about-us" ? "menuItem border-gec " : "menuItemWhiteBg border-g8"
-                    }  lg:h-[145px] h-[71px] border-[1px]  text-center rounded-lg col-span-1 lg:col-span-3`}
+                    }  lg:h-[9.440104166666666vw] h-[71px] border-[1px]  text-center rounded-lg col-span-1 lg:col-span-3`}
                   >
                     <h4 className={`${
                       pathname == "/" || pathname=="/service/seo" || pathname=="/about-us" ? "text-gec " : "text-g8"
@@ -186,7 +185,7 @@ function Navbar() {
                     href="/"
                     className={`${
                       pathname == "/" || pathname=="/service/seo" || pathname=="/about-us" ? "menuItem" : "menuItemWhiteBg"
-                    } lg:h-[145px] h-[71px] border-[1px] border-gYellow text-center rounded-lg col-span-1 lg:col-span-4`}
+                    } lg:h-[9.440104166666666vw] h-[71px] border-[1px] border-gYellow text-center rounded-lg col-span-1 lg:col-span-4`}
                   >
                     <h4 className="text-gYellow lg:text-[67px] lg:leading-[84.75px] text-[38px] leading-[40.68px] font-Holispay ">
                       Home
@@ -200,7 +199,7 @@ function Navbar() {
                     href="/contact"
                     className={`${
                       pathname == "/" || pathname=="/service/seo" || pathname=="/about-us" ? "menuItem" : "menuItemWhiteBg"
-                    } lg:h-[145px] h-[71px] border-[1px] border-gYellow text-center rounded-lg col-span-1 lg:col-span-2`}
+                    } lg:h-[9.440104166666666vw] h-[71px] border-[1px] border-gYellow text-center rounded-lg col-span-1 lg:col-span-2`}
                   >
                     <h4 className="text-gYellow lg:text-[67px] lg:leading-[84.75px] text-[38px] leading-[40.68px] font-Holispay ">
                       Contact Us
@@ -214,7 +213,7 @@ function Navbar() {
                     href="/"
                     className={`${
                       pathname == "/" || pathname=="/service/seo" || pathname=="/about-us" ? "menuItem border-gec " : "menuItemWhiteBg border-g8"
-                    } lg:h-[145px] h-[71px] border-[1px] text-center rounded-lg col-span-1 lg:col-span-3`}
+                    } lg:h-[9.440104166666666vw] h-[71px] border-[1px] text-center rounded-lg col-span-1 lg:col-span-3`}
                   >
                     <h4 className={`${
                       pathname == "/" || pathname=="/service/seo" || pathname=="/about-us" ? "text-gec " : "text-g8"
@@ -230,7 +229,7 @@ function Navbar() {
                     href="/weblog"
                     className={`${
                       pathname == "/" || pathname=="/service/seo" || pathname=="/about-us" ? "menuItem border-gec " : "menuItemWhiteBg border-g8"
-                    } lg:h-[145px] h-[71px] border-[1px] text-center rounded-lg col-span-1 lg:col-span-2`}
+                    } lg:h-[9.440104166666666vw] h-[71px] border-[1px] text-center rounded-lg col-span-1 lg:col-span-2`}
                   >
                     <h4 className={`${
                       pathname == "/" || pathname=="/service/seo" || pathname=="/about-us" ? "text-gec " : "text-g8"
@@ -246,7 +245,7 @@ function Navbar() {
                     href="/portfolio"
                     className={`${
                       pathname == "/" || pathname=="/service/seo" || pathname=="/about-us" ? "menuItem border-gec " : "menuItemWhiteBg border-g8"
-                    } lg:h-[145px] h-[71px] border-[1px] text-center rounded-lg col-span-1 lg:col-span-4`}
+                    } lg:h-[9.440104166666666vw] h-[71px] border-[1px] text-center rounded-lg col-span-1 lg:col-span-4`}
                   >
                     <h4 className={`${
                       pathname == "/" || pathname=="/service/seo" || pathname=="/about-us" ? "text-gec " : "text-g8"
@@ -262,7 +261,7 @@ function Navbar() {
                     href="/about-us"
                     className={`${
                       pathname == "/" || pathname=="/service/seo" || pathname=="/about-us" ? "menuItem" : "menuItemWhiteBg"
-                    } lg:h-[145px] h-[71px] border-[1px] border-gYellow text-center rounded-lg col-span-1 lg:col-span-3`}
+                    } lg:h-[9.440104166666666vw] h-[71px] border-[1px] border-gYellow text-center rounded-lg col-span-1 lg:col-span-3`}
                   >
                     <h4 className="text-gYellow lg:text-[67px] lg:leading-[84.75px] text-[38px] leading-[40.68px] font-Holispay ">
                       About Us

@@ -46,7 +46,7 @@ function ReasonsToWorkSlider({reasons}) {
           </div>
         </div>
       </div>
-      <div className=" w-full !h-[330px] font-PoppinsSemiBold col-span-12 lg:col-span-8">
+      <div className=" w-full !h-[19.4375vw] font-PoppinsSemiBold col-span-12 lg:col-span-8">
         <Swiper
           effect= "slider"
           slidesPerView={1}

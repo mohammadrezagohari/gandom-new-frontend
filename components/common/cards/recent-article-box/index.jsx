@@ -8,7 +8,7 @@ function RecentArticleBox({href,cardTitle,cardDesc,date,author}) {
     <div className='recentArticleBox grid grid-cols-12 lg:grid-cols-12 gap-5 lg:gap-0'>
        <div className='pictureBox col-span-12 lg:col-span-6'>
        {/* wimg.png */}
-         <PictureBox href={href} circleLgYellow="" circleSmYellow="" circleClasses="bg-gf"  classes={`bg-[url(/wimg.png)] rounded-l-lg rounded-r-lg lg:rounded-l-0 lg:rounded-r-lg w-[87%] lg:w-[88%] lg:h-[20.67rem] h-[13.188rem]`} />
+         <PictureBox href={href} circleLgYellow="" circleSmYellow="" circleClasses="bg-gf"  classes={`bg-[url(/wimg.png)] rounded-l-lg rounded-r-lg lg:rounded-l-0 lg:rounded-r-lg w-[87%] lg:w-[88%] lg:h-[21.549479166666668vw] h-[13.188rem]`} />
        </div>
        <div className='textBox col-span-12 lg:col-span-6 flex flex-col items-start justify-center gap-2 lg:gap-4'>
           <div className="divide-x divide-gb8"> 

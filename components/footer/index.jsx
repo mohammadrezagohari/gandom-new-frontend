@@ -22,20 +22,20 @@ function Footer() {
           </ul>
 
           <div className="flex justify-center items-center lg:gap-4 gap-8  lg:pt-0 pt-12">
-            <div className="text-gYellow lg:w-[60px] lg:h-[60px] w-12 h-12 border-[1px] border-gYellow rounded-full flex items-center justify-center">
+            <Link href={`#`} className="text-gYellow lg:w-[60px] lg:h-[60px] w-12 h-12 border-[1px] border-gYellow rounded-full inline-flex items-center justify-center">
               
               <Image width={32} height={32} alt="" src={"/landing/instagram.svg"}/>
-            </div>
-            <div className="text-gYellow lg:w-[60px] lg:h-[60px] w-12 h-12 border-[1px] border-gYellow rounded-full flex items-center justify-center">
+            </Link>
+            <Link href={`#`} className="text-gYellow lg:w-[60px] lg:h-[60px] w-12 h-12 border-[1px] border-gYellow rounded-full inline-flex items-center justify-center">
              
               <Image width={24} height={24} alt="" src={"/landing/linkdin.svg"}/>
 
-            </div>
-            <div className="text-gYellow lg:w-[60px] lg:h-[60px] w-12 h-12 border-[1px] border-gYellow rounded-full flex items-center justify-center">
+            </Link>
+            <Link href={`#`} className="text-gYellow lg:w-[60px] lg:h-[60px] w-12 h-12 border-[1px] border-gYellow rounded-full inline-flex items-center justify-center">
              
               <Image width={24} height={24} alt="" src={"/landing/dirrible.svg"}/>
 
-            </div>
+            </Link>
           </div>
 
         </div>

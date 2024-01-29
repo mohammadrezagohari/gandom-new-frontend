@@ -1,8 +1,7 @@
+
 import Image from 'next/image'
-import React from 'react'
 import Link from "next/link";
 import { HiArrowRight } from 'react-icons/hi';
-
 
 
 function VideoCardBox({
@@ -20,8 +19,8 @@ date
 }) {
   return (
     <div className={`border-[1px] gap-2 rounded-lg flex flex-col items-start justify-between p-2 lg:p-5 ${parentClasses}`}>
-        <div className={``} >
-          <Image className="w-full h-full" width={'100'} height={'100'} alt={''} src={img} />
+        <div className={``} >               
+          <Image className="w-full h-full rounded-lg" width={'100'} height={'100'} alt={''} src={img} />
         </div>
         <Link href={href} >
           <h5 className={`text-xs lg:text-[1.3rem] lg:leading-8 font-PoppinsMedium line-clamp-2 ${titleClasses} `} >{title}</h5>

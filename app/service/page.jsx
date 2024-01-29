@@ -23,7 +23,7 @@ function Services() {
 
         <SectionOne />
         <SectionTwo />
-        <div className="">
+        <div className="w-full">
            <SectionThree />
            <SectionFoure />
         </div>

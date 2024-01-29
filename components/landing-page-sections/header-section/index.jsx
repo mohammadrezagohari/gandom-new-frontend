@@ -4,10 +4,12 @@ import FilledYellowButton from "@/components/common/buttons/fillYellow";
 import Image from "next/image";
 function HeadSection() {
   return (
-    <section className="w-full bg-g21">
+    <section className="w-full bg-g21 h-auto lg:h-screen" id='landing_header'>
       {/* headerlandingGandomLogo */}
       <div className="serviceCont py-[4vw] grid grid-cols-1 lg:grid-cols-2 text-gf ">
+
         <div className=" relative h-full order-2 lg:order-1">
+
           <div className="absolute bottom-3 left-0 w-[12.5vw] lg:block hidden ">
             <Image
               width={100}
@@ -26,24 +28,15 @@ function HeadSection() {
               className="w-full"
             />
           </div>
-          {/* <div className="absolute -top-[30%] left-0 w-[30vw] lg:block hidden z-0">
-              <Image
-                width={100}
-                height={100}
-                alt={"head picture"}
-                src={"/landing/headerlandingGandomLogo.svg"}
-                className="w-full"
-              />
-            </div> */}
-          {/* <div claassName="" ></div> */}
-          <div className="container h-full flex flex-col items-start justify-center">
-            <h1 className="text-gYellow lg:text-[4.6em]  text-[3em]  font-Holispay ">
+          
+          <div className="container h-full flex flex-col items-start justify-start">
+            <h1 className="text-gYellow lg:text-[4.4em]  text-[3em]  font-Holispay ">
               Our specialty
             </h1>
-            <h2 className="text-gf lg:text-[3.5em]  text-[2em]  font-Holispay ">
+            <h2 className="text-gf lg:text-[3.3em]  text-[2em]  font-Holispay ">
               is the reason for your trust
             </h2>
-            <p className="text-gf lg:text-xl text-justify lg:leading-9 text-base leading-6 font-PoppinsLight pb-6">
+            <p className="text-gf lg:text-[1.2vw] text-justify lg:leading-9 text-base leading-6 font-PoppinsLight pb-6">
               Our service software company is dedicated to creating cutting-edge
               software solutions for mobile, website, and desktop platforms,
               with a strong focus on bespoke UI/UX designs. Our team of
@@ -54,6 +47,7 @@ function HeadSection() {
               innovation and excellence, we strive to empower businesses and
               individuals with high-quality, user-friendly software solutions
               that stand out in today`s competitive digital landscape.
+              {/* Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Egestas purus viverra accumsan in nisl nisi. Arcu cursus vitae  */}
             </p>
             <div className="flex items-center lg:justify-start justify-between gap-3">
               <FilledButton link="/" title="About Us" />
@@ -65,8 +59,9 @@ function HeadSection() {
             </div>
           </div>
         </div>
+
         <div className="order-1 lg:order-2 flex lg:justify-end justify-center">
-          <div className="w-[40.5vw] hidden h-[400px] lg:block overflow-hidden">
+          <div className="w-[45vw] hidden h-[80%] lg:block overflow-hidden">
             <Image
               width={100}
               height={100}
@@ -85,6 +80,7 @@ function HeadSection() {
             />
           </div>
         </div>
+
       </div>
     </section>
   );

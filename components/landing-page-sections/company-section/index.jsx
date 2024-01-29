@@ -9,53 +9,53 @@ function CompanySection() {
   const company = [
     {
       id: 1,
-      src: "/landing/company2.svg",
+      src: "/img/compony_1.png",
       alt: "company picture",
       width: "92",
-      height: "120",
+      // height: "120",
     },
     {
       id: 2,
-      src: "/landing/company1.svg",
+      src: "/img/compony_2.png",
       alt: "company picture",
-      width: "110",
-      height: "122",
+      width: "146",
+      // height: "122",
     },
     {
       id: 3,
-      src: "/landing/company2.svg",
+      src: "/img/compony_3.png",
       alt: "company picture",
       width: "92",
-      height: "120",
+      // height: "120",
     },
     {
       id: 4,
-      src: "/landing/company1.svg",
+      src: "/img/compony_4.png",
       alt: "company picture",
       width: "110",
-      height: "122",
+      // height: "122",
     },
     {
       id: 5,
-      src: "/landing/company2.svg",
+      src: "/img/compony_5.png",
       alt: "company picture",
-      width: "92",
-      height: "120",
+      width: "215",
+      // height: "120",
     },
     {
       id: 6,
-      src: "/landing/company1.svg",
+      src: "/img/compony_6.png",
       alt: "company picture",
       width: "110",
-      height: "122",
+      // height: "122",
     },
-    {
-      id: 7,
-      src: "/landing/company2.svg",
-      alt: "company picture",
-      width: "92",
-      height: "120",
-    },
+    // {
+    //   id: 7,
+    //   src: "/img/compony_7.png",
+    //   alt: "company picture",
+    //   width: "92",
+    //   height: "120",
+    // },
     ,
   ];
   return (
@@ -73,7 +73,7 @@ function CompanySection() {
             <Image
               key={i}
               width={item.width}
-              height={item.height}
+              height={100}
               alt={item.alt}
               src={item.src}
             />

@@ -66,7 +66,7 @@ function OurWorkSlider({service}) {
               key={i}
             >
              
-              <div style={{backgroundImage:`url(${item.bgImg})`}} className={`w-full h-[23.5rem] relative bg-no-repeat bg-center bg-cover rounded-xl border-[1px] flex items-end justify-end`}>
+              <div style={{backgroundImage:`url(${item.bgImg})`}} className={`w-full h-[24.479166666666668vw] relative bg-no-repeat bg-center bg-cover rounded-xl border-[1px] flex items-end justify-end`}>
                 {/* <Image
                   width={100}
                   height={100}

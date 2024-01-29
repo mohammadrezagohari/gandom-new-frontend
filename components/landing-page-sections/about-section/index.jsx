@@ -8,7 +8,7 @@ function AboutSection() {
       <div className="container gap-5 lg:gap-0 py-[3vw] grid grid-cols-12 lg:grid-cols-12 ">
         {/* <div claassName="w-full grid grid-cols-12 lg:grid-cols-12" > */}
           <div className=" col-span-12 lg:col-span-7 order-2 lg:order-1" >
-              <div className="aboutSectionLeftColBg h-full w-full lg:w-[45vw] flex flex-col items-start justify-center bg-aboutSectionGandomLogo bg-no-repeat bg-left" >
+              <div className="aboutSectionLeftColBg h-full w-full lg:w-[90%] flex flex-col items-start justify-center bg-aboutSectionGandomLogo bg-no-repeat bg-left" >
                   <SectionTitle classes="text-g21" title="About Us" />
                   <p className="text-justify text-g4c lg:text-[26px] lg:leading-[48px] text-[16px] leading-[24px] font-PoppinsLight ">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -23,14 +23,14 @@ function AboutSection() {
               </div>
           </div> 
           <div className=" col-span-12 lg:col-span-5 order-1 lg:order-2 flex items-end" >
-            <div className="w-full h-[35vh] lg:h-[55vh] bg-gYellow rounded-3xl relative">
-              <div className=" flex items-end justify-center absolute right-[5%] bottom-[10%] left-[5%] w-[90%] h-[340px] lg:h-[700px]  mx-auto">
+            <div className="w-full h-[35vh] lg:h-[27.1vw] bg-gYellow rounded-3xl relative">
+              <div className=" flex items-end justify-center absolute right-[5%] bottom-[10%] left-[5%] w-[90%] h-[340px] lg:h-[45.5vw]  mx-auto">
                 <Image
                   width={100}
                   height={100}
                   alt={'phone picture'}
                   src={'/landing/phoneLanding.svg'}
-                  className="w-[90%]"
+                  className="w-[90%] lg:w-[40.8203125vw]"
                 /> 
               </div>
             </div>
