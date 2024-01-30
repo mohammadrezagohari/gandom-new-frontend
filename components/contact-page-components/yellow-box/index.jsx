@@ -10,8 +10,8 @@ function YellowBox() {
     {id:2,icon:(<HiOutlineMail/>),title:'sample@gmail.com',link:'/'},
     {id:3,icon:(<HiOutlineLocationMarker/>),title:'Mazandaran,Sari',link:'/'}
   ]
-  return (
-    <div className='w-full bg-gYellow py-0 lg:py-7 lg:h-[31rem] rounded-2xl lg:rounded-3xl flex flex-col justify-between items-start ' >
+  return ( 
+    <div className='w-full bg-gYellow py-0 lg:py-7 lg:h-[25vw] rounded-2xl lg:rounded-3xl flex flex-col justify-between items-start ' >
       
        <ul className=' py-[1.3rem] px-[2rem] lg:py-auto lg:px-auto flex flex-col justify-start items-start gap-6 lg:gap-9'>
         {

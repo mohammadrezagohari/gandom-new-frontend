@@ -9,7 +9,7 @@ function ContactUsSection() {
   };
   return (
     <section className="w-full bg-g21 py-[5%]">
-      <div className="container">
+      <div className=" container max-w-none">
         <SectionTitle
           classes="text-gYellow"
           title="Let's talk about what we can build together"

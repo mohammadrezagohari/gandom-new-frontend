@@ -13,7 +13,7 @@ function SpecializeSection() {
   ]
   return (
     <section className="w-full">
-    <div className="container py-[2.5rem] lg:py-[3.125rem]">
+    <div className="container max-w-none py-[2.5rem] lg:py-[3.125rem]">
         <SectionTitle  classes="text-g21" title="We Specialize In"  />
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 my-2">
           {

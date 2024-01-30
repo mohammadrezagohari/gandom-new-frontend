@@ -33,7 +33,7 @@ function JoinSection() {
   };
   return (
     <section className="w-full bg-g21 py-[5%]">
-      <div className="container  text-gf grid grid-cols-12 lg:grid-cols-12 lg:gap-16">
+      <div className=" container max-w-none  text-gf grid grid-cols-12 lg:grid-cols-12 lg:gap-16">
       
         <div className="col-span-12 lg:col-span-5 flex flex-col justify-center items-start ">
           <SectionTitle classes="text-gYellow" title="Join our team" />

@@ -7,7 +7,7 @@ import { getPostsData } from '@/core/services/api/videos';
  const RootLayout= async ({ children })=> {
   const data = await getPostsData();
   return (
-    <div className="container  gap-8 relative  grid grid-cols-12 lg:grid-cols-12 ">
+    <div className="container max-w-none  gap-8 relative  grid grid-cols-12 lg:grid-cols-12 ">
       <aside className="hidden lg:flex flex-col lg:sticky lg:top-0 lg:left-0 col-span-12 lg:col-span-4  lg:p-6 ">
         <div className=" relative w-full h-[67vh] rounded-xl lg:mb-12 ">
           <Image 
@@ -29,7 +29,7 @@ import { getPostsData } from '@/core/services/api/videos';
         <div className="hidden lg:block p-5 w-full border-[1.5px] border-ge4 bg-gec rounded-xl ">
 
           <h4 className=" w-full pb-3 border-b-[1px] border-gd5 text-g4c lg:text-[2.4rem] text-[1.7rem]  font-Holispay">Lorem ipsum Lorem   </h4>
-          <ul className="w-full " >
+          <ul className="w-full mt-4 " >
           
           {data.slice(0,6).map((item, i) => (
             <Link

@@ -60,15 +60,15 @@ function CompanySection() {
   ];
   return (
     <section className="w-full bg-gf5 py-8 lg:py-24">
-      <div className="container flex justify-between items-center">
+      <div className="container max-w-none flex justify-between items-center">
        <SectionTitle classes="text-g21" title='trusted by +50 company worldwide' />
         <div className="hidden lg:inline-block">
           <OutlinedButton classes="border-g8 text-g8" title='See More' link='/' />
         </div>
       </div>
 
-      <div className="container">
-        <div className="hidden lg:flex items-center justify-between text-g8   mt-12 lg:mt-16">
+      <div className="container max-w-none">
+        <div className="hidden lg:flex items-center justify-between text-g8  mt-12 lg:mt-16">
           {company.map((item, i) => (
             <Image
               key={i}

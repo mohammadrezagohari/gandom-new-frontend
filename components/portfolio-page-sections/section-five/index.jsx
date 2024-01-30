@@ -6,7 +6,7 @@ import OutlinedButton from "@/components/common/buttons/outlined";
 function SectionFive() {
   return (
     <section className="w-full  bg-gf5  pt-12 ">
-      <div className="container ">
+      <div className="container max-w-none ">
         <div className="grid grid-cols-12 lg:grid-cols-12 ">
           <div className="order-2 lg:order-1 col-span-12 lg:col-span-5 flex flex-col justify-center items-start ">
             <SectionTitle classes="text-g21" title=" Freecancer " />

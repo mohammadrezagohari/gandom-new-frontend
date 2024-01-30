@@ -44,7 +44,7 @@ function ProcessSection() {
   return (
     <section className="w-full">
 
-    <div className="container">
+    <div className="container max-w-none">
       <SectionTitle classes="text-g21" title="Our Process" />
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 lg:gap-5 ">
         {

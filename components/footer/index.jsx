@@ -5,7 +5,7 @@ import Link from "next/link";
 function Footer() {
   return (
     <footer className="w-full bg-g21">
-      <div className="container">
+      <div className="container max-w-none">
         <div className="lg:flex lg:justify-between lg:items-center text-gf mb-14 lg:pt-24 pt-14">
 
           <div className="flex flex-col justify-center items-center lg:mb-0 mb-5 lg:pb-0 pb-8 border-b-[1px] border-[#FFD10159] lg:border-b-0  ">

@@ -9,7 +9,7 @@ async function VideoSection() {
   const data = await getPostsData();
   return ( 
     <section className="w-full bg-g21">
-      <div className="container ">
+      <div className="container max-w-none ">
         <SectionTitle
           classes="text-gYellow py-[3%] lg:py-[1%]"
           title="Recent Videos"

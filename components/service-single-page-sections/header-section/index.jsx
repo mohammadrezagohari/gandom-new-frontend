@@ -7,7 +7,7 @@ import ServiceSinglePictureBox from "@/components/common/service-single-picture-
 function HeaderSection() {
   return (
     <section className="w-full bg-g21">
-      <div className="container grid lg:grid-cols-12 gap-8 lg:gap-0 py-[2.5rem] pb-[3.5rem] lg:py-[3.5rem]">
+      <div className="container max-w-none grid lg:grid-cols-12 gap-8 lg:gap-0 py-[2.5rem] pb-[3.5rem] lg:py-[3.5rem]">
         <div className="col-span-1 lg:col-span-7 order-2 lg:order-1">
           <div className="">
                  <ServiceSinglePictureBox  circleLgYellow="before:shadow-[53px_0px_0px_0px_#212121] after:shadow-[53px_14px_0px_0px_#212121]" circleSmYellow="before:shadow-[-7px_16px_0px_0px_#212121] after:shadow-[1px_16px_0px_0px_#212121]" circleClasses="bg-g21"  classes="bg-[url(/wimg.png)] rounded-l-lg rounded-r-lg lg:rounded-l-0 lg:rounded-r-lg w-full lg:w-[85%] "  />

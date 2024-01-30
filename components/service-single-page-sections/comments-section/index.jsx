@@ -25,7 +25,7 @@ function CommentsSection() {
             />
           </div> */}
 
-    <div className="container flex flex-col items-center justify-center">
+    <div className="container max-w-none flex flex-col items-center justify-center">
       <SectionTitle classes="text-g21" title="Customer comments" />
 
       <div className="w-full lg:w-[60%]  mt-[3.5%]">

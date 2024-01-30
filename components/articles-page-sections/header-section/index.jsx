@@ -28,7 +28,7 @@ function HeaderSection() {
 
   return (
     <section className="w-full ">
-      <div className="container">
+      <div className="container max-w-none">
         <FilterCategoryBox value={value} setValue={setValue} handleChange={handleChange} options={options} />
       
       </div>

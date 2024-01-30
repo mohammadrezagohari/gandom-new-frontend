@@ -13,7 +13,7 @@ import ParallaxPart from "@/components/landing-parallax-section";
 function OurworkSection() {
   return (
     <section className="w-full mt-24">
-      <div className="container">
+      <div className="container max-w-none">
         <SectionTitle classes="text-g21" title="Our Work" />
         <p className="text-g4c lg:text-xl lg:leading-9 text-base leading-6 font-PoppinsMedium pb-6">
           Our dedicated support doesn`t end when the project is complete. We

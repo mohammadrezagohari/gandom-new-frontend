@@ -7,7 +7,7 @@ import React from 'react'
 
 function AboutUs() {
   return (
-    <main> 
+    <main>  
       <div className="flex flex-col justify-start items-center gap-[3rem] ">
         <div className="w-full">
           <HeaderSection />

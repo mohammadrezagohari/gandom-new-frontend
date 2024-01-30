@@ -16,7 +16,7 @@ function ContactForm({
   email,
   setEmail,
   content,
-  setContent
+  setContent 
 }) {
  
   return (

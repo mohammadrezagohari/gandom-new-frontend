@@ -10,7 +10,7 @@ function MessageSection() {
   return (
     <section className="w-full">
 
-        <div className="container bg-gf5 rounded-3xl py-[5%]">
+        <div className="container max-w-none bg-gf5 rounded-3xl py-[5%]">
           <div className="mx-auto text-center  mb-[2%]">
             
             <SectionTitle

@@ -5,7 +5,7 @@ import React from "react";
 function AboutSection() {
   return (
     <section className="w-full mt-[30vh]">
-      <div className="container gap-5 lg:gap-0 py-[3vw] grid grid-cols-12 lg:grid-cols-12 ">
+      <div className="container max-w-none gap-5 lg:gap-0 py-[3vw] grid grid-cols-12 lg:grid-cols-12 ">
         {/* <div claassName="w-full grid grid-cols-12 lg:grid-cols-12" > */}
           <div className=" col-span-12 lg:col-span-7 order-2 lg:order-1" >
               <div className="aboutSectionLeftColBg h-full w-full lg:w-[90%] flex flex-col items-start justify-center bg-aboutSectionGandomLogo bg-no-repeat bg-left" >

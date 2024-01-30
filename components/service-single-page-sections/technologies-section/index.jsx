@@ -21,7 +21,7 @@ function TechnologiesSection() {
   return (
     <section className="w-full bg-g21 py-10">
 
-    <div className="container relative flex flex-col items-center justify-start p-8">
+    <div className="container max-w-none relative flex flex-col items-center justify-start p-8">
        
        <div className="lg:absolute lg:top-0 text-center w-[17rem] lg:w-[25.625rem]" >
 

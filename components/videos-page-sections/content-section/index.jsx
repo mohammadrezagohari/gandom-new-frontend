@@ -8,7 +8,7 @@ async function ContentSection() {
     const data = await getPostsData();
   return (
     <section className="w-full ">
-        <div className="container ">
+        <div className="container max-w-none ">
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-5">
                 {
                     data.map((item,i)=>(

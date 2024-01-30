@@ -29,7 +29,7 @@ const ServiceSinglePage = async ({ params }) => {
         {data.title}
         {/* We are a leader in the field of web and mobile software services */}
       </h1>
-      <p className="text-g8 lg:text-[19px] text-justify lg:leading-7 text-base leading-6 font-PoppinsRegular pb-6">
+      <p className="text-g8 lg:text-[1.23vw] text-justify lg:leading-[1.95vw] text-base leading-6 font-PoppinsRegular pb-6">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna.Lorem ipsum dolor sit amet,
         consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
@@ -78,7 +78,7 @@ const ServiceSinglePage = async ({ params }) => {
         />
         {/* artti */}
       </div>
-      <p className="text-g8 lg:text-[19px] text-justify lg:leading-7 text-base leading-6 font-PoppinsRegular py-6">
+      <p className="text-g8 lg:text-[1.23vw] text-justify lg:leading-[1.95vw] text-base leading-6 font-PoppinsRegular py-6">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna.Lorem ipsum dolor sit amet,
         consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore

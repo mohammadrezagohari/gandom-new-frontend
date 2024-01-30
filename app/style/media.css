@@ -82,7 +82,7 @@
     /* padding-right: 2rem; */
   }
   .serviceCont {
-    max-width: 640px;
+    /* max-width: 640px; */
   }
   .parentCircle{
     width: 636px;
@@ -126,7 +126,7 @@
     /* max-width: 768px; */
   }
   .serviceCont {
-    max-width: 768px;
+    /* max-width: 768px; */
   }
   .pictureBoxRtl {
     transform: rotateY(180deg);
@@ -154,7 +154,7 @@
     /* padding-right: 4rem; */
   }
   .serviceCont {
-    max-width: 1024px;
+    /* max-width: 1024px; */
   }
   .pictureBoxRtl {
     transform: rotateY(180deg);
@@ -185,7 +185,7 @@
     /* padding-right: 5rem; */
   }
   .serviceCont {
-    max-width: 1280px;
+    /* max-width: 1280px; */
   }
   .pictureBoxRtl {
     transform: rotateY(180deg);
@@ -212,7 +212,7 @@
     /* max-width: 1536px; */
   }
   .serviceCont {
-    max-width: 1536px;
+    /* max-width: 1536px; */
   }
   .pictureBoxRtl {
     transform: rotateY(180deg);
@@ -239,7 +239,7 @@
     /* max-width: 1792px; */
   }
   .serviceCont {
-    max-width: 1792px;
+    /* max-width: 1792px; */
   }
   .pictureBoxRtl {
     transform: rotateY(180deg);
@@ -266,7 +266,7 @@
     /* max-width: 2048px; */
   }
   .serviceCont {
-    max-width: 2048px;
+    /* max-width: 2048px; */
   }
   .pictureBoxRtl {
     transform: rotateY(180deg);
@@ -293,7 +293,7 @@
     max-width: 2304px;
   }
   .serviceCont {
-    max-width: 2304px;
+    /* max-width: 2304px; */
   }
   .pictureBoxRtl {
     transform: rotateY(180deg);

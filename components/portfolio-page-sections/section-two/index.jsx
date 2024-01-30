@@ -7,7 +7,7 @@ import OutlinedButton from "@/components/common/buttons/outlined";
 function SectionTwo() {
   return ( 
     <section className="w-full bg-g21  ">
-      <div className="container ">
+      <div className="container max-w-none ">
         <div className="grid grid-cols-12 lg:grid-cols-12 lg:gap-0 ">
           <div className="relative h-[450px] lg:h-auto order-2 lg:order-1 col-span-12 lg:col-span-7 flex justify-center items-center ">
             <div className="h-full lg:h-auto lg:absolute lg:-bottom-4 w-[120%] lg:w-[62.5rem] ">

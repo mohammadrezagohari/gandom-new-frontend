@@ -24,7 +24,7 @@ function TeamSection() {
   ]
   return ( 
     <section className='w-full'>
-      <div className="container h-auto lg:h-screen bg-gf flex flex-col items-center justify-start gap-8">
+      <div className=" container max-w-none h-auto lg:h-screen bg-gf flex flex-col items-center justify-start gap-8">
 
         <div className="w-full lg:w-[50%] text-center">
           <SectionTitle

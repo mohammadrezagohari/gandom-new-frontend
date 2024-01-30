@@ -6,8 +6,8 @@ import OutlinedButton from "@/components/common/buttons/outlined";
 function SectionFoure() {
   return (
     <section className="w-full  bg-g21 ">
-      <div className="container overflow-hidden ">
-        <div className="grid grid-cols-12 lg:grid-cols-12 ">
+      <div className="container max-w-none overflow-hidden ">
+        <div className="grid grid-cols-12 lg:grid-cols-12 lg:h-[70vh] ">
           <div className="order-2 lg:order-1 h-[10rem] lg:h-auto relative col-span-12 lg:col-span-7 flex justify-center items-center ">
             <div className="absolute lg:-left-32 bottom-0 w-[120%] lg:w-[56vw] ">
               {/* w-[56rem] */}

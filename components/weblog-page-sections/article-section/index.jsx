@@ -9,7 +9,7 @@ async function ArticleSection() {
   const data = await getPostsData()
   return (
     <section className="w-full ">
-      <div className="container ">
+      <div className="container max-w-none ">
          
         <SectionTitle
           classes="text-g21 py-[3%] lg:py-[1%]"

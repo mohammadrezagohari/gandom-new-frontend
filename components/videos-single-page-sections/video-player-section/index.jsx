@@ -33,7 +33,7 @@ function VideoPlayerSection() {
   };
   return (
     <section className="w-full">
-        <div className={`my-10 container h-screen -xroundedl`} >
+        <div className={`my-10 container max-w-none h-screen -xroundedl`} >
           <VideoPlayer options={videoJsOptions} onReady={handlePlayerReady} />
         </div>
     </section>

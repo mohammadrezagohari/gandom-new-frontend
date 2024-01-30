@@ -8,7 +8,7 @@ import React from "react";
 function Portfolio() {
   return (
     <main className="">
-      <h1 className="text-g21 lg:text-[6.8em] text-center text-[3.125em]  font-Holispay container">
+      <h1 className="text-g21 lg:text-[6.8em] text-center text-[3.125em]  font-Holispay container max-w-none">
         Portfolio
       </h1>
 

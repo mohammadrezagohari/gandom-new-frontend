@@ -22,7 +22,7 @@ async function TeamSinglePage({ params }) {
     {id:9,title:"Flutter"},
   ]
   return (
-    <main className="container h-auto  overflow-hidden grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-5 lg:gap-8 ">
+    <main className=" container max-w-none h-auto  overflow-hidden grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-5 lg:gap-8 ">
       {/* {data.id} */}
       <div className="relative order-2 lg:order-1  camma ">
         {/* <div className="z-0 absolute top-0 left-0 h-[12rem] lg:h-[21vw]">

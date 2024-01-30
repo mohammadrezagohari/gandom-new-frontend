@@ -7,7 +7,7 @@ import { GoArrowDownLeft } from "react-icons/go";
 function ContactSection() {
   return (
     <section className="w-full  my-24">
-      <div className="container flex  lg:flex-row flex-col items-center justify-between gap-6 lg:gap-0">
+      <div className="container max-w-none flex  lg:flex-row flex-col items-center justify-between gap-6 lg:gap-0">
         <div className="w-full h-[210px] lg:h-[237px] lg:w-[60%] flex items-center justify-start overflow-hidden bg-g21 rounded-xl border-2  px-6 relative ">
           <h2 className="text-gYellow lg:text-[55px] lg:leading-[84.75px] text-[38px] leading-[40.68px] font-Holispay ">
             You Can Contact Us For Advice And Guidance

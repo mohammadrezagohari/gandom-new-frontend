@@ -5,24 +5,22 @@ import React from 'react'
 function ContactUs() {
   return (
     <main className="w-full min-h-screen" >
-        <section className="container lg:!px-28 mt-5 lg:mt-9" >
+        <section className="container max-w-none lg:!px-28 mt-5 lg:mt-9" >
           <div className="lg:hidden flex items-center justify-center my-7">
-            <h1 className={`text-left lg:text-[3.7rem] lg:leading-[84.75px] text-[38px] leading-[40.68px] font-Holispay gap-2`}>
+            <h1 className={`text-left lg:text-[3.7rem] lg:leading-[84.75px] text-[38px] leading-[40.68px] font-Holispay gap-3`}>
               <span className="text-g21">Contact</span>
               <span className="text-gYellow">Us</span>
             </h1>
           </div>
-          <div className="my-5 lg:my-10 w-full relative lg:p-9 rounded-3xl h-full grid grid-cols-12 lg:grid-cols-12 gap-8 lg:border-[1px] lg:border-g21 " >
+          <div className=" my-5 lg:my-10 w-full relative lg:p-9 rounded-3xl h-full grid grid-cols-12 lg:grid-cols-12 gap-8 lg:border-[1px] lg:border-g21 " >
             
-
-
             <div className=" hidden lg:block bg-gf w-[32vw] absolute -top-[1px] -right-[1px] rounded-bl-2xl  border-l-[1px] border-b-[1px] border-l-g21 border-b-g21 border-t-gf border-r-gf pl-5 pb-5
               before:absolute before:w-6 before:h-6 
               before:-left-[24px] before:top-[0.1px] before:rounded-tr-[15px]
               before:border-t-[1px] before:border-t-g21
               before:border-r-[1px] before:border-r-g21
               before:shadow-[10px_-12px_0px_0px_#fff]
-              before:bg-red-200
+
 
               after:absolute after:w-6 after:h-6 after:right-0
               after:-bottom-[24px] after: after: after:
@@ -30,7 +28,7 @@ function ContactUs() {
               after:border-r-[1px] after:border-r-g21
               after:rounded-tr-[15px]
               after:shadow-[10px_-12px_0px_0px_#fff]
-              after:bg-red-200
+              
               ">
 
               <div className="">
@@ -44,8 +42,6 @@ function ContactUs() {
                 
               </div>
             </div>
-
-
 
 
             <div className="order-2 lg:order-1 border-2 col-span-12 lg:col-span-8 flex items-end justify-center">

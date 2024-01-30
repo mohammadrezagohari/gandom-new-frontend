@@ -40,8 +40,8 @@ function ReplayBox() {
           </div>
         </div>
       </div>
-
-      <p className="text-g8 lg:text-[0.75rem] leading-5   font-PoppinsLight py-4">
+ 
+      <p className="text-g8 lg:text-[0.8854166666666666vw] lg:leading-[1.4vw]  leading-5 font-PoppinsLight py-4">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna.Lorem ipsum dolor sit amet,
         consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore

@@ -28,7 +28,7 @@ function HeaderSection() {
 
   return (
     <section className="w-full ">
-      <div className="container">
+      <div className="container max-w-none">
         <FilterCategoryBox value={value} setValue={setValue} handleChange={handleChange} options={options} />
         <div className="w-full  my-[5vh] gap-4 lg:h-[65vh] grid grid-cols-12 lg:grid-cols-12 lg:grid-rows-2 ">
           <div className="rounded-lg col-span-12 lg:col-span-7 lg:row-span-2 border-2">

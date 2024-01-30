@@ -7,7 +7,7 @@ import MegaMenu from "@/components/weblog-page-componenet/mega-menu";
 function FilterCategoryBox({options,handleChange,setValue,value}) {
   return (
     <>
-        <nav className="relative container border-b-[1px] border-t-[1px] border-gb8 py-3 flex items-center justify-between">
+        <nav className="relative container max-w-none border-b-[1px] border-t-[1px] border-gb8 py-3 flex items-center justify-between">
           <div className=" order-2 lg:order-1">
              <LgMenu options={options} />
              <MegaMenu options={options} />

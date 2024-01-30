@@ -55,7 +55,7 @@ function PropertySection() {
   ]
   return (
     <section  className="w-full bg-g21">
-      <div className="container flex flex-col justify-start items-start">
+      <div className=" container max-w-none flex flex-col justify-start items-start">
         <div style={{zIndex:'10'}}>
           <SectionTitle
             classes="text-gYellow"

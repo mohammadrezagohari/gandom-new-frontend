@@ -18,7 +18,7 @@ function FormBox() {
       // formData.append("content", content);
       // console.log("formData result : ", formData);
 
-      };
+  }
   return (
     <div className="w-full border-[1px] border-g21 rounded-2xl lg:border-0  p-4  " >
          <SectionTitle

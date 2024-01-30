@@ -6,8 +6,8 @@ import OutlinedButton from "@/components/common/buttons/outlined";
 function SectionThree() {
   return (
     <section className="w-full bg-gf5   ">
-      <div className="container overflow-x-hidden lg:overflow-y-hidden ">
-        <div className=" relative grid grid-cols-12 lg:grid-cols-12 ">
+      <div className="container max-w-none overflow-x-hidden lg:overflow-y-hidden ">
+        <div className=" relative grid grid-cols-12 lg:grid-cols-12 lg:h-[70vh]">
 
           <div className="order-2 lg:order-1 py-12 lg:py-24 col-span-12 lg:col-span-5 flex flex-col justify-center items-start ">
             <SectionTitle classes="text-g21" title="Beauty Salon Rezarv " />

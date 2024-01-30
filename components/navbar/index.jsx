@@ -32,7 +32,7 @@ function Navbar() {
 
   return (
     <nav  className={`w-full  ${pathname == "/" || pathname=="/service/seo" || pathname=="/about-us" ? "bg-g21" : "bg-gf"} `}>
-      <div className="relative transition ease-in-out delay-150 container pt-[1.5%]">
+      <div className="relative transition ease-in-out delay-150 container max-w-none pt-[1.5%]">
         <div
           style={{zIndex:'5'}}
           className={`relative flex justify-between py-5 items-center border-b-[1.5px]  ${
@@ -96,7 +96,7 @@ function Navbar() {
                 pathname == "/" || pathname=="/service/seo" || pathname=="/abocontainerpxut-us" ? "bg-g21" : "bg-gf"
               }  py-6 lg:py-10`}
             >
-              <div className={`transition ease-in-out delay-150 container `}>
+              <div className={`transition ease-in-out delay-150 container max-w-none `}>
 
                 <div
                   className={` flex justify-between  items-center pb-5 border-b-[1.5px]  ${
@@ -151,7 +151,7 @@ function Navbar() {
                   </div>
                 </div>
               </div>
-              <div className="container transition ease-in-out delay-150 pt-5 flex flex-col gap-5">
+              <div className="container max-w-none transition ease-in-out delay-150 pt-5 flex flex-col gap-5">
                 <div className="border-[1px] h-[2%] border-gec p-2 rounded-lg flex items-center justify-start gap-2 ">
                   <CiSearch className="text-gec lg:text-3xl text-2xl" />
                   <input
