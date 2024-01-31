@@ -3,7 +3,7 @@ import React from "react";
 function SectionTitle({ title, classes }) {
   return (
     <h2
-      className={`${classes} lg:text-[3.7rem] lg:leading-[64.75px] text-[38px] leading-[40.68px] font-Holispay`}
+      className={`${classes} lg:text-[3.8vw] lg:leading-[5.51vw] text-[38px] leading-[40.68px] font-Holispay py-5`}
     >
       {title}
     </h2>

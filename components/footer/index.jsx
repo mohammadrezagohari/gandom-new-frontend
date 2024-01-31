@@ -15,10 +15,10 @@ function Footer() {
           </div>
 
           <ul className="lg:flex lg:justify-center lg:items-center lg:gap-24 lg:divide-y-0 divide-y divide-[#FFD10133]">
-            <li className="text-gf text-center lg:text-[24px] lg:leading-[45px] text-xl leading-[30px] font-PoppinsLight lg:py-0 py-4"><Link className="block w-full h-full" href="/"><span>About us</span></Link></li>
-            <li className="text-gf text-center lg:text-[24px] lg:leading-[45px] text-xl leading-[30px] font-PoppinsLight lg:py-0 py-4"><Link className="block w-full h-full" href="/"><span>Contact us</span></Link></li>
-            <li className="text-gf text-center lg:text-[24px] lg:leading-[45px] text-xl leading-[30px] font-PoppinsLight lg:py-0 py-4"><Link className="block w-full h-full" href="/"><span>Our works</span></Link></li>
-            <li className="text-gf text-center lg:text-[24px] lg:leading-[45px] text-xl leading-[30px] font-PoppinsLight lg:py-0 py-4"><Link className="block w-full h-full" href="/"><span>Weblog</span></Link></li>
+            <li className="text-gf text-center lg:text-[24px] lg:leading-[45px] text-xl leading-[30px] font-PoppinsLight lg:py-0 py-4"><Link className="block w-full h-full" href="/about-us"><span>About us</span></Link></li>
+            <li className="text-gf text-center lg:text-[24px] lg:leading-[45px] text-xl leading-[30px] font-PoppinsLight lg:py-0 py-4"><Link className="block w-full h-full" href="/contact"><span>Contact us</span></Link></li>
+            <li className="text-gf text-center lg:text-[24px] lg:leading-[45px] text-xl leading-[30px] font-PoppinsLight lg:py-0 py-4"><Link className="block w-full h-full" href="/portfolio"><span>Our works</span></Link></li>
+            <li className="text-gf text-center lg:text-[24px] lg:leading-[45px] text-xl leading-[30px] font-PoppinsLight lg:py-0 py-4"><Link className="block w-full h-full" href="/weblog"><span>Weblog</span></Link></li>
           </ul>
 
           <div className="flex justify-center items-center lg:gap-4 gap-8  lg:pt-0 pt-12">

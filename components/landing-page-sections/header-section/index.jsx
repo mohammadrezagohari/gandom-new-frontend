@@ -6,7 +6,7 @@ function HeadSection() {
   return (
     <section className="w-full bg-g21 h-auto lg:h-screen" id='landing_header'>
       {/* headerlandingGandomLogo */}
-      <div className="serviceCont py-[4vw] grid grid-cols-1 lg:grid-cols-2 text-gf ">
+      <div className="serviceCont py-[4vw] grid grid-cols-1 lg:grid-cols-2 text-gf gap-7 lg:gap-0">
 
         <div className=" relative h-full order-2 lg:order-1">
 
@@ -30,13 +30,13 @@ function HeadSection() {
           </div>
           
           <div className="container h-full flex flex-col items-start justify-start">
-            <h1 className="text-gYellow lg:text-[4.4em]  text-[3em]  font-Holispay ">
+            <h1 className="text-gYellow lg:text-[5vw]  text-[3em]  font-Holispay ">
               Our specialty
             </h1>
-            <h2 className="text-gf lg:text-[3.3em]  text-[2em]  font-Holispay ">
+            <h2 className="text-gf lg:text-[3.75vw]  text-[2em] leading-[2rem] lg:leading-[6.16vw]  font-Holispay ">
               is the reason for your trust
             </h2>
-            <p className="text-gf lg:text-[1.2vw] text-justify lg:leading-9 text-base leading-6 font-PoppinsLight pb-6">
+            <p className="text-gf lg:text-[1.2vw] text-justify lg:leading-[2.34375vw] text-base leading-6 font-PoppinsLight pb-6">
               Our service software company is dedicated to creating cutting-edge
               software solutions for mobile, website, and desktop platforms,
               with a strong focus on bespoke UI/UX designs. Our team of

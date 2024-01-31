@@ -59,7 +59,7 @@ function CompanySection() {
     ,
   ];
   return (
-    <section className="w-full bg-gf5 py-8 lg:py-24">
+    <section className="w-full bg-gf5 py-8 lg:py-24 mt-5 lg:mt-0">
       <div className="container max-w-none flex justify-between items-center">
        <SectionTitle classes="text-g21" title='trusted by +50 company worldwide' />
         <div className="hidden lg:inline-block">

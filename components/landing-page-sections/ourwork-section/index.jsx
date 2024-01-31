@@ -15,7 +15,7 @@ function OurworkSection() {
     <section className="w-full mt-24">
       <div className="container max-w-none">
         <SectionTitle classes="text-g21" title="Our Work" />
-        <p className="text-g4c lg:text-xl lg:leading-9 text-base leading-6 font-PoppinsMedium pb-6">
+        <p className="text-g4c lg:text-[1.3020833333333333vw] lg:leading-[2.34375vw] text-justify text-base leading-6 font-PoppinsLight pb-6">
           Our dedicated support doesn`t end when the project is complete. We
           are always there to support our projects from their basic conception
           to their final state. Our commitment to our clients extends beyond the
