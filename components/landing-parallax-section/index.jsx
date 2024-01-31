@@ -59,10 +59,11 @@ function ParallaxPart() {
                     }}
                 />
                 
-                <GlassmorphismBox
-                    title="Online appointment application"
-                    desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Egestas purus viverra accumsan in nisl nisi. Arcu cursus vitae "
-                />
+                {/* <GlassmorphismBox
+                    title="The clothing brand AREF"
+                    link="https://arefset.com"
+                    desc="To learn more about the AREF clothing brand that combines sport and classic styles, I recommend checking their official website, social media pages, or reputable fashion retail platforms for the latest information on their collections, design philosophy, and available products. These sources should provide insights into the brand's aesthetic, values, and the types of clothing they offer."
+                /> */}
             </section>
             <section
                 className="relative h-screen  flex justify-center items-start lg:justify-start lg:items-end pt-[15%] lg:pb-28 lg:pl-14">
@@ -78,10 +79,11 @@ function ParallaxPart() {
                         backgroundAttachment: 'fixed'
                     }}
                 />
-                <GlassmorphismBox
-                    title="Online appointment application"
-                    desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Egestas purus viverra accumsan in nisl nisi. Arcu cursus vitae "
-                />
+                {/* <GlassmorphismBox
+                    title="Mobile application Testato"
+                    link={"https://testato.ir"}
+                    desc="Testato is a mobile app designed to aid students in preparing for university entrance exams by offering study materials and practice exams. It aims to streamline exam readiness and enhance academic performance."
+                /> */}
             </section>
             <section
                 className="relative h-screen  flex justify-center items-start lg:justify-end lg:items-end pt-[15%] lg:pb-28 lg:pr-14">
@@ -97,72 +99,14 @@ function ParallaxPart() {
                         backgroundAttachment: 'fixed'
                     }}
                 />
-                <GlassmorphismBox
-                    title="Online appointment application"
-                    desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Egestas purus viverra accumsan in nisl nisi. Arcu cursus vitae "
-                />
+                {/* <GlassmorphismBox
+                    title="ّFree Cancer Website learning"
+                    link={"https://freecancer.ir/"}
+                    desc="A dedicated medical institution's website on cancer treatment features comprehensive educational resources, treatment options, and support services. It emphasizes patient stories, clinical expertise, and community engagement, providing a holistic approach to empower individuals facing cancer."
+                /> */}
             </section>
         </div>
     )
 }
 
 export default ParallaxPart
-
-
-{/* <div className="">
-<section
-    className="relative h-screen flex justify-center items-start lg:justify-end lg:items-end pt-[15%] lg:pb-28 lg:pr-14">
-    <div
-        className="bg absolute top-0 left-0 w-full h-full"
-        style={{
-            filter: "brightness(0.68)",
-            zIndex: "-1",
-            backgroundRepeat: "no-repeat",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            backgroundImage: `url(landing/ourwork1.svg)`,
-        }}
-    />
-    
-    <GlassmorphismBox
-        title="Online appointment application"
-        desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Egestas purus viverra accumsan in nisl nisi. Arcu cursus vitae "
-    />
-</section>
-<section
-    className="relative h-screen  flex justify-center items-start lg:justify-start lg:items-end pt-[15%] lg:pb-28 lg:pl-14">
-    <div
-        className="bg absolute top-0 left-0 w-full h-full"
-        style={{
-            filter: "brightness(0.68)",
-            zIndex: "-1",
-            backgroundRepeat: "no-repeat",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            backgroundImage: `url(landing/ourwork2.svg)`,
-        }}
-    />
-    <GlassmorphismBox
-        title="Online appointment application"
-        desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Egestas purus viverra accumsan in nisl nisi. Arcu cursus vitae "
-    />
-</section>
-<section
-    className="relative h-screen  flex justify-center items-start lg:justify-end lg:items-end pt-[15%] lg:pb-28 lg:pr-14">
-    <div
-        className="bg absolute top-0 left-0 w-full h-full"
-        style={{
-            filter: "brightness(0.68)",
-            zIndex: "-1",
-            backgroundRepeat: "no-repeat",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            backgroundImage: `url(landing/ourwork3.svg)`,
-        }}
-    />
-    <GlassmorphismBox
-        title="Online appointment application"
-        desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Egestas purus viverra accumsan in nisl nisi. Arcu cursus vitae "
-    />
-</section>
-</div> */}
