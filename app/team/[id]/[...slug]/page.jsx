@@ -6,10 +6,6 @@ import Link from "next/link";
 
 async function TeamSinglePage({ params }) {
   const data = await getSinglePostData(params.id);
-  // const socialItems=[
-  //   {id:1,icon:,link:""}
-  // ]
-
   const skills=[
     {id:1,title:"Futter Developer"},
     {id:2,title:"Mobile Developer"},
@@ -30,23 +26,23 @@ async function TeamSinglePage({ params }) {
         </div> */}
 
         <h1 className="z-10 font-Holispay flex flex-col" >
-          <span className="text-gb0 text-[2.25rem] lg:text-[4rem] " >Kasra</span>
-          <span className="text-g21 text-[3.125rem] lg:text-[6rem] " >Yaseri </span>
+          <span className="text-gb0 text-[2.25rem] lg:text-[4.166666666666667vw] " >Kasra</span>
+          <span className="text-g21 text-[3.125rem] lg:text-[6.25vw] " >Yaseri </span>
         </h1>
 
-        <h2 className="text-gDarkYellow text-[1.25rem] lg:text-[2rem] font-PoppinsLight">Futter Developer</h2>
+        <h2 className="text-gDarkYellow text-[1.25rem] lg:text-[2.0833333333333335vw] font-PoppinsLight">Futter Developer</h2>
         <div className="z-10  my-3 lg:my-6 font-PoppinsLight flex gap-2" >
-          <span className="text-gb0 text-[0.75rem] lg:text-[1.5rem] " >joined us :</span>
-          <span className="text-g70 text-[0.75rem] lg:text-[1.5rem] " >December , 2022 </span>
+          <span className="text-gb0 text-[0.75rem] lg:text-[1.5625vw] " >joined us :</span>
+          <span className="text-g70 text-[0.75rem] lg:text-[1.5625vw] " >December , 2022 </span>
         </div>
-        <p className="text-g70 text-justify text-[0.75rem] lg:text-[1.5rem] font-PoppinsLight" >
+        <p className="text-g70 text-justify text-[0.75rem] lg:text-[1.5625vw] font-PoppinsLight" >
           Lorem ipsum dolor sit amet, consectetur adipiscing  sed do eiusmod tempor.Lorem ipsum dolor sit amet, consectetur adipiscing  sed do eiusmod tempor.Lorem ipsum dolor sit amet, consectetur adipiscing  sed
         </p>
-        <h3 className="text-gDarkYellow text-[1.25rem] lg:text-[2rem] font-PoppinsLight  mb-2 mt-6 lg:mb-3 ">Skills :</h3>
+        <h3 className="text-gDarkYellow text-[1.25rem] lg:text-[2.0833333333333335vw] font-PoppinsLight  mb-2 mt-6 lg:mb-3 ">Skills :</h3>
         <ul className="flex flex-wrap gap-4 " >
           {
             skills.map((sk,i)=>(
-              <li key={i} className='border border-gd9 rounded-[0.9375rem] text-g70 text-[0.75rem] lg:text-[1.25rem] py-1 px-2 lg:py-2 lg:px-3' >{sk.title}</li>
+              <li key={i} className='border border-gd9 rounded-[0.9375rem] text-g70 text-[0.75rem] lg:text-[1.3020833333333333vw] py-1 px-2 lg:py-2 lg:px-3' >{sk.title}</li>
             ))
           }
         </ul>
@@ -58,7 +54,7 @@ async function TeamSinglePage({ params }) {
           <Image className="w-full h-full " width={'100'} height={'100'} alt={''} src={`/img/commaone.png`} />
         </div>
         <div className="relative z-0 w-[85%] h-[60vh] lg:h-[34vw] bg-gYellow ">
-          <div className="z-10 absolute right-6 bottom-0 lg:w-[27rem] w-[17rem] ">
+          <div className="z-10 absolute right-2 bottom-0 lg:w-[28.125vw] w-[17rem] ">
             <Image className="w-full h-full " width={'100'} height={'100'} alt={''} src={`/img/preson1.png`} />
           </div>
         </div>

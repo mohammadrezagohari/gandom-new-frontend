@@ -37,7 +37,7 @@ function JoinSection() {
       
         <div className="col-span-12 lg:col-span-5 flex flex-col justify-center items-start ">
           <SectionTitle classes="text-gYellow" title="Join our team" />
-          <p className="mb-[2vw]  text-gb0 text-xs lg:text-[1.1rem] leading-[1.8rem]  text-justify font-PoppinsRegular ">
+          <p className="mb-[2vw]  text-gb0 text-xs lg:text-[1.1458333333333335vw] leading-[1.8rem] lg:leading-[1.95vw] text-justify font-PoppinsRegular ">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua.sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua.sed do

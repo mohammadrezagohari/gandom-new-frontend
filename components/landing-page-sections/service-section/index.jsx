@@ -78,7 +78,7 @@ function ServiceSection() {
     <section className="w-full  bg-gf5 relative ">
       <div className="serviceCont py-7 lg:py-0">
 
-          <div className="hidden lg:grid lg:grid-cols-12 h-[42.31vw] divide-x divide-g6f mid:gap-9 lg:gap-7">
+          <div className="hidden lg:grid lg:grid-cols-12 h-[42.31vw] mid:gap-9 lg:gap-7">
  
              <ServiceSlider service={service} />
           </div>

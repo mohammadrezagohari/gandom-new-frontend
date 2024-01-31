@@ -67,8 +67,8 @@ function PropertySection() {
                 <CardBox
                   parentClasses="cardBoxHover cursor-pointer bg-g21 hover:bg-g30 hover:border-g30 border-g4c gap-3 lg:gap-5 p-4 lg:p-6 lg:py-9"
                   circleClasses="w-[4rem] h-[4rem] lg:w-[6rem] lg:h-[6rem] bg-g30 text-gYellow hover:bg-gYellow text-2xl lg:text-3xl"
-                  titleClasses="text-gf lg:text-2xl  text-justify font-Holispay"
-                  descClasses="text-gb0 text-xs lg:text-[0.813rem] leading-5 text-justify font-PoppinsLight line-clamp-5"
+                  titleClasses="text-gf lg:text-[1.5625vw]  text-justify font-Holispay"
+                  descClasses="text-gb0 text-xs lg:text-[0.8468749999999999vw] leading-5 lg:leading-[1.3020833333333333vw] text-justify font-PoppinsLight line-clamp-5"
                   icon={item.svg}
                   title={item.title}
                   desc={item.desc}
