@@ -47,12 +47,12 @@ function HeaderSection() {
 
         <div className=" lg:w-[60%] text-center flex flex-col items-center justify-center">
           <h1
-            className={`text-gf lg:text-[3.7rem] text-center lg:leading-[84.75px] text-[1.7rem] leading-[40.68px] font-Holispay`}
+            className={`text-gf lg:text-[3.6vw] text-center lg:leading-[5.5vw] text-[1.7rem] leading-[40.68px] font-Holispay`}
           >
             We are a leader in the field of web and mobile software services
           </h1>
 
-          <p className="text-gbc lg:text-[1.19rem] text-center lg:leading-9 text-sx leading-6 font-PoppinsRegular pb-6">
+          <p className="text-gbc lg:text-[1.2395833333333333vw] text-center lg:leading-[2.34375vw] text-sx leading-6 font-PoppinsRegular pb-6">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem
             ipsum dolor sit amet,

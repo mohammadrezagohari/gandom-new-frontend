@@ -54,7 +54,7 @@ function ParallaxPart() {
                         backgroundRepeat: "no-repeat",
                         backgroundSize: "cover",
                         backgroundPosition: "center",
-                        backgroundImage: `url(/img/land_1.png)`,
+                        backgroundImage: `url(/img/para1.webp)`,
                         backgroundAttachment: 'fixed'
                     }}
                 />
@@ -75,7 +75,7 @@ function ParallaxPart() {
                         backgroundRepeat: "no-repeat",
                         backgroundSize: "cover",
                         backgroundPosition: "center",
-                        backgroundImage: `url(/img/land_2.png)`,
+                        backgroundImage: `url(/img/para3.webp)`,
                         backgroundAttachment: 'fixed'
                     }}
                 />
@@ -95,7 +95,7 @@ function ParallaxPart() {
                         backgroundRepeat: "no-repeat",
                         backgroundSize: "cover",
                         backgroundPosition: "center",
-                        backgroundImage: `url(/img/land_3.png)`,
+                        backgroundImage: `url(/img/para2.jpg)`,
                         backgroundAttachment: 'fixed'
                     }}
                 />

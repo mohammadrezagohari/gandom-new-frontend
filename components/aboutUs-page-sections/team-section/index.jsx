@@ -37,7 +37,7 @@ function TeamSection() {
           
           <div className=" lg:order-1 order-3 col-span-12 lg:col-span-2 flex items-center justify-start">
             <div className="w-full h-full flex flex-col justify-center items-center lg:items-start gap-12">
-              <h5 className="hidden lg:block text-g8 text-xs lg:text-[1.2rem] leading-[1.8rem]  text-justify font-PoppinsRegular line-clamp-5 ">
+              <h5 className="hidden lg:block text-g8 text-xs lg:text-[1.25vw] leading-[1.8rem] lg:leading-[2vw]  text-justify font-PoppinsRegular line-clamp-5 ">
                 Log in here to get to know all our team members
               </h5>
               <OutlinedButton classes="border-g8 text-g8" title='see all' link='/team' />

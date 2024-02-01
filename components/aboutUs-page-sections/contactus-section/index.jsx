@@ -14,7 +14,7 @@ function ContactUsSection() {
           classes="text-gYellow"
           title="Let's talk about what we can build together"
         />
-        <p className="mb-[2vw]  text-gb0 text-xs lg:text-[1.1rem] leading-[1.8rem]  text-justify font-PoppinsRegular ">
+        <p className="mb-[2vw]  text-gb0 text-xs lg:text-[1.1458333333333335vw] leading-[1.8rem] lg:leading-[1.95vw]  text-justify font-PoppinsRegular ">
           Whatever may be your requirement - be it a simple website design, a
           complex data driven web application development, an ecommerce website,
           a native or cross platform mobile app development, a logo and brand

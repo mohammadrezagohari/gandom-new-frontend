@@ -18,7 +18,7 @@ function AboutSection() {
                   </p>
                   <div className="py-4 lg:py-8">
 
-                    <FilledButton link='/' title='Read More' />
+                    <FilledButton link='/about-us' title='Read More' />
                   </div>
               </div>
           </div> 

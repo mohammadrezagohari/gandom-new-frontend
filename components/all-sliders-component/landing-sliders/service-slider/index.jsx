@@ -51,7 +51,7 @@ function ServiceSlider({ service }) {
         >
           {service.map((item, i) => (
             <SwiperSlide
-              className="serviceSliderItem border-e-[1px] border-g6f transition-all duration-300 transform ease-linear  hover:bg-g21 p-6 pt-[8%] !flex !flex-col !justify-between !items-start"
+              className="serviceSliderItem cursor-grab active:cursor-grabbing border-s-[1px] border-g6f transition-all duration-300 transform ease-linear  hover:bg-g21 p-6 pt-[8%] !flex !flex-col !justify-between !items-start"
               key={i}
             >
               {/* {i} */}
