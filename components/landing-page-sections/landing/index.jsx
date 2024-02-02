@@ -16,7 +16,7 @@ const Landing = () => {
         let pos=document.documentElement.scrollTop
         let pageHeight=document.documentElement.scrollHeight - document.documentElement.clientHeight
         let scrollValue=Math.round(pos*100/pageHeight)
-        scrollProgress.current.style.background = `conic-gradient(#212121 ${scrollValue}%,#ffd101 ${scrollValue}%) `;
+        // scrollProgress.current.style.background = `conic-gradient(#212121 ${scrollValue}%,#ffd101 ${scrollValue}%) `;
         // console.log('scrollValue',scrollValue)
     }
     if (typeof window !== "undefined") {
