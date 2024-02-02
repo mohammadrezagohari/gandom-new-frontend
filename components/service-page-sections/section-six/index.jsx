@@ -13,7 +13,7 @@ function SectionSix() {
           </div> 
           <div className="col-span-11 lg:col-span-5 lg:row-span-2 row-span-1 order-3 lg:order-2">
             <SectionTitle classes="text-g21" title="Mobile App" />
-            <p className="text-g8 lg:text-g4c lg:text-[1.29rem] mt-[5%] lg:leading-9 text-justify text-base leading-6 font-bold font-PoppinsLight pb-6">
+            <p className="text-g8 lg:text-g4c lg:text-[1.34375vw] mt-[5%] lg:leading-[2.34375vw] text-justify text-base leading-6 font-bold font-PoppinsLight pb-6">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua.
               Egestas purus viverra accumsan in nisl nisi. Arcu cursus vitae

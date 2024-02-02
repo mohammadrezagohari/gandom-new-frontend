@@ -23,7 +23,7 @@ function TechnologiesSection() {
 
     <div className="container max-w-none relative flex flex-col items-center justify-start p-8">
        
-       <div className="lg:absolute lg:top-0 text-center w-[17rem] lg:w-[25.625rem]" >
+       <div className="lg:absolute lg:top-0 text-center w-[17rem] lg:w-[26.692708333333332vw]" >
 
         <SectionTitle classes="text-gf" title="The technologies we use" />
        </div>

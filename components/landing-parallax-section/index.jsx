@@ -47,14 +47,14 @@ function ParallaxPart() {
             <section
                 className="relative h-screen flex justify-center items-start lg:justify-end lg:items-end pt-[15%] lg:pb-28 lg:pr-14">
                 <div
-                    className="bg absolute top-0 left-0 w-full h-full"
+                    className="bg-[url(/img/freecancer.jpg)] lg:bg-[url(/img/para1.webp)] absolute top-0 left-0 w-full h-full"
                     style={{
                         filter: "brightness(0.68)",
                         zIndex: "-1",
                         backgroundRepeat: "no-repeat",
                         backgroundSize: "cover",
                         backgroundPosition: "center",
-                        backgroundImage: `url(/img/para1.webp)`,
+                        // backgroundImage: `url(/img/para1.webp)`,
                         backgroundAttachment: 'fixed'
                     }}
                 />
@@ -68,14 +68,14 @@ function ParallaxPart() {
             <section
                 className="relative h-screen  flex justify-center items-start lg:justify-start lg:items-end pt-[15%] lg:pb-28 lg:pl-14">
                 <div
-                    className="bg absolute top-0 left-0 w-full h-full"
+                    className="bg-[url(/img/Tetato-banner.jpg)] lg:bg-[url(/img/para3.webp)] absolute top-0 left-0 w-full h-full"
                     style={{
                         filter: "brightness(0.68)",
                         zIndex: "-1",
                         backgroundRepeat: "no-repeat",
                         backgroundSize: "cover",
                         backgroundPosition: "center",
-                        backgroundImage: `url(/img/para3.webp)`,
+                        // backgroundImage: `url(/img/para3.webp)`,
                         backgroundAttachment: 'fixed'
                     }}
                 />
@@ -88,14 +88,14 @@ function ParallaxPart() {
             <section
                 className="relative h-screen  flex justify-center items-start lg:justify-end lg:items-end pt-[15%] lg:pb-28 lg:pr-14">
                 <div
-                    className="bg absolute top-0 left-0 w-full h-full"
+                    className="bg-[url(/img/Arefset.jpg)] lg:bg-[url(/img/para2.jpg)] absolute top-0 left-0 w-full h-full"
                     style={{
                         filter: "brightness(0.68)",
                         zIndex: "-1",
                         backgroundRepeat: "no-repeat",
                         backgroundSize: "cover",
                         backgroundPosition: "center",
-                        backgroundImage: `url(/img/para2.jpg)`,
+                        // backgroundImage: `url(/img/para2.jpg)`,
                         backgroundAttachment: 'fixed'
                     }}
                 />

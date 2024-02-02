@@ -173,7 +173,7 @@ border-bottom-right-radius: 40px;
   height: 27px;
   border-top-right-radius: 40px;
 } */
-.circleLgContainer::before {
+.circleLgContainer::before { 
   content: "";
   position: absolute;
   left: -33px;
@@ -267,23 +267,28 @@ border-bottom-right-radius: 40px;
 
 ul.socialIconDownSmUl {
   transform: rotate(90deg);
+
+/* xl */
+  /* transform: rotate(112deg);
+bottom: 71px;
+left: 233px; */
 }
 ul.socialIconDownSmUl li {
   --item: 1;
   position: absolute;
   transform: rotate(calc((180deg / 6) * var(--item)));
   transform-origin: left center;
-  /* transform: rotate(calc(360deg/5*var(--i))); */
-  /* transform-origin:40px */
+
 }
-/* ul.socialIconDownSmUl  li::before{
-  content :'';
+
+/* xl */
+/* ul.socialIconDownSmUl li {
+  --item: 1;
   position: absolute;
-  width:10px;
-  height:10px;
-  background:#fff;
-  left:0
+  transform: rotate(calc((127deg / 6) * var(--item)));
+  transform-origin: -23pc;
 } */
+
 ul.socialIconDownSmUl li:nth-child(2) {
   --item: 2;
 }
@@ -316,15 +321,29 @@ ul.socialIconDownSmUl li span::before {
 /* --------------------- */
 ul.socialIconUpSmUl {
   transform: rotate(90deg);
+
+/* xl */
+  /* transform: rotate(67deg);
+  bottom: 43px;
+  right: 225px; */
 }
 ul.socialIconUpSmUl li {
   --item: 1;
   position: absolute;
   transform: rotate(calc((-180deg / 6) * var(--item)));
   transform-origin: left center;
-  /* transform: rotate(calc(360deg/5*var(--i))); */
-  /* transform-origin:40px */
 }
+
+/* xl */
+/* ul.socialIconUpSmUl li {
+  --item: 1;
+  position: absolute;
+  transform: rotate(calc((-127deg / 6) * var(--item)));
+  transform-origin: -23pc;
+} */
+
+
+
 ul.socialIconUpSmUl li:nth-child(2) {
   --item: 2;
 }

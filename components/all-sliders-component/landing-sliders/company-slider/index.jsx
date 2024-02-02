@@ -87,7 +87,7 @@ function CompanySlider() {
         className="mySwiper socialSilder"
       >
         {company.map((item, i) => (
-          <SwiperSlide key={i} className=" !flex !items-center !justify-center">
+          <SwiperSlide key={i} className="cursor-grab active:cursor-grabbing !flex !items-center !justify-center">
              <Image
               key={i}
               width={item.width}

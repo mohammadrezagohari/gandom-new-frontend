@@ -19,7 +19,7 @@ function ServiceSlider({ service }) {
 
   return (
     <>
-      <div className="container col-span-4">
+      <div className="container h-full col-span-4">
         <div className="flex flex-col justify-center gap-5 h-full">
           <SectionTitle title="Our services" />
 
@@ -29,11 +29,11 @@ function ServiceSlider({ service }) {
             captivating graphic design, and streamlined software solutions:
           </p>
 
-          <div className="flex items-center justify-start  gap-8 mt-16 ">
-            <button className="servise_land_next_btn w-[30px] h-[30px] lg:w-[56px] lg:h-[56px] rounded-full flex justify-center items-center border-[1px] border-g21 ">
+          <div className="flex items-center justify-start  gap-8 mt-[4.166666666666667vw] ">
+            <button className="servise_land_next_btn w-[1.953125vw] h-[1.953125vw] lg:w-[3.6458333333333335vw] lg:h-[3.6458333333333335vw] rounded-full flex justify-center items-center border-[1px] border-g21 ">
               <GoArrowDownLeft className="lg:text-2xl text-xl" />
             </button>
-            <button className="servise_land_prev_btn w-[30px] h-[30px] lg:w-[56px] lg:h-[56px] rounded-full flex justify-center items-center  bg-gYellow">
+            <button className="servise_land_prev_btn w-[1.953125vw] h-[1.953125vw] lg:w-[3.6458333333333335vw] lg:h-[3.6458333333333335vw] rounded-full flex justify-center items-center  bg-gYellow">
               <GoArrowDownLeft className="transform rotate-180 lg:text-2xl text-xl" />
             </button>
           </div>

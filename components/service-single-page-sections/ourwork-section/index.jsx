@@ -73,7 +73,7 @@ function OurworkSection() {
           <div className="container lg:hidden">
             <SectionTitle classes="text-g21" title="Our Work" />
 
-            <p className="text-g8 lg:text-2xl lg:leading-9 text-justify text-base leading-6 font-PoppinsLight pb-6">
+            <p className="text-g8 lg:text-[1.5625vw] lg:leading-[2.34375vw] text-justify text-base leading-6 font-PoppinsLight pb-6">
               Examples of our work in the field of website design
             </p>
             

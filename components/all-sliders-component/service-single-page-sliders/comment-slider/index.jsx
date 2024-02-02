@@ -23,7 +23,7 @@ function CommentSlider() {
             nextEl: navigationCommentNextRef.current,
           }}
         >
-          <SwiperSlide className="!flex !flex-col !items-center !justify-center !text-center !w-full  !h-full">
+          <SwiperSlide className="cursor-grab active:cursor-grabbing !flex !flex-col !items-center !justify-center !text-center !w-full  !h-full">
             <div className="w-[4.5rem] h-[4.5rem] lg:w-[7.125rem] lg:h-[7.125rem] rounded-full border-2 mb-[3%]">
               <Image
                 width={100}

@@ -17,10 +17,10 @@ function HeaderSection() {
         </div>
         <div className="col-span-1 lg:col-span-5 order-1 lg:order-2">
           <div className=" h-full flex flex-col items-start justify-center">
-            <h1 className="text-gYellow lg:text-[3.8em]  text-[2.3em]  font-Holispay ">
+            <h1 className="text-gYellow lg:text-[3.9583333333333335vw]  text-[2.3em]  font-Holispay ">
               Web Development
             </h1>
-            <h2 className="text-gf lg:text-[3.5em]  text-[2em]  font-Holispay ">
+            <h2 className="text-gf lg:text-[3.6458333333333335vw]  text-[2em]  font-Holispay ">
               Services
             </h2>
             <p className="text-gf lg:text-xl text-justify lg:leading-9 text-base leading-6 font-PoppinsLight pb-6">

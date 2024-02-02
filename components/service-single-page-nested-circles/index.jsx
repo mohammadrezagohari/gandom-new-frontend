@@ -1,13 +1,13 @@
 import React from 'react'
 import Image from "next/image";
 function NestedCircles({technologiesItems}) {
-  return (
+  return ( 
     
-    <div className="relative w-[45rem] h-[45rem] rounded-full border-[1.59px] border-[#FFD10126]  flex items-center justify-center" >
-      <div className="w-[38rem] h-[38rem] rounded-full border-[1.59px] border-[#FFD10159]  flex items-center justify-center" >
-        <div className="w-[32rem] h-[32rem] rounded-full border-[1.59px] border-[#FFD101B2]  flex items-center justify-center" >
-            <div className="w-[27rem] h-[27rem] rounded-full bg-g3  flex items-center justify-center relative " >
-              <div className=" w-[30rem] absolute left-1 flex items-center justify-center" >
+    <div className="relative w-[46.875vw] h-[46.875vw] rounded-full border-[1.59px] border-[#FFD10126]  flex items-center justify-center" >
+      <div className="w-[39.583333333333336vw] h-[39.583333333333336vw] rounded-full border-[1.59px] border-[#FFD10159]  flex items-center justify-center" >
+        <div className="w-[33.333333333333336vw] h-[33.333333333333336vw] rounded-full border-[1.59px] border-[#FFD101B2]  flex items-center justify-center" >
+            <div className="w-[28.125vw] h-[28.125vw] rounded-full bg-g3  flex items-center justify-center relative " >
+              <div className=" w-[31.25vw] absolute left-1 flex items-center justify-center" >
               {/* animate-bounce duration-1000 */}
                     <Image
                       width={100}

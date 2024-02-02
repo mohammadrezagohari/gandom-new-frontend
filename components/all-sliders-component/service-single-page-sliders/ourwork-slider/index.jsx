@@ -62,10 +62,10 @@ function OurWorkSlider({service}) {
         >
           {service.map((item, i) => (
             <SwiperSlide
-              className="  transition-all duration-300 transform ease-linear !flex !flex-col !justify-between !items-start"
+              className=" cursor-grab active:cursor-grabbing transition-all duration-300 transform ease-linear !flex !flex-col !justify-between !items-start"
               key={i}
             >
-             
+              
               <div style={{backgroundImage:`url(${item.bgImg})`}} className={`w-full h-[24.479166666666668vw] relative bg-no-repeat bg-center bg-cover rounded-xl border-[1px] flex items-end justify-end`}>
                 {/* <Image
                   width={100}
@@ -74,9 +74,9 @@ function OurWorkSlider({service}) {
                   src={item.bgImg}
                   className="w-full h-full object-cover rounded-xl z-10"
                 />  */}
-                <div className="absolute m-10">
+                {/* <div className="absolute m-10">
                   <GlassmorphismSmBox title="Online appointment application" desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed .Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed ." />
-                </div>
+                </div> */}
               </div>
             </SwiperSlide>
           ))}

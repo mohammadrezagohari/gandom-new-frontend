@@ -16,7 +16,7 @@ function SectionTwo() {
             <Link href={`/service/seo`}>
               <SectionTitle classes="text-g21" title="Seo" />      
             </Link>       
-            <p className="text-g8 lg:text-g4c lg:text-[1.29rem] mt-[5%] lg:leading-9 text-justify text-base leading-6 font-bold font-PoppinsLight pb-6">
+            <p className="text-g8 lg:text-g4c lg:text-[1.34375vw] mt-[5%] lg:leading-[2.34375vw] text-justify text-base leading-6 font-bold font-PoppinsLight pb-6">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua.
               Egestas purus viverra accumsan in nisl nisi. Arcu cursus vitae
