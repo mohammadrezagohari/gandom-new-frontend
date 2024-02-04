@@ -23,7 +23,7 @@ function HeaderSection() {
             <h2 className="text-gf lg:text-[3.6458333333333335vw]  text-[2em]  font-Holispay ">
               Services
             </h2>
-            <p className="text-gf lg:text-xl text-justify lg:leading-9 text-base leading-6 font-PoppinsLight pb-6">
+            <p className="text-gf lg:text-[1.3020833333333333vw] text-justify lg:leading-[2.34375vw] text-base leading-6 font-PoppinsLight pb-6 lg:pb-[1.5625vw]">
               Increase the profitability, availability, and efficiency of your
               business via the relevant web development solutions with the
               scalable architecture using the latest technologies and

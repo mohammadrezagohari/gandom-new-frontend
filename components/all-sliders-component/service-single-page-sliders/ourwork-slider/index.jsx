@@ -23,27 +23,27 @@ function OurWorkSlider({service}) {
     <>
       <div className="container col-span-4">
 
-        <div className="flex flex-col justify-center gap-5 h-full">
+        <div className="flex flex-col justify-center gap-5 lg:gap-[1.3020833333333333vw] h-full">
           
        <SectionTitle title="Our Work" />
 
-        <p className="text-g8 lg:text-xl lg:leading-9 text-justify text-base leading-6 font-PoppinsLight pb-6">
+        <p className="text-g8 lg:text-[1.3020833333333333vw] lg:leading-[2.34375vw] text-justify text-base leading-6 font-PoppinsLight pb-6 lg:pb-[1.5625vw]">
         Examples of our work in the field of website design
         </p>
 
-        <div className="flex items-center justify-start  gap-8 mt-8 ">
+        <div className="flex items-center justify-start  gap-[2.0833333333333335vw] mt-[1.3020833333333333vw]  ">
 
           <button
-           className="w-[30px] h-[30px] lg:w-[56px] lg:h-[56px] rounded-full flex justify-center items-center border-[1px] border-g21 "
-            ref={navigationOurWorkNextRef}
+           className="w-[30px] h-[30px] lg:w-[3.6458333333333335vw] lg:h-[3.6458333333333335vw] rounded-full flex justify-center items-center border-[1px] border-g21 "
+           ref={navigationOurWorkPrevRef}
           >
-             <GoArrowDownLeft className="lg:text-2xl text-xl" />
+             <GoArrowDownLeft className="lg:text-[1.5625vw] text-xl" />
           </button>
           <button
-            className="w-[30px] h-[30px] lg:w-[56px] lg:h-[56px] rounded-full flex justify-center items-center  bg-gYellow"
-            ref={navigationOurWorkPrevRef}
+            className="w-[30px] h-[30px] lg:w-[3.6458333333333335vw] lg:h-[3.6458333333333335vw] rounded-full flex justify-center items-center  bg-gYellow"
+            ref={navigationOurWorkNextRef}
           >
-            <GoArrowDownLeft className="transform rotate-180 lg:text-2xl text-xl" />
+            <GoArrowDownLeft className="transform rotate-180 lg:text-[1.5625vw] text-xl" />
           </button>
        
         </div>

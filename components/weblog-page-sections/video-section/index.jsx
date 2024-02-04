@@ -13,12 +13,12 @@ async function VideoSection() {
         <SectionTitle
           classes="text-gYellow py-[3%] lg:py-[1%]"
           title="Recent Videos"
-        />
+        /> 
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-5">
             {
               data.slice(0,4).map((item,i)=>(
                 <VideoCardBox key={i}  
-                  parentClasses='border-g3c bg-g3c'
+                  parentClasses='border-g3c bg-g3c' 
                   titleClasses='text-gf'
                   descClasses='text-gb8'
                   linkClasses='text-gDarkYellow'
@@ -34,9 +34,9 @@ async function VideoSection() {
             }
         </div>
         
-        <div className="my-8 flex items-center justify-center">
+        <div className="my-8 lg:my-[2.0833333333333335vw] flex items-center justify-center">
 
-          <OutlinedButton classes="border-gec text-gec"  title='See More' link='/videos' />
+          <OutlinedButton classes="border-gec text-gec hover:text-g21"  title='See More' link='/videos' />
         </div>
       </div>
      

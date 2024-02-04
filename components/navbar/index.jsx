@@ -99,7 +99,7 @@ function Navbar() {
               <div className={`transition ease-in-out delay-150 container max-w-none `}>
 
                 <div
-                  className={` flex justify-between  items-center pb-5 border-b-[1.5px]  ${
+                  className={` flex justify-between  items-center pb-5 lg:pb-[1.3020833333333333vw] border-b-[1.5px]  ${
                     pathname == "/" || pathname=="/service/seo" || pathname=="/about-us" ? "border-gec" : "border-g70"
                   } `}
                 >
@@ -108,18 +108,21 @@ function Navbar() {
                       onClick={closeMenu}
                       className={`  ${
                         pathname == "/"|| pathname=="/service/seo" || pathname=="/about-us" ? "text-gf" : "text-g21"
-                      }  w-6 h-6 lg:w-9 lg:h-9`}
+                      }  w-6 h-6 lg:w-[2.34375vw] lg:h-[2.34375vw]`}
                     />
                   </button>
                   {pathname == "/" || pathname=="/service/seo" || pathname=="/about-us"? (
                     <>
+                     <div className={`w-[12.890625vw] h-[3.2552083333333335vw]`}>
+
                       <Image
                         width={198}
                         height={50}
-                        className=" hidden lg:inline-block"
+                        className="w-full h-full hidden lg:inline-block"
                         src={"/menugandomlogo.svg"}
                         alt={"menu icon"}
                       />
+                     </div>
                       <Image
                         width={104}
                         height={25}
@@ -151,7 +154,7 @@ function Navbar() {
                   </div>
                 </div>
               </div>
-              <div className="container max-w-none transition ease-in-out delay-150 pt-5 flex flex-col gap-5">
+              <div className="container max-w-none transition ease-in-out delay-150 pt-5 lg:pt-[1.3020833333333333vw] flex flex-col gap-[1.3020833333333333vw]">
                 <div className="border-[1px] h-[2%] border-gec p-2 rounded-lg flex items-center justify-start gap-2 ">
                   <CiSearch className="text-gec lg:text-3xl text-2xl" />
                   <input
@@ -163,7 +166,7 @@ function Navbar() {
                   />
                 </div>
 
-                <div className="grid grid-cols-1 lg:grid-cols-7 gap-4 lg:gap-6">
+                <div className="grid grid-cols-1 lg:grid-cols-7 gap-4 lg:gap-[1.5625vw]">
                   <Link
                     onClick={closeMenu}
                     href="/service"
@@ -173,10 +176,10 @@ function Navbar() {
                   >
                     <h4 className={`${
                       pathname == "/" || pathname=="/service/seo" || pathname=="/about-us" ? "text-gec " : "text-g8"
-                    } lg:text-[67px] lg:leading-[84.75px] text-[38px] leading-[40.68px] font-Holispay`} >
+                    } lg:text-[4.361979166666667vw] lg:leading-[5.517578125vw] text-[38px] leading-[40.68px] font-Holispay`} >
                       Our services
                     </h4>
-                    <span className="text-gDarkYellow lg:text-2xl lg:leading-[28.13px] text-[12px] leading-[14.06px] font-Holispay ">
+                    <span className="text-gDarkYellow lg:text-[1.5625vw] lg:leading-[1.8313802083333333vw] text-[12px] leading-[14.06px] font-Holispay ">
                       Current page
                     </span>
                   </Link>
@@ -187,10 +190,10 @@ function Navbar() {
                       pathname == "/" || pathname=="/service/seo" || pathname=="/about-us" ? "menuItem" : "menuItemWhiteBg"
                     } lg:h-[9.440104166666666vw] h-[71px] border-[1px] border-gYellow text-center rounded-lg col-span-1 lg:col-span-4`}
                   >
-                    <h4 className="text-gYellow lg:text-[67px] lg:leading-[84.75px] text-[38px] leading-[40.68px] font-Holispay ">
+                    <h4 className="text-gYellow lg:text-[4.361979166666667vw] lg:leading-[5.517578125vw] text-[38px] leading-[40.68px] font-Holispay ">
                       Home
                     </h4>
-                    <span className="text-gDarkYellow lg:text-2xl lg:leading-[28.13px] text-[12px] leading-[14.06px] font-Holispay ">
+                    <span className="text-gDarkYellow lg:text-[1.5625vw] lg:leading-[1.8313802083333333vw] text-[12px] leading-[14.06px] font-Holispay ">
                       Current page
                     </span>
                   </Link>
@@ -201,10 +204,10 @@ function Navbar() {
                       pathname == "/" || pathname=="/service/seo" || pathname=="/about-us" ? "menuItem" : "menuItemWhiteBg"
                     } lg:h-[9.440104166666666vw] h-[71px] border-[1px] border-gYellow text-center rounded-lg col-span-1 lg:col-span-2`}
                   >
-                    <h4 className="text-gYellow lg:text-[67px] lg:leading-[84.75px] text-[38px] leading-[40.68px] font-Holispay ">
+                    <h4 className="text-gYellow lg:text-[4.361979166666667vw] lg:leading-[5.517578125vw] text-[38px] leading-[40.68px] font-Holispay ">
                       Contact Us
                     </h4>
-                    <span className="text-gDarkYellow lg:text-2xl lg:leading-[28.13px] text-[12px] leading-[14.06px] font-Holispay ">
+                    <span className="text-gDarkYellow lg:text-[1.5625vw] lg:leading-[1.8313802083333333vw] text-[12px] leading-[14.06px] font-Holispay ">
                       Current page
                     </span>
                   </Link>
@@ -217,10 +220,10 @@ function Navbar() {
                   >
                     <h4 className={`${
                       pathname == "/" || pathname=="/service/seo" || pathname=="/about-us" ? "text-gec " : "text-g8"
-                    } lg:text-[67px] lg:leading-[84.75px] text-[38px] leading-[40.68px] font-Holispay`}>
+                    } lg:text-[4.361979166666667vw] lg:leading-[5.517578125vw] text-[38px] leading-[40.68px] font-Holispay`}>
                       Customers
                     </h4>
-                    <span className="text-gDarkYellow lg:text-2xl lg:leading-[28.13px] text-[12px] leading-[14.06px] font-Holispay ">
+                    <span className="text-gDarkYellow lg:text-[1.5625vw] lg:leading-[1.8313802083333333vw] text-[12px] leading-[14.06px] font-Holispay ">
                       Current page
                     </span>
                   </Link>
@@ -233,10 +236,10 @@ function Navbar() {
                   >
                     <h4 className={`${
                       pathname == "/" || pathname=="/service/seo" || pathname=="/about-us" ? "text-gec " : "text-g8"
-                    } lg:text-[67px] lg:leading-[84.75px] text-[38px] leading-[40.68px] font-Holispay`}>
+                    } lg:text-[4.361979166666667vw] lg:leading-[5.517578125vw] text-[38px] leading-[40.68px] font-Holispay`}>
                       Weblog
                     </h4>
-                    <span className="text-gDarkYellow lg:text-2xl lg:leading-[28.13px] text-[12px] leading-[14.06px] font-Holispay ">
+                    <span className="text-gDarkYellow lg:text-[1.5625vw] lg:leading-[1.8313802083333333vw] text-[12px] leading-[14.06px] font-Holispay ">
                       Current page
                     </span>
                   </Link>
@@ -249,10 +252,10 @@ function Navbar() {
                   >
                     <h4 className={`${
                       pathname == "/" || pathname=="/service/seo" || pathname=="/about-us" ? "text-gec " : "text-g8"
-                    } lg:text-[67px] lg:leading-[84.75px] text-[38px] leading-[40.68px] font-Holispay`} >
+                    } lg:text-[4.361979166666667vw] lg:leading-[5.517578125vw] text-[38px] leading-[40.68px] font-Holispay`} >
                       Portfolio
                     </h4>
-                    <span className="text-gDarkYellow lg:text-2xl lg:leading-[28.13px] text-[12px] leading-[14.06px] font-Holispay ">
+                    <span className="text-gDarkYellow lg:text-[1.5625vw] lg:leading-[1.8313802083333333vw] text-[12px] leading-[14.06px] font-Holispay ">
                       Current page
                     </span>
                   </Link>
@@ -263,10 +266,10 @@ function Navbar() {
                       pathname == "/" || pathname=="/service/seo" || pathname=="/about-us" ? "menuItem" : "menuItemWhiteBg"
                     } lg:h-[9.440104166666666vw] h-[71px] border-[1px] border-gYellow text-center rounded-lg col-span-1 lg:col-span-3`}
                   >
-                    <h4 className="text-gYellow lg:text-[67px] lg:leading-[84.75px] text-[38px] leading-[40.68px] font-Holispay ">
+                    <h4 className="text-gYellow lg:text-[4.361979166666667vw] lg:leading-[5.517578125vw] text-[38px] leading-[40.68px] font-Holispay ">
                       About Us
                     </h4>
-                    <span className="text-gDarkYellow lg:text-2xl lg:leading-[28.13px] text-[12px] leading-[14.06px] font-Holispay ">
+                    <span className="text-gDarkYellow lg:text-[1.5625vw] lg:leading-[1.8313802083333333vw] text-[12px] leading-[14.06px] font-Holispay ">
                       Current page
                     </span>
                   </Link>

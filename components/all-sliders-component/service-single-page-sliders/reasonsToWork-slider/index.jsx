@@ -23,48 +23,56 @@ function ReasonsToWorkSlider({reasons}) {
     <>
       <div className="container col-span-12 lg:col-span-4">
 
-        <div className="flex flex-col justify-center gap-5 h-full">
+        <div className="flex flex-col justify-center gap-5 lg:gap-[1.3020833333333333vw] h-full">
           
           <SectionTitle title="Reasons To Work With Us" />
 
     
-          <div className="hidden lg:flex items-center justify-start  gap-8 mt-5 ">
+          <div className="hidden lg:flex items-center justify-start  gap-[2.0833333333333335vw] mt-[1.3020833333333333vw] ">
 
             <button
-            className="w-[30px] h-[30px] lg:w-[56px] lg:h-[56px] rounded-full flex justify-center items-center border-[1px] border-g21 "
-              ref={navigationReasonsNextRef}
+            className="w-[30px] h-[30px] lg:w-[3.6458333333333335vw] lg:h-[3.6458333333333335vw] rounded-full flex justify-center items-center border-[1px] border-g21 "
+            ref={navigationReasonsPrevRef}
             >
-              <GoArrowDownLeft className="lg:text-2xl text-xl" />
+              <GoArrowDownLeft className="lg:text-[1.5625vw] text-xl" />
             </button>
             <button
-              className="w-[30px] h-[30px] lg:w-[56px] lg:h-[56px] rounded-full flex justify-center items-center  bg-gYellow"
-              ref={navigationReasonsPrevRef}
+              className="w-[30px] h-[30px] lg:w-[3.6458333333333335vw] lg:h-[3.6458333333333335vw] rounded-full flex justify-center items-center  bg-gYellow"
+              ref={navigationReasonsNextRef}
             >
-              <GoArrowDownLeft className="transform rotate-180 lg:text-2xl text-xl" />
+              <GoArrowDownLeft className="transform rotate-180 lg:text-[1.5625vw] text-xl" />
             </button>
         
           </div>
         </div>
       </div>
-      <div className=" w-full !h-[19.4375vw] font-PoppinsSemiBold col-span-12 lg:col-span-8">
+      <div className=" w-full !min-h-[19.4375vw] font-PoppinsSemiBold col-span-12 lg:col-span-8 ">
         <Swiper
           effect= "slider"
-          slidesPerView={1}
+          slidesPerView={1.3}
+          spaceBetween={10}
+          centeredSlides={true}
+          loop={true}
           breakpoints={{
             640: {
-              slidesPerView: 1,
+              centeredSlides:false,
+              loop:false,
+              slidesPerView: 1.3,
               spaceBetween: 10,
             },
             768: {
+              centeredSlides:false,
+              loop:false,
               slidesPerView: 2,
               spaceBetween: 20,
             },
             1024: {
+              centeredSlides:false,
+              loop:false,
               slidesPerView: 3.2,
               spaceBetween: 20,
             },
           }}
-          spaceBetween={10}
           className="mySwiper !h-full "
           modules={[Pagination, Navigation]}
           navigation={{
@@ -74,10 +82,10 @@ function ReasonsToWorkSlider({reasons}) {
         >
           {reasons.map((item, i) => (
             <SwiperSlide
-              className="!h-full "
+              className=" !h-full cursor-grab active:cursor-grabbing"
               key={i}
             >
-             <CardBox parentClasses="!h-full !w-full border-g70 gap-5 p-6 py-9 lg:w-auto" circleClasses="w-[6rem] h-[6rem] bg-gYellow text-3xl" titleClasses="text-g21 lg:text-2xl  text-justify font-Holispay" descClasses="text-g8 text-xs  text-justify font-PoppinsLight line-clamp-5" icon={item.svg}title={item.title}desc={item.desc}/>
+             <CardBox parentClasses="!h-full !w-full border-g70 gap-5 lg:gap-[1.3020833333333333vw] p-5 py-8 lg:p-[1.5625vw] lg:py-[2.34375vw] lg:w-auto" circleClasses="w-[6rem] h-[6rem] lg:w-[6.25vw] lg:h-[6.25vw] bg-gYellow text-3xl" titleClasses="text-g21 text-2xl lg:text-[1.6vw]  text-justify font-Holispay" descClasses="text-g8 text-justify text-base tracking-wide leading-7 lg:text-[0.88125vw] lg:leading-[1.5vw] text-justify font-PoppinsLight line-clamp-5" icon={item.svg}title={item.title}desc={item.desc}/>
             </SwiperSlide>
           ))}
         </Swiper>

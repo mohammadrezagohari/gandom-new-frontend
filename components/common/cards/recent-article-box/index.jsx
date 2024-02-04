@@ -10,20 +10,18 @@ function RecentArticleBox({href,cardTitle,cardDesc,date,author}) {
        {/* wimg.png */}
          <PictureBox href={href} circleLgYellow="" circleSmYellow="" circleClasses="bg-gf"  classes={`bg-[url(/wimg.png)] rounded-l-lg rounded-r-lg lg:rounded-l-0 lg:rounded-r-lg w-[87%] lg:w-[88%] lg:h-[21.549479166666668vw] h-[13.188rem]`} />
        </div>
-       <div className='textBox col-span-12 lg:col-span-6 flex flex-col items-start justify-center gap-2 lg:gap-4'>
+       <div className='textBox col-span-12 lg:col-span-6 flex flex-col items-start justify-center gap-2 lg:gap-[1.0416666666666667vw]'>
           <div className="divide-x divide-gb8"> 
-            <span className="pe-2 lg:px-2 text-[0.95rem] lg:text-[1.2rem] lg:leading-8 font-PoppinsRegular text-gDarkYellow">{author}</span>
-            <span className="px-2 text-[0.95rem] lg:text-[1.2rem] lg:leading-8 font-PoppinsRegular text-gb8">{date}</span>
+            <span className="pe-2 lg:px-2 text-[0.95rem] lg:text-[1.25vw] lg:leading-[2.0833333333333335vw] font-PoppinsRegular text-gDarkYellow">{author}</span>
+            <span className="px-2 text-[0.95rem] lg:text-[1.25vw] lg:leading-[2.0833333333333335vw] font-PoppinsRegular text-gb8">{date}</span>
           </div>
           <Link href={href}>
-          <h3 className="text-[0.95rem] lg:text-[1.8rem] lg:leading-9 font-PoppinsSemiBold line-clamp-3 text-g21">
+          <h3 className="text-[0.95rem] lg:text-[1.775vw] lg:leading-[2.34375vw] font-normal tracking-wide font-PoppinsMedium line-clamp-3 text-g21">
             {cardTitle}
-            {/* Lorem ipsum dolor sit amet ,Lorem ipsum dolor sit amet */}
           </h3>
           </Link>
-          <p className="text-[0.95rem] lg:text-[1.3rem] lg:leading-8 font-PoppinsRegular line-clamp-3 text-g8">
+          <p className="text-[0.95rem] lg:text-[1.3541666666666667vw] lg:leading-[2.0833333333333335vw] font-normal tracking-wide font-PoppinsRegular line-clamp-3 text-g8">
             {cardDesc}
-            {/* Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliquaLorem ipsum dolo. */}
           </p>
        </div>
     </div>

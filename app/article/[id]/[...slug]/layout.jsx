@@ -18,18 +18,18 @@ import { getPostsData } from '@/core/services/api/videos';
             alt={"article | img | مقاله | گندم | سایت | طراحی | وبسایت | موبایل | نرم افزار | دیزای| شرکت نرم افزاری گندم"}
           />
           <div className=" flex items-end justify-start absolute top-0 left-0 right-0 bottom-0 bg-g4c bg-opacity-[50%] rounded-xl">
-            <h4 className=" w-full text-center absolute top-[50%] left-[50%] transform -translate-x-[50%] -translate-y-[50%] text-gf lg:text-[2.7rem] text-[1.7rem]  font-Holispay">Lorem ipsum Lorem   </h4>
+            <h4 className=" w-full text-center absolute top-[50%] left-[50%] transform -translate-x-[50%] -translate-y-[50%] text-gf lg:text-[2.8125vw] text-[1.7rem]  font-Holispay">Lorem ipsum Lorem   </h4>
             <div className="flex items-center justify-start gap-1 p-5 lg:p-7 " >
-              <span className=" text-gDarkYellow lg:text-[1.2rem] text-base  font-PoppinsRegular " >21 July 2023</span>
-              <span className=" text-gf lg:text-[1.2rem] text-base  font-PoppinsRegular" >/</span>
-              <span className=" text-gf lg:text-[1.2rem] text-base  font-PoppinsRegular" >20 minutes</span>
+              <span className=" text-gDarkYellow lg:text-[1.25vw] text-base  font-PoppinsRegular " >21 July 2023</span>
+              <span className=" text-gf lg:text-[1.25vw] text-base  font-PoppinsRegular" >/</span>
+              <span className=" text-gf lg:text-[1.25vw] text-base  font-PoppinsRegular" >20 minutes</span>
             </div>
           </div>
         </div>
         <div className="hidden lg:block p-5 w-full border-[1.5px] border-ge4 bg-gec rounded-xl ">
 
-          <h4 className=" w-full pb-3 border-b-[1px] border-gd5 text-g4c lg:text-[2.4rem] text-[1.7rem]  font-Holispay">Lorem ipsum Lorem   </h4>
-          <ul className="w-full mt-4 " >
+          <h4 className=" w-full pb-3 lg:pb-[0.78125vw] border-b-[1px] border-gd5 text-g4c lg:text-[2.3vw] text-[1.7rem]  font-Holispay">Lorem ipsum Lorem   </h4>
+          <ul className="w-full mt-4 lg:mt-[16px] " >
           
           {data.slice(0,6).map((item, i) => (
             <Link
@@ -37,9 +37,9 @@ import { getPostsData } from '@/core/services/api/videos';
               key={i}
               className=""
             >
-              <li className="flex itmes-center justify-start gap-2 py-2 relative text-g4c lg:text-[1.2rem] text-base font-PoppinsRegular ">
+              <li className="flex itmes-center justify-start gap-2 lg:gap-[0.5208333333333334vw] py-2 lg:py-[0.5208333333333334vw] relative text-g4c lg:text-[1.15vw] text-base font-PoppinsRegular ">
                 <span className="text-gDarkYellow text-[3rem]">&#8226;</span>
-                <span className="">{item.title}</span>
+                <span className="leading-8">{item.title}</span>
               </li>
             </Link>
           ))}

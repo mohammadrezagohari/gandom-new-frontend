@@ -9,7 +9,7 @@ function FormBox() {
   const [email, setEmail] = useState("");
   const [content, setContent] = useState("");
     const onSubmitForm = (event) => {
-      event.preventDefault();
+      event.preventDefault(); 
       // const formData = new FormData();
       // // formData.append("title", title);
       // formData.append("name", name);
@@ -20,7 +20,7 @@ function FormBox() {
 
   }
   return (
-    <div className="w-full border-[1px] border-g21 rounded-2xl lg:border-0  p-4  " >
+    <div className="w-full border-[1px] border-g21 rounded-2xl lg:border-0 ps-4 pe-4 py-4 lg:ps-0 lg:pe-20 lg:py-4  " >
          <SectionTitle
           classes="text-g21 py-[3%] lg:py-[1%]"
           title="Get In Touch "

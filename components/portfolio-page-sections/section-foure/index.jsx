@@ -1,26 +1,26 @@
 import React from "react";
 import SectionTitle from "@/components/common/section-title";
 import Link from "next/link";
-import Image from "next/image"; 
+import Image from "next/image";
 import OutlinedButton from "@/components/common/buttons/outlined";
 function SectionFoure() {
   return (
     <section className="w-full  bg-g21 ">
       <div className="container max-w-none overflow-hidden ">
-        <div className="grid grid-cols-12 lg:grid-cols-12 lg:h-[70vh] ">
+        <div className="grid grid-cols-12 lg:grid-cols-12 lg:min-h-[70vh] ">
           <div className="order-2 lg:order-1 h-[10rem] lg:h-auto relative col-span-12 lg:col-span-7 flex justify-center items-center ">
-            <div className="absolute lg:-left-32 bottom-0 w-[120%] lg:w-[56vw] ">
+            <div className="absolute lg:-left-32 bottom-0 w-[120%] lg:w-[56.5vw] ">
               {/* w-[56rem] */}
               <Image
-                  width={100}
-                  height={100}
-                  className=" w-full h-full object-cover  "
-                  src={"/portfolio/sec4.svg"}
-                  alt={"picture"}
+                width={100}
+                height={100}
+                className=" w-full h-full object-cover  "
+                src={"/portfolio/sec4.svg"}
+                alt={"picture"}
               />
             </div>
           </div>
-          <div className="order-1 lg:order-2 py-24 col-span-12 lg:col-span-5 flex flex-col justify-center items-start ">
+          <div className="order-1 lg:order-2 pt-0 pb-28 lg:pt-24 lg:pb-24  col-span-12 lg:col-span-5 flex flex-col justify-center items-start ">
             <SectionTitle classes="text-gf" title="Arefset " />
             <h3 className="lg:text-[1.58rem] inline-block text-gDarkYellow font-Holispay">
               Teaching and testing application for students
@@ -32,8 +32,11 @@ function SectionFoure() {
               eiusmod tempor incididunt ut labore et dolore magna aliqua.
             </p>
             <div className="py-4 flex justify-start items-center">
-
-              <OutlinedButton classes="border-gf text-gf"  title=' See More Detail ' link='/' />
+              <OutlinedButton
+                classes="border-gf text-gf hover:text-g21"
+                title=" See More Detail "
+                link="/"
+              />
             </div>
           </div>
         </div>

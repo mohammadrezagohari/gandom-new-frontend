@@ -7,9 +7,9 @@ function SectionThree() {
   return (
     <section className="w-full bg-gf5   ">
       <div className="container max-w-none overflow-x-hidden lg:overflow-y-hidden ">
-        <div className=" relative grid grid-cols-12 lg:grid-cols-12 lg:h-[70vh]">
+        <div className=" relative grid grid-cols-12 lg:grid-cols-12 lg:min-h-[70vh]">
 
-          <div className="order-2 lg:order-1 py-12 lg:py-24 col-span-12 lg:col-span-5 flex flex-col justify-center items-start ">
+          <div className="z-10 order-2 lg:order-1 pt-0 pb-9 lg:pt-24 lg:pb-24 col-span-12 lg:col-span-5 flex flex-col justify-center items-start ">
             <SectionTitle classes="text-g21" title="Beauty Salon Rezarv " />
             <h3 className=" lg:text-[1.58rem] inline-block text-gDarkYellow font-Holispay">
               Teaching and testing application for students
@@ -29,7 +29,7 @@ function SectionThree() {
           <div className="order-1 lg:order-2  lg:h-auto h-64 lg:absolute  lg:left-auto lg:-right-24 lg:top-0 lg:bottom-0  col-span-12 lg:col-span-7 flex justify-center items-center ">
             <div
             style={{boxShadow: 'inset 0px -60px 83px -6px #f5f5f5'}}
-            className=" absolute -top-32 -right-10 -left-4 lg:relative lg:top-1 lg:right-auto lg:left-auto w-[110%] lg:w-[62vw]  ">
+            className="z-0 absolute -top-40 -right-10 -left-4 lg:relative lg:top-1 lg:right-auto lg:left-auto w-[110%] lg:w-[65vw]  ">
               <Image
                 width={100}
                 height={100}

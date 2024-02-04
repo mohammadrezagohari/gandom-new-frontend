@@ -4,15 +4,15 @@ import React from 'react'
 
 function ContactUs() {
   return (
-    <main className="w-full min-h-screen" >
-        <section className="container max-w-none lg:!px-28 mt-5 lg:mt-9" >
+    <main className="w-full" >
+        <section className="container max-w-none px-0 lg:!px-[7.291666666666667vw] mt-5 lg:mt-[2.34375vw]" >
           <div className="lg:hidden flex items-center justify-center my-7">
-            <h1 className={`text-left lg:text-[3.7rem] lg:leading-[84.75px] text-[38px] leading-[40.68px] font-Holispay gap-3`}>
+            <h1 className={`text-left lg:text-[61.666666666666664vw] lg:leading-[5.517578125vw] text-[38px] leading-[40.68px] font-Holispay gap-6 lg:gap-3`}>
               <span className="text-g21">Contact</span>
               <span className="text-gYellow">Us</span>
             </h1>
           </div>
-          <div className=" my-5 lg:my-10 w-full relative lg:p-9 rounded-3xl h-full grid grid-cols-12 lg:grid-cols-12 gap-8 lg:border-[1px] lg:border-g21 " >
+          <div className=" my-5 lg:my-[2.6041666666666665vw] w-full relative p-0 lg:p-[2vw] rounded-3xl h-full grid grid-cols-12 lg:grid-cols-12 gap-8 lg:gap-[1.5vw] lg:border-[1px] lg:border-g21 " >
             
             <div className=" hidden lg:block bg-gf w-[32vw] absolute -top-[1px] -right-[1px] rounded-bl-2xl  border-l-[1px] border-b-[1px] border-l-g21 border-b-g21 border-t-gf border-r-gf pl-5 pb-5
               before:absolute before:w-6 before:h-6 
@@ -33,21 +33,21 @@ function ContactUs() {
 
               <div className="">
                 <h1
-                className={`text-left lg:text-[3.7rem] lg:leading-[84.75px] text-[38px] leading-[40.68px] font-Holispay gap-2`}
+                className={`text-left lg:text-[3.8541666666666665vw] lg:leading-[5.517578125vw] text-[38px] leading-[40.68px] font-Holispay gap-2`}
                 >
-                <span className="text-g21">Contact</span>
+                <span className="text-g21 pe-[0.78125vw]">Contact</span>
                 <span className="text-gYellow">Us</span>
                 </h1>
-                <span className='text-[1.1rem] lg:text-[1.3rem] text-[#212121B2] font-PoppinsRegular' >Lorem Ipsum</span>
+                <span className='text-[1.1rem] lg:text-[1.3541666666666667vw] text-[#212121B2] font-PoppinsRegular' >Lorem Ipsum</span>
                 
               </div>
             </div>
 
-
-            <div className="order-2 lg:order-1 border-2 col-span-12 lg:col-span-8 flex items-end justify-center">
+            <div className="order-2 lg:order-1  col-span-12 lg:col-span-8 flex items-center lg:items-end justify-center">
               <FormBox />
             </div>
-            <div className="order-1 lg:order-2 border-2 col-span-12 lg:col-span-4 flex items-end justify-center">
+
+            <div className="order-1 lg:order-2  col-span-12 lg:col-span-4 flex items-center lg:items-end justify-center">
               <YellowBox />
             </div>
           

@@ -10,7 +10,7 @@ function SectionTwo() {
       <div className="container max-w-none ">
         <div className="grid grid-cols-12 lg:grid-cols-12 lg:gap-0 ">
           <div className="relative h-[450px] lg:h-auto order-2 lg:order-1 col-span-12 lg:col-span-7 flex justify-center items-center ">
-            <div className="h-full lg:h-auto lg:absolute lg:-bottom-4 w-[120%] lg:w-[62.5rem] ">
+            <div className="h-full lg:h-auto lg:absolute lg:-bottom-4 w-[120%] lg:w-[68rem] ">
               <Image
                 width={100}
                 height={100}
@@ -20,7 +20,7 @@ function SectionTwo() {
               />
             </div>
           </div>
-          <div className=" py-20 order-1 lg:order-2 col-span-12 lg:col-span-5 flex flex-col justify-center items-start ">
+          <div className="py-10 lg:py-20 order-1 lg:order-2 col-span-12 lg:col-span-5 flex flex-col justify-center items-start ">
             <SectionTitle classes="text-gf" title=" Testato " />
             <h3 className="text-lg lg:text-[1.58rem] inline-block text-gDarkYellow font-Holispay">
               Teaching and testing application for students
@@ -33,7 +33,7 @@ function SectionTwo() {
             </p>
             <div className="py-4 flex justify-start items-center">
 
-              <OutlinedButton classes="border-gf text-gf"  title=' See More Detail ' link='/' />
+              <OutlinedButton classes="border-gf text-gf hover:text-g21"  title=' See More Detail ' link='/' />
             </div>
           </div>
         </div>

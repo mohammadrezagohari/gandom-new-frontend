@@ -46,10 +46,10 @@ function ProcessSection() {
 
     <div className="container max-w-none">
       <SectionTitle classes="text-g21" title="Our Process" />
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 lg:gap-5 ">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 lg:gap-[1.3020833333333333vw] ">
         {
           process.map((item,i)=>(
-            <ProcessCard parentClasses="p-3 pb-8 gap-3 lg:gap-4" circleClasses="w-[4.5rem] h-[4.5rem]  lg:w-[5.5rem] lg:h-[5.5rem] bg-transparent border-[1px] border-g21 text-[3rem] lg:text-[3.5rem]" number={item.number} titleClasses="text-gDarkYellow lg:text-2xl  text-xl text-justify font-Holispay" title={item.title} descClasses="text-g8 text-[0.813rem] text-justify font-PoppinsLight line-clamp-5" desc={item.desc} key={i} />
+            <ProcessCard parentClasses="p-2 pb-7 lg:p-[0.78125vw] lg:pb-[2.0833333333333335vw] gap-3 lg:gap-[1.0416666666666667vw]" circleClasses="w-[4.5rem] h-[4.5rem]  lg:w-[5.729166666666667vw] lg:h-[5.729166666666667vw] bg-transparent border-[1px] border-g21 text-[2.5rem] lg:text-[3.6458333333333335vw]" number={item.number} titleClasses="text-gDarkYellow lg:text-[1.5625vw]  text-xl text-justify font-Holispay" title={item.title} descClasses="text-g8 text-[0.813rem] lg:text-[0.8468749999999999vw] lg:text-justify font-PoppinsLight line-clamp-4 tracking-wide" desc={item.desc} key={i} />
           ))
         }
       </div>

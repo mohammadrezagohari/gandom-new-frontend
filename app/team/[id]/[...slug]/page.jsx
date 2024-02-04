@@ -4,8 +4,8 @@ import { IoLogoInstagram } from "react-icons/io";
 import Image from 'next/image'
 import Link from "next/link";
 
-async function TeamSinglePage({ params }) {
-  const data = await getSinglePostData(params.id);
+async function TeamSinglePage() {
+  // const data = await getSinglePostData(params.id)
   const skills=[
     {id:1,title:"Futter Developer"},
     {id:2,title:"Mobile Developer"},

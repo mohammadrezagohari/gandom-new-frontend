@@ -6,7 +6,7 @@ function FilledYellowButton({link,title,classes}) {
     <>
     <Link
        href={link}
-       className={` border-[1px] text-center transition-all duration-500 border-gYellow hover:border-gDarkYellow bg-gYellow hover:bg-gDarkYellow text-g21 text-md lg:text-base font-PoppinsSemiBold rounded-lg ${classes} py-2 px-12 lg:px-10`}
+       className={` border-[1px] text-center transition-all duration-500 border-gYellow hover:border-gDarkYellow bg-gYellow hover:bg-gDarkYellow text-g21 text-md lg:text-[1.0416666666666667vw] font-PoppinsSemiBold rounded-lg ${classes} py-2 px-12 lg:px-[2.6041666666666665vw]`}
      >
       {title}
      </Link>

@@ -6,7 +6,7 @@ function OutlinedYellowButton({handleOpen,title}) {
     <>
         <button
           onClick={handleOpen}
-          className=" border-[1px] border-gYellow text-gf text-md lg:text-base font-PoppinsLight rounded-lg py-2 px-8 lg:px-10"
+          className=" border-[1px] border-gYellow text-gf text-md lg:text-[1.0416666666666667vw] font-PoppinsLight rounded-lg py-2 px-8 lg:px-[2.6041666666666665vw]"
         >
           {title}
         </button>

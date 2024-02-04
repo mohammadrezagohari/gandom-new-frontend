@@ -33,7 +33,7 @@ function TeamSection() {
           />
         </div>
 
-        <div className="w-full   grid grid-cols-12 lg:grid-cols-12 lg:gap-3 ">
+        <div className="w-full grid grid-cols-12 lg:grid-cols-12 lg:gap-3 ">
           
           <div className=" lg:order-1 order-3 col-span-12 lg:col-span-2 flex items-center justify-start">
             <div className="w-full h-full flex flex-col justify-center items-center lg:items-start gap-12">
@@ -51,7 +51,7 @@ function TeamSection() {
             </div>
             <div className="w-full  hidden lg:flex flex-1 flex-col items-center justify-center  gap-2 lg:gap-4 ">
               <GridCard parentClasses="bg-[#ccc] min-h-[15.25rem] lg:h-[15.8vw] " hoverClasses="" position="Product designer3" name="Ali Asadpuor" link="/" img='' />
-              <GridCard parentClasses="bg-[#ccc] min-h-[16.563rem] lg:h-[17.2vw] " hoverClasses="" position="Product designer4" name="Ali Asadpuor" link="/" img='' />
+              <GridCard parentClasses="bg-[#ccc] min-h-[16.563rem] lg:h-[17.08vw] " hoverClasses="" position="Product designer4" name="Ali Asadpuor" link="/" img='' />
             </div>
             <div className="w-full  flex flex-1 flex-col items-center justify-center  gap-2 lg:gap-4 ">
               <GridCard parentClasses="bg-[#ccc] min-h-[11.887rem] lg:h-[22.5vw] rounded-tr-[50%]" hoverClasses="rounded-tr-[50%]" position="Product designer5" name="Ali Asadpuor" link="/" img='/mrfamuse.svg' />

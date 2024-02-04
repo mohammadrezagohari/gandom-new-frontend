@@ -25,12 +25,10 @@ async function ArticleSection() {
 
           ))
         }
-         {/* <RecentArticleBox  />
-         <RecentArticleBox  />
-         <RecentArticleBox  /> */}
+        
        </div>
 
-       <div className="my-8 lg:mt-14 flex items-center justify-center">
+       <div className="mb-8 mt-8 lg:mb-[2.0833333333333335vw] lg:mt-[3.6458333333333335vw] flex items-center justify-center">
 
         <OutlinedButton classes="border-g21 text-g21"  title='See More' link='/article' />
        </div>

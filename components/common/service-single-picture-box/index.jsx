@@ -6,7 +6,7 @@ function ServiceSinglePictureBox({classes,circleClasses,circleLgYellow,circleSmY
   return (
     
       <div 
-        
+         
         className={`lg:h-[33.33vw] h-[14.75rem] relative bg-no-repeat bg-center bg-cover  ${classes} `}>
         {/* PictureBox */}
 

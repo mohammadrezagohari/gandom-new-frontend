@@ -45,7 +45,7 @@ function ReasonsToWorkSection() {
     
   ];
   return (
-    <section className="w-full py-10">
+    <section className="w-full py-10 lg:py-[2.6041666666666665vw] overflow-x-hidden">
       <div className="serviceCont">
           <div className=" grid grid-cols-12 gap-9 lg:gap-5">
             <ReasonsToWorkSlider reasons={reasons} /> 

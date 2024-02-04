@@ -9,7 +9,7 @@ function SectionOne() {
     <section className="w-full bg-gf5 py-12 lg:py-24 ">
       <div className="container max-w-none  ">
         <div className="grid grid-cols-12 lg:grid-cols-12 gap-5 lg:gap-0 ">
-          <div className="order-2 lg:order-1 col-span-12 lg:col-span-5 flex flex-col justify-center items-start ">
+          <div className="z-10 order-2 lg:order-1 col-span-12 lg:col-span-5 flex flex-col justify-center items-start ">
             <SectionTitle classes="text-g21" title="Online Style" />
             <h3 className="text-lg lg:text-[1.58rem] inline-block text-gDarkYellow font-Holispay">
               Teaching and testing application for students
@@ -25,8 +25,8 @@ function SectionOne() {
               <OutlinedButton classes="border-g21 text-g21"  title=' See More Detail ' link='/' />
             </div>
           </div>
-          <div className="order-1 lg:order-2 col-span-12 lg:col-span-7 flex justify-center items-center  ">
-            <div className=" w-full lg:w-[62.5rem]  ">
+          <div className="z-0 order-1 lg:order-2 col-span-12 lg:col-span-7 flex justify-center items-center  ">
+            <div className=" w-full lg:w-[65rem]  ">
               <Image
                 width={100}
                 height={100}

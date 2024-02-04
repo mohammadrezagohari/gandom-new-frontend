@@ -63,7 +63,7 @@ function OurworkSection() {
     <section className="w-full pb-10 ">
       <div className="serviceCont">
 
-          <div className="hidden lg:grid lg:grid-cols-12   mid:gap-9 lg:gap-5">
+          <div className="hidden lg:grid lg:grid-cols-12   mid:gap-9 lg:gap-[1.3020833333333333vw]">
 
              <OurWorkSlider service={service} />
           </div>

@@ -5,7 +5,7 @@ import SectionCounter from "@/components/common/service-section-counter";
 
 function SectionFive() {
   return (
-    <section className="w-full py-8 lg:py-12">
+    <section className="w-full py-8 lg:py-[3.125vw]">
 
         <div style={{transform:' rotateY(180deg)',}} className="serviceCont px-[1rem] md:px-[2rem] lg:px-0 gap-2 lg:gap-0 min-h-[505px] grid grid-cols-12 grid-rows-2 ">
           <div style={{transform:' rotateY(180deg)',}} className="col-span-1 row-span-2  order-1">

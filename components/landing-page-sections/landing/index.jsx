@@ -9,6 +9,7 @@ import AboutSection from "../about-section";
 import CompanySection from "../company-section";
 
 const Landing = () => {
+    const aboutSec = useRef();
     const scrollProgress=useRef()
 
     let scrollPercentage=()=>{
@@ -28,13 +29,13 @@ const Landing = () => {
     //     scrollPercentage()
     // }, []);
     return ( 
-        <main className="">
+        <main className=" !overflow-x-hidden">
             <ScrollIndicator scrollProgress={scrollProgress}  />
             <HeadSection />
             <ServiceSection />
             <OurworkSection />
             <ContactSection />
-            <AboutSection />
+            <AboutSection aboutSec={aboutSec} />
             <CompanySection />
         </main>
     );

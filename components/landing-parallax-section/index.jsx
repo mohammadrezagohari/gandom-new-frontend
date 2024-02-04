@@ -58,12 +58,12 @@ function ParallaxPart() {
                         backgroundAttachment: 'fixed'
                     }}
                 />
-                
-                <GlassmorphismBox
-                    title="The clothing brand AREF"
-                    link="https://arefset.com"
-                    desc="To learn more about the AREF clothing brand that combines sport and classic styles, I recommend checking their official website, social media pages, or reputable fashion retail platforms for the latest information on their collections, design philosophy, and available products."
+                 <GlassmorphismBox
+                    title="ّFree Cancer Website learning"
+                    link={"https://freecancer.ir/"}
+                    desc="A dedicated medical institution's website on cancer treatment features comprehensive educational resources, treatment options, and support services. It emphasizes patient stories, clinical expertise, and community engagement, providing a holistic approach to empower individuals facing cancer."
                 />
+                
             </section>
             <section
                 className="relative h-screen  flex justify-center items-start lg:justify-start lg:items-end pt-[15%] lg:pb-28 lg:pl-14">
@@ -99,10 +99,10 @@ function ParallaxPart() {
                         backgroundAttachment: 'fixed'
                     }}
                 />
-                <GlassmorphismBox
-                    title="ّFree Cancer Website learning"
-                    link={"https://freecancer.ir/"}
-                    desc="A dedicated medical institution's website on cancer treatment features comprehensive educational resources, treatment options, and support services. It emphasizes patient stories, clinical expertise, and community engagement, providing a holistic approach to empower individuals facing cancer."
+               <GlassmorphismBox
+                    title="The clothing brand AREF"
+                    link="https://arefset.com"
+                    desc="To learn more about the AREF clothing brand that combines sport and classic styles, I recommend checking their official website, social media pages, or reputable fashion retail platforms for the latest information on their collections, design philosophy, and available products."
                 />
             </section>
         </div>

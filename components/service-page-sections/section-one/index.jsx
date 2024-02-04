@@ -3,13 +3,13 @@ import React from "react";
 import SectionTitle from "@/components/common/section-title";
 import SectionCounter from "@/components/common/service-section-counter";
 
-
+ 
 function SectionOne() {
   return (
-    <section className="w-full py-8 lg:py-12">
+    <section className="w-full py-8 lg:py-[3.125vw]">
         <div style={{transform:' rotateY(180deg)',}} className="serviceCont px-[1rem] md:px-[2rem] lg:px-0 gap-2 lg:gap-0 min-h-[505px] grid grid-cols-12 grid-rows-2 ">
           <div style={{transform:' rotateY(180deg)',}} className="col-span-1 row-span-2  order-1">
-              <SectionCounter writingMode="vertical-lr" classes="h-full" lineHeight="bg-g4c h-[64%] lg:h-[49%]" title=" Software Development" count="02" />
+              <SectionCounter writingMode="vertical-lr" classes="h-full" lineHeight="bg-g4c h-[64%] lg:h-[49%]" title=" Software Development" count="01" />
           </div> 
           <div style={{transform:' rotateY(180deg)',}} className="col-span-11 lg:col-span-5 lg:row-span-2 row-span-1 order-3 lg:order-2">
             <SectionTitle classes="text-g21" title="Software Development" />

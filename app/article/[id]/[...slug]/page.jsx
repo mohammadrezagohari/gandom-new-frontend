@@ -24,12 +24,12 @@ const ServiceSinglePage = async ({ params }) => {
     <>
       {/* ServiceSinglePage */}
       <h1
-        className={`text-g25 lg:text-[3.7rem] text-start lg:leading-[84.75px] text-[1.7rem] leading-[40.68px] font-Holispay`}
+        className={`text-g25 lg:text-[3.7vw] text-start lg:leading-[5.517578125vw] text-[1.7rem] leading-[40.68px] font-Holispay`}
       >
         {data.title}
         {/* We are a leader in the field of web and mobile software services */}
       </h1>
-      <p className="text-g8 lg:text-[1.23vw] text-justify lg:leading-[1.95vw] text-base leading-6 font-PoppinsRegular pb-6">
+      <p className=" tracking-wide font-normal  text-g8 lg:text-[1.23vw] text-justify lg:leading-[1.95vw] text-base leading-6 font-PoppinsRegular py-6">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna.Lorem ipsum dolor sit amet,
         consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
@@ -78,7 +78,7 @@ const ServiceSinglePage = async ({ params }) => {
         />
         {/* artti */}
       </div>
-      <p className="text-g8 lg:text-[1.23vw] text-justify lg:leading-[1.95vw] text-base leading-6 font-PoppinsRegular py-6">
+      <p className=" tracking-wide font-normal  text-g8 lg:text-[1.23vw] text-justify lg:leading-[1.95vw] text-base leading-6 font-PoppinsRegular py-6">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna.Lorem ipsum dolor sit amet,
         consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
