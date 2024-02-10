@@ -30,7 +30,7 @@ export default function RootLayout({ children }) {
           name="google-site-verification"
           content="Te99GpNYx_dMXAGjx_zT6mk9EK-OlmFAyiuV6FaGJKw"
         />
-        <title>Gandom Software Group | Web Development Services</title>
+        <title>گروه مهندسین گسترش افزار گندم | Gandom Software Group | Web Development Services</title>
         <meta name="description" content="Gandom provides top-tier SEO software solutions and bespoke web development services tailored to elevate your digital presence and drive business success." />
         <meta name="keywords" content="SEO, web development, Gandom, digital marketing, SEO tools, website services, online branding, programming, tech solutions" />
         <meta name="robots" content="index, follow" />
