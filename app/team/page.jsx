@@ -1,6 +1,6 @@
 
+import ContentSection from '@/components/page/team/content-section'
 import React from 'react' 
-import ContentSection from './../../components/team-page-sections/content-section/index';
 
 function Team() {
   return (

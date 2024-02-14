@@ -1,6 +1,6 @@
-import ArticleSection from "@/components/weblog-page-sections/article-section";
-import HeaderSection from "@/components/weblog-page-sections/header-section";
-import VideoSection from "@/components/weblog-page-sections/video-section";
+import ArticleSection from "@/components/page/weblog/article-section";
+import HeaderSection from "@/components/page/weblog/header-section";
+import VideoSection from "@/components/page/weblog/video-section";
 import React from "react";
 
 function Weblog() {

@@ -1,10 +1,10 @@
 import React from 'react'
 import videoItem from '@/core/services/api/videos';
 import { getSinglePostData } from '@/core/services/api/videos';
-import VideoPlayerSection from '@/components/videos-single-page-sections/video-player-section';
-import VideoContent from '@/components/videos-single-page-sections/video-content';
-import CommentSection from "@/components/videos-single-page-sections/comment-section";
-import RelatedPostSection from "@/components/videos-single-page-sections/related-post-section";
+import VideoPlayerSection from '@/components/page/videos-single/video-player-section';
+import VideoContent from '@/components/page/videos-single/video-content';
+import CommentSection from "@/components/page/videos-single/comment-section";
+import RelatedPostSection from "@/components/page/videos-single/related-post-section";
 
 
 

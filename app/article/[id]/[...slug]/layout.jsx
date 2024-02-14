@@ -1,4 +1,4 @@
-import ArticleContent from "@/components/article-single-page-sections/article-content";
+import ArticleContent from "@/components/page/article-single/article-content";
 import { getMoviesData } from "@/core/services/api/movies";
 import Link from "next/link";
 import Image from "next/image";

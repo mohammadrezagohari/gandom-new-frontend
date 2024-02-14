@@ -6,9 +6,9 @@ import Link from "next/link";
 import Image from "next/image";
 import SectionTitle from "@/components/common/section-title";
 import MassageBox from "@/components/common/massage-box-form";
-import MessageSection from "@/components/article-single-page-sections/message-section";
-import CommentSection from "@/components/article-single-page-sections/comment-section";
-import RelatedPostSection from "@/components/article-single-page-sections/related-post-section";
+import MessageSection from "@/components/page/article-single/message-section";
+import CommentSection from "@/components/page/article-single/comment-section";
+import RelatedPostSection from "@/components/page/article-single/related-post-section";
 
 const ServiceSinglePage = async ({ params }) => {
   const data = await getSinglePostData(params.id);

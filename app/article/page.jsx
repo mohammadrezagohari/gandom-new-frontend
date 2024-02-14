@@ -1,5 +1,5 @@
-import HeaderSection from "@/components/articles-page-sections/header-section";
-import ContentSection from "@/components/articles-page-sections/content-section";
+import HeaderSection from "@/components/page/articles/header-section";
+import ContentSection from "@/components/page/articles/content-section";
 
 function Articles() {
   return (

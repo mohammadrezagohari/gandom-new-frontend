@@ -1,9 +1,9 @@
-import SectionFive from "@/components/service-page-sections/section-five";
-import SectionFoure from "@/components/service-page-sections/section-foure";
-import SectionOne from "@/components/service-page-sections/section-one";
-import SectionSix from "@/components/service-page-sections/section-six";
-import SectionThree from "@/components/service-page-sections/section-three";
-import SectionTwo from "@/components/service-page-sections/section-two";
+import SectionFive from "@/components/page/service/section-five";
+import SectionFoure from "@/components/page/service/section-foure";
+import SectionOne from "@/components/page/service/section-one";
+import SectionSix from "@/components/page/service/section-six";
+import SectionThree from "@/components/page/service/section-three";
+import SectionTwo from "@/components/page/service/section-two";
 import React from "react";
 
 function Services() {

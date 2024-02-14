@@ -1,8 +1,8 @@
-import ContactUsSection from '@/components/aboutUs-page-sections/contactus-section'
-import HeaderSection from '@/components/aboutUs-page-sections/header-section'
-import JoinSection from '@/components/aboutUs-page-sections/join-section'
-import PropertySection from '@/components/aboutUs-page-sections/property-section'
-import TeamSection from '@/components/aboutUs-page-sections/team-section'
+import ContactUsSection from '@/components/page/about/contactus-section'
+import HeaderSection from '@/components/page/about/header-section'
+import JoinSection from '@/components/page/about/join-section'
+import PropertySection from '@/components/page/about/property-section'
+import TeamSection from '@/components/page/about/team-section'
 import React from 'react'
 
 function AboutUs() {

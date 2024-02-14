@@ -1,8 +1,8 @@
-import SectionFive from "@/components/portfolio-page-sections/section-five";
-import SectionFoure from "@/components/portfolio-page-sections/section-foure";
-import SectionOne from "@/components/portfolio-page-sections/section-one";
-import SectionThree from "@/components/portfolio-page-sections/section-three";
-import SectionTwo from "@/components/portfolio-page-sections/section-two";
+import SectionFive from "@/components/page/portfolio/section-five";
+import SectionFoure from "@/components/page/portfolio/section-foure";
+import SectionOne from "@/components/page/portfolio/section-one";
+import SectionThree from "@/components/page/portfolio/section-three";
+import SectionTwo from "@/components/page/portfolio/section-two";
 import React from "react";
 
 function Portfolio() {

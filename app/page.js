@@ -1,12 +1,12 @@
 import Image from 'next/image'
-import AboutSection from '@/components/landing-page-sections/about-section'
-import CompanySection from '@/components/landing-page-sections/company-section'
-import ContactSection from '@/components/landing-page-sections/contact-section'
-import HeadSection from '@/components/landing-page-sections/header-section'
-import OurworkSection from '@/components/landing-page-sections/ourwork-section'
-import ServiceSection from '@/components/landing-page-sections/service-section'
+import AboutSection from '@/components/page/landing/about-section'
+import CompanySection from '@/components/page/landing/company-section'
+import ContactSection from '@/components/page/landing/contact-section'
+import HeadSection from '@/components/page/landing/header-section'
+import OurworkSection from '@/components/page/landing/ourwork-section'
+import ServiceSection from '@/components/page/landing/service-section'
 import ScrollIndicator from '@/components/common/scroll-indicator'
-import Landing from '@/components/landing-page-sections/landing'
+import Landing from '@/components/page/landing/landing'
 
 export default function Home() {
   return (

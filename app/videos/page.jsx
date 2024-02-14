@@ -1,6 +1,7 @@
+import ContentSection from "@/components/page/videos/content-section";
+import HeaderSection from "@/components/page/videos/header-section";
 import React from "react";
-import HeaderSection from "./../../components/videos-page-sections/header-section/index";
-import ContentSection from "@/components/videos-page-sections/content-section";
+
 
 function Video() {
   return (
