@@ -24,7 +24,7 @@ function SectionTwo() {
           </div>
           <div className="col-span-11 lg:col-span-6 lg:row-span-2 row-span-1  order-2 lg:order-3">
             <div className="w-full flex items-start justify-end">
-                 <PictureBox href="/service/seo" circleLgYellow="before:shadow-[53px_0px_0px_0px_#ececec] after:shadow-[53px_14px_0px_0px_#ececec]" circleSmYellow="before:shadow-[-7px_16px_0px_0px_#ececec] after:shadow-[1px_16px_0px_0px_#ececec]" circleClasses="bg-gec " classes="pictureBoxRtl bg-[url(/wimg.png)] rounded-l-lg rounded-r-lg lg:rounded-r-0 lg:rounded-l-lg w-full lg:w-[88%] lg:h-[30.92vw] h-[13.188rem]" />
+                 <PictureBox href="/service/seo" circleLgYellow="before:shadow-[53px_0px_0px_0px_#ececec] after:shadow-[53px_14px_0px_0px_#ececec]" circleSmYellow="before:shadow-[-7px_16px_0px_0px_#ececec] after:shadow-[1px_16px_0px_0px_#ececec]" circleClasses="bg-gec " classes="pictureBoxRtl bg-[url(/img/s_3.jpg)] rounded-l-lg rounded-r-lg lg:rounded-r-0 lg:rounded-l-lg w-full lg:w-[88%] lg:h-[30.92vw] h-[13.188rem]" />
                 {/* <Link href={`/service/seo`}>
                 </Link> */}
             </div>

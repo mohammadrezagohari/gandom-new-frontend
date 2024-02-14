@@ -20,7 +20,7 @@ function SectionFive() {
             </p>
           </div>
           <div style={{transform:' rotateY(180deg)',}} className="col-span-11 lg:col-span-6 lg:row-span-2 row-span-1 order-2 lg:order-3">
-             <PictureBox  circleLgYellow="before:shadow-[53px_0px_0px_0px_#fff] after:shadow-[53px_14px_0px_0px_#fff]" circleSmYellow="before:shadow-[-7px_16px_0px_0px_#fff] after:shadow-[1px_16px_0px_0px_#fff]" circleClasses="bg-gf"  classes="bg-[url(/wimg.png)] rounded-l-lg rounded-r-lg lg:rounded-l-0 lg:rounded-r-lg w-full lg:w-[88%] lg:h-[30.92vw] h-[13.188rem]" />
+             <PictureBox  circleLgYellow="before:shadow-[53px_0px_0px_0px_#fff] after:shadow-[53px_14px_0px_0px_#fff]" circleSmYellow="before:shadow-[-7px_16px_0px_0px_#fff] after:shadow-[1px_16px_0px_0px_#fff]" circleClasses="bg-gf"  classes="bg-[url(/img/s_5.jpg)] rounded-l-lg rounded-r-lg lg:rounded-l-0 lg:rounded-r-lg w-full lg:w-[88%] lg:h-[30.92vw] h-[13.188rem]" />
           </div>
         </div>
         {/*/services/pic4.png     /wimg.png */}

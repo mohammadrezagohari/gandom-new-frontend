@@ -29,7 +29,7 @@ function SectionThree() {
           <div className="order-1 lg:order-2  lg:h-auto h-64 lg:absolute  lg:left-auto lg:-right-24 lg:top-0 lg:bottom-0  col-span-12 lg:col-span-7 flex justify-center items-center ">
             <div
             style={{boxShadow: 'inset 0px -60px 83px -6px #f5f5f5'}}
-            className="z-0 absolute -top-40 -right-10 -left-4 lg:relative lg:top-1 lg:right-auto lg:left-auto w-[110%] lg:w-[65vw]  ">
+            className="z-0 absolute buttom-auto -top-40 -right-10 -left-4 lg:relative lg:top-1 lg:buttom-0 lg:right-auto lg:left-auto w-[110%] lg:w-[68vw]  ">
               <Image
                 width={100}
                 height={100}

@@ -2,7 +2,8 @@ import SectionTitle from "@/components/common/section-title";
 import OutlinedButton from "@/components/common/buttons/outlined";
 import Link from 'next/link'
 import Image from "next/image";
-import GridCard from "../../common/cards/grid-card-about-page";
+import GridCard from "@/components/common/cards/grid-card-about-page";
+
 
 function TeamSection() {
   const statisticsItems=[
@@ -24,7 +25,7 @@ function TeamSection() {
   ]
   return ( 
     <section className='w-full'>
-      <div className=" container max-w-none h-auto lg:h-screen bg-gf flex flex-col items-center justify-start gap-8">
+      <div className=" container max-w-none h-auto lg:min-h-screen bg-gf flex flex-col items-center justify-start gap-8">
 
         <div className="w-full lg:w-[50%] text-center">
           <SectionTitle

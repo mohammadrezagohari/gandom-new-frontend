@@ -12,7 +12,7 @@ function Portfolio() {
         Portfolio
       </h1> 
 
-      <div className="flex flex-col justify-start items-center mb-[2.6rem]">
+      <div className="flex flex-col justify-start items-center ">
         <SectionOne />
         <SectionTwo />
         <SectionThree />

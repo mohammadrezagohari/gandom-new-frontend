@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { CgMenuLeft, CgClose } from "react-icons/cg";
 import { CiSearch } from "react-icons/ci";
 import LanguageButton from "../common/buttons/language";
+import MenuItem from "../common/menu-item";
 function Navbar() {
   const pathname = usePathname();
   const [keyWord, setKeyWord] = useState("");
@@ -29,6 +30,16 @@ function Navbar() {
       html.style.overflow = fade ? "hidden" : "auto";
     }
   }, [fade]); 
+
+  const menuIt=[
+    {id:1,title:"Our services",desc:"Current page",link:"/service",classes:"lg:h-[9.440104166666666vw] h-[71px] border-[1px]  text-center rounded-lg col-span-1 lg:col-span-3"},
+    {id:2,title:"Home",desc:"Current page",link:"/",classes:"lg:h-[9.440104166666666vw] h-[71px] border-[1px] border-gYellow text-center rounded-lg col-span-1 lg:col-span-4"},
+    {id:3,title:"Contact Us",desc:"Current page",link:"/contact",classes:"lg:h-[9.440104166666666vw] h-[71px] border-[1px] border-gYellow text-center rounded-lg col-span-1 lg:col-span-2"},
+    {id:4,title:"Customers",desc:"Current page",link:"/",classes:"lg:h-[9.440104166666666vw] h-[71px] border-[1px] text-center rounded-lg col-span-1 lg:col-span-3"},
+    {id:5,title:"Weblog",desc:"Current page",link:"/weblog",classes:"lg:h-[9.440104166666666vw] h-[71px] border-[1px] text-center rounded-lg col-span-1 lg:col-span-2"},
+    {id:6,title:"Portfolio",desc:"Current page",link:"/portfolio",classes:"lg:h-[9.440104166666666vw] h-[71px] border-[1px] text-center rounded-lg col-span-1 lg:col-span-4"},
+    {id:7,title:"About Us",desc:"Current page",link:"/about-us",classes:"lg:h-[9.440104166666666vw] h-[71px] border-[1px] border-gYellow text-center rounded-lg col-span-1 lg:col-span-3"},
+  ]
 
   return (
     <nav  className={`w-full  ${pathname == "/" || pathname=="/service/seo" || pathname=="/about-us" ? "bg-g21" : "bg-gf"} `}>
@@ -93,7 +104,7 @@ function Navbar() {
      
             <div
               className={`transition-all  ${fade ? "opacity-100 visible" : "opacity-0 invisible"}  overflow-y-scroll lg:overflow-hidden transition ease-in-out fixed z-40 top-[0] bottom-0 left-0 right-0  ${
-                pathname == "/" || pathname=="/service/seo" || pathname=="/abocontainerpxut-us" ? "bg-g21" : "bg-gf"
+                pathname == "/" || pathname=="/service/seo"  || pathname=="/about-us" ? "bg-g21" : "bg-gf"
               }  py-6 lg:py-10`}
             >
               <div className={`transition ease-in-out delay-150 container max-w-none `}>
@@ -167,112 +178,13 @@ function Navbar() {
                 </div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-7 gap-4 lg:gap-[1.5625vw]">
-                  <Link
-                    onClick={closeMenu}
-                    href="/service"
-                    className={`${
-                      pathname == "/" || pathname=="/service/seo" || pathname=="/about-us" ? "menuItem border-gec " : "menuItemWhiteBg border-g8"
-                    }  lg:h-[9.440104166666666vw] h-[71px] border-[1px]  text-center rounded-lg col-span-1 lg:col-span-3`}
-                  >
-                    <h4 className={`${
-                      pathname == "/" || pathname=="/service/seo" || pathname=="/about-us" ? "text-gec " : "text-g8"
-                    } lg:text-[4.361979166666667vw] lg:leading-[5.517578125vw] text-[38px] leading-[40.68px] font-Holispay`} >
-                      Our services
-                    </h4>
-                    <span className="text-gDarkYellow lg:text-[1.5625vw] lg:leading-[1.8313802083333333vw] text-[12px] leading-[14.06px] font-Holispay ">
-                      Current page
-                    </span>
-                  </Link>
-                  <Link
-                    onClick={closeMenu}
-                    href="/"
-                    className={`${
-                      pathname == "/" || pathname=="/service/seo" || pathname=="/about-us" ? "menuItem" : "menuItemWhiteBg"
-                    } lg:h-[9.440104166666666vw] h-[71px] border-[1px] border-gYellow text-center rounded-lg col-span-1 lg:col-span-4`}
-                  >
-                    <h4 className="text-gYellow lg:text-[4.361979166666667vw] lg:leading-[5.517578125vw] text-[38px] leading-[40.68px] font-Holispay ">
-                      Home
-                    </h4>
-                    <span className="text-gDarkYellow lg:text-[1.5625vw] lg:leading-[1.8313802083333333vw] text-[12px] leading-[14.06px] font-Holispay ">
-                      Current page
-                    </span>
-                  </Link>
-                  <Link
-                    onClick={closeMenu}
-                    href="/contact"
-                    className={`${
-                      pathname == "/" || pathname=="/service/seo" || pathname=="/about-us" ? "menuItem" : "menuItemWhiteBg"
-                    } lg:h-[9.440104166666666vw] h-[71px] border-[1px] border-gYellow text-center rounded-lg col-span-1 lg:col-span-2`}
-                  >
-                    <h4 className="text-gYellow lg:text-[4.361979166666667vw] lg:leading-[5.517578125vw] text-[38px] leading-[40.68px] font-Holispay ">
-                      Contact Us
-                    </h4>
-                    <span className="text-gDarkYellow lg:text-[1.5625vw] lg:leading-[1.8313802083333333vw] text-[12px] leading-[14.06px] font-Holispay ">
-                      Current page
-                    </span>
-                  </Link>
-                  <Link
-                    onClick={closeMenu}
-                    href="/"
-                    className={`${
-                      pathname == "/" || pathname=="/service/seo" || pathname=="/about-us" ? "menuItem border-gec " : "menuItemWhiteBg border-g8"
-                    } lg:h-[9.440104166666666vw] h-[71px] border-[1px] text-center rounded-lg col-span-1 lg:col-span-3`}
-                  >
-                    <h4 className={`${
-                      pathname == "/" || pathname=="/service/seo" || pathname=="/about-us" ? "text-gec " : "text-g8"
-                    } lg:text-[4.361979166666667vw] lg:leading-[5.517578125vw] text-[38px] leading-[40.68px] font-Holispay`}>
-                      Customers
-                    </h4>
-                    <span className="text-gDarkYellow lg:text-[1.5625vw] lg:leading-[1.8313802083333333vw] text-[12px] leading-[14.06px] font-Holispay ">
-                      Current page
-                    </span>
-                  </Link>
-                  <Link
-                    onClick={closeMenu}
-                    href="/weblog"
-                    className={`${
-                      pathname == "/" || pathname=="/service/seo" || pathname=="/about-us" ? "menuItem border-gec " : "menuItemWhiteBg border-g8"
-                    } lg:h-[9.440104166666666vw] h-[71px] border-[1px] text-center rounded-lg col-span-1 lg:col-span-2`}
-                  >
-                    <h4 className={`${
-                      pathname == "/" || pathname=="/service/seo" || pathname=="/about-us" ? "text-gec " : "text-g8"
-                    } lg:text-[4.361979166666667vw] lg:leading-[5.517578125vw] text-[38px] leading-[40.68px] font-Holispay`}>
-                      Weblog
-                    </h4>
-                    <span className="text-gDarkYellow lg:text-[1.5625vw] lg:leading-[1.8313802083333333vw] text-[12px] leading-[14.06px] font-Holispay ">
-                      Current page
-                    </span>
-                  </Link>
-                  <Link
-                    onClick={closeMenu}
-                    href="/portfolio"
-                    className={`${
-                      pathname == "/" || pathname=="/service/seo" || pathname=="/about-us" ? "menuItem border-gec " : "menuItemWhiteBg border-g8"
-                    } lg:h-[9.440104166666666vw] h-[71px] border-[1px] text-center rounded-lg col-span-1 lg:col-span-4`}
-                  >
-                    <h4 className={`${
-                      pathname == "/" || pathname=="/service/seo" || pathname=="/about-us" ? "text-gec " : "text-g8"
-                    } lg:text-[4.361979166666667vw] lg:leading-[5.517578125vw] text-[38px] leading-[40.68px] font-Holispay`} >
-                      Portfolio
-                    </h4>
-                    <span className="text-gDarkYellow lg:text-[1.5625vw] lg:leading-[1.8313802083333333vw] text-[12px] leading-[14.06px] font-Holispay ">
-                      Current page
-                    </span>
-                  </Link>
-                  <Link
-                    onClick={closeMenu}
-                    href="/about-us"
-                    className={`${
-                      pathname == "/" || pathname=="/service/seo" || pathname=="/about-us" ? "menuItem" : "menuItemWhiteBg"
-                    } lg:h-[9.440104166666666vw] h-[71px] border-[1px] border-gYellow text-center rounded-lg col-span-1 lg:col-span-3`}
-                  >
-                    <h4 className="text-gYellow lg:text-[4.361979166666667vw] lg:leading-[5.517578125vw] text-[38px] leading-[40.68px] font-Holispay ">
-                      About Us
-                    </h4>
-                    <span className="text-gDarkYellow lg:text-[1.5625vw] lg:leading-[1.8313802083333333vw] text-[12px] leading-[14.06px] font-Holispay ">
-                      Current page
-                    </span>
-                  </Link>
+                  {
+                    menuIt?.map((m,i)=>(
+
+                      <MenuItem key={i} fun={closeMenu} title={m?.title} desc={m?.desc} link={m?.link}  classes={m?.classes} />
+                    ))
+                  }
+                  
                 </div>
               </div>
             </div>

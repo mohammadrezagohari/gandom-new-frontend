@@ -22,7 +22,7 @@ function SectionFoure() {
           <div className="col-span-11 lg:col-span-6 lg:row-span-2 row-span-1  order-2 lg:order-3">
             <div className="w-full flex items-start justify-end">
 
-             <PictureBox  circleLgYellow="before:shadow-[53px_0px_0px_0px_#212121] after:shadow-[53px_14px_0px_0px_#212121]" circleSmYellow="before:shadow-[-7px_16px_0px_0px_#212121] after:shadow-[1px_16px_0px_0px_#212121]" circleClasses="bg-g21"  classes="pictureBoxRtl bg-[url(/wimg.png)] rounded-l-lg rounded-r-lg lg:rounded-r-0 lg:rounded-l-lg w-full lg:w-[88%] lg:h-[30.92vw] h-[13.188rem]" />
+             <PictureBox  circleLgYellow="before:shadow-[53px_0px_0px_0px_#212121] after:shadow-[53px_14px_0px_0px_#212121]" circleSmYellow="before:shadow-[-7px_16px_0px_0px_#212121] after:shadow-[1px_16px_0px_0px_#212121]" circleClasses="bg-g21"  classes="pictureBoxRtl bg-[url(/img/s_1.jpg)] rounded-l-lg rounded-r-lg lg:rounded-r-0 lg:rounded-l-lg w-full lg:w-[88%] lg:h-[30.92vw] h-[13.188rem]" />
             </div>
           </div>
         </div>
