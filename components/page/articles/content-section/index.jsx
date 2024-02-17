@@ -1,7 +1,8 @@
 import React from 'react'
-import VideoCardBox from '../../common/cards/video-box';
+// import VideoCardBox from '../../common/cards/video-box';
 // import videoItem from '@/core/services/api/videos';
 import { getPostsData } from '@/core/services/api/videos'; 
+import VideoCardBox from '@/components/common/cards/video-box';
 
 
 async function ContentSection() {

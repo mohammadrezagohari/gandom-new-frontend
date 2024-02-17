@@ -1,5 +1,7 @@
-import FormBox from '@/components/page/contact/form-box'
-import YellowBox from '@/components/page/contact/yellow-box'
+// import FormBox from '@/components/page/contact/form-box'
+// import YellowBox from '@/components/contact/yellow-box'
+import FormBox from '@/components/contact-components/form-box'
+import YellowBox from '@/components/contact-components/yellow-box'
 import React from 'react'
 
 function ContactUs() {

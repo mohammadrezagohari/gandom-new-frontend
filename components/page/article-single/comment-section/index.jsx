@@ -1,8 +1,11 @@
 import React from 'react'
 import SectionTitle from "@/components/common/section-title";
-import MassageBox from "@/components/common/massage-box-form";
-import MessageSection from "@/components/article-single-page-sections/message-section";
+// import MassageBox from "@/components/common/massage-box-form";
+// import MessageSection from "@/components/article-single-page-sections/message-section";
 import CoommentBox from '@/components/common/cards/comment-box';
+import MessageSection from '../message-section';
+// import MessageSection from '../../service-single/message-section';
+// import MessageSection from '../message-section';
 
 function CommentSection() {
   return (

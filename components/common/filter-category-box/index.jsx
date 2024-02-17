@@ -1,6 +1,8 @@
+import LgMenu from '@/components/weblog-componenet/lg-menu'
+import MegaMenu from '@/components/weblog-componenet/mega-menu'
 import React from 'react'
-import LgMenu from "@/components/weblog-page-componenet/lg-menu";
-import MegaMenu from "@/components/weblog-page-componenet/mega-menu";
+// import LgMenu from "@/components/weblog-page-componenet/lg-menu";
+// import MegaMenu from "@/components/weblog-page-componenet/mega-menu";
 
 
 

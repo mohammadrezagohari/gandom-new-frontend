@@ -1,9 +1,10 @@
 import React from 'react'
 import SectionTitle from "@/components/common/section-title";
-import VideoCardBox from '../../common/cards/video-box';
+// import VideoCardBox from '../../common/cards/video-box';
 // import videoItem from '@/core/services/api/videos';
 import { getPostsData } from '@/core/services/api/videos';
 import OutlinedButton from "@/components/common/buttons/outlined";
+import VideoCardBox from '@/components/common/cards/video-box';
 
 async function VideoSection() {
   const data = await getPostsData();

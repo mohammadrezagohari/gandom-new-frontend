@@ -25,7 +25,7 @@ function SectionThree() {
               <OutlinedButton classes="border-g21 text-g21"  title=' See More Detail ' link='/' />
             </div>
           </div>
-          {/* w-[61.5rem] */}
+
           <div className="order-1 lg:order-2  lg:h-auto h-64 lg:absolute  lg:left-auto lg:-right-24 lg:top-0 lg:bottom-0  col-span-12 lg:col-span-7 flex justify-center items-center ">
             <div
             style={{boxShadow: 'inset 0px -60px 83px -6px #f5f5f5'}}

@@ -4,7 +4,7 @@ import { CiLaptop } from "react-icons/ci";
 import { BsPhone } from "react-icons/bs";
 import { TbWorldSearch } from "react-icons/tb";
 import OurWorkSlider from "@/components/all-sliders-component/service-single-page-sliders/ourwork-slider";
-import { Parallax } from "@/components/service-single-page-parallax";
+// import { Parallax } from "@/components/service-single-page-parallax";
 import ParallaxPart from "@/components/landing-parallax";
 function OurworkSection() {
   const service = [

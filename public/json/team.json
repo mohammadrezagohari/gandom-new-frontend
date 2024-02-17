@@ -1,0 +1,125 @@
+{
+    "data": [
+        {
+            "id": "1",
+            "image":"/img/team.png",
+            "name": "Mohamadreza",
+            "family":"Gohari",
+            "position":"CEO | Fullstack",
+            "skills":[
+                "Laravel","ASP.Net Core",".Net","C#","Php","Docker","Linux","CI/CD","SQL","Javascript","Typescript","React.js","Next.js","SEO"
+            ],
+            "instagram":"/",
+            "linkdin":"/"
+        },   
+        {
+            "id": "2",
+            "image":"/img/team.png",
+            "name": "Kasra",
+            "family":"Yaseri",
+            "position":"Futter Developer",
+            "skills":[
+                "Futter","Android","Java","Dart","Katlin","PWA","Native","Bloc"
+            ],
+            "instagram":"/",
+            "linkdin":"/"
+        }, 
+        {
+            "id": "3",
+            "image":"/img/team.png",
+            "name": "Hediyeh",
+            "family":"Sadeghi",
+            "position":"Frontend Developer",
+            "skills":[
+                "Javascript","Typescript","React.js","Next.js","Tailwind","MaterialUI","Redux","Three.js","GSAP","FramerMotion"
+            ],
+            "instagram":"/",
+            "linkdin":"/"
+        }, 
+        {
+            "id": "4",
+            "image":"/img/team.png",
+            "name": "Ali",
+            "family":"Asadpour",
+            "position":"CEO | Ui/Ux",
+            "skills":[
+                "Basic concepts of UI and UX","Mastery of Figma","Psychology of Colors","Prototype","Usability testing","Responsive design","Problem solving","Wireframe","User Research"
+            ],
+            "instagram":"/",
+            "linkdin":"/"
+        }, 
+        {
+            "id": "5",
+            "image":"/img/team.png",
+            "name": "Atefe",
+            "family":"Mohseni",
+            "position":"Ui/Ux Designer",
+            "skills":[
+                "Basic concepts of UI and UX","Mastery of Figma","Psychology of Colors","Prototype","Usability testing","Responsive design","Problem solving","Wireframe","User Research"
+            ],
+            "instagram":"/",
+            "linkdin":"/"
+        }, 
+        {
+            "id": "6",
+            "image":"/img/team.png",
+            "name": "Amirreza",
+            "family":"Ranjbar",
+            "position":"Account Manager",
+            "skills":[
+                "Marketing managment","Negotiation","Analytical skills","Seles","Consumer products"
+            ],
+            "instagram":"/",
+            "linkdin":"/"
+        }, 
+        {
+            "id": "7",
+            "image":"/img/team.png",
+            "name": "Maedeh",
+            "family":"Mirabi",
+            "position":"Ui/Ux Designer",
+            "skills":[
+                "Basic concepts of UI and UX","Mastery of Figma","Psychology of Colors","Prototype","Usability testing","Responsive design","Problem solving","Wireframe","User Research"
+            ],
+            "instagram":"/",
+            "linkdin":"/"
+        },
+        {
+            "id": "8",
+            "image":"/img/team.png",
+            "name": "Alireza",
+            "family":"Khalili",
+            "position":"Frontend Developer",
+            "skills":[
+                "Javascript","React.js","Tailwind","MaterialUI","Redux"
+            ],
+            "instagram":"/",
+            "linkdin":"/"
+        },
+        {
+            "id": "9",
+            "image":"/img/team.png",
+            "name": "Parsa",
+            "family":"Panahpour",
+            "position":"Backend Developer",
+            "skills":[
+                "ASP.Net Core","PWA","C#","Php","Docker","Windows Server","Git Flow","SQL Server"
+            ],
+            "instagram":"/",
+            "linkdin":"/"
+        },
+        {
+            "id": "10",
+            "image":"/img/team.png",
+            "name": "Mostafa",
+            "family":"Barimani",
+            "position":"SEO",
+            "skills":[
+                "Social Skills","Technical & Programming Skills","Wordpress","Analytics Skills","Data Skills","Backlink","Seo content","Digital marketing"
+            ],
+            "instagram":"/",
+            "linkdin":"/"
+        }
+
+    ]    
+}

@@ -3,7 +3,9 @@ import React from 'react'
 import { SiNextdotjs,SiFlutter,SiLaravel,SiTailwindcss,SiJavascript,SiTypescript,SiMongodb } from 'react-icons/si';
 import { FaReact } from 'react-icons/fa';
 import SectionTitle from "@/components/common/section-title";
-import NestedCircles from '@/components/service-single-page-nested-circles';
+import NestedCircles from '@/components/service-single-nested-circles';
+// import NestedCircles from '@/components/service-single-page-nested-circles';
+// import NestedCircles from './../../../service-single-nested-circles/index';
 
 function TechnologiesSection() {
   const technologiesItems=[

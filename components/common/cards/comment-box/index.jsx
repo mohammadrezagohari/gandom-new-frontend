@@ -42,8 +42,8 @@ function CoommentBox() {
         </div>
       </div>
 
-      <p className="text-g8 lg:text-[0.8854166666666666vw] lg:leading-[1.4vw]  leading-5 text-base  font-PoppinsLight py-4">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+      <p className="text-g8 lg:text-[0.8854166666666666vw] lg:leading-[1.4vw]  leading-6 text-base  font-PoppinsLight py-4">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod22
         tempor incididunt ut labore et dolore magna.Lorem ipsum dolor sit amet,
         consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
         et dolore magna.Lorem ipsum dolor sit amet, consectetur adipiscing elit,

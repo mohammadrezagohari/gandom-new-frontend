@@ -3,8 +3,11 @@ import { getSinglePostData } from '@/core/services/api/videos';
 import { IoLogoInstagram } from "react-icons/io";
 import Image from 'next/image'
 import Link from "next/link";
+import TeamDB from '../../../../public/json/team.json'
 
-async function TeamSinglePage() {
+
+async function TeamSinglePage({params}) {
+  const team=TeamDB.data.find((c)=>c.id==params.id)
   // const data = await getSinglePostData(params.id)
   const skills=[
     {id:1,title:"Futter Developer"},
@@ -26,11 +29,11 @@ async function TeamSinglePage() {
         </div> */}
 
         <h1 className="z-10 font-Holispay flex flex-col" >
-          <span className="text-gb0 text-[2.25rem] lg:text-[4.166666666666667vw] " >Kasra</span>
-          <span className="text-g21 text-[3.125rem] lg:text-[6.25vw] " >Yaseri </span>
+          <span className="text-gb0 text-[2.25rem] lg:text-[4.166666666666667vw] " >{team.name}</span>
+          <span className="text-g21 text-[3.125rem] lg:text-[6.25vw] " >{team.family} </span>
         </h1>
 
-        <h2 className="text-gDarkYellow text-[1.25rem] lg:text-[2.0833333333333335vw] font-PoppinsLight">Futter Developer</h2>
+        <h2 className="text-gDarkYellow text-[1.25rem] lg:text-[2.0833333333333335vw] font-PoppinsLight">{team.position}</h2>
         <div className="z-10  my-3 lg:my-6 font-PoppinsLight flex gap-2" >
           <span className="text-gb0 text-[0.75rem] lg:text-[1.5625vw] " >joined us :</span>
           <span className="text-g70 text-[0.75rem] lg:text-[1.5625vw] " >December , 2022 </span>
@@ -39,41 +42,41 @@ async function TeamSinglePage() {
           Lorem ipsum dolor sit amet, consectetur adipiscing  sed do eiusmod tempor.Lorem ipsum dolor sit amet, consectetur adipiscing  sed do eiusmod tempor.Lorem ipsum dolor sit amet, consectetur adipiscing  sed
         </p>
         <h3 className="text-gDarkYellow text-[1.25rem] lg:text-[2.0833333333333335vw] font-PoppinsLight  mb-2 mt-6 lg:mb-3 ">Skills :</h3>
-        <ul className="flex flex-wrap gap-4 " >
+        <ul className="flex flex-wrap gap-2 lg:gap-4" >
           {
-            skills.map((sk,i)=>(
-              <li key={i} className='border border-gd9 rounded-[0.9375rem] text-g70 text-[0.75rem] lg:text-[1.3020833333333333vw] py-1 px-2 lg:py-2 lg:px-3' >{sk.title}</li>
+            team?.skills?.map((sk,i)=>(
+              <li key={i} className='border border-gd9 rounded-[0.9375rem] text-g70 text-[0.75rem] lg:text-[1.3020833333333333vw] py-1 px-2 lg:py-2 lg:px-3' >{sk}</li>
             ))
           }
         </ul>
 
       </div>
 
-      <div className="order-1 lg:order-2 relative flex items-end justify-between lg:ps-5 h-[80vh] lg:h-screen lg:mt-1 mt-2">
+      <div className="order-1 lg:order-2 relative flex items-end justify-between lg:ps-5 h-[25.875rem] lg:h-screen lg:mt-1 mt-2">
         <div className="z-10 absolute top-0 right-0 h-[12rem] lg:h-[21vw]">
           <Image className="w-full h-full " width={'100'} height={'100'} alt={''} src={`/img/commaone.png`} />
         </div>
-        <div className="relative z-0 w-[85%] h-[60vh] lg:h-[34vw] bg-gYellow ">
-          <div className="z-10 absolute right-2 bottom-0 lg:w-[28.125vw] w-[17rem] ">
+        <div className="relative z-0 w-[80%] h-[17.973rem] lg:h-[34vw] bg-gYellow ">
+          <div className="z-10 absolute right-2 bottom-0 lg:w-[28.125vw] w-[15.326rem] ">
             <Image className="w-full h-full " width={'100'} height={'100'} alt={''} src={`/img/preson1.png`} />
           </div>
         </div>
         <ul className="w-[15%] flex flex-col gap-3 ps-2 lg:ps-5  mb-[15%] " >
           <li>
-            <Link href={`/`} className='border-2 border-gDarkYellow bg-transparent hover:bg-gDarkYellow rounded-full flex items-center justify-center tranisition-all lg:w-[60px] lg:h-[60px] w-12 h-12 ' >
+            <Link href={team.instagram} className='transition-all duration-500 border-2 border-gDarkYellow bg-transparent hover:bg-gDarkYellow rounded-full flex items-center justify-center tranisition-all lg:w-[60px] lg:h-[60px] w-12 h-12 ' >
               <Image width={32} height={32} alt="" src={"/img/instagram.png"}/>
             </Link>
           </li>
           <li>
-            <Link href={`/`} className='border-2 border-gDarkYellow bg-transparent hover:bg-gDarkYellow rounded-full flex items-center justify-center tranisition-all lg:w-[60px] lg:h-[60px] w-12 h-12 ' >
+            <Link href={team.linkdin} className='transition-all duration-500 border-2 border-gDarkYellow bg-transparent hover:bg-gDarkYellow rounded-full flex items-center justify-center tranisition-all lg:w-[60px] lg:h-[60px] w-12 h-12 ' >
               <Image width={24} height={24} alt="" src={"/img/linkdin.png"}/>
             </Link>
           </li>
-          <li>
-            <Link href={`/`} className='border-2 border-gDarkYellow bg-transparent hover:bg-gDarkYellow rounded-full flex items-center justify-center tranisition-all lg:w-[60px] lg:h-[60px] w-12 h-12 ' >
+          {/* <li>
+            <Link href={`/`} className='transition-all duration-500 border-2 border-gDarkYellow bg-transparent hover:bg-gDarkYellow rounded-full flex items-center justify-center tranisition-all lg:w-[60px] lg:h-[60px] w-12 h-12 ' >
               <Image width={24} height={24} alt="" src={"/img/dirrible.png"}/>
             </Link>
-          </li>
+          </li> */}
         </ul>
 
         

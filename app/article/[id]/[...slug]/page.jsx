@@ -68,7 +68,7 @@ const ServiceSinglePage = async ({ params }) => {
         sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
         ut labore .
       </p>
-      <div className="w-full h-[67vh] rounded-xl ">
+      <div className="w-full lg:h-[67vh] rounded-xl ">
         <Image
           width={100}
           height={100}
