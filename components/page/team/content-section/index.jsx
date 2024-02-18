@@ -1,11 +1,11 @@
 
 import React from 'react'
-import { getPostsData } from '@/core/services/api/videos'; 
+// import { getPostsData } from '@/core/services/api/videos'; 
 import TeamCard from '@/components/common/cards/team';
 import TeamDB from '../../../../public/json/team.json'
 
 async function ContentSection() {
-    const data = await getPostsData();
+    // const data = await getPostsData();
   return (
     <section className="w-full ">
         <div className=" container max-w-none ">

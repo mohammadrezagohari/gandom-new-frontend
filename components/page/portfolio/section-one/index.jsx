@@ -13,7 +13,7 @@ function SectionOne() {
             <SectionTitle classes="text-g21" title="Online Style" />
             <h3 className="text-lg lg:text-[1.58rem] inline-block text-gDarkYellow font-Holispay">
               Teaching and testing application for students
-            </h3>
+            </h3> 
             <p className="py-5 text-[0.95rem] lg:text-[1.3rem] lg:leading-8 font-PoppinsRegular text-justify text-g4c">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua.sed do

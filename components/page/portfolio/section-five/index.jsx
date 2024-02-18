@@ -21,7 +21,7 @@ function SectionFive() {
             </p>
             <div className="py-4 flex justify-start items-center">
 
-              <OutlinedButton classes="border-g21 text-g21"  title=' See More Detail ' link='/' />
+              <OutlinedButton classes="border-g21 text-g21"  title=' See More Detail ' link='/ttps://freecancer.ir/' />
             </div>
           </div>
 

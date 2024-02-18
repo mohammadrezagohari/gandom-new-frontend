@@ -19,7 +19,7 @@ function SectionTwo() {
                 alt={"picture"}
               />
             </div>
-          </div>
+          </div> 
           <div className="py-10 lg:py-20 order-1 lg:order-2 col-span-12 lg:col-span-5 flex flex-col justify-center items-start ">
             <SectionTitle classes="text-gf" title=" Testato " />
             <h3 className="text-lg lg:text-[1.58rem] inline-block text-gDarkYellow font-Holispay">
@@ -33,7 +33,7 @@ function SectionTwo() {
             </p>
             <div className="py-4 flex justify-start items-center">
 
-              <OutlinedButton classes="border-gf text-gf hover:text-g21"  title=' See More Detail ' link='/' />
+              <OutlinedButton classes="border-gf text-gf hover:text-g21"  title=' See More Detail ' link='/https://testato.ir' />
             </div>
           </div>
         </div>

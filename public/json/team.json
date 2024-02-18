@@ -2,7 +2,7 @@
     "data": [
         {
             "id": "1",
-            "image":"/img/team.png",
+            "image":"/webp/MG.webp",
             "name": "Mohamadreza",
             "family":"Gohari",
             "position":"CEO | Fullstack",
@@ -13,8 +13,20 @@
             "linkdin":"/"
         },   
         {
+            "id": "4",
+            "image":"/webp/team.webp",
+            "name": "Ali",
+            "family":"Asadpour",
+            "position":"CEO | Ui/Ux",
+            "skills":[
+                "Basic concepts of UI and UX","Mastery of Figma","Psychology of Colors","Prototype","Usability testing","Responsive design","Problem solving","Wireframe","User Research"
+            ],
+            "instagram":"/",
+            "linkdin":"/"
+        }, 
+        {
             "id": "2",
-            "image":"/img/team.png",
+            "image":"/webp/KY.webp",
             "name": "Kasra",
             "family":"Yaseri",
             "position":"Futter Developer",
@@ -26,7 +38,7 @@
         }, 
         {
             "id": "3",
-            "image":"/img/team.png",
+            "image":"/webp/HS.webp",
             "name": "Hediyeh",
             "family":"Sadeghi",
             "position":"Frontend Developer",
@@ -36,21 +48,22 @@
             "instagram":"/",
             "linkdin":"/"
         }, 
+       
         {
-            "id": "4",
-            "image":"/img/team.png",
-            "name": "Ali",
-            "family":"Asadpour",
-            "position":"CEO | Ui/Ux",
+            "id": "8",
+            "image":"/webp/AKH.webp",
+            "name": "Alireza",
+            "family":"Khalili",
+            "position":"Frontend Developer",
             "skills":[
-                "Basic concepts of UI and UX","Mastery of Figma","Psychology of Colors","Prototype","Usability testing","Responsive design","Problem solving","Wireframe","User Research"
+                "Javascript","React.js","Tailwind","MaterialUI","Redux"
             ],
             "instagram":"/",
             "linkdin":"/"
-        }, 
+        },
         {
             "id": "5",
-            "image":"/img/team.png",
+            "image":"/webp/AM.webp",
             "name": "Atefe",
             "family":"Mohseni",
             "position":"Ui/Ux Designer",
@@ -62,7 +75,7 @@
         }, 
         {
             "id": "6",
-            "image":"/img/team.png",
+            "image":"/webp/AR.webp",
             "name": "Amirreza",
             "family":"Ranjbar",
             "position":"Account Manager",
@@ -74,7 +87,7 @@
         }, 
         {
             "id": "7",
-            "image":"/img/team.png",
+            "image":"/webp/MM.webp",
             "name": "Maedeh",
             "family":"Mirabi",
             "position":"Ui/Ux Designer",
@@ -84,21 +97,10 @@
             "instagram":"/",
             "linkdin":"/"
         },
-        {
-            "id": "8",
-            "image":"/img/team.png",
-            "name": "Alireza",
-            "family":"Khalili",
-            "position":"Frontend Developer",
-            "skills":[
-                "Javascript","React.js","Tailwind","MaterialUI","Redux"
-            ],
-            "instagram":"/",
-            "linkdin":"/"
-        },
+        
         {
             "id": "9",
-            "image":"/img/team.png",
+            "image":"/webp/pp.webp",
             "name": "Parsa",
             "family":"Panahpour",
             "position":"Backend Developer",
@@ -110,7 +112,7 @@
         },
         {
             "id": "10",
-            "image":"/img/team.png",
+            "image":"/webp/MB.webp",
             "name": "Mostafa",
             "family":"Barimani",
             "position":"SEO",
@@ -120,6 +122,6 @@
             "instagram":"/",
             "linkdin":"/"
         }
-
+        
     ]    
 }

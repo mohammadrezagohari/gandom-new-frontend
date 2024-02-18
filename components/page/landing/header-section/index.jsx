@@ -43,14 +43,14 @@ function HeadSection() {
               digital landscape.
               {/* Our service software company is dedicated to creating cutting-edge software solutions for mobile, website, and desktop platforms, with a strong focus on bespoke UI/UX designs. Our team of talented developers and designers work collaboratively to craft custom-tailored software products that not only meet the functional needs of our clients but also provide a seamless and visually engaging user experience. With a strong commitment to innovation and excellence, we strive to empower businesses and individuals with high-quality, user-friendly software solutions that stand out in today`s competitive digital landscape. */}
             </p>
-            <div className="flex items-center lg:justify-start justify-between gap-3">
-              <FilledButton link="/" title="About Us" />
+            <div className="flex items-center lg:justify-start justify-between gap-3 w-full lg:w-auto">
+              <FilledButton link="/" title="About Us" classes="flex-1 lg:flex-none" />
               <FilledYellowButton
-                classes="w-auto"
+                classes="w-auto flex-1 lg:flex-none"
                 link={"/"}
                 title="Contact Us"
               />
-            </div>
+            </div> 
           </div>
         </div>
 

@@ -21,7 +21,7 @@ function SectionThree() {
               eiusmod tempor incididunt ut labore et dolore magna aliqua.
             </p>
             <div className="py-4 flex justify-start items-center">
-
+ 
               <OutlinedButton classes="border-g21 text-g21"  title=' See More Detail ' link='/' />
             </div>
           </div>

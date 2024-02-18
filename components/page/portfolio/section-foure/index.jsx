@@ -35,7 +35,7 @@ function SectionFoure() {
               <OutlinedButton
                 classes="border-gf text-gf hover:text-g21"
                 title=" See More Detail "
-                link="/"
+                link="/https://arefset.com"
               />
             </div>
           </div>

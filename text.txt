@@ -19,3 +19,16 @@ https://www.toptal.com/designers/htmlarrows/symbols/
 
 2- <div class="app-overlay fixed w-full h-full top-0 left-0 bg-black/40 z-40 md:backdrop-blur transition-all show"></div>
 
+
+ {
+            "id": "11",
+            "image":"/webp/NGH.webp",
+            "name": "Narges",
+            "family":"Gholamian",
+            "position":"Frontend Developer",
+            "skills":[
+                "Javascript","Typescript","React.js","Tailwind","MaterialUI","Three.js"
+            ],
+            "instagram":"/",
+            "linkdin":"/"
+        },
