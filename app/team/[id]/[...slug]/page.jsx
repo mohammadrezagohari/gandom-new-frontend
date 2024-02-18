@@ -52,7 +52,7 @@ async function TeamSinglePage({params}) {
 
       </div>
 
-      <div className="order-1 lg:order-2 relative flex items-end justify-between lg:ps-5 h-[25.875rem] lg:h-screen lg:mt-1 mt-2">
+      <div className="order-1 lg:order-2  relative flex items-end justify-between lg:ps-5 h-[25.875rem] lg:min-h-full lg:mt-1 mt-2">
         <div className="z-10 absolute top-0 right-0 h-[12rem] lg:h-[21vw]">
           <Image className="w-full h-full " width={'100'} height={'100'} alt={''} src={`/img/commaone.png`} />
         </div>
