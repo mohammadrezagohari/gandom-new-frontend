@@ -33,7 +33,7 @@ function GridCard({ parentClasses, hoverClasses, position, name, link, img }) {
         width={100}
         height={100}
         alt="  "
-        className="w-full h-full object-cover"
+        className={`w-full h-full object-cover `}
       />
     </div>
   );

@@ -10,11 +10,12 @@
                 "Laravel","ASP.Net Core",".Net","C#","Php","Docker","Linux","CI/CD","SQL","Javascript","Typescript","React.js","Next.js","SEO"
             ],
             "instagram":"/",
-            "linkdin":"/"
+            "linkdin":"/",
+            "single_page_img":"/webp/G_MG.png"
         },   
         {
             "id": "4",
-            "image":"/webp/team.webp",
+            "image":"/webp/Ali.webp",
             "name": "Ali",
             "family":"Asadpour",
             "position":"CEO | Ui/Ux",
@@ -22,7 +23,8 @@
                 "Basic concepts of UI and UX","Mastery of Figma","Psychology of Colors","Prototype","Usability testing","Responsive design","Problem solving","Wireframe" 
             ],
             "instagram":"/",
-            "linkdin":"/"
+            "linkdin":"/",
+            "single_page_img":"/webp/G_AA.png"
         }, 
         {
             "id": "2",
@@ -34,7 +36,8 @@
                 "Futter","Android","Java","Dart","Katlin","PWA","Bloc"
             ],
             "instagram":"/",
-            "linkdin":"/"
+            "linkdin":"/",
+            "single_page_img":"/webp/G_KY.png"
         }, 
         {
             "id": "3",
@@ -46,7 +49,8 @@
                 "Javascript","Typescript","React.js","Next.js","Tailwind","MaterialUI","Redux","Three.js","GSAP","FramerMotion"
             ],
             "instagram":"/",
-            "linkdin":"/"
+            "linkdin":"/",
+            "single_page_img":"/webp/G_HH.png"
         }, 
        
         {
@@ -59,7 +63,8 @@
                 "Javascript","React.js","Tailwind","MaterialUI","Redux"
             ],
             "instagram":"/",
-            "linkdin":"/"
+            "linkdin":"/",
+            "single_page_img":"/webp/G_AKH.png"
         },
         {
             "id": "5",
@@ -71,7 +76,8 @@
                 "Basic concepts of UI and UX","Mastery of Figma","Psychology of Colors","Prototype","Usability testing","Responsive design","Problem solving","Wireframe" 
             ],
             "instagram":"/",
-            "linkdin":"/"
+            "linkdin":"/",
+            "single_page_img":"/webp/G_AM.png"
         }, 
         {
             "id": "6",
@@ -83,7 +89,8 @@
                 "Marketing managment","Negotiation","Analytical skills","Seles","Consumer products"
             ],
             "instagram":"/",
-            "linkdin":"/"
+            "linkdin":"/",
+            "single_page_img":"/webp/G_AR.png"
         }, 
         {
             "id": "7",
@@ -95,7 +102,8 @@
                 "Basic concepts of UI and UX","Mastery of Figma","Psychology of Colors","Prototype","Usability testing","Responsive design","Problem solving","Wireframe" 
             ],
             "instagram":"/",
-            "linkdin":"/"
+            "linkdin":"/",
+            "single_page_img":"/webp/G_MM.png"
         },
         
         {
@@ -108,7 +116,8 @@
                 "ASP.Net Core","PWA","C#","Php","Docker","Windows Server","Git Flow","SQL Server"
             ],
             "instagram":"/",
-            "linkdin":"/"
+            "linkdin":"/",
+            "single_page_img":"/webp/G_PP.png"
         },
         {
             "id": "10",
@@ -120,7 +129,8 @@
                 "Social Skills","Technical & Programming Skills","Wordpress","Analytics Skills","Data Skills","Backlink","Seo content","Digital marketing","Keyword research"
             ],
             "instagram":"/",
-            "linkdin":"/"
+            "linkdin":"/",
+            "single_page_img":"/webp/G_MB.png"
         }
         
     ]    
