@@ -89,7 +89,7 @@ function AboutSection({aboutSec}) {
       </div> */}
 
 
-      <div className="container relative max-w-none  gap-7 lg:gap-0 py-[3vw] grid grid-cols-12 lg:grid-cols-12 lg:h-full ">
+      <div className="container relative max-w-none  gap-7 lg:gap-0 py-0 lg:py-[3vw] grid grid-cols-12 lg:grid-cols-12 lg:h-full ">
         {/* <div claassName="w-full grid grid-cols-12 lg:grid-cols-12" > */}
           <div className=" col-span-12 lg:col-span-7 order-2 lg:order-1 flex items-center lg:h-full" >
               <div className="aboutSectionLeftColBg h-full w-full lg:w-[90%] flex flex-col items-start justify-center bg-aboutSectionGandomLogo bg-no-repeat bg-left" >
@@ -106,9 +106,9 @@ function AboutSection({aboutSec}) {
                   </div>
               </div>
           </div> 
-          <div className=" col-span-12 lg:col-span-5 order-1 lg:order-2 flex items-center lg:h-full" >
-            <div className="w-full h-[35vh] lg:h-[25vw] bg-gYellow rounded-3xl relative">
-              <div className=" flex items-end justify-center absolute right-[5%] bottom-[5%] left-[5%] w-[90%]  h-[370px] lg:h-[35vw]  mx-auto">
+          <div className=" col-span-12 lg:col-span-5 order-1 lg:order-2 flex items-end h-[60vh] lg:h-full " >
+            <div className="w-full h-[30vh] lg:h-[25vw] bg-gYellow rounded-3xl relative">
+              <div className=" flex items-end justify-center absolute right-[5%] bottom-[5%] left-[5%] w-[90%] lg:w-auto lg:h-[40vw]  mx-auto">
                 <Image
                   width={100}
                   height={100}
