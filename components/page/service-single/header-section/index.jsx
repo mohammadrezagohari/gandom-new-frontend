@@ -32,9 +32,9 @@ function HeaderSection() {
               scalable architecture using the latest technologies and trends.
             </p>
             <div className="flex items-center lg:justify-start justify-between gap-3">
-              <FilledButton link="/" title="Join Us" />
+              <FilledButton link="/" title="Join Us" classes="px-3" />
               <FilledYellowButton
-                classes="w-auto"
+                classes="w-auto px-3"
                 link={"/"}
                 title="Portfolio"
               />

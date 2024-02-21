@@ -124,23 +124,12 @@ html {
   display: block;
 }
 
-.menuItemWhiteBg {
-  display: inline-flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-.menuItemWhiteBg:hover {
-  border-color: #e4e4e4;
-  background: #e4e4e4;
-}
 
-.menuItemWhiteBg:hover h4 {
-  color: #212121;
-}
 .menuItemWhiteBg span {
   /* opacity:0;
   visibility: hidden ; */
+  color: #ffd101;
+
   display: none;
 }
 .menuItemWhiteBg:hover span {

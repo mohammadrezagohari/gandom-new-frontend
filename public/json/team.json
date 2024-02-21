@@ -80,6 +80,19 @@
             "single_page_img":"/webp/G_AM.png"
         }, 
         {
+            "id": "11",
+            "image":"/webp/B-GH.webp",
+            "name": "Bita",
+            "family":"Ghanbari",
+            "position":"Ui/Ux Designer",
+            "skills":[
+                "Basic concepts of UI and UX","Mastery of Figma","Psychology of Colors","Prototype","Usability testing","Responsive design","Problem solving","Wireframe" 
+            ],
+            "instagram":"/",
+            "linkdin":"/",
+            "single_page_img":"/webp/G_BGH.png"
+        },
+        {
             "id": "6",
             "image":"/webp/AR.webp",
             "name": "Amirreza",

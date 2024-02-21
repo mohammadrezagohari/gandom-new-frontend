@@ -45,7 +45,7 @@ function TeamSection() {
       hoverClasses: "",
       position: "Frontend Developer",
       name: "Hediyeh Sadeghi",
-      img: "/webp/GT_.png",
+      img: "/webp/Sadeghi.png",
     },
     {
       id: 4,

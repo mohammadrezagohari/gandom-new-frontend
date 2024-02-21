@@ -32,13 +32,13 @@ function Navbar() {
   }, [fade]); 
 
   const menuIt=[
-    {id:1,title:"Our services",desc:"Current page",link:"/service",classes:"lg:h-[9.440104166666666vw] h-[71px] border-[1px]  text-center rounded-lg col-span-1 lg:col-span-3"},
-    {id:2,title:"Home",desc:"Current page",link:"/",classes:"lg:h-[9.440104166666666vw] h-[71px] border-[1px] border-gYellow text-center rounded-lg col-span-1 lg:col-span-4"},
-    {id:3,title:"Contact Us",desc:"Current page",link:"/contact",classes:"lg:h-[9.440104166666666vw] h-[71px] border-[1px] border-gYellow text-center rounded-lg col-span-1 lg:col-span-2"},
-    {id:4,title:"Customers",desc:"Current page",link:"/",classes:"lg:h-[9.440104166666666vw] h-[71px] border-[1px] text-center rounded-lg col-span-1 lg:col-span-3"},
-    {id:5,title:"Weblog",desc:"Current page",link:"/weblog",classes:"lg:h-[9.440104166666666vw] h-[71px] border-[1px] text-center rounded-lg col-span-1 lg:col-span-2"},
-    {id:6,title:"Portfolio",desc:"Current page",link:"/portfolio",classes:"lg:h-[9.440104166666666vw] h-[71px] border-[1px] text-center rounded-lg col-span-1 lg:col-span-4"},
-    {id:7,title:"About Us",desc:"Current page",link:"/about-us",classes:"lg:h-[9.440104166666666vw] h-[71px] border-[1px] border-gYellow text-center rounded-lg col-span-1 lg:col-span-3"},
+    {id:1,title:"Our services",desc:"Current page",link:"/service",titleClass:"text-gf",classes:"transition-all duration-300 lg:h-[9.440104166666666vw] h-[71px] border-[1px]  text-center rounded-lg col-span-1 lg:col-span-3"},
+    {id:2,title:"Home",desc:"Current page",link:"/",titleClass:"text-gYellow",classes:"transition-all duration-300 lg:h-[9.440104166666666vw] h-[71px] border-[1px] border-gYellow text-center rounded-lg col-span-1 lg:col-span-4"},
+    {id:3,title:"Contact Us",desc:"Current page",link:"/contact",titleClass:"text-gf lg:text-gYellow",classes:"transition-all duration-300 lg:h-[9.440104166666666vw] h-[71px] border-[1px] border-gf lg:border-gYellow text-center rounded-lg col-span-1 lg:col-span-2"},
+    {id:4,title:"Customers",desc:"Current page",link:"/",titleClass:"text-gYellow lg:text-gf",classes:"transition-all duration-300 lg:h-[9.440104166666666vw] h-[71px] border-[1px] border-gYellow lg:border-gf text-center rounded-lg col-span-1 lg:col-span-3"},
+    {id:5,title:"Weblog",desc:"Current page",link:"/weblog",titleClass:"text-gf",classes:"transition-all duration-300 lg:h-[9.440104166666666vw] h-[71px] border-[1px] text-center rounded-lg col-span-1 lg:col-span-2"},
+    {id:6,title:"Portfolio",desc:"Current page",link:"/portfolio",titleClass:"text-gYellow lg:text-gf",classes:"transition-all duration-300 lg:h-[9.440104166666666vw] h-[71px] border-[1px] border-gYellow lg:border-gf text-center rounded-lg col-span-1 lg:col-span-4"},
+    {id:7,title:"About Us",desc:"Current page",link:"/about-us",titleClass:"text-gf lg:text-gYellow",classes:"transition-all duration-300 lg:h-[9.440104166666666vw] h-[71px] border-[1px] border-gf lg:border-gYellow text-center rounded-lg col-span-1 lg:col-span-3"},
   ]
 
   return (
@@ -166,10 +166,10 @@ function Navbar() {
                 </div>
               </div>
               <div className="container max-w-none transition ease-in-out delay-150 pt-5 lg:pt-[1.3020833333333333vw] flex flex-col gap-[1.3020833333333333vw]">
-                <div className="border-[1px] h-[2%] border-gec p-2 rounded-lg flex items-center justify-start gap-2 ">
-                  <CiSearch className="text-gec lg:text-3xl text-2xl" />
+                <div className={`${pathname == "/" || pathname=="/service/seo"  || pathname=="/about-us"?"border-gec ":" border-g8"} border-[1px] h-[2%]  p-2 rounded-lg flex items-center justify-start gap-2`} >
+                  <CiSearch className={`${pathname == "/" || pathname=="/service/seo"  || pathname=="/about-us" ?"  text-gec":"   text-g8"} lg:text-3xl text-2xl`} />
                   <input
-                    className="w-full pr-3 py-1 rounded-lg text-gf bg-transparent focus:outline-none placeholder-gce placeholder-opacity-100 "
+                    className={`${pathname == "/" || pathname=="/service/seo"  || pathname=="/about-us" ?"text-gf placeholder-gce":" text-g21 placeholder-g8"} w-full pr-3 py-1 rounded-lg  bg-transparent focus:outline-none  placeholder-opacity-100`} 
                     placeholder="search"
                     type="text"
                     value={keyWord}
@@ -181,7 +181,7 @@ function Navbar() {
                   {
                     menuIt?.map((m,i)=>(
 
-                      <MenuItem key={i} fun={closeMenu} title={m?.title} desc={m?.desc} link={m?.link}  classes={m?.classes} />
+                      <MenuItem key={i} fun={closeMenu} title={m?.title} desc={m?.desc} link={m?.link} titleClass={m?.titleClass} classes={m?.classes} />
                     ))
                   }
                   

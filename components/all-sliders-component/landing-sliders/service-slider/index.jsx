@@ -76,7 +76,7 @@ function ServiceSlider({ service }) {
                 </p>
 
                 <FilledYellowButton
-                  classes="w-full"
+                  classes="w-full px-3"
                   link={item.link}
                   title="Read More"
                 />
