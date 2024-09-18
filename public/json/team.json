@@ -1,150 +1,148 @@
 {
     "data": [
         {
-            "id": "1",
-            "image":"/webp/MG.webp",
-            "name": "Mohamadreza",
-            "family":"Gohari",
-            "position":"CEO | Fullstack",
-            "skills":[
-                "Laravel","ASP.Net Core",".Net","C#","Php","Docker","Linux","CI/CD","SQL","Javascript","Typescript","React.js","Next.js","SEO"
-            ],
-            "instagram":"/",
-            "linkdin":"/",
-            "single_page_img":"/webp/G_MG.png"
-        },   
-        {
-            "id": "4",
-            "image":"/webp/Ali.webp",
-            "name": "Ali",
-            "family":"Asadpour",
-            "position":"CEO | Ui/Ux",
-            "skills":[
-                "Basic concepts of UI and UX","Mastery of Figma","Psychology of Colors","Prototype","Usability testing","Responsive design","Problem solving","Wireframe" 
-            ],
-            "instagram":"/",
-            "linkdin":"/",
-            "single_page_img":"/webp/G_AA.png"
-        }, 
-        {
             "id": "2",
-            "image":"/webp/KY.webp",
-            "name": "Kasra",
-            "family":"Yaseri",
-            "position":"Futter Developer",
-            "skills":[
-                "Futter","Android","Java","Dart","Katlin","PWA","Bloc"
+            "image": "/webp/personls/mostafabarimani.webp",
+            "name": "Mostafa",
+            "family": "Barimani",
+            "position": "SEO",
+            "skills": [
+                "Social Skills",
+                "Technical & Programming Skills",
+                "Wordpress",
+                "Analytics Skills",
+                "Data Skills",
+                "Backlink",
+                "Seo content",
+                "Digital marketing",
+                "Keyword research"
             ],
-            "instagram":"/",
-            "linkdin":"/",
-            "single_page_img":"/webp/G_KY.png"
-        }, 
-        {
-            "id": "3",
-            "image":"/webp/HS.webp",
-            "name": "Hediyeh",
-            "family":"Sadeghi",
-            "position":"Frontend Developer",
-            "skills":[
-                "Javascript","Typescript","React.js","Next.js","Tailwind","MaterialUI","Redux","Three.js","GSAP","FramerMotion"
-            ],
-            "instagram":"/",
-            "linkdin":"/",
-            "single_page_img":"/webp/G_HH.png"
-        }, 
-       
-        {
-            "id": "8",
-            "image":"/webp/AKH.webp",
-            "name": "Alireza",
-            "family":"Khalili",
-            "position":"Frontend Developer",
-            "skills":[
-                "Javascript","React.js","Tailwind","MaterialUI","Redux"
-            ],
-            "instagram":"/",
-            "linkdin":"/",
-            "single_page_img":"/webp/G_AKH.png"
+            "instagram": "/",
+            "linkdin": "/",
+            "single_page_img": "/webp/personls/png/mostafabarimani.png"
         },
         {
-            "id": "5",
-            "image":"/webp/AM.webp",
-            "name": "Atefe",
-            "family":"Mohseni",
-            "position":"Ui/Ux Designer",
-            "skills":[
-                "Basic concepts of UI and UX","Mastery of Figma","Psychology of Colors","Prototype","Usability testing","Responsive design","Problem solving","Wireframe" 
+            "id": "1",
+            "image": "/webp/personls/aliasadpour.webp",
+            "name": "Ali",
+            "family": "Asadpour",
+            "position": "CEO | UI/UX",
+            "skills": [
+                "Basic concepts of UI and UX",
+                "Mastery of Figma",
+                "Psychology of Colors",
+                "Prototype",
+                "Usability testing",
+                "Responsive design",
+                "Problem solving",
+                "Wireframe"
             ],
-            "instagram":"/",
-            "linkdin":"/",
-            "single_page_img":"/webp/G_AM.png"
-        }, 
+            "instagram": "/",
+            "linkdin": "/",
+            "single_page_img": "/webp/personls/png/aliasadpour.png"
+        },
         {
-            "id": "11",
-            "image":"/webp/B-GH.webp",
-            "name": "Bita",
-            "family":"Ghanbari",
-            "position":"Ui/Ux Designer",
-            "skills":[
-                "Basic concepts of UI and UX","Mastery of Figma","Psychology of Colors","Prototype","Usability testing","Responsive design","Problem solving","Wireframe" 
+            "id": "3",
+            "image": "/webp/personls/mohammadrezagohari.webp",
+            "name": "Mohamadreza",
+            "family": "Gohari",
+            "position": "CTO | Frontend",
+            "skills": [
+                "Laravel",
+                "ASP.Net Core",
+                ".Net",
+                "C#",
+                "Php",
+                "Docker",
+                "Linux",
+                "CI/CD",
+                "SQL",
+                "Javascript",
+                "Typescript",
+                "React.js",
+                "Next.js",
+                "SEO"
             ],
-            "instagram":"/",
-            "linkdin":"/",
-            "single_page_img":"/webp/G_BGH.png"
+            "instagram": "/",
+            "linkdin": "/",
+            "single_page_img": "/webp/personls/png/mohammadrezagohari.png"
+        },
+        {
+            "id": "7",
+            "image": "/webp/pp.webp",
+            "name": "Parsa",
+            "family": "Panahpour",
+            "position": "Backend Developer",
+            "skills": [
+                "ASP.Net Core",
+                "PWA",
+                "C#",
+                "Php",
+                "Docker",
+                "Windows Server",
+                "Git Flow",
+                "SQL Server"
+            ],
+            "instagram": "/",
+            "linkdin": "/",
+            "single_page_img": "/webp/G_PP.png"
         },
         {
             "id": "6",
-            "image":"/webp/AR.webp",
+            "image": "/webp/B-GH.webp",
+            "name": "Bita",
+            "family": "Ghanbari",
+            "position": "Ui/Ux Designer",
+            "skills": [
+                "Basic concepts of UI and UX",
+                "Mastery of Figma",
+                "Psychology of Colors",
+                "Prototype",
+                "Usability testing",
+                "Responsive design",
+                "Problem solving",
+                "Wireframe"
+            ],
+            "instagram": "/",
+            "linkdin": "/",
+            "single_page_img": "/webp/G_BGH.png"
+        },
+        {
+            "id": "5",
+            "image": "/webp/AM.webp",
+            "name": "Atefe",
+            "family": "Mohseni",
+            "position": "Ui/Ux Designer",
+            "skills": [
+                "Basic concepts of UI and UX",
+                "Mastery of Figma",
+                "Psychology of Colors",
+                "Prototype",
+                "Usability testing",
+                "Responsive design",
+                "Problem solving",
+                "Wireframe"
+            ],
+            "instagram": "/",
+            "linkdin": "/",
+            "single_page_img": "/webp/G_AM.png"
+        },
+        {
+            "id": "4",
+            "image": "/webp/AR.webp",
             "name": "Amirreza",
-            "family":"Ranjbar",
-            "position":"Account Manager",
-            "skills":[
-                "Marketing managment","Negotiation","Analytical skills","Seles","Consumer products"
+            "family": "Ranjbar",
+            "position": "Account Manager",
+            "skills": [
+                "Marketing managment",
+                "Negotiation",
+                "Analytical skills",
+                "Seles",
+                "Consumer products"
             ],
-            "instagram":"/",
-            "linkdin":"/",
-            "single_page_img":"/webp/G_AR.png"
-        }, 
-        {
-            "id": "7",
-            "image":"/webp/MM.webp",
-            "name": "Maedeh",
-            "family":"Mirabi",
-            "position":"Ui/Ux Designer",
-            "skills":[
-                "Basic concepts of UI and UX","Mastery of Figma","Psychology of Colors","Prototype","Usability testing","Responsive design","Problem solving","Wireframe" 
-            ],
-            "instagram":"/",
-            "linkdin":"/",
-            "single_page_img":"/webp/G_MM.png"
-        },
-        
-        {
-            "id": "9",
-            "image":"/webp/pp.webp",
-            "name": "Parsa",
-            "family":"Panahpour",
-            "position":"Backend Developer",
-            "skills":[
-                "ASP.Net Core","PWA","C#","Php","Docker","Windows Server","Git Flow","SQL Server"
-            ],
-            "instagram":"/",
-            "linkdin":"/",
-            "single_page_img":"/webp/G_PP.png"
-        },
-        {
-            "id": "10",
-            "image":"/webp/MB.webp",
-            "name": "Mostafa",
-            "family":"Barimani",
-            "position":"SEO",
-            "skills":[
-                "Social Skills","Technical & Programming Skills","Wordpress","Analytics Skills","Data Skills","Backlink","Seo content","Digital marketing","Keyword research"
-            ],
-            "instagram":"/",
-            "linkdin":"/",
-            "single_page_img":"/webp/G_MB.png"
+            "instagram": "/",
+            "linkdin": "/",
+            "single_page_img": "/webp/G_AR.png"
         }
-        
-    ]    
+    ]
 }

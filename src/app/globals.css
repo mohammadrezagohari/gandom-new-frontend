@@ -1,0 +1,473 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* ---------------------------MOZ--------------------------- */
+/* width */
+::-moz-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-moz-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-moz-scrollbar-thumb {
+  background: #888;
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-moz-scrollbar-thumb:hover {
+  background: #555;
+}
+
+@font-face {
+  font-family: PoppinsExtraLight;
+  src: url("../assets/font/poppins/Poppins-ExtraLight.woff2") format("woff2");
+}
+@font-face {
+  font-family: PoppinsLight;
+  src: url("../assets/font/poppins/Poppins-Light.woff2") format("woff2");
+}
+@font-face {
+  font-family: PoppinsThin;
+  src: url("../assets/font/poppins/Poppins-Thin.woff2") format("woff2");
+}
+@font-face {
+  font-family: PoppinsMedium;
+  src: url("../assets/font/poppins/Poppins-Medium.woff2") format("woff2");
+}
+@font-face {
+  font-family: PoppinsRegular;
+  src: url("../assets/font/poppins/Poppins-Regular.woff2") format("woff2");
+}
+@font-face {
+  font-family: PoppinsSemiBold;
+  src: url("../assets/font/poppins/Poppins-SemiBold.woff2") format("woff2");
+}
+@font-face {
+  font-family: PoppinsSemiBlack;
+  src: url("../assets/font/poppins/Poppins-Black.woff2") format("woff2");
+}
+@font-face {
+  font-family: PoppinsSemiExtraBold;
+  src: url("../assets/font/poppins/Poppins-ExtraBold.woff2") format("woff2");
+}
+@font-face {
+  font-family: Holispay;
+  src: url("../assets/font/Holispay/Holispay/Holispay.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "rokh-normal";
+  src: url("../assets/font/rokh/normal/rokh-normal.eot");
+  src: url("../assets/font/rokh/normal/rokh-normal.eot?#iefix")
+      format("embedded-opentype"),
+    url("../assets/font/rokh/normal/rokh-normal.woff2") format("woff2"),
+    url("../assets/font/rokh/normal/rokh-normal.woff") format("woff"),
+    url("../assets/font/rokh/normal/rokh-normal.ttf") format("truetype"),
+    url("../assets/font/rokh/normal/rokh-normal.svg#rokh-normal") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "rokh-bold";
+  src: url("../assets/font/rokh/bold/rokh-bold.eot");
+  src: url("../assets/font/rokh/bold/rokh-bold.eot?#iefix")
+      format("embedded-opentype"),
+    url("../assets/font/rokh/bold/rokh-bold.woff2") format("woff2"),
+    url("../assets/font/rokh/bold/rokh-bold.woff") format("woff"),
+    url("../assets/font/rokh/bold/rokh-bold.ttf") format("truetype"),
+    url("../assets/font/rokh/bold/rokh-bold.svg#rokh-bold") format("svg");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "yekan-bakh";
+  src: url("../assets/font/yekan-bakh/yekan-bakh.eot");
+  src: url("../assets/font/yekan-bakh/yekan-bakh.eot?#iefix")
+      format("embedded-opentype"),
+    url("../assets/font/yekan-bakh/yekan-bakh.woff2") format("woff2"),
+    url("../assets/font/yekan-bakh/yekan-bakh.woff") format("woff"),
+    url("../assets/font/yekan-bakh/yekan-bakh.ttf") format("truetype"),
+    url("../assets/font/yekan-bakh/yekan-bakh.svg#yekan-bakh") format("svg");
+  font-weight: 500;
+  font-style: normal;
+}
+
+/* ---------------------------- */
+.glassBox {
+  background: rgba(199, 199, 199, 0.1);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(6.8px);
+  -webkit-backdrop-filter: blur(6.8px);
+  border: 1px solid rgba(199, 199, 199, 0.68);
+}
+
+/* ---------------------------- */
+.menuItem {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.menuItem:hover {
+  border-color: #fff;
+  background: #fff;
+}
+.menuItem:hover h4 {
+  color: #212121;
+}
+.menuItem span {
+  /* opacity:0;
+  visibility: hidden ; */
+  display: none;
+}
+.menuItem:hover span {
+  /* opacity:1;
+  visibility: visible ;  */
+  /* display:flex;
+  flex-direction: column;
+  justify-content:center;
+  align-items:center */
+  display: block;
+}
+
+.menuItemWhiteBg span {
+  /* opacity:0;
+  visibility: hidden ; */
+  color: #ffd101;
+
+  display: none;
+}
+.menuItemWhiteBg:hover span {
+  /* opacity:1;
+  visibility: visible ;  */
+  /* display:flex;
+  flex-direction: column;
+  justify-content:center;
+  align-items:center */
+  display: block;
+}
+/* ---------------------------- */
+/* .circleLgContainer::before{
+  content: '';
+position: absolute;
+left: 42px;
+top: -17px;
+background: red;
+width: 17px;
+height: 27px;
+border-bottom-right-radius: 40px;
+}
+.circleLgContainer::after{
+  content: '';
+  position: absolute;
+  left: 42px;
+  bottom: -17px;
+  background: red;
+  width: 17px;
+  height: 27px;
+  border-top-right-radius: 40px;
+} */
+.circleLgContainer::before {
+  content: "";
+  position: absolute;
+  left: -33px;
+  top: -71.3px;
+  background: transparent;
+  width: 81px;
+  height: 108px;
+  border-bottom-right-radius: 137px;
+  /* box-shadow: 53px 0px 0px 0px #fff; */
+}
+.circleLgContainer::after {
+  content: "";
+  position: absolute;
+  left: -33px;
+  bottom: -71.3px;
+  background: transparent;
+  width: 81px;
+  height: 108px;
+  border-top-right-radius: 137px;
+  /* box-shadow: 44px 22px 0px 0px #fff; */
+  /* box-shadow: 53px 14px 0px 0px #fff; */
+}
+
+.circleSmContainer::before {
+  content: "";
+  position: absolute;
+  width: 58px;
+  height: 28px;
+  background: transparent;
+  top: -1.4px;
+  right: -47px;
+  border-bottom-left-radius: 51px;
+  /* box-shadow: -7px 16px 0px 0px #fff; */
+}
+.circleSmContainer::after {
+  content: "";
+  position: absolute;
+  width: 58px;
+  height: 28px;
+  background: transparent;
+  top: -1.4px;
+  right: 59px;
+  border-bottom-right-radius: 51px;
+  /* box-shadow: 1px 16px 0px 0px #fff; */
+}
+
+/* ---------------------------- */
+/* -----lg----- */
+.circleLgText {
+  color: #212121;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  animation: rotateText 10s linear infinite;
+}
+.circleLgText span {
+  font-size: 15px;
+  font-weight: 400;
+  font-family: PoppinsLight;
+  transform-origin: 0 3rem;
+  position: absolute;
+  left: 50%;
+}
+/* -----sm----- */
+.circleSmText {
+  color: #212121;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  animation: rotateText 10s linear infinite;
+}
+.circleSmText span {
+  font-size: 6px;
+  font-weight: 400;
+  font-family: PoppinsLight;
+  transform-origin: 0 1.5rem;
+  position: absolute;
+  left: 50%;
+}
+
+@keyframes rotateText {
+  0% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+/* ---------------------------- */
+
+ul.socialIconDownSmUl {
+  transform: rotate(90deg);
+
+  /* xl */
+  /* transform: rotate(112deg);
+bottom: 71px;
+left: 233px; */
+}
+ul.socialIconDownSmUl li {
+  --item: 1;
+  position: absolute;
+  transform: rotate(90deg);
+
+  /* transform: rotate(calc((180deg / 6) * var(--item))); */
+  /* transform-origin: left center; */
+}
+
+/* xl */
+/* ul.socialIconDownSmUl li {
+  --item: 1;
+  position: absolute;
+  transform: rotate(calc((127deg / 6) * var(--item)));
+  transform-origin: -23pc;
+} */
+
+ul.socialIconDownSmUl li:nth-child(2) {
+  --item: 2;
+}
+ul.socialIconDownSmUl li:nth-child(3) {
+  --item: 3;
+}
+ul.socialIconDownSmUl li:nth-child(4) {
+  --item: 4;
+}
+ul.socialIconDownSmUl li:nth-child(5) {
+  --item: 5;
+}
+ul.socialIconDownSmUl li svg {
+  transform: rotate(180deg);
+}
+ul.socialIconDownSmUl li span {
+  position: absolute;
+  padding: 10px;
+  transform: rotate(180deg);
+  left: 5vw;
+}
+ul.socialIconDownSmUl li span::before {
+  content: "";
+  position: absolute;
+  display: inline-block;
+  height: 100px;
+  width: 100px;
+  background: linear-gradient(to left, red 75%);
+}
+
+/* --------------------- */
+ul.socialIconUpSmUl {
+  transform: rotate(90deg);
+
+  /* xl */
+  /* transform: rotate(67deg);
+  bottom: 43px;
+  right: 225px; */
+}
+ul.socialIconUpSmUl li {
+  --item: 1;
+  position: absolute;
+  rotate: -90deg;
+  /* transform: rotate(calc((-180deg / 6) * var(--item))); */
+  transform-origin: left center;
+}
+
+/* xl */
+/* ul.socialIconUpSmUl li {
+  --item: 1;
+  position: absolute;
+  transform: rotate(calc((-127deg / 6) * var(--item)));
+  transform-origin: -23pc;
+} */
+
+ul.socialIconUpSmUl li:nth-child(2) {
+  --item: 2;
+}
+ul.socialIconUpSmUl li:nth-child(3) {
+  --item: 3;
+}
+ul.socialIconUpSmUl li:nth-child(4) {
+  --item: 4;
+}
+ul.socialIconUpSmUl li:nth-child(5) {
+  --item: 5;
+}
+ul.socialIconUpSmUl li svg {
+  /* transform: rotate(calc((180deg / 6) * var(--item))); */
+  transform: rotate(1deg);
+}
+ul.socialIconUpSmUl li span {
+  position: absolute;
+  padding: 10px;
+  left: 5vw;
+  /* top: 10px; */
+  /* transform: rotate(calc((180deg / 6) * var(--item))); */
+}
+
+/* --------------------- */
+
+.technologiesItems div {
+  border: 1px solid #d9b66a;
+}
+
+.technologiesItems:hover div {
+  border: 1px solid #212121;
+}
+/* --------------------- */
+
+section .outer,
+section .inner {
+  width: 100%;
+  height: 100%;
+  overflow-y: hidden;
+}
+section .bg {
+  display: grid;
+  place-items: center;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  background-size: cover;
+  background-position: center;
+}
+/*section .bg h2 {*/
+/*  z-index: 2;*/
+/*}*/
+/*section .bg .clip-text {*/
+/*  overflow: hidden;*/
+/*}*/
+
+/* --------------------------- */
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+}
+
+.move-in-square {
+  text-shadow: 10px 10px 0 rgba(0, 0, 0, 1);
+  font-size: 100px;
+}
+
+.PhoneInputInput {
+  outline: none;
+}
+.rtl {
+  direction: rtl;
+}
+.ltr {
+  direction: ltr;
+}
+.rokh-font-normal {
+  font-family: "rokh-normal";
+}
+.rokh-font-bold {
+  font-family: "rokh-bold";
+  font-weight: 900;
+}
+.yekan-bakh-font {
+  font-family: "yekan-bakh";
+}
+.border-language-box {
+  border: 2px solid #ffd101;
+  border-radius: 15px;
+  padding: 0.5em;
+  outline: none;
+}

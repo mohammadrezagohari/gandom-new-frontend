@@ -1,0 +1,102 @@
+.aboutSectionLeftColBg{
+    
+}
+/* @media (min-width:768px){
+    .aboutSectionLeftColBg{
+        background-image: url('/landing/aboutSectionGandomLogo.svg');
+        background-position: left center;
+        background-repeat: no-repeat;
+        background-size: 50%;
+    }
+} */
+.ServiceSection{
+    background-image: url(/serviceSectionGandomLOgo.svg);
+    background-position: top 109%;
+    background-repeat: no-repeat;
+    background-size: 105%;
+}
+@media (min-width:768px){
+    .ServiceSection{
+        background-image: url('/serviceSectionGandomLOgo.svg');
+        background-position: center 90%;
+        background-repeat: no-repeat;
+        background-size: 70%;
+    }
+}
+/* .ServiceSection{
+    background-image: url('/serviceSectionGandomLOgo.svg');
+    background-position: center 90%;
+    background-repeat: no-repeat;
+    background-size: 70%;
+} */
+.serviceSliderItem h4{
+    color:#212121
+ }
+.serviceSliderItem:hover h4{
+   color:#fff
+}
+.serviceSliderItem:hover svg{
+    color:#fff
+
+}
+.serviceSliderItem h3{
+   
+    /* opacity:1;
+    visibility: visible ; */
+    display:block;
+}
+.serviceSliderItem:hover h3{
+    /* opacity:0;
+    visibility: hidden ; */
+    display:none;
+}
+.serviceSliderItem p{
+
+    display:none;
+
+}
+.serviceSliderItem:hover p{
+
+    display:block;
+
+}
+.serviceSliderItem a{
+
+    display:none;
+
+}
+.serviceSliderItem:hover a{
+
+    display:block;
+
+}
+.serviceSliderItem .txtBtn{
+    /* opacity:0;
+    visibility: hidden ; */
+    display:none;
+
+}
+.serviceSliderItem:hover .txtBtn{
+    /* opacity:1;
+    visibility: visible ; */
+    display:block;
+
+}
+
+
+/* .container{
+    
+  }
+.container .ctn-img{
+    -webkit-mask-image: -webkit-radial-gradient(white, black);
+    margin: 60px auto;
+    overflow: hidden;
+    height: 300px;
+    width: 90vw;
+    max-width: 520px;
+    border-radius: 30px;
+    
+}
+.container .ctn-img img{
+    width: 100%;
+  } */

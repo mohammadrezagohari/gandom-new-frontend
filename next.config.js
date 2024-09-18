@@ -1,8 +1,17 @@
+/**
+ * @type {import('next').NextConfig}
+ */
+const createNextIntlPlugin = require("next-intl/plugin");
+const withNextIntl = createNextIntlPlugin(
+  // Specify a custom path here
+//   "./src/i18n/request.js"
+);
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    images: {
-        unoptimized: true,
-    },
-}
+  images: {
+    unoptimized: true,
+  },
+  experimental: {},
+};
 
-module.exports = nextConfig
+module.exports = withNextIntl(nextConfig);

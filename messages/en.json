@@ -1,0 +1,105 @@
+{
+    "lang": "en",
+    "landing": {
+        "our_specialty": {
+            "title": "Our Specialty",
+            "sub_title": "is the reason for your trust",
+            "context": "We specialize in crafting cutting-edge software solutions for mobile, web, and desktop platforms, emphasizing bespoke UI/UX designs. Our dedicated team collaborates to deliver custom-tailored products that meet functional needs and provide a seamless user experience, empowering clients in the competitive digital landscape."
+        },
+        "our_services": {
+            "title": "Our services",
+            "context": "Explore our comprehensive suite of services, from innovative UI/UX design to responsive web and mobile solutions, expert SEO, captivating graphic design, and streamlined software solutions:",
+            "list": [
+                {
+                    "number": "01",
+                    "alt": "Web Segmentation Services",
+                    "title": "Web",
+                    "description": "Transform your online presence with visually stunning and responsive websites tailored to your brand.",
+                    "short_description": "Web Design Services"
+                },
+                {
+                    "number": "02",
+                    "alt": "Mobile Segmentation Services",
+                    "title": "App",
+                    "description": "Stay ahead in the mobile realm with cutting-edge apps for a smooth and efficient user experience.",
+                    "short_description": "App Design Services"
+                },
+                {
+                    "number": "03",
+                    "alt": "SEO Segmentation Services",
+                    "title": "SEO",
+                    "description": "Boost your online visibility and drive organic traffic with our expert SEO services.",
+                    "short_description": "SEO keywords"
+                },
+                {
+                    "number": "04",
+                    "alt": "Graphic Segmentation Services",
+                    "title": "Graphic",
+                    "description": "Make a lasting impression with visually compelling designs that reflect your unique brand identity.",
+                    "short_description": "Graphic Design Services"
+                },
+                {
+                    "number": "05",
+                    "alt": "UI/UX Segmentation Services",
+                    "title": "UI/UX",
+                    "description": "Craft seamless and engaging user experiences with our dedicated UI/UX design service.",
+                    "short_description": "UI/UX Design Services"
+                },
+                {
+                    "number": "06",
+                    "alt": "Software Engineer Segmentation Services",
+                    "title": "Software",
+                    "description": "Streamline operations with bespoke software solutions, ensuring efficiency, scalability, and innovation for your business.",
+                    "short_description": "Software Services"
+                }
+            ]
+        },
+        "our_work": {
+            "context": "Our dedicated support doesn`t end when the project is complete. We are always there to support our projects from their basic conception to their final state. Our commitment to our clients extends beyond the development phase, as we provide ongoing maintenance and updates to ensure that our software solutions continue to perform at their best and remain compatible with evolving technologies and standards. We believe in building long-lasting partnerships based on trust and reliability, and we are always ready to assist our clients in maximizing the value of our products as their businesses grow and evolve.",
+            "list": [
+                {
+                    "title": "Free Cancer Website learning",
+                    "context": "A dedicated medical institution's website on cancer treatment features comprehensive educational resources, treatment options, and support services. It emphasizes patient stories, clinical expertise, and community engagement, providing a holistic approach to empower individuals facing cancer."
+                },
+                {
+                    "title": "Mobile application Testato",
+                    "context": "Testato is a mobile app designed to aid students in preparing for university entrance exams by offering study materials and practice exams. It aims to streamline exam readiness and enhance academic performance."
+                },
+                {
+                    "title": "The clothing brand AREF",
+                    "context": "To learn more about the AREF clothing brand that combines sport and classic styles, I recommend checking their official website, social media pages, or reputable fashion retail platforms for the latest information on their collections, design philosophy, and available products."
+                }
+            ]
+        },
+        "about_us": {
+            "title": "About Us",
+            "context": "df Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Egestas purus viverra accumsan in nisl nisi. Arcu cursus vitae Egestas purus viverra accumsan in nisl nisi. Arcu cursus vitae"
+        },
+        "trust": "trusted by +50 company worldwide"
+    },
+    "small_contact": {
+        "title": "You Can Contact Us For Advice And Guidance",
+        "click": "Click Here To Start",
+        "support": "+5 support ready to answer"
+    },
+    "share": {
+        "footer": {
+            "link": [
+                {
+                    "about": "About Us",
+                    "contact_us": "Contact us",
+                    "our_works": "Our works",
+                    "weblog": "Weblog"
+                }
+            ],
+            "copyright": "Copyright © 2024 Gandom CO"
+        },
+        "button": {
+            "about": "About",
+            "about_us": "About Us",
+            "contact": "Contact",
+            "contact_us": "Contact Us",
+            "see_more": "See More"
+        }
+    }
+}

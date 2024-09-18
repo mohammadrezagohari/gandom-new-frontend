@@ -1,0 +1,121 @@
+/* .recentArticleBox >div.pictureBox {
+    order:1
+}
+
+.recentArticleBox >div.textBox{
+    order:2
+}
+
+
+.recentArticleBox:nth-child(even) >div.pictureBox {
+    background: red;
+    order:2;
+    transform: rotateY(180deg)
+}
+
+.recentArticleBox:nth-child(even) >div.textBox{
+    order:1
+} */
+
+
+/* -------------------------------------------------------------------- */
+/* weblogCircleLgContainer
+weblogweblogCircleSmContainer */
+.weblogCircleLgContainer::before{
+  content: '';
+  position: absolute;
+  left: -22px;
+  top: -65.01px;
+  /* background: red; */
+  width: 51px;
+  height: 92px;
+  border-bottom-right-radius: 137px;
+  box-shadow: 35px 0px 0px 0px #fff;
+
+  }
+  .weblogCircleLgContainer::after{
+    content: '';
+    position: absolute;
+    left: -22px;
+    bottom: -38.01px;
+    /* background: red; */
+    width: 51px;
+    height: 65px;
+    border-top-right-radius: 137px;
+    box-shadow: 35px 14px 0px 0px #fff
+  
+  }
+   
+  .weblogCircleSmContainer::before{
+    content: '';
+    position: absolute;
+    width: 36px;
+    height: 58px;
+    /* background: red; */
+    left: -14px;
+    top: -39.01px;
+    border-bottom-right-radius: 51px;
+    box-shadow: 24px 2px 0px 0px #fff;
+  }
+  .weblogCircleSmContainer::after{
+    content: '';
+    position: absolute;
+    width: 36px;
+    height: 55px;
+    /* background: transparent; */
+    /* background: red; */
+    left: -14px;
+    bottom: -38.01px;
+    border-top-right-radius: 51px;
+    box-shadow: 25px 6px 0px 0px #fff;
+  }
+  
+  
+  
+  /* ---------------------------- */
+  /* -----lg----- */
+  .circleWeblogLgText {
+    color: #212121;
+    position:absolute;
+    width:100%;
+    height: 100%;
+    animation: rotateText 10s linear infinite;
+  }
+  .circleWeblogLgText span{
+    font-size: 10px;
+    font-weight: 400;
+    font-family:PoppinsLight;
+    transform-origin: 0 2.3rem;
+    position:absolute;
+    left:50%;
+    
+  }
+  /* -----sm----- */
+  .circleSmText {
+    color: #212121;
+    position:absolute;
+    width:100%;
+    height: 100%;
+    animation: rotateText 10s linear infinite;
+  }
+  .circleSmText span{
+    font-size: 6px;
+    font-weight: 400;
+    font-family:PoppinsLight;
+    transform-origin: 0 1.5rem;
+    position:absolute;
+    left:50%;
+    
+  }
+  
+  @keyframes rotateText {
+    0% {
+      transform: rotate(360deg);
+    }
+    100% {
+      transform: rotate(0deg);
+    }
+  }
+  
+
+

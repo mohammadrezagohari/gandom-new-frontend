@@ -1,0 +1,84 @@
+.CommentsSection {
+  background-image: url("/service-single-logo-gray.svg"),
+    url("/service-single-logo-yellow.svg");
+  background-position: right bottom, left top;
+  background-repeat: no-repeat, no-repeat;
+  background-size: 20%, 20%;
+}
+
+.left-item-0 {
+  left: -18vw;
+  top: -9.5vw;
+}
+
+.left-item-1 {
+  left: -10vw;
+  top: -4vw;
+}
+
+.left-item-2 {
+  left: 0vw;
+  top: -2.5vw;
+}
+
+.left-item-3 {
+  left: 8.5vw;
+  top: -5vw;
+}
+
+.left-item-4 {
+  left: 15.8vw;
+  top: -11.2vw;
+}
+
+.right-item-0 {
+  left: -15vw;
+  top: 7.8vw;
+}
+
+.right-item-1 {
+  left: -7.5vw;
+  top: 2.9vw;
+}
+
+.right-item-2 {
+  left: 2.5vw;
+  top: 1.2vw;
+}
+
+.right-item-3 {
+  left: 11vw;
+  top: 3.8vw;
+}
+
+.right-item-4 {
+  left: 18.2vw;
+  top: 9.6vw;
+}
+
+/* @media screen and (max-inline-size: 1200px) {
+  .left-item-0 {
+    inset-inline-start: -8em;
+    inset-block-start: -4em;
+  }
+
+  .left-item-1 {
+    left: -4em;
+    top: -3em;
+  }
+
+  .left-item-2 {
+    left: 1em;
+    top: -2em;
+  }
+
+  .left-item-3 {
+    left: 6em;
+    top: -3em;
+  }
+
+  .left-item-4 {
+    left: 8em;
+    top: -5em;
+  }
+} */
