@@ -3,6 +3,7 @@ import OutlinedButton from "@/src/components/common/buttons/outlined";
 import Link from "next/link";
 import Image from "next/image";
 import GridCard from "@/src/components/common/cards/grid-card-about-page";
+import { useLocale } from "next-intl"; // اضافه کن
 
 function TeamSection() {
   const statisticsItems = [
@@ -22,6 +23,7 @@ function TeamSection() {
       title: "SEO",
     },
   ];
+  
   const gridItems = [
     {
       id: 1,
@@ -126,6 +128,8 @@ function TeamSection() {
 export default TeamSection;
 
 export function Grid({ gridItems }) {
+    const localActive = useLocale(); // مقدار زبان فعلی
+
   return (
     <div className=" lg:px-5 lg:order-2 order-1 col-span-12 lg:col-span-8 grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 grid-rows-2 gap-2 lg:gap-[1vw] lg:h-[36vw] ">
       {gridItems.map((g) => (
@@ -135,7 +139,7 @@ export function Grid({ gridItems }) {
           hoverClasses={g.hoverClasses}
           position={g.position}
           name={g.name}
-          link={`/team/${g.id}/${g.name}`}
+          link={`/${localActive}/team/${g.id}/${g.name}`} // زبان را به ابتدای لینک اضافه کن
           img={g.img}
         />
       ))}

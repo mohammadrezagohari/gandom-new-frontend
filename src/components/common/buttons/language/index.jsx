@@ -4,7 +4,7 @@ import { usePathname } from "next/navigation";
 import { IoIosArrowDown } from "react-icons/io";
 import { useLocale } from "next-intl";
 import { useRouter } from "next/navigation";
-function LanguageButton() {
+function LanguageButton({ isDark }) {
   //   const pathname = usePathname();
   //   const [isOpen, setIsOpen] = useState(false);
   //   const openLangList = () => {
@@ -18,24 +18,25 @@ function LanguageButton() {
     const nextLocal = event.target.value;
     router.replace(`/${nextLocal}`);
   };
+  const [isDarkMode, setIsDarkMode] = useState(isDark ? { color: "#D9D9D9" } : { color: "#070000", });
 
   return (
     <label
-      className={`rounded border-language-box ${
-        localActive == "fa" ? "rtl" : "ltr"
-      }`}
+      id="language-select"
+      className={`rounded border-language-box ${localActive == "fa" ? "rtl" : "ltr"
+        }`}
     >
-      <p className="sr-only">change language</p>
       <select
+        style={isDarkMode}
         className="bg-transparent p-2  text-white outline-none"
         name="change-language"
         defaultValue={localActive}
         onChange={onChangeSelect}
       >
-        <option className="bg-[#212121]" value="en">
+        <option value="en">
           EN
         </option>
-        <option className="bg-[#212121]" value="fa">
+        <option value="fa">
           FA
         </option>
       </select>
