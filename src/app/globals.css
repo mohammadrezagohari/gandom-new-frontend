@@ -370,7 +370,6 @@ ul.socialIconDownSmUl li span::before {
   display: inline-block;
   height: 100px;
   width: 100px;
-  background: linear-gradient(to left, red 75%);
 }
 
 /* --------------------- */

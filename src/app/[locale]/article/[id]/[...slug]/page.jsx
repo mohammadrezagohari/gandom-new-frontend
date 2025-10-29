@@ -2,11 +2,11 @@
 import React from "react";
 import Notfound from "@/src/app/not-found";
 import { getSinglePostData } from "@/src/core/services/api/videos";
-import Link from "next/link";
+// import Link from "next/link";
 import Image from "next/image";
-import SectionTitle from "@/src/components/common/section-title";
-import MassageBox from "@/src/components/common/massage-box-form";
-import MessageSection from "@/src/components/page/article-single/message-section";
+// import SectionTitle from "@/src/components/common/section-title";
+// import MassageBox from "@/src/components/common/massage-box-form";
+// import MessageSection from "@/src/components/page/article-single/message-section";
 import CommentSection from "@/src/components/page/article-single/comment-section";
 import RelatedPostSection from "@/src/components/page/article-single/related-post-section";
 

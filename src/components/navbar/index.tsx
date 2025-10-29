@@ -25,10 +25,7 @@ function Navbar() {
     // setIsOpen(false);
     setFade(false);
   };
-  // const [fade, setFade] = useState(false);
-  // const handleClickMegaMenu = (event) => {
-  //   setFade((prev) => !prev);
-  // };
+
   useEffect(() => {
     const html = document.querySelector("html");
     if (html) {

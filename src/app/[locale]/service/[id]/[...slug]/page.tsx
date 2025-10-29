@@ -8,11 +8,9 @@ import SpecializeSection from "@/src/components/page/service-single/specialize-s
 import SupportSection from "@/src/components/page/service-single/support-section";
 import TechnologiesSection from "@/src/components/page/service-single/technologies-section";
 
-import React from "react";
 
 function ServiceSinglePage() {
   return (
-    <main>
       <div className="flex flex-col justify-start items-center gap-[3rem] ">
         <HeaderSection sectionId={1} />
         <SpecializeSection />
@@ -24,7 +22,6 @@ function ServiceSinglePage() {
         <ProcessSection />
         <CommentsSection />
       </div>
-    </main>
   );
 }
 

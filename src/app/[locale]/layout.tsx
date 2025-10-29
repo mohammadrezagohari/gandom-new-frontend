@@ -1,7 +1,7 @@
 import { NextIntlClientProvider } from 'next-intl';
-import { getMessages } from 'next-intl/server';
+import {getMessages} from 'next-intl/server';
 import React from 'react';
-import LanguageButton from '../../components/common/buttons/language';
+// import LanguageButton from '../../components/common/buttons/language';
 import Navbar from '../../components/navbar';
 import Footer from '@/src/components/footer';
 
