@@ -1,10 +1,14 @@
+"use client"
 import PictureBox from "@/src/components/common/picture-box";
 import React from "react";
 import SectionTitle from "@/src/components/common/section-title";
 import SectionCounter from "@/src/components/common/service-section-counter";
 import Link from "next/link";
+import { useLocale } from "next-intl";
 
 function SectionOne() {
+      const locale = useLocale();
+      console.log("gohari", locale)
   return (
     <section className="w-full py-8 lg:py-[3.125vw]">
       <div
@@ -27,7 +31,7 @@ function SectionOne() {
           style={{ transform: " rotateY(180deg)" }}
           className="col-span-11 lg:col-span-5 lg:row-span-2 row-span-1 order-3 lg:order-2"
         >
-          <Link href={`/service/1/software-development`}>
+          <Link href={`/${locale}/service/1/software-development`}>
             <SectionTitle classes="text-g21" title="Software Development" />
           </Link>
           <p className="text-g8 lg:text-g4c lg:text-[1.34375vw] mt-[5%] lg:leading-[2.34375vw] text-justify text-base leading-6 font-bold font-PoppinsLight pb-6">
@@ -41,7 +45,7 @@ function SectionOne() {
           className="col-span-11 lg:col-span-6 lg:row-span-2 row-span-1 order-2 lg:order-3"
         >
           <PictureBox
-            href={`/service/1/software-development`}
+            href={`/${locale}/service/1/software-development`}
             circleLgYellow="before:shadow-[53px_0px_0px_0px_#fff] after:shadow-[53px_14px_0px_0px_#fff]"
             circleSmYellow="before:shadow-[-7px_16px_0px_0px_#fff] after:shadow-[1px_16px_0px_0px_#fff]"
             circleClasses="bg-gf"
