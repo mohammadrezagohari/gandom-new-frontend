@@ -7,8 +7,7 @@ import Link from "next/link";
 import { useLocale } from "next-intl";
 
 function SectionOne() {
-      const locale = useLocale();
-      console.log("gohari", locale)
+  const locale = useLocale();
   return (
     <section className="w-full py-8 lg:py-[3.125vw]">
       <div
@@ -35,9 +34,11 @@ function SectionOne() {
             <SectionTitle classes="text-g21" title="Software Development" />
           </Link>
           <p className="text-g8 lg:text-g4c lg:text-[1.34375vw] mt-[5%] lg:leading-[2.34375vw] text-justify text-base leading-6 font-bold font-PoppinsLight pb-6">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Egestas
-            purus viverra accumsan in nisl nisi. Arcu cursus vitae
+            Web development company that enhances business profitability and
+            efficiency through scalable solutions using modern technologies. Their services include
+            custom CRM/ERP systems, e-commerce platforms, SaaS, and on-demand applications.
+            The company utilizes various technologies such as NodeJs, React, and Laravel to deliver tailored solutions.
+            Additionally, they showcase their portfolio and customer testimonials to highlight their expertise and successful projects.
           </p>
         </div>
         <div

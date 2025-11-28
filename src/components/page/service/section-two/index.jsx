@@ -1,3 +1,4 @@
+"use client"
 import PictureBox from "@/src/components/common/picture-box";
 import React from "react";
 import SectionTitle from "@/src/components/common/section-title";
@@ -6,7 +7,7 @@ import Link from "next/link";
 import { useLocale } from "next-intl";
 
 function SectionTwo() {
-        const locale = useLocale();
+  const locale = useLocale();
 
   return (
     <section className="w-full bg-gec py-8 lg:py-[3.125vw]">

@@ -1,8 +1,11 @@
 // import React,{useState} from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useLocale } from "next-intl";
 
 function Footer() {
+    const locale = useLocale();
+
   // const [isHover,setIsHover]=useState(false)
   return (
     <footer className="w-full bg-g21">
@@ -29,22 +32,22 @@ function Footer() {
 
           <ul className="lg:flex lg:justify-center lg:items-center lg:gap-[6.25vw] lg:divide-y-0 divide-y divide-[#FFD10133]">
             <li className="text-gf text-center lg:text-[1.5625vw] lg:leading-[2.9296875vw] text-xl leading-[30px] font-PoppinsLight lg:py-0 py-4">
-              <Link className="block w-full h-full" href="/about-us">
+              <Link className="block w-full h-full" href={`/${locale}/about-us`}>
                 <span>About us</span>
               </Link>
             </li>
             <li className="text-gf text-center lg:text-[1.5625vw] lg:leading-[2.9296875vw] text-xl leading-[30px] font-PoppinsLight lg:py-0 py-4">
-              <Link className="block w-full h-full" href="/contact">
+              <Link className="block w-full h-full" href={`/${locale}/contact`}>
                 <span>Contact us</span>
               </Link>
             </li>
             <li className="text-gf text-center lg:text-[1.5625vw] lg:leading-[2.9296875vw] text-xl leading-[30px] font-PoppinsLight lg:py-0 py-4">
-              <Link className="block w-full h-full" href="/portfolio">
+              <Link className="block w-full h-full" href={`/${locale}/portfolio`}>
                 <span>Our works</span>
               </Link>
             </li>
             <li className="text-gf text-center lg:text-[1.5625vw] lg:leading-[2.9296875vw] text-xl leading-[30px] font-PoppinsLight lg:py-0 py-4">
-              <Link className="block w-full h-full" href="/weblog">
+              <Link className="block w-full h-full" href={`/${locale}/weblog`}>
                 <span>Weblog</span>
               </Link>
             </li>
@@ -179,7 +182,7 @@ function Footer() {
 
         <div className="flex justify-center items-center mx-auto lg:w-[65%] lg:border-t-[1px] lg:border-[#FFD10159]  lg:py-[2.0833333333333335vw] pb-12">
           <h6 className="text-gf lg:text-[1.0416666666666667vw] lg:leading-[2.1484375vw] text-base leading-6 font-extralight ">
-            Copyright © 2023 HubSpot, Inc.
+            Copyright © 2025 GANDOM CO.
           </h6>
         </div>
       </div>

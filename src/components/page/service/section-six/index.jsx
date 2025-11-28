@@ -1,10 +1,14 @@
+"use client"
 import PictureBox from "@/src/components/common/picture-box";
 import React from "react";
 import SectionTitle from "@/src/components/common/section-title";
 import SectionCounter from "@/src/components/common/service-section-counter";
 import Link from "next/link";
+import { useLocale } from "next-intl";
 
 function SectionSix() {
+  const locale = useLocale();
+
   return (
     <section className="w-full bg-gec py-8 lg:py-[3.125vw]">
       <div className="serviceCont px-[1rem] md:px-[2rem] lg:px-0 gap-2 lg:gap-0 min-h-[505px] grid grid-cols-12 grid-rows-2 ">
@@ -18,7 +22,7 @@ function SectionSix() {
           />
         </div>
         <div className="col-span-11 lg:col-span-5 lg:row-span-2 row-span-1 order-3 lg:order-2">
-          <Link href={`/service/6/mobile-application`}>
+          <Link href={`/${locale}/service/6/mobile-application`}>
             <SectionTitle classes="text-g21" title="Mobile App" />
           </Link>
           <p className="text-g8 lg:text-g4c lg:text-[1.34375vw] mt-[5%] lg:leading-[2.34375vw] text-justify text-base leading-6 font-bold font-PoppinsLight pb-6">
@@ -30,7 +34,7 @@ function SectionSix() {
         <div className="col-span-11 lg:col-span-6 lg:row-span-2 row-span-1 order-2 lg:order-3">
           <div className="w-full flex items-start justify-end">
             <PictureBox
-              href={`/service/6/mobile-application`}
+              href={`/${locale}/service/6/mobile-application`}
               circleLgYellow="before:shadow-[53px_0px_0px_0px_#ececec] after:shadow-[53px_14px_0px_0px_#ececec]"
               circleSmYellow="before:shadow-[-7px_16px_0px_0px_#ececec] after:shadow-[1px_16px_0px_0px_#ececec]"
               circleClasses="bg-gec "

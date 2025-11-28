@@ -6,16 +6,23 @@ import { GoArrowDownLeft } from "react-icons/go";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/bundle";
+import { useLocale } from "next-intl";
 
 // import { Pagination, Navigation } from "swiper";
-import Image from "next/image";
 import FilledYellowButton from "../../../../components/common/buttons/fillYellow";
 import SectionTitle from "../../../../components/common/section-title";
 import { Pagination, Navigation } from "swiper/modules";
 // mod
 function ServiceSlider({ service, title, context, lang }) {
+  const locale = useLocale();
+
   const navigationPrevRef = useRef(null);
   const navigationNextRef = useRef(null);
+
+  const readmoreButtonLang = {
+    "en": "Read More",
+    "fa": "جزئیات بیشتر",
+  }
 
   return (
     <>
@@ -26,9 +33,8 @@ function ServiceSlider({ service, title, context, lang }) {
           <SectionTitle title={title} lang={lang} />
 
           <p
-            className={`text-g8 lg:text-[1.3vw] lg:leading-[2.34375vw] text-justify text-base leading-6 ${
-              lang == "fa" ? "yekan-bakh-font" : "font-PoppinsLight"
-            } pb-6`}
+            className={`text-g8 lg:text-[1.3vw] lg:leading-[2.34375vw] text-justify text-base leading-6 ${lang == "fa" ? "yekan-bakh-font" : "font-PoppinsLight"
+              } pb-6`}
           >
             {context}
           </p>
@@ -67,16 +73,14 @@ function ServiceSlider({ service, title, context, lang }) {
                   {item.svg}
                 </div>
                 <h4
-                  className={`lg:text-[3.2552083333333335vw] lg:leading-[1.8313802083333333vw] text-[30px] leading-[33.9px] ${
-                    lang == "fa" ? "rokh-font-bold" : "font-Holispay"
-                  } `}
+                  className={`lg:text-[3.2552083333333335vw] lg:leading-[1.8313802083333333vw] text-[30px] leading-[33.9px] ${lang == "fa" ? "rokh-font-bold" : "font-Holispay"
+                    } `}
                 >
                   {item.title}
                 </h4>
                 <h3
-                  className={`text-gDarkYellow lg:text-[1.171875vw] lg:leading-[1.8313802083333333vw] text-[12px] leading-[14.06px] font-PoppinsLight ${
-                    lang == "fa" ? "yekan-bakh-font" : "font-PoppinsLight"
-                  }`}
+                  className={`text-gDarkYellow lg:text-[1.171875vw] lg:leading-[1.8313802083333333vw] text-[12px] leading-[14.06px] font-PoppinsLight ${lang == "fa" ? "yekan-bakh-font" : "font-PoppinsLight"
+                    }`}
                 >
                   {item.shortDesc}
                 </h3>
@@ -84,17 +88,17 @@ function ServiceSlider({ service, title, context, lang }) {
 
               <div className=" h-[45%] flex flex-col justify-between items-center">
                 <p
-                  className={` mt-3 text-g8 text-justify lg:text-[0.9765625vw] lg:leading-[1.7578125vw] text-[12px] leading-[14.06px] ${
-                    lang == "fa" ? "yekan-bakh-font" : "font-PoppinsLight"
-                  } `}
+                  className={` mt-3 text-g8 text-justify lg:text-[0.9765625vw] lg:leading-[1.7578125vw] text-[12px] leading-[14.06px] ${lang == "fa" ? "yekan-bakh-font" : "font-PoppinsLight"
+                    } `}
                 >
                   {item.desc}
                 </p>
 
                 <FilledYellowButton
                   classes="w-full px-3"
-                  link={item.link}
-                  title="Read More"
+                  link={`${item?.link}`}
+                  title={locale == "fa" ? readmoreButtonLang.fa : readmoreButtonLang.en}
+                  locale={locale}
                 />
               </div>
             </SwiperSlide>

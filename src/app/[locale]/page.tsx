@@ -1,13 +1,15 @@
 import { useLocale, useTranslations } from "next-intl";
 import Landing from "../../components/page/landing/landing";
+import { setRequestLocale, getTranslations } from "next-intl/server";
+export default async function HomePage({ params: { locale } }) {
+  // const locale = useLocale(); // Get the active locale
+  setRequestLocale(locale);
 
-export default function HomePage() {
-    const locale = useLocale(); // Get the active locale
-
-    const t = useTranslations("landing");
-    return (
-        <main className={`${locale == "fa" ? "rtl" : "ltr"} ${locale}`}>
-            <Landing />
-        </main>
-    );
+  // Fetch translations on the server
+  const t = await getTranslations("landing");
+  return (
+    <main className={`${locale == "fa" ? "rtl" : "ltr"} ${locale}`}>
+      <Landing />
+    </main>
+  );
 }

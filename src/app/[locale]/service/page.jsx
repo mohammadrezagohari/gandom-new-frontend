@@ -1,3 +1,4 @@
+'use client'
 import SectionFive from "@/src/components/page/service/section-five";
 import SectionFoure from "@/src/components/page/service/section-foure";
 import SectionOne from "@/src/components/page/service/section-one";

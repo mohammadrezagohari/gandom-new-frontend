@@ -9,17 +9,12 @@ function ServiceSection() {
 
     const service: ITranslate[] = locale == "fa" ? translate.fa : translate.en;
     const StaticServiceText: ITranslateStaticServiceText = locale == "fa" ? translateStaticServiceText.fa : translateStaticServiceText.en;
-    console.log("locale,", locale == "fa")
-    console.log("translateStaticServiceText.fa,", translateStaticServiceText.fa)
     return (
         <section className="w-full  bg-gf5 relative ">
             <div className="serviceCont py-7 lg:py-0">
                 <div className="hidden lg:grid lg:grid-cols-12  min-h-[42.31vw] mid:gap-9 lg:gap-7">
                     <ServiceSlider service={service} title={StaticServiceText.title} context={StaticServiceText.context} lang={locale} />
                 </div>
-                {/* <div className="containerServiceSection hidden lg:flex lg:items-start  lg:justify-center lg:flex-wrap h-[730px] mid:gap-9 lg:gap-5">
-            
-          </div> */}
                 <div className="container lg:hidden">
                     <SectionTitle classes="text-g21" title={StaticServiceText.title} lang={locale} />
                     <p className={`text-g8 lg:text-2xl lg:leading-9 text-justify text-base leading-6 ${locale == "fa" ? "yekan-bakh-font" : "font-PoppinsLight"} pb-6 `}>

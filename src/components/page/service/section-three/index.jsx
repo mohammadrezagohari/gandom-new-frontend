@@ -1,10 +1,14 @@
+"use client"
 import PictureBox from "@/src/components/common/picture-box";
 import React from "react";
 import SectionTitle from "@/src/components/common/section-title";
 import SectionCounter from "@/src/components/common/service-section-counter";
 import Link from "next/link";
+import { useLocale } from "next-intl";
 
 function SectionThree() {
+  const locale = useLocale();
+
   return (
     // <section className="w-full bg-g21 py-8 lg:py-12">
     <section className="w-full bg-g21 py-8 lg:py-[3.125vw]">
@@ -28,7 +32,7 @@ function SectionThree() {
           style={{ transform: " rotateY(180deg)" }}
           className="col-span-11 lg:col-span-5 lg:row-span-2 row-span-1 order-3 lg:order-2"
         >
-          <Link href={`/service/3/graphic-design`}>
+          <Link href={`/${locale}/service/3/graphic-design`}>
             <SectionTitle classes="text-gec" title="Graphic Design" />
           </Link>
           <p className="text-gec lg:text-gec lg:text-[1.34375vw] mt-[5%] lg:leading-[2.34375vw] text-justify text-base leading-6 font-bold font-PoppinsLight pb-6">
@@ -42,7 +46,7 @@ function SectionThree() {
           className="col-span-11 lg:col-span-6 lg:row-span-2 row-span-1 order-2 lg:order-3"
         >
           <PictureBox
-            href={`/service/3/graphic-design`}
+            href={`/${locale}/service/3/graphic-design`}
             circleLgYellow="before:shadow-[53px_0px_0px_0px_#212121] after:shadow-[53px_14px_0px_0px_#212121]"
             circleSmYellow="before:shadow-[-7px_16px_0px_0px_#212121] after:shadow-[1px_16px_0px_0px_#212121]"
             circleClasses="bg-g21"
