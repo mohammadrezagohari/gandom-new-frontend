@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react"
 import { useRouter } from "next/navigation"
+import TeamManager from "./teamManager"
 
 const typeLabels = {
   contact: "تماس با ما",
@@ -16,6 +17,7 @@ export default function DashboardClient({ username }) {
   const [filter, setFilter] = useState("all")
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState("")
+  const [tab, setTab] = useState("messages")
   const router = useRouter()
 
   useEffect(() => {
@@ -56,6 +58,13 @@ export default function DashboardClient({ username }) {
           <button onClick={logout} className="rounded-xl border border-gray-600 px-5 py-2 text-sm hover:bg-gray-800">خروج امن</button>
         </header>
 
+        <nav className="mb-6 flex gap-2 rounded-2xl bg-white p-2 shadow-sm">
+          <button onClick={() => setTab("messages")} className={`rounded-xl px-5 py-2.5 text-sm ${tab === "messages" ? "bg-gray-900 text-white" : "text-gray-600"}`}>پیام‌ها و فرم‌ها</button>
+          <button onClick={() => setTab("team")} className={`rounded-xl px-5 py-2.5 text-sm ${tab === "team" ? "bg-gray-900 text-white" : "text-gray-600"}`}>اعضای تیم</button>
+        </nav>
+
+        {tab === "messages" ? (
+        <>
         <section className="mb-6 grid grid-cols-2 gap-3 sm:grid-cols-4">
           <div className="rounded-xl bg-white p-4 shadow-sm"><div className="text-sm text-gray-500">همه پیام‌ها</div><div className="mt-1 text-2xl font-bold">{submissions.length}</div></div>
           {["contact", "join", "contract"].map((type) => (
@@ -90,6 +99,10 @@ export default function DashboardClient({ username }) {
             </article>
           ))}
         </div>
+        </>
+        ) : (
+          <TeamManager />
+        )}
       </div>
     </main>
   )

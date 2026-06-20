@@ -1,22 +1,22 @@
-import React from "react";
-// import { getPostsData } from '@/core/services/api/videos';
 import TeamCard from "@/src/components/common/cards/team";
-import TeamDB from "../../../../../public/json/team.json";
+import prisma from "@/src/lib/prisma";
 
-async function ContentSection() {
-  // const data = await getPostsData();
+export default async function ContentSection({ locale }) {
+  const members = await prisma.teamMember.findMany({
+    where: { isActive: true },
+    orderBy: [{ sortOrder: "asc" }, { id: "asc" }],
+  });
+  const basePath = locale ? `/${locale}/team` : "/team";
+
   return (
-    <section className="w-full ">
-      <div className=" container max-w-none ">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-5">
-          {TeamDB.data.map((item, i) => (
+    <section className="w-full">
+      <div className="container max-w-none">
+        <div className="grid grid-cols-2 gap-3 lg:grid-cols-4 lg:gap-5">
+          {members.map((item) => (
             <TeamCard
-              key={i}
+              key={item.id}
               img={item.image}
-              // href={`/team/${encodeURIComponent(item.id)}/${encodeURIComponent(item.name)}`}
-              href={`/team/${encodeURIComponent(item.id)}/${encodeURIComponent(
-                item.name
-              )} ${encodeURIComponent(item.family)}`}
+              href={`${basePath}/${item.id}/${encodeURIComponent(`${item.name} ${item.family}`)}`}
               name={item.name}
               family={item.family}
               position={item.position}
@@ -27,22 +27,4 @@ async function ContentSection() {
       </div>
     </section>
   );
-}
-
-export default ContentSection;
-
-{
-  /* <VideoCardBox key={i}  
-                        parentClasses='border-gec bg-gec'
-                        titleClasses='text-g4c'
-                        descClasses='text-g8'
-                        linkClasses='text-gDarkYellow'
-                        dateClasses='text-g8'
-                        img="/vImg.svg"
-                        title={item.title}
-                        desc={item.body}
-                        link="see more"
-                        date="29 July"
-                        href={`/videos/${item.id}/${item.title}`}
-                        />  */
 }

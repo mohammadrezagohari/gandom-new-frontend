@@ -1,18 +1,10 @@
 import ContentSection from "@/src/components/page/team/content-section";
-import React from "react";
 
-function Team() {
+export default function Team({ params }) {
   return (
-    <main className="">
-      <h1 className="text-g21 lg:text-[6.8em] text-center text-[3.125em]  font-Holispay  container max-w-none">
-        Our Team
-      </h1>
-
-      <div>
-        <ContentSection />
-      </div>
+    <main>
+      <h1 className="container max-w-none text-center font-Holispay text-[3.125em] text-g21 lg:text-[6.8em]">Our Team</h1>
+      <ContentSection locale={params.locale} />
     </main>
   );
 }
-
-export default Team;

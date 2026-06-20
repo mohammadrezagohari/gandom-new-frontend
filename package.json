@@ -10,6 +10,7 @@
         "prisma:migrate": "prisma migrate dev --name init",
         "prisma:studio": "prisma studio",
         "admin:create": "node scripts/create-admin.mjs",
+        "team:seed": "node scripts/seed-team.mjs",
         "lint": "next lint"
     },
     "dependencies": {

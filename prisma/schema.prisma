@@ -58,3 +58,23 @@ model ArticleComment {
   @@index([articleId, createdAt])
   @@index([parentId])
 }
+
+model TeamMember {
+  id              Int      @id @default(autoincrement())
+  name            String
+  family          String
+  position        String
+  about           String
+  skills          String
+  image           String
+  singlePageImage String
+  linkedin        String?
+  instagram       String?
+  joinedAt        String?
+  sortOrder       Int      @default(0)
+  isActive        Boolean  @default(true)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@index([isActive, sortOrder])
+}
