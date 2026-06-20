@@ -1,11 +1,13 @@
 import TeamCard from "@/src/components/common/cards/team";
-import prisma from "@/src/lib/prisma";
+import { asc, eq } from "drizzle-orm";
+import { db } from "@/src/db/index.mjs";
+import { teamMembers } from "@/src/db/schema.mjs";
 
 export default async function ContentSection({ locale }) {
-  const members = await prisma.teamMember.findMany({
-    where: { isActive: true },
-    orderBy: [{ sortOrder: "asc" }, { id: "asc" }],
-  });
+  const members = db.select().from(teamMembers)
+    .where(eq(teamMembers.isActive, true))
+    .orderBy(asc(teamMembers.sortOrder), asc(teamMembers.id))
+    .all();
   const basePath = locale ? `/${locale}/team` : "/team";
 
   return (

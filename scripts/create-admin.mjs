@@ -1,10 +1,10 @@
 import "dotenv/config"
-import { PrismaClient } from "@prisma/client"
+import { db, sqlite } from "../src/db/index.mjs"
+import { admins } from "../src/db/schema.mjs"
 import { randomBytes, scrypt as scryptCallback } from "node:crypto"
 import { promisify } from "node:util"
 import { createInterface } from "node:readline/promises"
 
-const prisma = new PrismaClient()
 const scrypt = promisify(scryptCallback)
 const args = process.argv.slice(2)
 const fromEnv = args.includes("--from-env")
@@ -19,16 +19,17 @@ try {
   const salt = randomBytes(16).toString("hex")
   const derived = await scrypt(password, salt, 64)
   const passwordHash = `scrypt$${salt}$${Buffer.from(derived).toString("hex")}`
-  await prisma.admin.upsert({
-    where: { username },
-    update: { passwordHash, isActive: true },
-    create: { username, passwordHash },
-  })
+  db.insert(admins).values({ username, passwordHash, isActive: true })
+    .onConflictDoUpdate({
+      target: admins.username,
+      set: { passwordHash, isActive: true, updatedAt: new Date() },
+    })
+    .run()
   console.log(`Admin "${username}" was saved in the database.`)
 } catch (error) {
   console.error(error.message)
   process.exitCode = 1
 } finally {
   rl.close()
-  await prisma.$disconnect()
+  sqlite.close()
 }

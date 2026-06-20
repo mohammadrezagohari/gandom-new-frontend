@@ -1,5 +1,7 @@
 import { NextResponse } from "next/server"
-import prisma from "@/src/lib/prisma"
+import { count, eq, or } from "drizzle-orm"
+import { db } from "@/src/db/index.mjs"
+import { teamMembers } from "@/src/db/schema.mjs"
 import { ADMIN_COOKIE, getAdminFromToken } from "@/src/lib/adminAuth"
 import { serializeTeamMember } from "@/src/lib/team"
 import { teamData } from "@/src/lib/teamValidation"
@@ -11,23 +13,28 @@ async function authorized(request) {
 
 async function cleanupUnusedImages(paths) {
   for (const imagePath of new Set(paths.filter(isManagedTeamImage))) {
-    const references = await prisma.teamMember.count({
-      where: { OR: [{ image: imagePath }, { singlePageImage: imagePath }] },
-    })
+    const references = db.select({ value: count() }).from(teamMembers)
+      .where(or(eq(teamMembers.image, imagePath), eq(teamMembers.singlePageImage, imagePath)))
+      .get()?.value || 0
     if (references === 0) await removeManagedTeamImage(imagePath)
   }
 }
 
 export async function PUT(request, { params }) {
   if (!await authorized(request)) return NextResponse.json({ error: "Unauthorized." }, { status: 401 })
-  const id = Number(params.id)
+  const { id: paramId } = await params
+  const id = Number(paramId)
   if (!Number.isInteger(id)) return NextResponse.json({ error: "Invalid id." }, { status: 400 })
   try {
     const data = teamData(await request.json())
     if (!data) return NextResponse.json({ error: "Invalid team member data." }, { status: 400 })
-    const previous = await prisma.teamMember.findUnique({ where: { id } })
+    const previous = db.select().from(teamMembers).where(eq(teamMembers.id, id)).get()
     if (!previous) return NextResponse.json({ error: "Team member not found." }, { status: 404 })
-    const member = await prisma.teamMember.update({ where: { id }, data })
+    const member = db.update(teamMembers)
+      .set({ ...data, updatedAt: new Date() })
+      .where(eq(teamMembers.id, id))
+      .returning()
+      .get()
     await cleanupUnusedImages([
       previous.image !== member.image ? previous.image : null,
       previous.singlePageImage !== member.singlePageImage ? previous.singlePageImage : null,
@@ -40,10 +47,12 @@ export async function PUT(request, { params }) {
 
 export async function DELETE(request, { params }) {
   if (!await authorized(request)) return NextResponse.json({ error: "Unauthorized." }, { status: 401 })
-  const id = Number(params.id)
+  const { id: paramId } = await params
+  const id = Number(paramId)
   if (!Number.isInteger(id)) return NextResponse.json({ error: "Invalid id." }, { status: 400 })
   try {
-    const member = await prisma.teamMember.delete({ where: { id } })
+    const member = db.delete(teamMembers).where(eq(teamMembers.id, id)).returning().get()
+    if (!member) return NextResponse.json({ error: "Team member not found." }, { status: 404 })
     await cleanupUnusedImages([member.image, member.singlePageImage])
       .catch((error) => console.error("Could not clean deleted team images", error))
     return NextResponse.json({ success: true })

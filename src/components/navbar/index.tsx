@@ -42,7 +42,7 @@ function Navbar() {
         pathname == `/${localActive}/service/seo` ||
         pathname == `/${localActive}/about-us`
     );
-  }, [pathname]);
+  }, [pathname, localActive]);
 
   const menuIt = localActive == "fa" ? CurrentMenu.fa : CurrentMenu.en;
   return (

@@ -46,7 +46,7 @@ function VideoPlayer(props) {
       player.autoplay(options.autoplay);
       player.src(options.sources);
     }
-  }, [options, videoRef]);
+  }, [options, onReady]);
 
   // Dispose the Video.js player when the functional component unmounts
   useEffect(() => {
@@ -58,7 +58,7 @@ function VideoPlayer(props) {
         playerRef.current = null;
       }
     };
-  }, [playerRef]);
+  }, []);
 
   return (
     <div className='border-2  border-red-400 rounded-xl focus:outline-none' data-vjs-player>

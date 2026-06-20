@@ -1,5 +1,7 @@
 import { NextResponse } from "next/server"
-import prisma from "@/src/lib/prisma"
+import { eq, lt } from "drizzle-orm"
+import { db } from "@/src/db/index.mjs"
+import { admins, adminSessions } from "@/src/db/schema.mjs"
 import { adminCookieOptions, ADMIN_COOKIE, createAdminSession, hashPassword, verifyPassword } from "@/src/lib/adminAuth"
 import { isRateLimited, requestIp } from "@/src/lib/rateLimit"
 
@@ -15,13 +17,13 @@ export async function POST(request) {
       return NextResponse.json({ success: false, error: "Invalid username or password." }, { status: 401 })
     }
 
-    const admin = await prisma.admin.findUnique({ where: { username } })
+    const admin = db.select().from(admins).where(eq(admins.username, username)).get()
     const valid = admin?.isActive ? await verifyPassword(password, admin.passwordHash) : (await hashPassword(password), false)
     if (!valid) {
       return NextResponse.json({ success: false, error: "Invalid username or password." }, { status: 401 })
     }
 
-    await prisma.adminSession.deleteMany({ where: { expiresAt: { lt: new Date() } } })
+    db.delete(adminSessions).where(lt(adminSessions.expiresAt, new Date())).run()
     const session = await createAdminSession(admin.id)
     const response = NextResponse.json({ success: true })
     response.cookies.set(ADMIN_COOKIE, session.token, adminCookieOptions(session))

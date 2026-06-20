@@ -11,7 +11,8 @@ import CommentSection from "@/src/components/page/article-single/comment-section
 import RelatedPostSection from "@/src/components/page/article-single/related-post-section";
 
 const ServiceSinglePage = async ({ params }) => {
-  const data = await getSinglePostData(params.id);
+  const { id } = await params;
+  const data = await getSinglePostData(id);
   if (!data.id) {
     return Notfound();
   }
@@ -102,7 +103,7 @@ const ServiceSinglePage = async ({ params }) => {
         .
       </p>
 
-      <CommentSection articleId={String(params.id)} />
+      <CommentSection articleId={String(id)} />
 
       <RelatedPostSection />
       {/* <div className="flex items-center justify-between">

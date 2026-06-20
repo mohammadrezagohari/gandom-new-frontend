@@ -1,6 +1,5 @@
-import { PrismaClient } from "@prisma/client"
-
-const prisma = new PrismaClient()
+import { db, sqlite } from "../src/db/index.mjs"
+import { teamMembers } from "../src/db/schema.mjs"
 const members = [
   {
     id: 2, name: "Mostafa", family: "Barimani", position: "SEO",
@@ -51,13 +50,12 @@ const members = [
 
 try {
   for (const member of members) {
-    await prisma.teamMember.upsert({
-      where: { id: member.id },
-      update: {},
-      create: { ...member, skills: JSON.stringify(member.skills) },
-    })
+    db.insert(teamMembers)
+      .values({ ...member, skills: JSON.stringify(member.skills) })
+      .onConflictDoNothing({ target: teamMembers.id })
+      .run()
   }
   console.log("Team members seeded.")
 } finally {
-  await prisma.$disconnect()
+  sqlite.close()
 }

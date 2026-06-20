@@ -1,7 +1,12 @@
 import { useLocale, useTranslations } from "next-intl";
 import Landing from "../../components/page/landing/landing";
 import { setRequestLocale, getTranslations } from "next-intl/server";
-export default async function HomePage({ params: { locale } }) {
+export default async function HomePage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
   // const locale = useLocale(); // Get the active locale
   setRequestLocale(locale);
 

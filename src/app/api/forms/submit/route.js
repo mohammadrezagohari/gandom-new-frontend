@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server"
-import prisma from "@/src/lib/prisma"
+import { db } from "@/src/db/index.mjs"
+import { formSubmissions } from "@/src/db/schema.mjs"
 import { isRateLimited, requestIp } from "@/src/lib/rateLimit"
 
 const allowedTypes = new Set(["contact", "join", "article-comment", "contract", "other"])
@@ -42,10 +43,10 @@ export async function POST(request) {
       return NextResponse.json({ success: false, error: "Email and CV are required." }, { status: 400 })
     }
 
-    const submission = await prisma.formSubmission.create({
-      data: { formType, name, phone, email, content, cv },
-      select: { id: true },
-    })
+    const submission = db.insert(formSubmissions)
+      .values({ formType, name, phone, email, content, cv })
+      .returning({ id: formSubmissions.id })
+      .get()
     return NextResponse.json({ success: true, id: submission.id }, { status: 201 })
   } catch {
     return NextResponse.json({ success: false, error: "Could not save the form." }, { status: 500 })
