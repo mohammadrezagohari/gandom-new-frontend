@@ -14,6 +14,7 @@ export default function TeamManager() {
   const [editingId, setEditingId] = useState(null)
   const [loading, setLoading] = useState(true)
   const [saving, setSaving] = useState(false)
+  const [uploading, setUploading] = useState("")
   const [message, setMessage] = useState("")
 
   async function loadMembers() {
@@ -36,6 +37,29 @@ export default function TeamManager() {
 
   function change(key, value) {
     setForm((current) => ({ ...current, [key]: value }))
+  }
+
+  async function uploadImage(file, field) {
+    if (!file) return
+    if (file.size > 5 * 1024 * 1024) {
+      setMessage("حجم تصویر باید کمتر از ۵ مگابایت باشد.")
+      return
+    }
+    setUploading(field)
+    setMessage("")
+    try {
+      const body = new FormData()
+      body.append("image", file)
+      const response = await fetch("/api/admin/team/upload", { method: "POST", body })
+      const data = await response.json()
+      if (!response.ok) throw new Error(data.error || "آپلود تصویر انجام نشد.")
+      change(field, data.path)
+      setMessage("تصویر آپلود شد؛ برای نهایی‌شدن، تغییرات عضو را ذخیره کنید.")
+    } catch (error) {
+      setMessage(error.message)
+    } finally {
+      setUploading("")
+    }
   }
 
   function edit(member) {
@@ -116,17 +140,34 @@ export default function TeamManager() {
           <label className="text-sm md:col-span-2">سمت<input required maxLength={150} value={form.position} onChange={(e) => change("position", e.target.value)} className={`mt-1 ${inputClass}`} /></label>
           <label className="text-sm md:col-span-2">درباره عضو<textarea required rows={4} maxLength={3000} value={form.about} onChange={(e) => change("about", e.target.value)} className={`mt-1 ${inputClass}`} /></label>
           <label className="text-sm md:col-span-2">مهارت‌ها؛ هر مهارت در یک خط<textarea required rows={5} value={form.skillsText} onChange={(e) => change("skillsText", e.target.value)} className={`mt-1 font-mono ${inputClass}`} /></label>
-          <label className="text-sm">مسیر تصویر کارت<input required dir="ltr" value={form.image} onChange={(e) => change("image", e.target.value)} placeholder="/webp/person.webp" className={`mt-1 ${inputClass}`} /></label>
-          <label className="text-sm">مسیر تصویر صفحه عضو<input required dir="ltr" value={form.singlePageImage} onChange={(e) => change("singlePageImage", e.target.value)} placeholder="/webp/person.png" className={`mt-1 ${inputClass}`} /></label>
+          <div className="text-sm">
+            <label>تصویر کارت<input required dir="ltr" value={form.image} onChange={(e) => change("image", e.target.value)} placeholder="/webp/person.webp" className={`mt-1 ${inputClass}`} /></label>
+            <label className="mt-2 flex cursor-pointer items-center justify-center rounded-xl border border-dashed border-amber-400 bg-amber-50 px-3 py-2.5">
+              {uploading === "image" ? "در حال آپلود..." : "انتخاب و آپلود تصویر کارت"}
+              <input disabled={Boolean(uploading)} type="file" accept="image/jpeg,image/png,image/webp" className="hidden" onChange={(e) => uploadImage(e.target.files?.[0], "image")} />
+            </label>
+          </div>
+          <div className="text-sm">
+            <label>تصویر صفحه عضو<input required dir="ltr" value={form.singlePageImage} onChange={(e) => change("singlePageImage", e.target.value)} placeholder="/webp/person.png" className={`mt-1 ${inputClass}`} /></label>
+            <label className="mt-2 flex cursor-pointer items-center justify-center rounded-xl border border-dashed border-amber-400 bg-amber-50 px-3 py-2.5">
+              {uploading === "singlePageImage" ? "در حال آپلود..." : "انتخاب و آپلود تصویر صفحه"}
+              <input disabled={Boolean(uploading)} type="file" accept="image/jpeg,image/png,image/webp" className="hidden" onChange={(e) => uploadImage(e.target.files?.[0], "singlePageImage")} />
+            </label>
+          </div>
           <label className="text-sm">LinkedIn<input dir="ltr" value={form.linkedin} onChange={(e) => change("linkedin", e.target.value)} className={`mt-1 ${inputClass}`} /></label>
           <label className="text-sm">Instagram<input dir="ltr" value={form.instagram} onChange={(e) => change("instagram", e.target.value)} className={`mt-1 ${inputClass}`} /></label>
           <label className="text-sm">تاریخ پیوستن<input value={form.joinedAt} onChange={(e) => change("joinedAt", e.target.value)} className={`mt-1 ${inputClass}`} /></label>
           <label className="text-sm">ترتیب نمایش<input type="number" value={form.sortOrder} onChange={(e) => change("sortOrder", Number(e.target.value))} className={`mt-1 ${inputClass}`} /></label>
           <label className="flex items-center gap-2 text-sm"><input type="checkbox" checked={form.isActive} onChange={(e) => change("isActive", e.target.checked)} />نمایش در سایت</label>
         </div>
-        {form.image && <div className="mt-4 flex items-center gap-3 text-sm text-gray-500"><img src={form.image} alt="" className="h-16 w-16 rounded-xl object-cover" />پیش‌نمایش تصویر کارت</div>}
+        {(form.image || form.singlePageImage) && (
+          <div className="mt-4 flex flex-wrap items-end gap-4 text-sm text-gray-500">
+            {form.image && <div><img src={form.image} alt="" className="mb-1 h-20 w-20 rounded-xl object-cover" />تصویر کارت</div>}
+            {form.singlePageImage && <div><img src={form.singlePageImage} alt="" className="mb-1 h-20 w-20 rounded-xl object-cover" />تصویر صفحه</div>}
+          </div>
+        )}
         {message && <p className="mt-4 rounded-xl bg-amber-50 p-3 text-sm">{message}</p>}
-        <button disabled={saving} className="mt-5 rounded-xl bg-gray-900 px-7 py-3 font-bold text-white disabled:opacity-50">{saving ? "در حال ذخیره..." : editingId ? "ذخیره تغییرات" : "ثبت عضو"}</button>
+        <button disabled={saving || Boolean(uploading)} className="mt-5 rounded-xl bg-gray-900 px-7 py-3 font-bold text-white disabled:opacity-50">{saving ? "در حال ذخیره..." : editingId ? "ذخیره تغییرات" : "ثبت عضو"}</button>
       </form>
 
       {loading ? <div className="rounded-xl bg-white p-6 text-center">در حال بارگذاری...</div> : (
