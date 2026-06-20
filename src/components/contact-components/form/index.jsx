@@ -17,6 +17,7 @@ function ContactForm({
   setEmail,
   content,
   setContent,
+  loading,
 }) {
   return (
     <form
@@ -76,9 +77,10 @@ function ContactForm({
       <div className={` mt-[1%] col-span-1 flex justify-center items-cnter `}>
         <button
           type="submit"
+          disabled={loading}
           className={`opacity-100 hover:opacity-80  transition duration-700 ease-in-out rounded-xl text-lg lg:text-[1.3020833333333333vw] font-PoppinsRegular py-3 lg:py-[1.3vw] w-full lg:w-[51%] ${buttonStyle} `}
         >
-          {title}
+          {loading ? "Sending..." : title}
         </button>
       </div>
     </form>

@@ -102,7 +102,7 @@ const ServiceSinglePage = async ({ params }) => {
         .
       </p>
 
-      <CommentSection />
+      <CommentSection articleId={String(params.id)} />
 
       <RelatedPostSection />
       {/* <div className="flex items-center justify-between">

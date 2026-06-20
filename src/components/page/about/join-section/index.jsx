@@ -30,6 +30,33 @@ function JoinSection() {
   }, [open]);
   const onSubmitForm = (event) => {
     event.preventDefault();
+    (async () => {
+      try {
+        const fd = new FormData(event.target)
+        const payload = {
+          formType: 'join',
+          name: fd.get('name'),
+          email: fd.get('email'),
+          cv: fd.get('cv'),
+          content: fd.get('content'),
+        }
+        const res = await fetch('/api/forms/submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        })
+        const data = await res.json()
+        if (data.success) {
+          alert('پیام شما دریافت شد')
+          handleClose()
+        } else {
+          alert('خطا در ارسال')
+        }
+      } catch (e) {
+        console.error(e)
+        alert('خطا در ارسال')
+      }
+    })()
   };
   return (
     <section className="w-full bg-g21 py-[5%]">

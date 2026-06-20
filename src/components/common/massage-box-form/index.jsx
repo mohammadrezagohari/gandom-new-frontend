@@ -3,7 +3,7 @@ import React, { useState } from "react";
 
 function MassageBox({
   title,
-  onSubmitForm,
+  formType = "other",
   classes,
   buttonStyle,
   inputClasses,
@@ -11,6 +11,31 @@ function MassageBox({
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [content, setContent] = useState("");
+  const [status, setStatus] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const onSubmitForm = async (event) => {
+    event.preventDefault();
+    setLoading(true);
+    setStatus("");
+    try {
+      const response = await fetch("/api/forms/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ formType, name, email, content }),
+      });
+      const data = await response.json();
+      if (!response.ok) throw new Error(data.error || "ارسال پیام انجام نشد.");
+      setName("");
+      setEmail("");
+      setContent("");
+      setStatus("پیام شما با موفقیت ثبت شد.");
+    } catch (error) {
+      setStatus(error.message);
+    } finally {
+      setLoading(false);
+    }
+  };
   return (
     <form
       onSubmit={onSubmitForm}
@@ -63,11 +88,13 @@ function MassageBox({
       >
         <button
           type="submit"
-          className={`rounded-xl text-lg lg:text-[1.3020833333333333vw] font-PoppinsMedium py-3 lg:py-[1.2vw] w-full lg:w-[51%] ${buttonStyle} `}
+          disabled={loading}
+          className={`rounded-xl text-lg lg:text-[1.3020833333333333vw] font-PoppinsMedium py-3 lg:py-[1.2vw] w-full lg:w-[51%] disabled:opacity-60 ${buttonStyle} `}
         >
-          {title}
+          {loading ? "Sending..." : title}
         </button>
       </div>
+      {status && <p role="status" className="col-span-1 md:col-span-2 lg:col-span-2 text-center text-sm">{status}</p>}
     </form>
   );
 }

@@ -4,9 +4,6 @@ import SectionTitle from "@/src/components/common/section-title";
 import React from "react";
 
 function MessageSection() {
-  const onSubmitForm = (event) => {
-    event.preventDefault();
-  };
   return (
     <section className="w-full">
       <div className="container max-w-none bg-gf5 rounded-3xl py-[5%]">
@@ -15,9 +12,9 @@ function MessageSection() {
         </div>
 
         <MassageBox
+          formType="article-comment"
           title="Send Message"
           inputClasses=" placeholder-g21 "
-          onSubmitForm={onSubmitForm}
           classes="border-[#21212199]"
           buttonStyle="text-gf bg-g21  "
         />

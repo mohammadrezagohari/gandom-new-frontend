@@ -5,9 +5,6 @@ import SectionTitle from "@/src/components/common/section-title";
 import React from "react";
 
 function MessageSection() {
-  const onSubmitForm = (event) => {
-    event.preventDefault();
-  };
   return (
     <section className="w-full">
       <div className="container max-w-none">
@@ -23,9 +20,9 @@ function MessageSection() {
             />
           </div>
           <MassageBox
+            formType="contract"
             title="Send Message"
             inputClasses=" placeholder-g21 "
-            onSubmitForm={onSubmitForm}
             classes="border-[#21212199]"
             buttonStyle="text-gf bg-g21  "
           />

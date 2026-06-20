@@ -1,0 +1,60 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model Admin {
+  id           Int            @id @default(autoincrement())
+  username     String         @unique
+  passwordHash String
+  isActive     Boolean        @default(true)
+  createdAt    DateTime       @default(now())
+  updatedAt    DateTime       @updatedAt
+  sessions     AdminSession[]
+}
+
+model AdminSession {
+  id        Int      @id @default(autoincrement())
+  tokenHash String   @unique
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+  adminId   Int
+  admin     Admin    @relation(fields: [adminId], references: [id], onDelete: Cascade)
+
+  @@index([adminId])
+  @@index([expiresAt])
+}
+
+model FormSubmission {
+  id        Int      @id @default(autoincrement())
+  formType  String
+  name      String?
+  phone     String?
+  email     String?
+  content   String?
+  cv        String?
+  metadata  String?
+  createdAt DateTime @default(now())
+
+  @@index([formType])
+  @@index([createdAt])
+}
+
+model ArticleComment {
+  id        Int              @id @default(autoincrement())
+  articleId String
+  name      String
+  email     String?
+  content   String
+  createdAt DateTime         @default(now())
+  parentId  Int?
+  parent    ArticleComment?  @relation("CommentReplies", fields: [parentId], references: [id], onDelete: Cascade)
+  replies   ArticleComment[] @relation("CommentReplies")
+
+  @@index([articleId, createdAt])
+  @@index([parentId])
+}

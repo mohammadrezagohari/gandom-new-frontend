@@ -4,9 +4,6 @@ import SectionTitle from "@/src/components/common/section-title";
 import MassageBox from "@/src/components/common/massage-box-form";
 
 function ContactUsSection() {
-  const onSubmitForm = (event) => {
-    event.preventDefault();
-  };
   return (
     <section className="w-full bg-g21 py-[5%]">
       <div className=" container max-w-none">
@@ -24,9 +21,9 @@ function ContactUsSection() {
 
         <div className=" rounded-3xl">
           <MassageBox
+            formType="contract"
             title="Send Message"
             inputClasses=" placeholder-gf "
-            onSubmitForm={onSubmitForm}
             classes="border-[#D9D9D999]"
             buttonStyle="text-g21 bg-gd9  "
           />
