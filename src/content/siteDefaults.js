@@ -131,7 +131,14 @@ const rows = [
 ["forms.error","forms","ارسال پیام انجام نشد.","The message could not be sent."],
 ["contact.phone","contact","۰۹۱۱۴۱۱۲۲۵","0911411225"],
 ["contact.email","contact","info@gandom.link","info@gandom.link"],
-["contact.location","contact","دفتر گندم","Gandom office"]
+["contact.location","contact","دفتر گندم","Gandom office"],
+["forms.successTitle","forms","ارسال موفق","Sent successfully"],
+["forms.errorTitle","forms","ارسال ناموفق","Something went wrong"],
+["forms.validationTitle","forms","اطلاعات فرم کامل نیست","Please check the form"],
+["forms.required","forms","لطفاً همه فیلدهای ضروری را کامل کنید.","Please complete all required fields."],
+["forms.invalidEmail","forms","فرمت ایمیل معتبر نیست.","Please enter a valid email address."],
+["forms.invalidPhone","forms","شماره تماس معتبر نیست.","Please enter a valid phone number."],
+["forms.contentShort","forms","متن پیام باید حداقل ۱۰ کاراکتر باشد.","The message must be at least 10 characters long."]
 ]
 export const siteContentDefinitions = rows.map(([key, group, fa, en], sortOrder) => ({key, group, label: key, valueType:"text", translations:{fa,en}, sortOrder, isActive:true}))
 export function createDefaultSiteMessages(locale){const result={};for(const item of siteContentDefinitions)setNestedValue(result,item.key,item.translations[locale]||item.translations.en);return result}

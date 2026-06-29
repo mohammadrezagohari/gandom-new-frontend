@@ -514,3 +514,25 @@ section .bg {
 /* #language-select{
   background-color: gray;
 } */
+
+.site-locale.fa {
+  direction: rtl;
+  text-align: right;
+  font-family: "yekan-bakh";
+}
+.site-locale.fa :where(p, span, a, button, input, textarea, select, label, li, dt, dd) {
+  font-family: "yekan-bakh";
+  letter-spacing: 0;
+}
+.site-locale.fa :where(h1, h2, h3, h4, h5, h6) {
+  font-family: "rokh-bold";
+  letter-spacing: 0;
+}
+.site-locale.fa :where(input, textarea, select) {
+  direction: rtl;
+  text-align: right;
+}
+.site-locale.fa [dir="ltr"] {
+  direction: ltr;
+  text-align: left;
+}

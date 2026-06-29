@@ -1,92 +1,23 @@
-import React, { useState } from "react";
+"use client"
 
-function JoinUsBox({
-    title,
-    onSubmitForm,
-    classes,
-    buttonStyle,
-    inputClasses,
-  }) {
-    const [name, setName] = useState("");
-    const [email, setEmail] = useState("");
-    const [cv, setCv] = useState("");
-    const [content, setContent] = useState("");
-    return (
-        <form
-          onSubmit={onSubmitForm}
-          action=""
-          className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-11"
-        >
-          <div
-            className={`col-span-1 md:col-span-1 lg:col-span-1 border-b-2 ${classes}`}
-          >
-            <input
-              type="text"
-              name="name"
-              placeholder="Name"
-              required
-              className={`bg-transparent placeholder-opacity-100 text-[1.2rem] lg:text-[1.4rem] py-2 lg:py-3 font-PoppinsRegular focus:outline-none w-full ${inputClasses}`}
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-            />
-          </div>
-          
-          <div
-            className={`col-span-1 md:col-span-1 lg:col-span-1 border-b-2 ${classes}`}
-          >
-            <input
-              type="email"
-              name="email"
-              placeholder="Email"
-              required
-              className={`bg-transparent placeholder-opacity-100 text-[1.2rem] lg:text-[1.4rem] py-2 lg:py-3 font-PoppinsRegular focus:outline-none w-full ${inputClasses}`}
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-          </div>
+import React, { useState } from "react"
+import { useTranslations } from "next-intl"
 
-          <div
-            className={`col-span-1 md:col-span-1 lg:col-span-1 border-b-2 ${classes}`}
-          >
-            <input
-              type="text"
-              name="cv"
-              placeholder="Add your CV"
-              required
-              className={`bg-transparent placeholder-opacity-100 text-[1.2rem] lg:text-[1.4rem] py-2 lg:py-3 font-PoppinsRegular focus:outline-none w-full ${inputClasses}`}
-              value={cv}
-              onChange={(e) => setCv(e.target.value)}
-            />
-          </div>
+export default function JoinUsBox({ title, onSubmitForm, classes, buttonStyle, inputClasses, loading = false }) {
+  const t = useTranslations("forms")
+  const [name, setName] = useState("")
+  const [email, setEmail] = useState("")
+  const [cv, setCv] = useState("")
+  const [content, setContent] = useState("")
+  const fieldClass = `w-full bg-transparent py-3 text-[1.1rem] outline-none lg:text-[1.2rem] ${inputClasses}`
 
-          <div
-            className={`col-span-1 md:col-span-3 lg:col-span-3 border-b-2 ${classes}`}
-          >
-            <input
-              type="text"
-              name="content"
-              placeholder="Message"
-              required
-              className={`bg-transparent placeholder-opacity-100 text-[1.2rem] lg:text-[1.4rem] py-2 lg:py-3 font-PoppinsRegular focus:outline-none w-full ${inputClasses}`}
-              value={content}
-              onChange={(e) => setContent(e.target.value)}
-            />
-    
-            {/* <textarea name="content" placeholder="Message" className={`bg-transparent placeholder-opacity-100 text-[1.2rem] lg:text-[1.4rem] py-2 lg:py-3 font-PoppinsRegular focus:outline-none w-full ${inputClasses}`} value={content} onChange={(e) => setContent(e.target.value)} rows={4} cols={40} /> */}
-          </div>
-          
-          <div
-            className={` mt-[1%] col-span-1 md:col-span-3 lg:col-span-3 flex justify-center items-cnter `}
-          >
-            <button
-              type="submit"
-              className={`rounded-xl text-lg lg:text-xl font-PoppinsMedium py-3 lg:py-5 w-full lg:w-[41%] ${buttonStyle} `}
-            >
-              {title}
-            </button>
-          </div>
-        </form>
-      );
+  return (
+    <form noValidate onSubmit={onSubmitForm} className="grid grid-cols-1 gap-8 lg:grid-cols-3">
+      <div className={`border-b-2 ${classes}`}><input name="name" placeholder={t("name") + " *"} className={fieldClass} value={name} onChange={(event) => setName(event.target.value)} /></div>
+      <div className={`border-b-2 ${classes}`}><input type="email" name="email" placeholder={t("email") + " *"} className={fieldClass} value={email} onChange={(event) => setEmail(event.target.value)} /></div>
+      <div className={`border-b-2 ${classes}`}><input name="cv" placeholder={t("cv") + " *"} className={fieldClass} value={cv} onChange={(event) => setCv(event.target.value)} /></div>
+      <div className={`border-b-2 lg:col-span-3 ${classes}`}><textarea rows={3} name="content" placeholder={t("message") + " *"} className={fieldClass} value={content} onChange={(event) => setContent(event.target.value)} /></div>
+      <div className="flex justify-center lg:col-span-3"><button disabled={loading} type="submit" className={`w-full rounded-xl py-3 text-lg disabled:opacity-60 lg:w-[41%] ${buttonStyle}`}>{loading ? t("sending") : title}</button></div>
+    </form>
+  )
 }
-
-export default JoinUsBox

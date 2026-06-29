@@ -13,6 +13,7 @@ import Footer from "../components/footer"
 import { Metadata } from "next";
 import { usePathname } from 'next/navigation';
 import getCurrentPath from "../hooks/currentPath";
+import { FeedbackProvider } from "../components/common/feedback-dialog";
 
 const baseUrl = "https://gandom.link"; // Change this to your actual domain  
 const canonicalUrl = baseUrl; // Construct the full canonical URL  
@@ -57,7 +58,7 @@ export default function RootLayout({
     return (
         <html lang={"en"}>
             <body className="bg-gf" >
-                {children}
+                <FeedbackProvider>{children}</FeedbackProvider>
             </body>
         </html>
     );

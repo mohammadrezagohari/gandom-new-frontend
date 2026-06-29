@@ -2,8 +2,10 @@
 
 import { useState } from "react"
 import { useRouter } from "next/navigation"
+import { useFeedback } from "@/src/components/common/feedback-dialog"
 
 export default function AdminLogin() {
+  const { showFeedback } = useFeedback()
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
   const [error, setError] = useState("")
@@ -13,6 +15,10 @@ export default function AdminLogin() {
   async function submit(event) {
     event.preventDefault()
     setError("")
+    if (!username.trim() || password.length < 8) {
+      showFeedback({ type: "error", title: "اطلاعات ورود ناقص است", message: "نام کاربری و رمز عبور حداقل ۸ کاراکتری را وارد کنید." })
+      return
+    }
     setLoading(true)
     try {
       const response = await fetch("/api/admin/login", {
@@ -26,6 +32,7 @@ export default function AdminLogin() {
       router.refresh()
     } catch (error) {
       setError(error.message)
+      showFeedback({ type: "error", title: "ورود ناموفق", message: error.message })
     } finally {
       setLoading(false)
     }

@@ -1,7 +1,8 @@
 "use client"
 /* eslint-disable @next/next/no-img-element */
 
-import { useEffect, useState } from "react"
+import { useCallback, useEffect, useState } from "react"
+import { useFeedback } from "@/src/components/common/feedback-dialog"
 
 const emptyForm = {
   slug: "",
@@ -21,6 +22,7 @@ const emptyForm = {
 }
 
 export default function ArticleManager() {
+  const { showFeedback } = useFeedback()
   const [articles, setArticles] = useState([])
   const [form, setForm] = useState(emptyForm)
   const [editingId, setEditingId] = useState(null)
@@ -28,7 +30,7 @@ export default function ArticleManager() {
   const [saving, setSaving] = useState(false)
   const [message, setMessage] = useState("")
 
-  async function loadArticles() {
+  const loadArticles = useCallback(async () => {
     setLoading(true)
     try {
       const response = await fetch("/api/admin/articles", { cache: "no-store" })
@@ -37,14 +39,15 @@ export default function ArticleManager() {
       setArticles(data.articles || [])
     } catch (error) {
       setMessage(error.message)
+      showFeedback({ type: "error", title: "خطا در دریافت اطلاعات", message: error.message })
     } finally {
       setLoading(false)
     }
-  }
+  }, [showFeedback])
 
   useEffect(() => {
     loadArticles()
-  }, [])
+  }, [loadArticles])
 
   function change(key, value) {
     setForm((current) => ({ ...current, [key]: value }))
@@ -80,6 +83,11 @@ export default function ArticleManager() {
 
   async function submit(event) {
     event.preventDefault()
+    const requiredValues = [form.slug, form.titleFa, form.titleEn, form.contentFa, form.contentEn]
+    if (requiredValues.some((value) => !String(value || "").trim())) {
+      showFeedback({ type: "error", title: "اطلاعات ناقص", message: "اسلاگ، عنوان و متن مقاله در هر دو زبان ضروری هستند." })
+      return
+    }
     setSaving(true)
     setMessage("")
     const payload = {
@@ -104,12 +112,15 @@ export default function ArticleManager() {
       })
       const data = await response.json()
       if (!response.ok) throw new Error(data.error || "ذخیره مقاله انجام نشد.")
-      setMessage(editingId ? "مقاله ویرایش شد." : "مقاله جدید ثبت شد.")
+      const successMessage = editingId ? "مقاله ویرایش شد." : "مقاله جدید ثبت شد."
+      setMessage(successMessage)
+      showFeedback({ type: "success", title: "ذخیره موفق", message: successMessage })
       setEditingId(null)
       setForm(emptyForm)
       await loadArticles()
     } catch (error) {
       setMessage(error.message)
+      showFeedback({ type: "error", title: "ذخیره ناموفق", message: error.message })
     } finally {
       setSaving(false)
     }

@@ -4,6 +4,7 @@ import React from 'react';
 // import LanguageButton from '../../components/common/buttons/language';
 import Navbar from '../../components/navbar';
 import Footer from '@/src/components/footer';
+import LocaleDocument from '@/src/components/common/locale-document';
 
 interface ILocalLayout {
     children: React.ReactNode,
@@ -23,9 +24,12 @@ export default async function LocaleLayout({
         // <html lang={locale}>
         //     <body>
         <NextIntlClientProvider messages={messages}>
-            <Navbar />
-            {children}
-            <Footer />
+            <div lang={locale} dir={locale === "fa" ? "rtl" : "ltr"} className={`site-locale min-h-screen ${locale === "fa" ? "fa" : "en"}`}>
+                <LocaleDocument locale={locale} />
+                <Navbar />
+                {children}
+                <Footer />
+            </div>
         </NextIntlClientProvider>
         //     </body>
         // </html>

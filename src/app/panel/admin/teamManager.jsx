@@ -1,7 +1,8 @@
 "use client"
 /* eslint-disable @next/next/no-img-element */
 
-import { useEffect, useState } from "react"
+import { useCallback, useEffect, useState } from "react"
+import { useFeedback } from "@/src/components/common/feedback-dialog"
 
 const emptyForm = {
   nameEn: "",
@@ -25,6 +26,7 @@ const emptyForm = {
 }
 
 export default function TeamManager() {
+  const { showFeedback } = useFeedback()
   const [members, setMembers] = useState([])
   const [form, setForm] = useState(emptyForm)
   const [editingId, setEditingId] = useState(null)
@@ -33,7 +35,7 @@ export default function TeamManager() {
   const [uploading, setUploading] = useState("")
   const [message, setMessage] = useState("")
 
-  async function loadMembers() {
+  const loadMembers = useCallback(async () => {
     setLoading(true)
     try {
       const response = await fetch("/api/admin/team", { cache: "no-store" })
@@ -42,14 +44,15 @@ export default function TeamManager() {
       setMembers(data.members || [])
     } catch (error) {
       setMessage(error.message)
+      showFeedback({ type: "error", title: "خطا در دریافت اطلاعات", message: error.message })
     } finally {
       setLoading(false)
     }
-  }
+  }, [showFeedback])
 
   useEffect(() => {
     loadMembers()
-  }, [])
+  }, [loadMembers])
 
   function change(key, value) {
     setForm((current) => ({ ...current, [key]: value }))
@@ -112,6 +115,11 @@ export default function TeamManager() {
 
   async function submit(event) {
     event.preventDefault()
+    const requiredValues = [form.nameFa, form.nameEn, form.familyFa, form.familyEn, form.positionFa, form.positionEn, form.aboutFa, form.aboutEn, form.image, form.singlePageImage]
+    if (requiredValues.some((value) => !String(value || "").trim())) {
+      showFeedback({ type: "error", title: "اطلاعات ناقص", message: "لطفاً تمام فیلدهای ضروری فارسی، انگلیسی و تصاویر عضو را کامل کنید." })
+      return
+    }
     setSaving(true)
     setMessage("")
     const payload = {
@@ -141,12 +149,15 @@ export default function TeamManager() {
       })
       const data = await response.json()
       if (!response.ok) throw new Error(data.error || "ذخیره عضو انجام نشد.")
-      setMessage(editingId ? "اطلاعات عضو ویرایش شد." : "عضو جدید ثبت شد.")
+      const successMessage = editingId ? "اطلاعات عضو ویرایش شد." : "عضو جدید ثبت شد."
+      setMessage(successMessage)
+      showFeedback({ type: "success", title: "ذخیره موفق", message: successMessage })
       setEditingId(null)
       setForm(emptyForm)
       await loadMembers()
     } catch (error) {
       setMessage(error.message)
+      showFeedback({ type: "error", title: "ذخیره ناموفق", message: error.message })
     } finally {
       setSaving(false)
     }

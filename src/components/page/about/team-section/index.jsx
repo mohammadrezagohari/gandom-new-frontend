@@ -4,7 +4,7 @@ import OutlinedButton from "@/src/components/common/buttons/outlined";
 import Link from "next/link";
 import Image from "next/image";
 import GridCard from "@/src/components/common/cards/grid-card-about-page";
-import { useLocale } from "next-intl"; // اضافه کن
+import { useLocale } from "next-intl";
 
 function TeamSection() {
   const statisticsItems = [

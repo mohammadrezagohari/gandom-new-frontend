@@ -1,112 +1,83 @@
-"use client";
+"use client"
 
-import React, { useEffect, useRef, useState } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { GoArrowDownLeft } from "react-icons/go";
-// Import Swiper styles
-import "swiper/css";
-import "swiper/css/bundle";
-import { useLocale } from "next-intl";
+import React from "react"
+import { Swiper, SwiperSlide } from "swiper/react"
+import { GoArrowDownLeft } from "react-icons/go"
+import "swiper/css"
+import "swiper/css/bundle"
+import { useLocale, useTranslations } from "next-intl"
+import FilledYellowButton from "../../../../components/common/buttons/fillYellow"
+import SectionTitle from "../../../../components/common/section-title"
+import { Navigation } from "swiper/modules"
 
-// import { Pagination, Navigation } from "swiper";
-import FilledYellowButton from "../../../../components/common/buttons/fillYellow";
-import SectionTitle from "../../../../components/common/section-title";
-import { Pagination, Navigation } from "swiper/modules";
-// mod
-function ServiceSlider({ service, title, context, lang }) {
-  const locale = useLocale();
-
-  const navigationPrevRef = useRef(null);
-  const navigationNextRef = useRef(null);
-
-  const readmoreButtonLang = {
-    "en": "Read More",
-    "fa": "جزئیات بیشتر",
-  }
+export default function ServiceSlider({ service, title, context, lang }) {
+  const locale = useLocale()
+  const buttons = useTranslations("share.button")
+  const isFa = locale === "fa"
 
   return (
     <>
       <div className="container h-full col-span-4">
-        <div
-          className={`flex flex-col justify-center gap-5 lg:gap-[1.3020833333333333vw] h-full`}
-        >
+        <div className="flex h-full flex-col justify-center gap-5">
           <SectionTitle title={title} lang={lang} />
-
-          <p
-            className={`text-g8 lg:text-[1.3vw] lg:leading-[2.34375vw] text-justify text-base leading-6 ${lang == "fa" ? "yekan-bakh-font" : "font-PoppinsLight"
-              } pb-6`}
-          >
+          <p className={`pb-6 text-justify text-base leading-8 text-g8 lg:text-[1.3vw] lg:leading-[2.35vw] ${isFa ? "yekan-bakh-font" : "font-PoppinsLight"}`}>
             {context}
           </p>
-
-          <div className="flex items-center justify-start  gap-8 mt-[4.166666666666667vw] ">
-            <button className="servise_land_prev_btn w-[1.953125vw] h-[1.953125vw] lg:w-[3.6458333333333335vw] lg:h-[3.6458333333333335vw] rounded-full flex justify-center items-center border-[1px] border-g21 ">
-              <GoArrowDownLeft className="lg:text-[1.9vw] text-xl" />
+          <div className="mt-8 flex items-center justify-start gap-8">
+            <button aria-label="Previous service" className="servise_land_prev_btn flex h-12 w-12 items-center justify-center rounded-full border border-g21 lg:h-14 lg:w-14">
+              <GoArrowDownLeft className={`text-xl lg:text-3xl ${isFa ? "rotate-180" : ""}`} />
             </button>
-            <button className="servise_land_next_btn w-[1.953125vw] h-[1.953125vw] lg:w-[3.6458333333333335vw] lg:h-[3.6458333333333335vw] rounded-full flex justify-center items-center  bg-gYellow">
-              <GoArrowDownLeft className="transform rotate-180 lg:text-[1.9vw] text-xl" />
+            <button aria-label="Next service" className="servise_land_next_btn flex h-12 w-12 items-center justify-center rounded-full bg-gYellow lg:h-14 lg:w-14">
+              <GoArrowDownLeft className={`text-xl lg:text-3xl ${isFa ? "" : "rotate-180"}`} />
             </button>
           </div>
         </div>
       </div>
-      <div className=" w-full !h-full font-PoppinsSemiBold col-span-8">
+
+      <div className="col-span-8 h-full min-w-0">
         <Swiper
-          slidesPerView={3.5}
-          className="mySwiper h-full serviceSlider  "
-          modules={[Pagination, Navigation]}
-          navigation={{
-            prevEl: ".servise_land_prev_btn",
-            nextEl: ".servise_land_next_btn",
+          slidesPerView={isFa ? 2.65 : 3.2}
+          spaceBetween={0}
+          className="serviceSlider h-full"
+          modules={[Navigation]}
+          navigation={{ prevEl: ".servise_land_prev_btn", nextEl: ".servise_land_next_btn" }}
+          breakpoints={{
+            1024: { slidesPerView: isFa ? 2.65 : 3.2 },
+            1280: { slidesPerView: isFa ? 2.85 : 3.35 },
           }}
         >
-          {service.map((item, i) => (
+          {service.map((item) => (
             <SwiperSlide
-              className="serviceSliderItem cursor-grab active:cursor-grabbing border-s-[1px] border-g6f transition-all duration-300 transform ease-linear  hover:bg-g21 p-6 pt-[8%] !flex !flex-col !justify-between !items-start"
-              key={i}
+              className={`serviceSliderItem !flex !h-auto min-h-[42rem] cursor-grab flex-col justify-between gap-7 border-s border-g6f px-5 py-10 transition-colors hover:bg-g21 xl:px-7 ${isFa ? "text-right" : "text-left"}`}
+              key={item.id}
             >
-              {/* {i} */}
-              <div className=" !flex !flex-col !justify-between !items-start !gap-10 ">
-                <h5 className="text-[26px] leading-[30.47px] lg:text-[2.6vw] lg:leading-[3.6vw] inline-block text-ge4 pb-[5%] border-b-[1.5px] border-gYellow">
+              <div className="flex flex-col items-start gap-7">
+                <h5 className="inline-block border-b-[1.5px] border-gYellow pb-2 text-3xl leading-none text-ge4 lg:text-[2.4vw]">
                   {item.number}
                 </h5>
-                <div className="text-[2.9296875vw] w-[5.533854166666667vw] h-[5.533854166666667vw] text-g21 rounded-full border-[1px] border-ge4 flex justify-center items-center ">
+                <div className="flex h-20 w-20 shrink-0 items-center justify-center rounded-full border border-ge4 text-4xl text-g21">
                   {item.svg}
                 </div>
-                <h4
-                  className={`lg:text-[3.2552083333333335vw] lg:leading-[1.8313802083333333vw] text-[30px] leading-[33.9px] ${lang == "fa" ? "rokh-font-bold" : "font-Holispay"
-                    } `}
-                >
-                  {item.title}
-                </h4>
-                <h3
-                  className={`text-gDarkYellow lg:text-[1.171875vw] lg:leading-[1.8313802083333333vw] text-[12px] leading-[14.06px] font-PoppinsLight ${lang == "fa" ? "yekan-bakh-font" : "font-PoppinsLight"
-                    }`}
-                >
-                  {item.shortDesc}
-                </h3>
+                <div className="flex min-h-[9rem] w-full flex-col gap-3">
+                  <h4 className={`break-words text-[1.8rem] leading-[1.35] text-g21 xl:text-[2.15rem] ${isFa ? "rokh-font-bold" : "font-Holispay"}`}>
+                    {item.title}
+                  </h4>
+                  <h3 className={`text-sm leading-6 text-gDarkYellow ${isFa ? "yekan-bakh-font" : "font-PoppinsLight"}`}>
+                    {item.shortDesc}
+                  </h3>
+                </div>
               </div>
 
-              <div className=" h-[45%] flex flex-col justify-between items-center">
-                <p
-                  className={` mt-3 text-g8 text-justify lg:text-[0.9765625vw] lg:leading-[1.7578125vw] text-[12px] leading-[14.06px] ${lang == "fa" ? "yekan-bakh-font" : "font-PoppinsLight"
-                    } `}
-                >
+              <div className="flex flex-1 flex-col justify-between gap-7">
+                <p className={`line-clamp-7 text-justify text-sm leading-7 text-g8 ${isFa ? "yekan-bakh-font" : "font-PoppinsLight"}`}>
                   {item.desc}
                 </p>
-
-                <FilledYellowButton
-                  classes="w-full px-3"
-                  link={`${item?.link}`}
-                  title={locale == "fa" ? readmoreButtonLang.fa : readmoreButtonLang.en}
-                  locale={locale}
-                />
+                <FilledYellowButton classes="w-full px-3" link={item.link} title={buttons("see_more")} locale={locale} />
               </div>
             </SwiperSlide>
           ))}
         </Swiper>
       </div>
     </>
-  );
+  )
 }
-
-export default ServiceSlider;

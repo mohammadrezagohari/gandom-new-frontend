@@ -1,102 +1,64 @@
 "use client"
-import React, { useState } from "react";
 
-function MassageBox({
-  title,
-  formType = "other",
-  classes,
-  buttonStyle,
-  inputClasses,
-}) {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [content, setContent] = useState("");
-  const [status, setStatus] = useState("");
-  const [loading, setLoading] = useState(false);
+import React, { useState } from "react"
+import { useTranslations } from "next-intl"
+import { useFeedback } from "@/src/components/common/feedback-dialog"
 
-  const onSubmitForm = async (event) => {
-    event.preventDefault();
-    setLoading(true);
-    setStatus("");
+const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+
+export default function MassageBox({ title, formType = "other", classes, buttonStyle, inputClasses }) {
+  const t = useTranslations("forms")
+  const { showFeedback } = useFeedback()
+  const [name, setName] = useState("")
+  const [email, setEmail] = useState("")
+  const [content, setContent] = useState("")
+  const [errors, setErrors] = useState({})
+  const [loading, setLoading] = useState(false)
+  const fieldClass = `w-full bg-transparent py-3 text-[1.1rem] outline-none lg:text-[1.25rem] ${inputClasses}`
+
+  async function submit(event) {
+    event.preventDefault()
+    const next = {}
+    if (name.trim().length < 2) next.name = t("required")
+    if (!emailPattern.test(email.trim())) next.email = t("invalidEmail")
+    if (content.trim().length < 10) next.content = t("contentShort")
+    setErrors(next)
+    if (Object.keys(next).length) {
+      showFeedback({ type: "error", title: t("validationTitle"), message: [...new Set(Object.values(next))].join("\n") })
+      return
+    }
+
+    setLoading(true)
     try {
       const response = await fetch("/api/forms/submit", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ formType, name, email, content }),
-      });
-      const data = await response.json();
-      if (!response.ok) throw new Error(data.error || "ارسال پیام انجام نشد.");
-      setName("");
-      setEmail("");
-      setContent("");
-      setStatus("پیام شما با موفقیت ثبت شد.");
+        body: JSON.stringify({ formType, name: name.trim(), email: email.trim(), content: content.trim() }),
+      })
+      const data = await response.json()
+      if (!response.ok) throw new Error(data.error || t("error"))
+      setName("")
+      setEmail("")
+      setContent("")
+      setErrors({})
+      showFeedback({ type: "success", title: t("successTitle"), message: t("success") })
     } catch (error) {
-      setStatus(error.message);
+      showFeedback({ type: "error", title: t("errorTitle"), message: error.message || t("error") })
     } finally {
-      setLoading(false);
+      setLoading(false)
     }
-  };
-  return (
-    <form
-      onSubmit={onSubmitForm}
-      action=""
-      className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-11 lg:gap-[2.8645833333333335vw]"
-    >
-      <div
-        className={`col-span-1 md:col-span-1 lg:col-span-1 border-b-2 ${classes}`}
-      >
-        <input
-          type="text"
-          name="name"
-          placeholder="Name"
-          required
-          className={`bg-transparent placeholder-opacity-100 text-[1.2rem] lg:text-[1.4583333333333333vw] py-2 lg:py-3 font-PoppinsRegular focus:outline-none w-full ${inputClasses}`}
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
-      </div>
-      <div
-        className={`col-span-1 md:col-span-1 lg:col-span-1 border-b-2 ${classes}`}
-      >
-        <input
-          type="email"
-          name="email"
-          placeholder="Email"
-          required
-          className={`bg-transparent placeholder-opacity-100 text-[1.2rem] lg:text-[1.4583333333333333vw] py-2 lg:py-3 font-PoppinsRegular focus:outline-none w-full ${inputClasses}`}
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-      </div>
-      <div
-        className={`col-span-1 md:col-span-2 lg:col-span-2 border-b-2 ${classes}`}
-      >
-        <textarea
-          type="text"
-          name="content"
-          placeholder="Message"
-          required
-          className={`bg-transparent placeholder-opacity-100 text-[1.2rem] lg:text-[1.4583333333333333vw] pt-2 lg:pt-3 font-PoppinsRegular focus:outline-none w-full ${inputClasses}`}
-          value={content}
-          onChange={(e) => setContent(e.target.value)}
-        />
+  }
 
-        {/* <textarea name="content" placeholder="Message" className={`bg-transparent placeholder-opacity-100 text-[1.2rem] lg:text-[1.4583333333333333vw] py-2 lg:py-3 font-PoppinsRegular focus:outline-none w-full ${inputClasses}`} value={content} onChange={(e) => setContent(e.target.value)} rows={4} cols={40} /> */}
-      </div>
-      <div
-        className={` mt-[1%] col-span-1 md:col-span-2 lg:col-span-2 flex justify-center items-cnter `}
-      >
-        <button
-          type="submit"
-          disabled={loading}
-          className={`rounded-xl text-lg lg:text-[1.3020833333333333vw] font-PoppinsMedium py-3 lg:py-[1.2vw] w-full lg:w-[51%] disabled:opacity-60 ${buttonStyle} `}
-        >
-          {loading ? "Sending..." : title}
-        </button>
-      </div>
-      {status && <p role="status" className="col-span-1 md:col-span-2 lg:col-span-2 text-center text-sm">{status}</p>}
+  return (
+    <form noValidate onSubmit={submit} className="grid grid-cols-1 gap-9 lg:grid-cols-2">
+      <Field error={errors.name} classes={classes}><input aria-invalid={Boolean(errors.name)} name="name" placeholder={t("name") + " *"} className={fieldClass} value={name} onChange={(event) => setName(event.target.value)} /></Field>
+      <Field error={errors.email} classes={classes}><input aria-invalid={Boolean(errors.email)} type="email" name="email" placeholder={t("email") + " *"} className={fieldClass} value={email} onChange={(event) => setEmail(event.target.value)} /></Field>
+      <Field error={errors.content} classes={`lg:col-span-2 ${classes}`}><textarea aria-invalid={Boolean(errors.content)} rows={4} name="content" placeholder={t("message") + " *"} className={fieldClass} value={content} onChange={(event) => setContent(event.target.value)} /></Field>
+      <div className="flex justify-center lg:col-span-2"><button type="submit" disabled={loading} className={`w-full rounded-xl py-3 text-lg disabled:opacity-60 lg:w-[51%] ${buttonStyle}`}>{loading ? t("sending") : title}</button></div>
     </form>
-  );
+  )
 }
 
-export default MassageBox;
+function Field({ children, error, classes }) {
+  return <div className={`border-b-2 ${error ? "border-red-500" : classes}`}>{children}{error && <p role="alert" className="pb-2 text-sm text-red-500">{error}</p>}</div>
+}

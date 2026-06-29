@@ -1,9 +1,11 @@
 "use client"
 import { useEffect, useMemo, useState } from "react"
+import { useFeedback } from "@/src/components/common/feedback-dialog"
 
-const groupLabels={landing:"صفحه اصلی",services:"خدمات",portfolio:"نمونه‌کارها",about:"درباره ما",contact:"تماس",navigation:"ناوبری",shared:"مشترک"}
+const groupLabels={landing:"صفحه اصلی",services:"خدمات",serviceDetail:"جزئیات خدمات",portfolio:"نمونه‌کارها",about:"درباره ما",contact:"تماس",forms:"فرم‌ها",navigation:"ناوبری",shared:"مشترک"}
 
 export default function SiteContentManager(){
+  const {showFeedback}=useFeedback()
   const [items,setItems]=useState([])
   const [group,setGroup]=useState("all")
   const [query,setQuery]=useState("")
@@ -14,9 +16,10 @@ export default function SiteContentManager(){
   const visible=useMemo(()=>items.filter(item=>(group==="all"||item.group===group)&&(!query||item.key.toLowerCase().includes(query.toLowerCase())||item.translations.fa.includes(query)||item.translations.en.toLowerCase().includes(query.toLowerCase()))),[items,group,query])
   function update(id,locale,value){setItems(current=>current.map(item=>item.id===id?{...item,translations:{...item.translations,[locale]:value}}:item))}
   async function save(item){
+    if(!item.translations.fa.trim()||!item.translations.en.trim()){showFeedback({type:"error",title:"اطلاعات ناقص",message:"محتوای فارسی و انگلیسی هر دو باید تکمیل شوند."});return}
     setSaving(item.id);setMessage("")
-    try{const r=await fetch(`/api/admin/site-content/${item.id}`,{method:"PUT",headers:{"Content-Type":"application/json"},body:JSON.stringify({translations:item.translations,isActive:item.isActive})});const d=await r.json();if(!r.ok)throw new Error(d.error||"ذخیره انجام نشد");setItems(current=>current.map(row=>row.id===item.id?d.content:row));setMessage("محتوا با موفقیت ذخیره شد.")}
-    catch(e){setMessage(e.message)}finally{setSaving(null)}
+    try{const r=await fetch(`/api/admin/site-content/${item.id}`,{method:"PUT",headers:{"Content-Type":"application/json"},body:JSON.stringify({translations:item.translations,isActive:item.isActive})});const d=await r.json();if(!r.ok)throw new Error(d.error||"ذخیره انجام نشد");setItems(current=>current.map(row=>row.id===item.id?d.content:row));setMessage("محتوا با موفقیت ذخیره شد.");showFeedback({type:"success",title:"ذخیره موفق",message:"محتوا با موفقیت ذخیره شد."})}
+    catch(e){setMessage(e.message);showFeedback({type:"error",title:"ذخیره ناموفق",message:e.message})}finally{setSaving(null)}
   }
   return <section>
     <div className="mb-5 rounded-2xl bg-white p-5 shadow-sm">
