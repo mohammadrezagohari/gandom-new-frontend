@@ -9,10 +9,12 @@ import SupportSection from "@/src/components/page/service-single/support-section
 import TechnologiesSection from "@/src/components/page/service-single/technologies-section";
 
 
-function ServiceSinglePage() {
+async function ServiceSinglePage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params;
+  const serviceIndex = Math.max(0, Number(id) - 1);
   return (
       <div className="flex flex-col justify-start items-center gap-[3rem] ">
-        <HeaderSection sectionId={1} />
+        <HeaderSection serviceIndex={serviceIndex} />
         <SpecializeSection />
         <OurworkSection />
         <TechnologiesSection />

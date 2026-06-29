@@ -14,7 +14,7 @@ import SectionTitle from "@/src/components/common/section-title";
 import { Pagination, Navigation } from "swiper/modules";
 import GlassmorphismSmBox from "@/src/components/common/glassmorphism-box/sm";
 // mod
-function OurWorkSlider({ service }) {
+function OurWorkSlider({ service, title, description }) {
   const navigationOurWorkPrevRef = useRef(null);
   const navigationOurWorkNextRef = useRef(null);
 
@@ -22,10 +22,10 @@ function OurWorkSlider({ service }) {
     <>
       <div className="container col-span-4">
         <div className="flex flex-col justify-center gap-5 lg:gap-[1.3020833333333333vw] h-full">
-          <SectionTitle title="Our Work" />
+          <SectionTitle title={title} />
 
           <p className="text-g8 lg:text-[1.3020833333333333vw] lg:leading-[2.34375vw] text-justify text-base leading-6 font-PoppinsLight pb-6 lg:pb-[1.5625vw]">
-            Examples of our work in the field of website design
+            {description}
           </p>
 
           <div className="flex items-center justify-start  gap-[2.0833333333333335vw] mt-[1.3020833333333333vw]  ">

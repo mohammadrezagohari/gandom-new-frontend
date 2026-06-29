@@ -1,20 +1,12 @@
-import HeaderSection from "@/src/components/page/articles/header-section";
-import ContentSection from "@/src/components/page/articles/content-section";
+import ContentSection from "@/src/components/page/articles/content-section"
 
-function Articles() {
+export default function Articles() {
   return (
-    <main className="">
-      <h1 className="text-g21 lg:text-[6.083333333333333vw] text-center text-[3.125em]  font-Holispay container max-w-none">
-        Articles
-      </h1>
-      <div className="flex flex-col justify-start items-center gap-[2.6rem] mb-[2.6rem]">
-        <HeaderSection />
-      </div>
-      <div>
-        <ContentSection />
+    <main>
+      <h1 className="container max-w-none text-center text-[3.125em] text-g21 lg:text-[6.083333333333333vw] font-Holispay">Articles</h1>
+      <div className="mb-[2.6rem] flex flex-col items-center justify-start gap-[2.6rem]">
+        <ContentSection locale="en" basePath="/article" />
       </div>
     </main>
-  );
+  )
 }
-
-export default Articles;

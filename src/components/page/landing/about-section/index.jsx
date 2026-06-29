@@ -5,10 +5,14 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import FilledButton from "../../../../components/common/buttons/filled";
 import SectionTitle from "../../../../components/common/section-title";
+import { useLocale, useTranslations } from "next-intl";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 function AboutSection({ aboutSec }) {
+  const t = useTranslations("landing.about_us");
+  const locale = useLocale();
+  const buttons = useTranslations("share.button");
   // useGSAP(
   //   () => {
   //     // const boxes = gsap.utils.toArray('.box');
@@ -93,11 +97,9 @@ function AboutSection({ aboutSec }) {
           {/* <div claassName="w-full grid grid-cols-12 lg:grid-cols-12" > */}
           <div className=" col-span-12 lg:col-span-7 order-2 lg:order-1 flex items-center lg:h-full">
             <div className="aboutSectionLeftColBg h-full w-full lg:w-[90%] flex flex-col items-start justify-center bg-aboutSectionGandomLogo bg-no-repeat bg-left">
-              <SectionTitle classes="text-g21" title="About Us" />
+              <SectionTitle classes="text-g21" title={t("title")} />
               <p className="text-justify text-g4c lg:text-[1.6927083333333333vw] lg:leading-[3.125vw] text-[16px] leading-[24px] font-PoppinsLight ">
-                df Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                Egestas purus viverra accumsan in nisl nisi. Arcu cursus vitae
+                {t("context")}
                 Egestas purus viverra accumsan in nisl nisi. Arcu cursus vitae
               </p>
               <div className="py-4 lg:py-8">

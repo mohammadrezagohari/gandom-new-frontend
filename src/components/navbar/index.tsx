@@ -35,6 +35,7 @@ function Navbar() {
 
   const localActive = useLocale();
   const shareTranslate = useTranslations("share");
+  const navigationTranslate = useTranslations("navigation");
 
   useEffect(() => {
     setIsDarkMode(
@@ -44,7 +45,8 @@ function Navbar() {
     );
   }, [pathname, localActive]);
 
-  const menuIt = localActive == "fa" ? CurrentMenu.fa : CurrentMenu.en;
+  const menuMeta = localActive == "fa" ? CurrentMenu.fa : CurrentMenu.en;
+  const menuIt = menuMeta.map((item, index) => ({...item, title: navigationTranslate(`items.${index}.title`), desc: navigationTranslate("current")}));
   return (
     <nav className={`w-full  ${isDarkMode ? "bg-g21" : "bg-gf"} `}>
       <div className="relative transition ease-in-out delay-150 container max-w-none pt-[1.5%]">
@@ -185,7 +187,7 @@ function Navbar() {
                     ? "text-gf placeholder-gce"
                     : " text-g21 placeholder-g8"
                 } w-full pr-3 py-1 rounded-lg  bg-transparent focus:outline-none  placeholder-opacity-100`}
-                placeholder="search"
+                placeholder={navigationTranslate("search")}
                 type="text"
                 value={keyWord}
                 onChange={(e) => setKeyWord(e.target.value)}

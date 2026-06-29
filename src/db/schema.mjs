@@ -58,6 +58,12 @@ export const teamMembers = sqliteTable("TeamMember", {
   position: text("position").notNull(),
   about: text("about").notNull(),
   skills: text("skills").notNull(),
+  nameTranslations: text("nameTranslations"),
+  familyTranslations: text("familyTranslations"),
+  positionTranslations: text("positionTranslations"),
+  aboutTranslations: text("aboutTranslations"),
+  skillsTranslations: text("skillsTranslations"),
+  joinedAtTranslations: text("joinedAtTranslations"),
   image: text("image").notNull(),
   singlePageImage: text("singlePageImage").notNull(),
   linkedin: text("linkedin"),
@@ -69,4 +75,41 @@ export const teamMembers = sqliteTable("TeamMember", {
   updatedAt: integer("updatedAt", { mode: "timestamp_ms" }).notNull().$defaultFn(() => new Date()),
 }, (table) => [
   index("TeamMember_isActive_sortOrder_idx").on(table.isActive, table.sortOrder),
+])
+
+export const articles = sqliteTable("Article", {
+  id: integer("id").primaryKey({ autoIncrement: true }),
+  slug: text("slug").notNull(),
+  titleTranslations: text("titleTranslations").notNull(),
+  excerptTranslations: text("excerptTranslations"),
+  contentTranslations: text("contentTranslations").notNull(),
+  authorTranslations: text("authorTranslations"),
+  coverImage: text("coverImage"),
+  publishedAt: text("publishedAt"),
+  readingMinutes: integer("readingMinutes").notNull().default(5),
+  sortOrder: integer("sortOrder").notNull().default(0),
+  isActive: integer("isActive", { mode: "boolean" }).notNull().default(true),
+  createdAt: integer("createdAt", { mode: "timestamp_ms" }).notNull().$defaultFn(() => new Date()),
+  updatedAt: integer("updatedAt", { mode: "timestamp_ms" }).notNull().$defaultFn(() => new Date()),
+}, (table) => [
+  uniqueIndex("Article_slug_key").on(table.slug),
+  index("Article_isActive_sortOrder_idx").on(table.isActive, table.sortOrder),
+  index("Article_publishedAt_idx").on(table.publishedAt),
+])
+
+export const siteContents = sqliteTable("SiteContent", {
+  id: integer("id").primaryKey({ autoIncrement: true }),
+  key: text("key").notNull(),
+  group: text("group").notNull(),
+  label: text("label").notNull(),
+  valueType: text("valueType").notNull().default("text"),
+  translations: text("translations").notNull(),
+  sortOrder: integer("sortOrder").notNull().default(0),
+  isActive: integer("isActive", { mode: "boolean" }).notNull().default(true),
+  createdAt: integer("createdAt", { mode: "timestamp_ms" }).notNull().$defaultFn(() => new Date()),
+  updatedAt: integer("updatedAt", { mode: "timestamp_ms" }).notNull().$defaultFn(() => new Date()),
+}, (table) => [
+  uniqueIndex("SiteContent_key_key").on(table.key),
+  index("SiteContent_group_sortOrder_idx").on(table.group, table.sortOrder),
+  index("SiteContent_isActive_idx").on(table.isActive),
 ])

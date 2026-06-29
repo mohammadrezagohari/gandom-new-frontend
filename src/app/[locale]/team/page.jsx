@@ -1,11 +1,20 @@
-import ContentSection from "@/src/components/page/team/content-section";
+import ContentSection from "@/src/components/page/team/content-section"
 
-export default async function Team({ params }) {
-  const { locale } = await params;
+const labels = {
+  en: "Our Team",
+  fa: "تیم ما",
+}
+
+export default async function TeamPage({ params }) {
+  const { locale } = await params
+  const isFa = locale === "fa"
+
   return (
-    <main>
-      <h1 className="container max-w-none text-center font-Holispay text-[3.125em] text-g21 lg:text-[6.8em]">Our Team</h1>
-      <ContentSection locale={locale} />
+    <main dir={isFa ? "rtl" : "ltr"}>
+      <h1 className={`container max-w-none text-center text-[3.125em] text-g21 lg:text-[6.8em] ${isFa ? "rokh-font-bold" : "font-Holispay"}`}>{labels[locale] || labels.en}</h1>
+      <div>
+        <ContentSection locale={locale} />
+      </div>
     </main>
-  );
+  )
 }

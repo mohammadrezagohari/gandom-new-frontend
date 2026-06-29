@@ -4,10 +4,11 @@ import React from "react";
 import SectionTitle from "@/src/components/common/section-title";
 import SectionCounter from "@/src/components/common/service-section-counter";
 import Link from "next/link";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 
 function SectionFive() {
   const locale = useLocale();
+  const t = useTranslations("services");
 
   return (
     <section className="w-full py-8 lg:py-[3.125vw]">
@@ -23,7 +24,7 @@ function SectionFive() {
             writingMode="vertical-lr"
             classes="h-full"
             lineHeight="bg-g4c h-[61%] lg:h-[47%]"
-            title=" Production de contenu"
+            title={t("items.4.title")}
             count="05"
           />
         </div>
@@ -32,12 +33,10 @@ function SectionFive() {
           className="col-span-11 lg:col-span-5 lg:row-span-2 row-span-1 order-3 lg:order-2"
         >
           <Link href={`/${locale}/service/5/content-generate`}>
-            <SectionTitle classes="text-g21" title="Production de contenu" />
+            <SectionTitle classes="text-g21" title={t("items.4.title")} />
           </Link>
           <p className="text-g8 lg:text-g4c lg:text-[1.34375vw] mt-[5%] lg:leading-[2.34375vw] text-justify text-base leading-6 font-bold font-PoppinsLight pb-6">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Egestas
-            purus viverra accumsan in nisl nisi. Arcu cursus vitae
+            {t("items.4.description")}
           </p>
         </div>
         <div

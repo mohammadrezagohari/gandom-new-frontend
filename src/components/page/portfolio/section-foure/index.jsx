@@ -1,9 +1,13 @@
+"use client";
 import React from "react";
 import SectionTitle from "@/src/components/common/section-title";
 import Link from "next/link";
 import Image from "next/image";
 import OutlinedButton from "@/src/components/common/buttons/outlined";
+import { useTranslations } from "next-intl";
 function SectionFoure() {
+  const t = useTranslations("portfolio");
+  const shared = useTranslations("shared");
   return (
     <section className="w-full  bg-g21 ">
       <div className="container max-w-none overflow-hidden ">
@@ -21,20 +25,17 @@ function SectionFoure() {
             </div>
           </div>
           <div className="order-1 lg:order-2 pt-0 pb-28 lg:pt-24 lg:pb-24  col-span-12 lg:col-span-5 flex flex-col justify-center items-start ">
-            <SectionTitle classes="text-gf" title="Arefset " />
+            <SectionTitle classes="text-gf" title={t("items.3.title")} />
             <h3 className="lg:text-[1.58rem] inline-block text-gDarkYellow font-Holispay">
-              Teaching and testing application for students
+              {t("items.3.subtitle")}
             </h3>
             <p className="py-5 text-[0.95rem] lg:text-[1.3rem] lg:leading-8 text-justify font-PoppinsRegular text-gb8">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              {t("items.3.description")}
             </p>
             <div className="py-4 flex justify-start items-center">
               <OutlinedButton
                 classes="border-gf text-gf hover:text-g21"
-                title=" See More Detail "
+                title={shared("see_details")}
                 link="/https://arefset.com"
               />
             </div>

@@ -1,8 +1,11 @@
+"use client";
 import React from "react";
 import SectionTitle from "@/src/components/common/section-title";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 
 function HeaderSection() {
+  const t = useTranslations("about.header");
   return (
     <section className=" w-full min-h-[60vh] lg:h-screen  bg-g21 relative flex flex-col items-center justify-start">
       <NestedCircleLG />
@@ -26,14 +29,12 @@ function HeaderSection() {
           <h1
             className={`text-gf lg:text-[3.6vw] text-center lg:leading-[5.5vw] text-[1.7rem] leading-[40.68px] font-Holispay`}
           >
-            We are a leader in the field of web and mobile software services
+            {t("title")}
           </h1>
 
           <p className="text-gbc lg:text-[1.2395833333333333vw] text-center lg:leading-[2.34375vw] text-sm leading-7 font-PoppinsRegular pb-6">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem
-            ipsum dolor sit amet,
-          </p>
+            {t("description")}
+            </p>
         </div>
       </div>
     </section>

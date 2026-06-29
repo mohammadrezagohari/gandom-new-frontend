@@ -1,117 +1,34 @@
-// "use client"
-import React from "react";
-import Notfound from "@/src/app/not-found";
-import { getSinglePostData } from "@/src/core/services/api/videos";
-// import Link from "next/link";
-import Image from "next/image";
-// import SectionTitle from "@/src/components/common/section-title";
-// import MassageBox from "@/src/components/common/massage-box-form";
-// import MessageSection from "@/src/components/page/article-single/message-section";
-import CommentSection from "@/src/components/page/article-single/comment-section";
-import RelatedPostSection from "@/src/components/page/article-single/related-post-section";
+import { notFound } from "next/navigation"
+import Image from "next/image"
+import CommentSection from "@/src/components/page/article-single/comment-section"
+import RelatedPostSection from "@/src/components/page/article-single/related-post-section"
+import { getSinglePostData } from "@/src/core/services/api/videos"
 
-const ServiceSinglePage = async ({ params }) => {
-  const { id } = await params;
-  const data = await getSinglePostData(id);
-  if (!data.id) {
-    return Notfound();
-  }
+function renderParagraphs(content, locale) {
+  const fontClass = locale === "fa" ? "yekan-bakh-font" : "font-PoppinsRegular"
+  return content.split(/\n{2,}/).filter(Boolean).map((paragraph, index) => (
+    <p key={index} className={`py-4 text-base leading-8 text-g8 lg:text-[1.05rem] lg:leading-9 whitespace-pre-wrap text-justify ${fontClass}`}>
+      {paragraph}
+    </p>
+  ))
+}
 
-  const onSubmitForm = (event) => {
-    event.preventDefault();
-  };
+export default async function ArticlePage({ params }) {
+  const { id, locale } = await params
+  const article = await getSinglePostData(id, locale)
+  if (!article?.id) notFound()
+  const isFa = locale === "fa"
 
   return (
-    <>
-      {/* ServiceSinglePage */}
-      <h1
-        className={`text-g25 lg:text-[3.7vw] text-start lg:leading-[5.517578125vw] text-[1.7rem] leading-[40.68px] font-Holispay`}
-      >
-        {data.title}
-        {/* We are a leader in the field of web and mobile software services */}
-      </h1>
-      <p className=" tracking-wide font-normal  text-g8 lg:text-[1.23vw] text-justify lg:leading-[1.95vw] text-base leading-6 font-PoppinsRegular py-6">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna.Lorem ipsum dolor sit amet,
-        consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-        et dolore magna.Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-        sed do eiusmod tempor incididunt ut labore et dolore magna.Lorem ipsum
-        dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-        incididunt ut labore et dolore magna.Lorem ipsum dolor sit amet,
-        consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-        et dolore magna.Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-        sed do eiusmod tempor incididunt ut labore et dolore magna.Lorem ipsum
-        dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-        incididunt ut labore et dolore magna.Lorem ipsum dolor sit amet,
-        consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-        et dolore magna.Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-        sed do eiusmod tempor incididunt ut labore et dolore magna.Lorem ipsum
-        dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-        incididunt ut labore et dolore magna.Lorem ipsum dolor sit amet,
-        consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-        . Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-        eiusmod tempor incididunt ut labore et dolore magna.Lorem ipsum dolor
-        sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-        ut labore et dolore magna.Lorem ipsum dolor sit amet, consectetur
-        adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-        magna.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-        eiusmod tempor incididunt ut labore et dolore magna.Lorem ipsum dolor
-        sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-        ut labore et dolore magna.Lorem ipsum dolor sit amet, consectetur
-        adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-        magna.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-        eiusmod tempor incididunt ut labore et dolore magna.Lorem ipsum dolor
-        sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-        ut labore et dolore magna.Lorem ipsum dolor sit amet, consectetur
-        adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-        magna.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-        eiusmod tempor incididunt ut labore et dolore magna.Lorem ipsum dolor
-        sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-        ut labore .
-      </p>
-      <div className="w-full lg:h-[67vh] rounded-xl ">
-        <Image
-          width={100}
-          height={100}
-          className=" h-full w-full rounded-xl object-cover "
-          src={"/artti.svg"}
-          alt={
-            "article | img | مقاله | گندم | سایت | طراحی | وبسایت | موبایل | نرم افزار | دیزای| شرکت نرم افزاری گندم"
-          }
-        />
-        {/* artti */}
+    <div dir={isFa ? "rtl" : "ltr"}>
+      <h1 className={`text-start text-[1.7rem] leading-[40.68px] text-g25 lg:text-[3.7vw] lg:leading-[5.517578125vw] ${isFa ? "rokh-font-bold" : "font-Holispay"}`}>{article.title}</h1>
+      {article.excerpt && <p className={`py-6 text-base leading-7 text-g70 lg:text-[1.25vw] lg:leading-[2vw] ${isFa ? "yekan-bakh-font" : "font-PoppinsLight"}`}>{article.excerpt}</p>}
+      <div className="w-full rounded-xl lg:h-[67vh] overflow-hidden">
+        <Image width={1400} height={900} className="h-full w-full rounded-xl object-cover" src={article.coverImage || "/wimg.png"} alt={article.title} />
       </div>
-      <p className=" tracking-wide font-normal  text-g8 lg:text-[1.23vw] text-justify lg:leading-[1.95vw] text-base leading-6 font-PoppinsRegular py-6">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna.Lorem ipsum dolor sit amet,
-        consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-        et dolore magna.Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-        sed do eiusmod tempor incididunt ut labore et dolore magna.Lorem ipsum
-        dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-        incididunt ut labore et dolore magna.Lorem ipsum dolor sit amet,
-        consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-        et dolore magna.Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-        sed do eiusmod tempor incididunt ut labore et dolore magna.Lorem ipsum
-        dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-        incididunt ut labore et dolore magna.Lorem ipsum dolor sit amet,
-        consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-        et dolore magna.Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-        sed do eiusmod tempor incididunt ut labore et dolore magna.Lorem ipsum
-        dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-        incididunt ut labore et dolore magna.Lorem ipsum dolor sit amet,
-        consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-        .
-      </p>
-
-      <CommentSection articleId={String(id)} />
-
-      <RelatedPostSection />
-      {/* <div className="flex items-center justify-between">
-        <p>{data.title}</p>
-        <p>{data.title}</p>
-      </div> */}
-    </>
-  );
-};
-
-export default ServiceSinglePage;
+      {renderParagraphs(article.content, locale)}
+      <CommentSection articleId={String(article.id)} />
+      <RelatedPostSection currentArticleId={article.id} locale={locale} basePath={`/${locale}/article`} />
+    </div>
+  )
+}

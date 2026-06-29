@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import Image from "next/image";
 import SectionTitle from "@/src/components/common/section-title";
@@ -6,59 +7,25 @@ import { CiLaptop } from "react-icons/ci";
 import { BsPhone } from "react-icons/bs";
 import { TbWorldSearch } from "react-icons/tb";
 import Accordion from "@/src/components/accordion";
+import { useTranslations } from "next-intl";
 
 // document
 function PropertySection() {
+  const t = useTranslations("about.values");
   const reasons = [
-    {
-      id: 1,
-      svg: <CiLaptop />,
-      title: "Web",
-      desc: "We put our best effort into each unique project knowing that the more we put into it, the more we get out of it. ",
-    },
-    {
-      id: 2,
-      svg: <BsPhone />,
-      title: "App",
-      desc: "We put our best effort into each unique project knowing that the more we put into it, the more we get out of it. ",
-    },
-    {
-      id: 3,
-      svg: <TbWorldSearch />,
-      title: "SEO",
-      desc: "We put our best effort into each unique project knowing that the more we put into it, the more we get out of it. ",
-    },
-    {
-      id: 4,
-      svg: <CiLaptop />,
-      title: "Graphic",
-      desc: "We put our best effort into each unique project knowing that the more we put into it, the more we get out of it. ",
-    },
+    {id:1,svg:<CiLaptop />,title:t("0.title"),desc:t("0.description")},
+    {id:2,svg:<BsPhone />,title:t("1.title"),desc:t("1.description")},
+    {id:3,svg:<TbWorldSearch />,title:t("2.title"),desc:t("2.description")},
+    {id:4,svg:<CiLaptop />,title:t("3.title"),desc:t("3.description")}
   ];
-  const accordionItems = [
-    {
-      id: 1,
-      title: "Web",
-      desc: "We put our best effort into each unique project knowing that the more we put into it, the more we get out of it. ",
-    },
-    {
-      id: 2,
-      title: "Our Approach ",
-      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
-    },
-    {
-      id: 3,
-      title: "SEO",
-      desc: "We put our best effort into each unique project knowing that the more we put into it, the more we get out of it. ",
-    },
-  ];
+  const accordionItems = reasons.slice(0, 3);
   return (
     <section className="w-full bg-g21">
       <div className=" container max-w-none flex flex-col justify-start items-start">
         <div style={{ zIndex: "10" }}>
           <SectionTitle
             classes="text-gYellow"
-            title="What we care about makes us who we are"
+            title={t("title")}
           />
           <div className="my-[10%] lg:my-[2%] grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-5">
             {reasons.map((item, i) => (

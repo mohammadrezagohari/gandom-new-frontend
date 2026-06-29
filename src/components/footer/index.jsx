@@ -1,10 +1,11 @@
 // import React,{useState} from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 
 function Footer() {
     const locale = useLocale();
+    const t = useTranslations("share.footer");
 
   // const [isHover,setIsHover]=useState(false)
   return (
@@ -33,22 +34,22 @@ function Footer() {
           <ul className="lg:flex lg:justify-center lg:items-center lg:gap-[6.25vw] lg:divide-y-0 divide-y divide-[#FFD10133]">
             <li className="text-gf text-center lg:text-[1.5625vw] lg:leading-[2.9296875vw] text-xl leading-[30px] font-PoppinsLight lg:py-0 py-4">
               <Link className="block w-full h-full" href={`/${locale}/about-us`}>
-                <span>About us</span>
+                <span>{t("link.0.about")}</span>
               </Link>
             </li>
             <li className="text-gf text-center lg:text-[1.5625vw] lg:leading-[2.9296875vw] text-xl leading-[30px] font-PoppinsLight lg:py-0 py-4">
               <Link className="block w-full h-full" href={`/${locale}/contact`}>
-                <span>Contact us</span>
+                <span>{t("link.0.contact_us")}</span>
               </Link>
             </li>
             <li className="text-gf text-center lg:text-[1.5625vw] lg:leading-[2.9296875vw] text-xl leading-[30px] font-PoppinsLight lg:py-0 py-4">
               <Link className="block w-full h-full" href={`/${locale}/portfolio`}>
-                <span>Our works</span>
+                <span>{t("link.0.our_works")}</span>
               </Link>
             </li>
             <li className="text-gf text-center lg:text-[1.5625vw] lg:leading-[2.9296875vw] text-xl leading-[30px] font-PoppinsLight lg:py-0 py-4">
               <Link className="block w-full h-full" href={`/${locale}/weblog`}>
-                <span>Weblog</span>
+                <span>{t("link.0.weblog")}</span>
               </Link>
             </li>
           </ul>

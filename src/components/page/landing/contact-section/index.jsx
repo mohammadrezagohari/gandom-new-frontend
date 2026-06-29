@@ -3,14 +3,17 @@ import React from "react";
 import Image from "next/image";
 
 import { GoArrowDownLeft } from "react-icons/go";
+import { useLocale, useTranslations } from "next-intl";
 
 function ContactSection() {
+  const t = useTranslations("small_contact");
+  const locale = useLocale();
   return (
     <section className="w-full  my-24">
       <div className="container max-w-none flex  lg:flex-row flex-col items-center justify-between gap-7 lg:gap-0">
         <div className="w-full h-[210px] lg:min-h-[14vw] lg:w-[60%] flex items-center justify-start overflow-hidden bg-g21 rounded-xl   px-6 relative ">
           <h2 className="text-gYellow lg:text-[4.18vw] lg:leading-[5.5vw] text-[38px] leading-[40.68px] font-Holispay ">
-            You Can Contact Us For Advice And Guidance
+            {t("title")}
           </h2>
 
             {/* <Image
@@ -24,10 +27,10 @@ function ContactSection() {
         <div className="w-full h-[210px] lg:min-h-[14vw] lg:w-[17%] p-7  lg:p-5 bg-gYellow rounded-xl text-center lg:text-start  ">
           <Link
             className="inline-flex flex-col gap-8 lg:gap-0 justify-between items-center w-full h-full  "
-            href={"/"}
+            href={`/${locale}/contact`}
           >
             <h3 className="text-g21 lg:text-[2.6vw] lg:leading-[3.2vw] text-[36px] leading-[40.68px] font-Holispay ">
-              Click Here To Start
+              {t("click")}
             </h3>
             <div className=" w-[4.25rem] h-[4.25rem] lg:w-[4.375rem] lg:h-[4.375rem] rounded-full border-[1px] border-g21 flex justify-center items-center text-3xl">
               <GoArrowDownLeft className="transform rotate-180" />
@@ -66,7 +69,7 @@ function ContactSection() {
             /> 
           
           </div>
-          <span className="text-g21 text-2xl lg:text-[1.5625vw] lg:leading-[2.34375vw] font-PoppinsMedium  px-5 ">+5 support ready to answer</span>
+          <span className="text-g21 text-2xl lg:text-[1.5625vw] lg:leading-[2.34375vw] font-PoppinsMedium  px-5 ">{t("support")}</span>
         </div>
       </div>
     </section>

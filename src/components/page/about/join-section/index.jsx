@@ -8,8 +8,11 @@ import Modal from "@mui/material/Modal";
 import Typography from "@mui/material/Typography";
 import JoinUsBox from "@/src/components/joinus-box-form";
 import { AiOutlineClose } from "react-icons/ai";
+import { useTranslations } from "next-intl";
 
 function JoinSection() {
+  const t = useTranslations("about.join");
+  const shared = useTranslations("shared");
   const [open, setOpen] = useState(false);
   const handleOpen = () => {
     setOpen(true);
@@ -62,15 +65,15 @@ function JoinSection() {
     <section className="w-full bg-g21 py-[5%]">
       <div className=" container max-w-none  text-gf grid grid-cols-12 lg:grid-cols-12 lg:gap-16">
         <div className="col-span-12 lg:col-span-5 flex flex-col justify-center items-start ">
-          <SectionTitle classes="text-gYellow" title="Join our team" />
+          <SectionTitle classes="text-gYellow" title={t("title")} />
           <p className="mb-[2vw]  text-gb0 text-xs lg:text-[1.1458333333333335vw] leading-[1.8rem] lg:leading-[1.95vw] text-justify font-PoppinsRegular ">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.sed do
+            {t("description")}
+          sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua.sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </p>
-          <OutlinedYellowButton handleOpen={handleOpen} title="Join Now" />
+          <OutlinedYellowButton handleOpen={handleOpen} title={t("action")} />
           <Modal
             keepMounted
             open={open}
@@ -108,9 +111,9 @@ function JoinSection() {
                   <AiOutlineClose />
                 </button>
               </div>
-              <SectionTitle classes="text-gDarkYellow" title="Join our team" />
+              <SectionTitle classes="text-gDarkYellow" title={t("title")} />
               <JoinUsBox
-                title="Send Message"
+                title={shared("send_message")}
                 inputClasses=" placeholder-g21 "
                 onSubmitForm={onSubmitForm}
                 classes="border-[#21212199]"

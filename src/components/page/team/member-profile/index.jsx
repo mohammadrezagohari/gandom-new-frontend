@@ -1,29 +1,36 @@
-import Image from "next/image";
-import Link from "next/link";
+import Image from "next/image"
+import Link from "next/link"
 
-export default function TeamMemberProfile({ team }) {
-  const hasInstagram = team.instagram && team.instagram !== "/";
-  const hasLinkedin = team.linkedin && team.linkedin !== "/";
+const labels = {
+  en: { joinedAt: "Joined us", skills: "Skills" },
+  fa: { joinedAt: "شروع همکاری", skills: "مهارت ها" },
+}
+
+export default function TeamMemberProfile({ team, locale = "en" }) {
+  const hasInstagram = team.instagram && team.instagram !== "/"
+  const hasLinkedin = team.linkedin && team.linkedin !== "/"
+  const isFa = locale === "fa"
+  const copy = labels[locale] || labels.en
 
   return (
-    <main className="container grid h-auto max-w-none grid-cols-1 overflow-hidden md:grid-cols-2 lg:min-h-screen lg:grid-cols-2 lg:gap-8">
-      <div className="camma relative order-2 pb-10 pt-4 lg:order-1 lg:pt-0">
-        <h1 className="z-10 flex flex-col font-Holispay">
+    <main dir={isFa ? "rtl" : "ltr"} className="container grid h-auto max-w-none grid-cols-1 overflow-hidden md:grid-cols-2 lg:min-h-screen lg:grid-cols-2 lg:gap-8">
+      <div className="relative order-2 pb-10 pt-4 lg:order-1 lg:pt-0">
+        <h1 className={`z-10 flex flex-col ${isFa ? "rokh-font-bold" : "font-Holispay"}`}>
           <span className="text-[2.25rem] text-gb0 lg:-mb-6 lg:text-[4.166666666666667vw]">{team.name}</span>
           <span className="text-[3.125rem] text-g21 lg:text-[6.25vw]">{team.family}</span>
         </h1>
-        <h2 className="font-PoppinsLight text-[1.25rem] text-gDarkYellow lg:text-[2.0833333333333335vw]">{team.position}</h2>
+        <h2 className={`${isFa ? "yekan-bakh-font" : "font-PoppinsLight"} text-[1.25rem] text-gDarkYellow lg:text-[2.0833333333333335vw]`}>{team.position}</h2>
         {team.joinedAt && (
-          <div className="z-10 my-3 flex gap-2 font-PoppinsLight lg:my-5">
-            <span className="text-[0.75rem] text-gb0 lg:text-[1.5625vw]">joined us:</span>
+          <div className={`z-10 my-3 flex gap-2 ${isFa ? "yekan-bakh-font" : "font-PoppinsLight"} lg:my-5`}>
+            <span className="text-[0.75rem] text-gb0 lg:text-[1.5625vw]">{copy.joinedAt}:</span>
             <span className="text-[0.75rem] text-g70 lg:text-[1.5625vw]">{team.joinedAt}</span>
           </div>
         )}
-        <p className="whitespace-pre-wrap text-justify font-PoppinsLight text-[0.9rem] leading-7 text-g70 lg:text-[1.3vw] lg:leading-[2vw]">{team.about}</p>
-        <h3 className="mb-2 mt-6 font-PoppinsLight text-[1.25rem] text-gDarkYellow lg:mb-3 lg:text-[2.0833333333333335vw]">Skills:</h3>
+        <p className={`whitespace-pre-wrap text-justify text-[0.9rem] leading-7 text-g70 lg:text-[1.3vw] lg:leading-[2vw] ${isFa ? "yekan-bakh-font" : "font-PoppinsLight"}`}>{team.about}</p>
+        <h3 className={`${isFa ? "yekan-bakh-font" : "font-PoppinsLight"} mb-2 mt-6 text-[1.25rem] text-gDarkYellow lg:mb-3 lg:text-[2.0833333333333335vw]`}>{copy.skills}:</h3>
         <ul className="flex flex-wrap gap-2 lg:gap-[0.78125vw]">
           {team.skills.map((skill) => (
-            <li key={skill} className="rounded-[0.9375rem] border border-gd9 px-2 py-1 text-[0.75rem] text-g70 lg:px-[0.78125vw] lg:py-[0.5208333333333334vw] lg:text-[1.3020833333333333vw]">{skill}</li>
+            <li key={skill} className={`rounded-[0.9375rem] border border-gd9 px-2 py-1 text-[0.75rem] text-g70 lg:px-[0.78125vw] lg:py-[0.5208333333333334vw] lg:text-[1.3020833333333333vw] ${isFa ? "yekan-bakh-font" : "font-PoppinsLight"}`}>{skill}</li>
           ))}
         </ul>
       </div>
@@ -43,5 +50,5 @@ export default function TeamMemberProfile({ team }) {
         )}
       </div>
     </main>
-  );
+  )
 }

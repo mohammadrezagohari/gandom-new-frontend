@@ -11,6 +11,7 @@
         "db:studio": "drizzle-kit studio",
         "admin:create": "node scripts/create-admin.mjs",
         "team:seed": "node scripts/seed-team.mjs",
+        "content:seed": "node scripts/seed-content.mjs && node scripts/seed-agency-content.mjs",
         "lint": "next lint"
     },
     "dependencies": {
@@ -20,7 +21,9 @@
         "@mui/icons-material": "^5.14.14",
         "@mui/material": "^5.14.14",
         "@mui/styled-engine-sc": "^6.0.0-alpha.2",
+        "better-sqlite3": "^12.11.1",
         "dotenv": "^16.3.1",
+        "drizzle-orm": "^0.45.2",
         "gsap": "^3.12.2",
         "i18next": "23.12.2",
         "next": "15.5.19",
@@ -30,8 +33,6 @@
         "react-i18next": "15.0.1",
         "react-icons": "^4.11.0",
         "react-phone-number-input": "^3.3.7",
-        "better-sqlite3": "^12.11.1",
-        "drizzle-orm": "^0.45.2",
         "styled-components": "^6.1.0",
         "swiper": "12.2.0"
     },
@@ -39,11 +40,11 @@
         "@types/node": "^22.5.5",
         "@types/react": "^18.3.6",
         "autoprefixer": "latest",
+        "drizzle-kit": "^0.31.10",
         "eslint": "8.57.1",
         "eslint-config-next": "15.5.16",
         "postcss": "8.5.10",
         "tailwindcss": "3.4.11",
-        "drizzle-kit": "^0.31.10",
         "typescript": "^5.6.2",
         "video.js": "^8.6.1"
     }

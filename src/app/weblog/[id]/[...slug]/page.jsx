@@ -1,11 +1,1 @@
-import React from 'react'
-
-function ServiceSinglePage() {
-  return (
-    <main className="">
-      ServiceSinglePage
-    </main>
-  )
-}
-
-export default ServiceSinglePage
+﻿export { default } from "../../../article/[id]/[...slug]/page"

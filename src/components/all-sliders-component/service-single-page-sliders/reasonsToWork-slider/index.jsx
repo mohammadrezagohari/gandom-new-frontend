@@ -14,7 +14,7 @@ import SectionTitle from "@/src/components/common/section-title";
 import { Pagination, Navigation } from "swiper/modules";
 import CardBox from "@/src/components/common/cards/card-box";
 // mod
-function ReasonsToWorkSlider({ reasons }) {
+function ReasonsToWorkSlider({ reasons, title }) {
   const navigationReasonsPrevRef = useRef(null);
   const navigationReasonsNextRef = useRef(null);
 
@@ -22,7 +22,7 @@ function ReasonsToWorkSlider({ reasons }) {
     <>
       <div className="container col-span-12 lg:col-span-4">
         <div className="flex flex-col justify-center gap-5 lg:gap-[1.3020833333333333vw] h-full">
-          <SectionTitle title="Reasons To Work With Us" />
+          <SectionTitle title={title} />
 
           <div className="hidden lg:flex items-center justify-start  gap-[2.0833333333333335vw] mt-[1.3020833333333333vw] ">
             <button

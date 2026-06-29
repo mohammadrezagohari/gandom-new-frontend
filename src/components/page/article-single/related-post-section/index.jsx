@@ -1,35 +1,41 @@
-import React from "react";
-import SectionTitle from "@/src/components/common/section-title";
-import VideoCardBox from "@/src/components/common/cards/video-box";
-// import videoItem from '@/core/services/api/videos';
-import { getPostsData } from "@/src/core/services/api/videos";
+import SectionTitle from "@/src/components/common/section-title"
+import VideoCardBox from "@/src/components/common/cards/video-box"
+import { getRelatedArticles } from "@/src/lib/articles"
 
-const RelatedPostSection = async () => {
-  const data = await getPostsData();
+const labels = {
+  en: { title: "Related", link: "See more" },
+  fa: { title: "مطالب مرتبط", link: "بیشتر ببینید" },
+}
+
+export default async function RelatedPostSection({ locale = "en", currentArticleId, basePath }) {
+  const copy = labels[locale] || labels.en
+  const data = getRelatedArticles(currentArticleId, { locale, limit: 3, onlyActive: true })
+  const articleBasePath = basePath || (locale ? `/${locale}/article` : "/article")
+
+  if (!data.length) return null
+
   return (
-    <section className={` my-[5%]`}>
-      <SectionTitle classes="text-g21 " title="Related" />
+    <section className="my-[5%]">
+      <SectionTitle classes="text-g21" title={copy.title} lang={locale} />
 
-      <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 lg:gap-5">
-        {data.slice(0, 3).map((item, i) => (
+      <div className="grid grid-cols-2 gap-3 lg:grid-cols-3 lg:gap-5">
+        {data.map((item) => (
           <VideoCardBox
-            key={i}
+            key={item.id}
             parentClasses="border-gec bg-gec"
             titleClasses="text-g4c"
             descClasses="text-g8"
             linkClasses="text-gDarkYellow"
             dateClasses="text-g8"
-            img="/vImg.svg"
+            img={item.coverImage || "/wimg.png"}
             title={item.title}
-            desc={item.body}
-            link="see more"
-            date="29 July"
-            href={`/article/${item.id}/${item.title}`}
+            desc={item.excerpt || item.content}
+            link={copy.link}
+            date={item.publishedAt}
+            href={`${articleBasePath}/${item.id}/${item.slug}`}
           />
         ))}
       </div>
     </section>
-  );
-};
-
-export default RelatedPostSection;
+  )
+}

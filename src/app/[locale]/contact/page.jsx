@@ -1,9 +1,12 @@
+"use client";
 // import FormBox from '@/components/page/contact/form-box'
 // import YellowBox from '@/components/contact/yellow-box'
 import FormBox from "@/src/components/contact-components/form-box";
 import YellowBox from "@/src/components/contact-components/yellow-box";
+import { useTranslations } from "next-intl";
 
 function ContactUs() {
+  const t = useTranslations("contact");
   return (
     <main className="w-full">
       <section className="container max-w-none px-0 lg:!px-[7.291666666666667vw] mt-5 lg:mt-[2.34375vw]">
@@ -11,8 +14,7 @@ function ContactUs() {
           <h1
             className={`text-left lg:text-[61.666666666666664vw] lg:leading-[5.517578125vw] text-[38px] leading-[40.68px] font-Holispay gap-6 lg:gap-3`}
           >
-            <span className="text-g21">Contact</span>
-            <span className="text-gYellow">Us</span>
+            <span className="text-g21">{t("title")}</span>
           </h1>
         </div>
         <div className=" my-5 lg:my-[2.6041666666666665vw] w-full relative p-0 lg:p-[2vw] rounded-3xl h-full grid grid-cols-12 lg:grid-cols-12 gap-8 lg:gap-[1.5vw] lg:border-[1px] lg:border-g21 ">
@@ -34,11 +36,10 @@ function ContactUs() {
               <h1
                 className={`text-left lg:text-[3.8541666666666665vw] lg:leading-[5.517578125vw] text-[38px] leading-[40.68px] font-Holispay gap-2`}
               >
-                <span className="text-g21 pe-[0.78125vw]">Contact</span>
-                <span className="text-gYellow">Us</span>
+                <span className="text-g21 pe-[0.78125vw]">{t("title")}</span>
               </h1>
               <span className="text-[1.1rem] lg:text-[1.3541666666666667vw] text-[#212121B2] font-PoppinsRegular">
-                Lorem Ipsum
+                {t("subtitle")}
               </span>
             </div>
           </div>

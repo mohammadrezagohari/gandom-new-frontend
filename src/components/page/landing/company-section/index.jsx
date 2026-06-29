@@ -4,8 +4,10 @@ import SectionTitle from "../../../../components/common/section-title";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import { useTranslations } from "next-intl";
 
 function CompanySection() {
+  const t = useTranslations();
   const company = [
     {
       id: 1,
@@ -108,12 +110,12 @@ function CompanySection() {
       <div className="container max-w-none flex justify-between items-center">
         <SectionTitle
           classes="text-g21"
-          title="trusted by +50 company worldwide"
+          title={t("landing.trust")}
         />
         <div className="hidden lg:inline-block">
           <OutlinedButton
             classes="border-g8 text-g8"
-            title="See More"
+            title={t("share.button.see_more")}
             link="/"
           />
         </div>
@@ -150,7 +152,7 @@ function CompanySection() {
       </div>
 
       <div className=" flex items-center justify-center lg:hidden">
-        <OutlinedButton classes="border-g8 text-g8" title="See More" link="/" />
+        <OutlinedButton classes="border-g8 text-g8" title={t("share.button.see_more")} link="/" />
       </div>
     </section>
   );

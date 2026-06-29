@@ -6,8 +6,10 @@ import SectionSix from "@/src/components/page/service/section-six";
 import SectionThree from "@/src/components/page/service/section-three";
 import SectionTwo from "@/src/components/page/service/section-two";
 import React from "react";
+import { useTranslations } from "next-intl";
 
 function Services() {
+  const t = useTranslations("services");
   return (
     <main className="">
       <h1 className="text-g21 lg:text-[6.083333333333333vw] text-center text-[3.125em]  font-Holispay container">

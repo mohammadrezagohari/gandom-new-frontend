@@ -4,10 +4,11 @@ import React from "react";
 import SectionTitle from "@/src/components/common/section-title";
 import SectionCounter from "@/src/components/common/service-section-counter";
 import Link from "next/link";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 
 function SectionThree() {
   const locale = useLocale();
+  const t = useTranslations("services");
 
   return (
     // <section className="w-full bg-g21 py-8 lg:py-12">
@@ -24,7 +25,7 @@ function SectionThree() {
             writingMode="vertical-lr"
             classes="h-full text-gec"
             lineHeight="bg-gec h-[64%] lg:h-[56%]"
-            title=" Graphic Design"
+            title={t("items.2.title")}
             count="03"
           />
         </div>
@@ -33,12 +34,10 @@ function SectionThree() {
           className="col-span-11 lg:col-span-5 lg:row-span-2 row-span-1 order-3 lg:order-2"
         >
           <Link href={`/${locale}/service/3/graphic-design`}>
-            <SectionTitle classes="text-gec" title="Graphic Design" />
+            <SectionTitle classes="text-gec" title={t("items.2.title")} />
           </Link>
           <p className="text-gec lg:text-gec lg:text-[1.34375vw] mt-[5%] lg:leading-[2.34375vw] text-justify text-base leading-6 font-bold font-PoppinsLight pb-6">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Egestas
-            purus viverra accumsan in nisl nisi. Arcu cursus vitae
+            {t("items.2.description")}
           </p>
         </div>
         <div

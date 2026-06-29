@@ -4,10 +4,11 @@ import React from "react";
 import SectionTitle from "@/src/components/common/section-title";
 import SectionCounter from "@/src/components/common/service-section-counter";
 import Link from "next/link";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 
 function SectionOne() {
   const locale = useLocale();
+  const t = useTranslations("services");
   return (
     <section className="w-full py-8 lg:py-[3.125vw]">
       <div
@@ -22,7 +23,7 @@ function SectionOne() {
             writingMode="vertical-lr"
             classes="h-full"
             lineHeight="bg-g4c h-[64%] lg:h-[49%]"
-            title=" Software Development"
+            title={t("items.0.title")}
             count="01"
           />
         </div>
@@ -31,14 +32,10 @@ function SectionOne() {
           className="col-span-11 lg:col-span-5 lg:row-span-2 row-span-1 order-3 lg:order-2"
         >
           <Link href={`/${locale}/service/1/software-development`}>
-            <SectionTitle classes="text-g21" title="Software Development" />
+            <SectionTitle classes="text-g21" title={t("items.0.title")} />
           </Link>
           <p className="text-g8 lg:text-g4c lg:text-[1.34375vw] mt-[5%] lg:leading-[2.34375vw] text-justify text-base leading-6 font-bold font-PoppinsLight pb-6">
-            Web development company that enhances business profitability and
-            efficiency through scalable solutions using modern technologies. Their services include
-            custom CRM/ERP systems, e-commerce platforms, SaaS, and on-demand applications.
-            The company utilizes various technologies such as NodeJs, React, and Laravel to deliver tailored solutions.
-            Additionally, they showcase their portfolio and customer testimonials to highlight their expertise and successful projects.
+            {t("items.0.description")}
           </p>
         </div>
         <div

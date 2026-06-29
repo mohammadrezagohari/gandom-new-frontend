@@ -1,20 +1,20 @@
-import HeaderSection from "@/src/components/page/articles/header-section";
-import ContentSection from "@/src/components/page/articles/content-section";
+import ContentSection from "@/src/components/page/articles/content-section"
 
-function Articles() {
-  return (
-    <main className="">
-      <h1 className="text-g21 lg:text-[6.083333333333333vw] text-center text-[3.125em]  font-Holispay container max-w-none">
-        Articles
-      </h1>
-      <div className="flex flex-col justify-start items-center gap-[2.6rem] mb-[2.6rem]">
-        <HeaderSection />
-      </div>
-      <div>
-        <ContentSection />
-      </div>
-    </main>
-  );
+const labels = {
+  en: "Articles",
+  fa: "مقالات",
 }
 
-export default Articles;
+export default async function Articles({ params }) {
+  const { locale } = await params
+  const isFa = locale === "fa"
+
+  return (
+    <main dir={isFa ? "rtl" : "ltr"}>
+      <h1 className={`container max-w-none text-center text-[3.125em] text-g21 lg:text-[6.083333333333333vw] ${isFa ? "rokh-font-bold" : "font-Holispay"}`}>{labels[locale] || labels.en}</h1>
+      <div className="mb-[2.6rem] flex flex-col items-center justify-start gap-[2.6rem]">
+        <ContentSection locale={locale} basePath={`/${locale}/article`} />
+      </div>
+    </main>
+  )
+}

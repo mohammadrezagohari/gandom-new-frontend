@@ -4,9 +4,24 @@
 import { useEffect, useState } from "react"
 
 const emptyForm = {
-  name: "", family: "", position: "", about: "", skillsText: "",
-  image: "", singlePageImage: "", linkedin: "", instagram: "",
-  joinedAt: "", sortOrder: 0, isActive: true,
+  nameEn: "",
+  nameFa: "",
+  familyEn: "",
+  familyFa: "",
+  positionEn: "",
+  positionFa: "",
+  aboutEn: "",
+  aboutFa: "",
+  skillsEnText: "",
+  skillsFaText: "",
+  joinedAtEn: "",
+  joinedAtFa: "",
+  image: "",
+  singlePageImage: "",
+  linkedin: "",
+  instagram: "",
+  sortOrder: 0,
+  isActive: true,
 }
 
 export default function TeamManager() {
@@ -55,7 +70,7 @@ export default function TeamManager() {
       const data = await response.json()
       if (!response.ok) throw new Error(data.error || "آپلود تصویر انجام نشد.")
       change(field, data.path)
-      setMessage("تصویر آپلود شد؛ برای نهایی‌شدن، تغییرات عضو را ذخیره کنید.")
+      setMessage("تصویر آپلود شد؛ برای نهایی شدن تغییرات، ذخیره را بزنید.")
     } catch (error) {
       setMessage(error.message)
     } finally {
@@ -66,16 +81,22 @@ export default function TeamManager() {
   function edit(member) {
     setEditingId(member.id)
     setForm({
-      name: member.name,
-      family: member.family,
-      position: member.position,
-      about: member.about,
-      skillsText: member.skills.join("\n"),
+      nameEn: member.nameTranslations?.en || member.name || "",
+      nameFa: member.nameTranslations?.fa || member.name || "",
+      familyEn: member.familyTranslations?.en || member.family || "",
+      familyFa: member.familyTranslations?.fa || member.family || "",
+      positionEn: member.positionTranslations?.en || member.position || "",
+      positionFa: member.positionTranslations?.fa || member.position || "",
+      aboutEn: member.aboutTranslations?.en || member.about || "",
+      aboutFa: member.aboutTranslations?.fa || member.about || "",
+      skillsEnText: (member.skillsTranslations?.en || member.skills || []).join("\n"),
+      skillsFaText: (member.skillsTranslations?.fa || member.skills || []).join("\n"),
+      joinedAtEn: member.joinedAtTranslations?.en || member.joinedAt || "",
+      joinedAtFa: member.joinedAtTranslations?.fa || member.joinedAt || "",
       image: member.image,
       singlePageImage: member.singlePageImage,
       linkedin: member.linkedin || "",
       instagram: member.instagram || "",
-      joinedAt: member.joinedAt || "",
       sortOrder: member.sortOrder,
       isActive: member.isActive,
     })
@@ -93,13 +114,30 @@ export default function TeamManager() {
     event.preventDefault()
     setSaving(true)
     setMessage("")
-    const skills = form.skillsText.split(/[\n,]+/).map((item) => item.trim()).filter(Boolean)
-    const url = editingId ? `/api/admin/team/${editingId}` : "/api/admin/team"
+    const payload = {
+      nameTranslations: { en: form.nameEn, fa: form.nameFa },
+      familyTranslations: { en: form.familyEn, fa: form.familyFa },
+      positionTranslations: { en: form.positionEn, fa: form.positionFa },
+      aboutTranslations: { en: form.aboutEn, fa: form.aboutFa },
+      skillsTranslations: {
+        en: form.skillsEnText.split(/\n|,/).map((item) => item.trim()).filter(Boolean),
+        fa: form.skillsFaText.split(/\n|,/).map((item) => item.trim()).filter(Boolean),
+      },
+      joinedAtTranslations: { en: form.joinedAtEn, fa: form.joinedAtFa },
+      image: form.image,
+      singlePageImage: form.singlePageImage,
+      linkedin: form.linkedin,
+      instagram: form.instagram,
+      sortOrder: Number(form.sortOrder),
+      isActive: form.isActive,
+    }
+
     try {
+      const url = editingId ? `/api/admin/team/${editingId}` : "/api/admin/team"
       const response = await fetch(url, {
         method: editingId ? "PUT" : "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...form, skills }),
+        body: JSON.stringify(payload),
       })
       const data = await response.json()
       if (!response.ok) throw new Error(data.error || "ذخیره عضو انجام نشد.")
@@ -126,7 +164,7 @@ export default function TeamManager() {
     await loadMembers()
   }
 
-  const inputClass = "w-full rounded-xl border border-gray-300 px-3 py-2.5 outline-none focus:border-amber-400"
+  const inputClass = "mt-1 w-full rounded-xl border border-gray-300 px-3 py-2.5 outline-none focus:border-amber-400"
 
   return (
     <section>
@@ -136,37 +174,37 @@ export default function TeamManager() {
           {editingId && <button type="button" onClick={reset} className="text-sm text-gray-500">انصراف از ویرایش</button>}
         </div>
         <div className="grid gap-4 md:grid-cols-2">
-          <label className="text-sm">نام<input required maxLength={100} value={form.name} onChange={(e) => change("name", e.target.value)} className={`mt-1 ${inputClass}`} /></label>
-          <label className="text-sm">نام خانوادگی<input required maxLength={100} value={form.family} onChange={(e) => change("family", e.target.value)} className={`mt-1 ${inputClass}`} /></label>
-          <label className="text-sm md:col-span-2">سمت<input required maxLength={150} value={form.position} onChange={(e) => change("position", e.target.value)} className={`mt-1 ${inputClass}`} /></label>
-          <label className="text-sm md:col-span-2">درباره عضو<textarea required rows={4} maxLength={3000} value={form.about} onChange={(e) => change("about", e.target.value)} className={`mt-1 ${inputClass}`} /></label>
-          <label className="text-sm md:col-span-2">مهارت‌ها؛ هر مهارت در یک خط<textarea required rows={5} value={form.skillsText} onChange={(e) => change("skillsText", e.target.value)} className={`mt-1 font-mono ${inputClass}`} /></label>
+          <label className="text-sm">نام انگلیسی<input required value={form.nameEn} onChange={(e) => change("nameEn", e.target.value)} className={inputClass} /></label>
+          <label className="text-sm">نام فارسی<input required value={form.nameFa} onChange={(e) => change("nameFa", e.target.value)} className={inputClass} /></label>
+          <label className="text-sm">نام خانوادگی انگلیسی<input required value={form.familyEn} onChange={(e) => change("familyEn", e.target.value)} className={inputClass} /></label>
+          <label className="text-sm">نام خانوادگی فارسی<input required value={form.familyFa} onChange={(e) => change("familyFa", e.target.value)} className={inputClass} /></label>
+          <label className="text-sm">سمت انگلیسی<input required value={form.positionEn} onChange={(e) => change("positionEn", e.target.value)} className={inputClass} /></label>
+          <label className="text-sm">سمت فارسی<input required value={form.positionFa} onChange={(e) => change("positionFa", e.target.value)} className={inputClass} /></label>
+          <label className="text-sm md:col-span-2">درباره انگلیسی<textarea required rows={4} value={form.aboutEn} onChange={(e) => change("aboutEn", e.target.value)} className={inputClass} /></label>
+          <label className="text-sm md:col-span-2">درباره فارسی<textarea required rows={4} value={form.aboutFa} onChange={(e) => change("aboutFa", e.target.value)} className={inputClass} /></label>
+          <label className="text-sm md:col-span-2">مهارت‌ها انگلیسی؛ هر مهارت در یک خط<textarea required rows={5} value={form.skillsEnText} onChange={(e) => change("skillsEnText", e.target.value)} className={`${inputClass} font-mono`} /></label>
+          <label className="text-sm md:col-span-2">مهارت‌ها فارسی؛ هر مهارت در یک خط<textarea required rows={5} value={form.skillsFaText} onChange={(e) => change("skillsFaText", e.target.value)} className={`${inputClass} font-mono`} /></label>
+          <label className="text-sm">تاریخ پیوستن انگلیسی<input value={form.joinedAtEn} onChange={(e) => change("joinedAtEn", e.target.value)} className={inputClass} /></label>
+          <label className="text-sm">تاریخ پیوستن فارسی<input value={form.joinedAtFa} onChange={(e) => change("joinedAtFa", e.target.value)} className={inputClass} /></label>
           <div className="text-sm">
-            <label>تصویر کارت<input required dir="ltr" value={form.image} onChange={(e) => change("image", e.target.value)} placeholder="/webp/person.webp" className={`mt-1 ${inputClass}`} /></label>
+            <label>تصویر کارت<input required dir="ltr" value={form.image} onChange={(e) => change("image", e.target.value)} className={inputClass} /></label>
             <label className="mt-2 flex cursor-pointer items-center justify-center rounded-xl border border-dashed border-amber-400 bg-amber-50 px-3 py-2.5">
               {uploading === "image" ? "در حال آپلود..." : "انتخاب و آپلود تصویر کارت"}
               <input disabled={Boolean(uploading)} type="file" accept="image/jpeg,image/png,image/webp" className="hidden" onChange={(e) => uploadImage(e.target.files?.[0], "image")} />
             </label>
           </div>
           <div className="text-sm">
-            <label>تصویر صفحه عضو<input required dir="ltr" value={form.singlePageImage} onChange={(e) => change("singlePageImage", e.target.value)} placeholder="/webp/person.png" className={`mt-1 ${inputClass}`} /></label>
+            <label>تصویر صفحه عضو<input required dir="ltr" value={form.singlePageImage} onChange={(e) => change("singlePageImage", e.target.value)} className={inputClass} /></label>
             <label className="mt-2 flex cursor-pointer items-center justify-center rounded-xl border border-dashed border-amber-400 bg-amber-50 px-3 py-2.5">
               {uploading === "singlePageImage" ? "در حال آپلود..." : "انتخاب و آپلود تصویر صفحه"}
               <input disabled={Boolean(uploading)} type="file" accept="image/jpeg,image/png,image/webp" className="hidden" onChange={(e) => uploadImage(e.target.files?.[0], "singlePageImage")} />
             </label>
           </div>
-          <label className="text-sm">LinkedIn<input dir="ltr" value={form.linkedin} onChange={(e) => change("linkedin", e.target.value)} className={`mt-1 ${inputClass}`} /></label>
-          <label className="text-sm">Instagram<input dir="ltr" value={form.instagram} onChange={(e) => change("instagram", e.target.value)} className={`mt-1 ${inputClass}`} /></label>
-          <label className="text-sm">تاریخ پیوستن<input value={form.joinedAt} onChange={(e) => change("joinedAt", e.target.value)} className={`mt-1 ${inputClass}`} /></label>
-          <label className="text-sm">ترتیب نمایش<input type="number" value={form.sortOrder} onChange={(e) => change("sortOrder", Number(e.target.value))} className={`mt-1 ${inputClass}`} /></label>
+          <label className="text-sm">LinkedIn<input dir="ltr" value={form.linkedin} onChange={(e) => change("linkedin", e.target.value)} className={inputClass} /></label>
+          <label className="text-sm">Instagram<input dir="ltr" value={form.instagram} onChange={(e) => change("instagram", e.target.value)} className={inputClass} /></label>
+          <label className="text-sm">ترتیب نمایش<input type="number" value={form.sortOrder} onChange={(e) => change("sortOrder", e.target.value)} className={inputClass} /></label>
           <label className="flex items-center gap-2 text-sm"><input type="checkbox" checked={form.isActive} onChange={(e) => change("isActive", e.target.checked)} />نمایش در سایت</label>
         </div>
-        {(form.image || form.singlePageImage) && (
-          <div className="mt-4 flex flex-wrap items-end gap-4 text-sm text-gray-500">
-            {form.image && <div><img src={form.image} alt="" className="mb-1 h-20 w-20 rounded-xl object-cover" />تصویر کارت</div>}
-            {form.singlePageImage && <div><img src={form.singlePageImage} alt="" className="mb-1 h-20 w-20 rounded-xl object-cover" />تصویر صفحه</div>}
-          </div>
-        )}
         {message && <p className="mt-4 rounded-xl bg-amber-50 p-3 text-sm">{message}</p>}
         <button disabled={saving || Boolean(uploading)} className="mt-5 rounded-xl bg-gray-900 px-7 py-3 font-bold text-white disabled:opacity-50">{saving ? "در حال ذخیره..." : editingId ? "ذخیره تغییرات" : "ثبت عضو"}</button>
       </form>
@@ -177,8 +215,8 @@ export default function TeamManager() {
             <article key={member.id} className="flex gap-4 rounded-2xl bg-white p-4 shadow-sm">
               <img src={member.image} alt="" className="h-24 w-24 rounded-xl object-cover" />
               <div className="min-w-0 flex-1">
-                <h3 className="font-bold">{member.name} {member.family}</h3>
-                <p className="text-sm text-gray-500">{member.position}</p>
+                <h3 className="font-bold">{member.nameTranslations?.fa || member.name} / {member.nameTranslations?.en || member.name}</h3>
+                <p className="text-sm text-gray-500">{member.positionTranslations?.fa || member.position}</p>
                 <p className="mt-1 text-xs text-gray-400">{member.isActive ? "فعال" : "مخفی"} · ترتیب {member.sortOrder}</p>
                 <div className="mt-3 flex gap-2">
                   <button onClick={() => edit(member)} className="rounded-lg bg-amber-100 px-3 py-1.5 text-sm">ویرایش</button>
@@ -192,3 +230,4 @@ export default function TeamManager() {
     </section>
   )
 }
+
