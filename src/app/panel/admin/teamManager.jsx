@@ -17,11 +17,14 @@ const emptyForm = {
   skillsFaText: "",
   joinedAtEn: "",
   joinedAtFa: "",
+  leftAtEn: "",
+  leftAtFa: "",
   image: "",
   singlePageImage: "",
   linkedin: "",
   instagram: "",
   sortOrder: 0,
+  isFormer: false,
   isActive: true,
 }
 
@@ -96,11 +99,14 @@ export default function TeamManager() {
       skillsFaText: (member.skillsTranslations?.fa || member.skills || []).join("\n"),
       joinedAtEn: member.joinedAtTranslations?.en || member.joinedAt || "",
       joinedAtFa: member.joinedAtTranslations?.fa || member.joinedAt || "",
+      leftAtEn: member.leftAtTranslations?.en || member.leftAt || "",
+      leftAtFa: member.leftAtTranslations?.fa || member.leftAt || "",
       image: member.image,
       singlePageImage: member.singlePageImage,
       linkedin: member.linkedin || "",
       instagram: member.instagram || "",
       sortOrder: member.sortOrder,
+      isFormer: member.isFormer === true,
       isActive: member.isActive,
     })
     setMessage("")
@@ -120,6 +126,10 @@ export default function TeamManager() {
       showFeedback({ type: "error", title: "اطلاعات ناقص", message: "لطفاً تمام فیلدهای ضروری فارسی، انگلیسی و تصاویر عضو را کامل کنید." })
       return
     }
+    if (form.isFormer && (!form.leftAtFa.trim() || !form.leftAtEn.trim())) {
+      showFeedback({ type: "error", title: "تاریخ خروج ناقص", message: "برای عضو سابق، تاریخ پایان همکاری فارسی و انگلیسی را وارد کنید." })
+      return
+    }
     setSaving(true)
     setMessage("")
     const payload = {
@@ -132,11 +142,13 @@ export default function TeamManager() {
         fa: form.skillsFaText.split(/\n|,/).map((item) => item.trim()).filter(Boolean),
       },
       joinedAtTranslations: { en: form.joinedAtEn, fa: form.joinedAtFa },
+      leftAtTranslations: { en: form.leftAtEn, fa: form.leftAtFa },
       image: form.image,
       singlePageImage: form.singlePageImage,
       linkedin: form.linkedin,
       instagram: form.instagram,
       sortOrder: Number(form.sortOrder),
+      isFormer: form.isFormer,
       isActive: form.isActive,
     }
 
@@ -197,6 +209,8 @@ export default function TeamManager() {
           <label className="text-sm md:col-span-2">مهارت‌ها فارسی؛ هر مهارت در یک خط<textarea required rows={5} value={form.skillsFaText} onChange={(e) => change("skillsFaText", e.target.value)} className={`${inputClass} font-mono`} /></label>
           <label className="text-sm">تاریخ پیوستن انگلیسی<input value={form.joinedAtEn} onChange={(e) => change("joinedAtEn", e.target.value)} className={inputClass} /></label>
           <label className="text-sm">تاریخ پیوستن فارسی<input value={form.joinedAtFa} onChange={(e) => change("joinedAtFa", e.target.value)} className={inputClass} /></label>
+          <label className="text-sm">تاریخ پایان همکاری انگلیسی<input value={form.leftAtEn} onChange={(e) => change("leftAtEn", e.target.value)} className={inputClass} disabled={!form.isFormer} /></label>
+          <label className="text-sm">تاریخ پایان همکاری فارسی<input value={form.leftAtFa} onChange={(e) => change("leftAtFa", e.target.value)} className={inputClass} disabled={!form.isFormer} /></label>
           <div className="text-sm">
             <label>تصویر کارت<input required dir="ltr" value={form.image} onChange={(e) => change("image", e.target.value)} className={inputClass} /></label>
             <label className="mt-2 flex cursor-pointer items-center justify-center rounded-xl border border-dashed border-amber-400 bg-amber-50 px-3 py-2.5">
@@ -214,6 +228,7 @@ export default function TeamManager() {
           <label className="text-sm">LinkedIn<input dir="ltr" value={form.linkedin} onChange={(e) => change("linkedin", e.target.value)} className={inputClass} /></label>
           <label className="text-sm">Instagram<input dir="ltr" value={form.instagram} onChange={(e) => change("instagram", e.target.value)} className={inputClass} /></label>
           <label className="text-sm">ترتیب نمایش<input type="number" value={form.sortOrder} onChange={(e) => change("sortOrder", e.target.value)} className={inputClass} /></label>
+          <label className="flex items-center gap-2 text-sm"><input type="checkbox" checked={form.isFormer} onChange={(e) => change("isFormer", e.target.checked)} />عضو سابق مجموعه</label>
           <label className="flex items-center gap-2 text-sm"><input type="checkbox" checked={form.isActive} onChange={(e) => change("isActive", e.target.checked)} />نمایش در سایت</label>
         </div>
         {message && <p className="mt-4 rounded-xl bg-amber-50 p-3 text-sm">{message}</p>}
@@ -228,7 +243,7 @@ export default function TeamManager() {
               <div className="min-w-0 flex-1">
                 <h3 className="font-bold">{member.nameTranslations?.fa || member.name} / {member.nameTranslations?.en || member.name}</h3>
                 <p className="text-sm text-gray-500">{member.positionTranslations?.fa || member.position}</p>
-                <p className="mt-1 text-xs text-gray-400">{member.isActive ? "فعال" : "مخفی"} · ترتیب {member.sortOrder}</p>
+                <p className="mt-1 text-xs text-gray-400">{member.isFormer ? "عضو سابق" : member.isActive ? "فعال" : "مخفی"} · ترتیب {member.sortOrder}</p>
                 <div className="mt-3 flex gap-2">
                   <button onClick={() => edit(member)} className="rounded-lg bg-amber-100 px-3 py-1.5 text-sm">ویرایش</button>
                   <button onClick={() => remove(member)} className="rounded-lg bg-red-50 px-3 py-1.5 text-sm text-red-700">حذف</button>

@@ -25,6 +25,7 @@ export function teamData(body) {
   const aboutTranslations = normalizeTranslationRecord(body?.aboutTranslations, { maxLength: 3000, required: true, fallback: fallbackAbout })
   const skillsTranslations = normalizeTranslationArrayRecord(body?.skillsTranslations, { maxItemLength: 100, maxItems: 50, required: true, fallback: legacySkills })
   const joinedAtTranslations = normalizeTranslationRecord(body?.joinedAtTranslations, { maxLength: 100, fallback: fallbackJoinedAt })
+  const leftAtTranslations = normalizeTranslationRecord(body?.leftAtTranslations, { maxLength: 100 })
   const image = clean(body?.image, 500, true)
   const singlePageImage = clean(body?.singlePageImage, 500, true)
 
@@ -45,10 +46,12 @@ export function teamData(body) {
     skillsTranslations: stringifyTranslations(skillsTranslations),
     joinedAt: joinedAtTranslations.en || joinedAtTranslations.fa || null,
     joinedAtTranslations: stringifyTranslations(joinedAtTranslations),
+    leftAtTranslations: stringifyTranslations(leftAtTranslations),
     image,
     singlePageImage,
     linkedin: clean(body?.linkedin, 500) || null,
     instagram: clean(body?.instagram, 500) || null,
+    isFormer: body?.isFormer === true,
     sortOrder: Number.isInteger(Number(body?.sortOrder)) ? Number(body.sortOrder) : 0,
     isActive: body?.isActive !== false,
   }

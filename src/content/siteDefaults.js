@@ -138,7 +138,16 @@ const rows = [
 ["forms.required","forms","لطفاً همه فیلدهای ضروری را کامل کنید.","Please complete all required fields."],
 ["forms.invalidEmail","forms","فرمت ایمیل معتبر نیست.","Please enter a valid email address."],
 ["forms.invalidPhone","forms","شماره تماس معتبر نیست.","Please enter a valid phone number."],
-["forms.contentShort","forms","متن پیام باید حداقل ۱۰ کاراکتر باشد.","The message must be at least 10 characters long."]
+["forms.contentShort","forms","متن پیام باید حداقل ۱۰ کاراکتر باشد.","The message must be at least 10 characters long."],
+["about.team.title","about","تیم حرفه‌ای، نتیجه حرفه‌ای","Professional team, professional results"],
+["about.team.intro","about","با اعضای تیمی آشنا شوید که طراحی، مهندسی و رشد محصولات دیجیتال را در کنار هم پیش می‌برند.","Meet the team bringing product design, engineering and growth together."],
+["about.team.seeAll","about","مشاهده همه اعضا","See all members"],
+["about.team.activeMembers","about","عضو فعال","Active members"],
+["about.team.specialties","about","تخصص","Specialties"],
+["about.team.formerMembers","about","همکار سابق","Former colleagues"],
+["about.team.formerTitle","about","همکاران سابق گندم","Former Gandom colleagues"],
+["about.team.formerDescription","about","افرادی که بخشی از مسیر گندم بوده‌اند و اثرشان در تجربه و فرهنگ تیم باقی مانده است.","People who have been part of Gandom's journey and contributed to our team and culture."],
+["about.team.leftAt","about","پایان همکاری","Left in"]
 ]
 export const siteContentDefinitions = rows.map(([key, group, fa, en], sortOrder) => ({key, group, label: key, valueType:"text", translations:{fa,en}, sortOrder, isActive:true}))
 export function createDefaultSiteMessages(locale){const result={};for(const item of siteContentDefinitions)setNestedValue(result,item.key,item.translations[locale]||item.translations.en);return result}

@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 
-function GridCard({ parentClasses, hoverClasses, position, name, link, img }) {
+function GridCard({ parentClasses, hoverClasses, position, name, link, img, moreLabel = "See More" }) {
   return (
     <div
       className={`${parentClasses} gridItem overflow-hidden relative w-full `}
@@ -24,7 +24,7 @@ function GridCard({ parentClasses, hoverClasses, position, name, link, img }) {
           href={link}
           className=" mt-3 border-[1px] border-gbc text-gbc text-xs lg:text-sm font-PoppinsLight rounded-xl  py-1 px-4 lg:px-8 lg:py-2"
         >
-          See More
+          {moreLabel}
         </Link>
       </div>
 
@@ -32,7 +32,7 @@ function GridCard({ parentClasses, hoverClasses, position, name, link, img }) {
         src={img}
         width={100}
         height={100}
-        alt="  "
+        alt={name}
         className={`w-full h-full object-cover `}
       />
     </div>
