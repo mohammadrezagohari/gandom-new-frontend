@@ -13,7 +13,7 @@ function Services() {
   return (
     <main className="">
       <h1 className="text-g21 lg:text-[6.083333333333333vw] text-center text-[3.125em]  font-Holispay container">
-        Services
+        {t("title")}
       </h1>
 
       {/* <div style={{transform:' rotateY(180deg)',}} className="min-h-screen border-2 grid grid-cols-12 grid-rows-2 ">

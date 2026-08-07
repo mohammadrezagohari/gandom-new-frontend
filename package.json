@@ -14,7 +14,9 @@
     "content:seed": "node scripts/seed-current-data.mjs",
     "lint": "next lint",
     "content:seed:legacy": "node scripts/seed-content.mjs && node scripts/seed-agency-content.mjs",
-    "data:seed": "node scripts/seed-current-data.mjs"
+    "data:seed": "node scripts/seed-current-data.mjs",
+    "db:seed": "node scripts/seed-current-data.mjs",
+    "db:seed:export": "node scripts/export-seed.mjs"
   },
   "dependencies": {
     "@emotion/react": "^11.11.1",

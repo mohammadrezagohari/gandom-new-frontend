@@ -6,6 +6,7 @@ import {
   parseTranslationRecord,
   pickLocalizedText,
 } from "./localizedContent"
+import { normalizeTitle } from "./seo"
 
 export function serializeArticle(article, locale = "en") {
   const normalizedLocale = normalizeLocale(locale)
@@ -21,7 +22,7 @@ export function serializeArticle(article, locale = "en") {
     excerptTranslations,
     contentTranslations,
     authorTranslations,
-    title: pickLocalizedText(titleTranslations, normalizedLocale),
+    title: normalizeTitle(pickLocalizedText(titleTranslations, normalizedLocale), normalizedLocale),
     excerpt: pickLocalizedText(excerptTranslations, normalizedLocale),
     content: pickLocalizedText(contentTranslations, normalizedLocale),
     author: pickLocalizedText(authorTranslations, normalizedLocale, "Gandom Team"),
