@@ -12,7 +12,7 @@ function Portfolio() {
   return (
     <main className="">
       <h1 className="text-g21 lg:text-[6.083333333333333vw] text-center text-[3.125em]  font-Holispay container max-w-none">
-        Portfolio
+        {t("title")}
       </h1>
 
       <div className="flex flex-col justify-start items-center ">

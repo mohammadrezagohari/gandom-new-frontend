@@ -1,8 +1,18 @@
-import { notFound } from "next/navigation"
+import { notFound, permanentRedirect } from "next/navigation"
 import Image from "next/image"
 import CommentSection from "@/src/components/page/article-single/comment-section"
 import RelatedPostSection from "@/src/components/page/article-single/related-post-section"
 import { getSinglePostData } from "@/src/core/services/api/videos"
+import JsonLd from "@/src/components/seo/json-ld"
+import { absoluteUrl, createPageMetadata, toIsoDate } from "@/src/lib/seo"
+
+export async function generateMetadata({ params }) {
+  const { id, locale, slug } = await params
+  const article = await getSinglePostData(id, locale)
+  if (!article?.id) return createPageMetadata({ locale, pathname: `article/${id}`, title: locale === "fa" ? "مقاله یافت نشد" : "Article not found", noIndex: true })
+  if ((slug || []).join("/") !== article.slug) permanentRedirect(`/${locale}/article/${article.id}/${article.slug}`)
+  return createPageMetadata({ locale, pathname: `article/${article.id}/${article.slug}`, title: article.title, description: article.excerpt || article.content, image: article.coverImage, type: "article", publishedTime: toIsoDate(article.publishedAt), modifiedTime: toIsoDate(article.updatedAt), authors: [article.author] })
+}
 
 function renderParagraphs(content, locale) {
   const fontClass = locale === "fa" ? "yekan-bakh-font" : "font-PoppinsRegular"
@@ -14,13 +24,14 @@ function renderParagraphs(content, locale) {
 }
 
 export default async function ArticlePage({ params }) {
-  const { id, locale } = await params
+  const { id, locale, slug } = await params
   const article = await getSinglePostData(id, locale)
   if (!article?.id) notFound()
   const isFa = locale === "fa"
 
   return (
     <div dir={isFa ? "rtl" : "ltr"}>
+      <JsonLd data={{ "@context": "https://schema.org", "@type": "BlogPosting", headline: article.title, description: article.excerpt, image: [absoluteUrl(article.coverImage || "/wimg.png")], datePublished: toIsoDate(article.publishedAt), dateModified: toIsoDate(article.updatedAt || article.publishedAt), inLanguage: isFa ? "fa-IR" : "en-US", author: {"@type": "Person", name: article.author}, publisher: {"@type": "Organization", name: "Gandom", logo: {"@type": "ImageObject", url: absoluteUrl("/img/logo.png")}}, mainEntityOfPage: absoluteUrl(`/${locale}/article/${article.id}/${article.slug}`) }} />
       <h1 className={`text-start text-[1.7rem] leading-[40.68px] text-g25 lg:text-[3.7vw] lg:leading-[5.517578125vw] ${isFa ? "rokh-font-bold" : "font-Holispay"}`}>{article.title}</h1>
       {article.excerpt && <p className={`py-6 text-base leading-7 text-g70 lg:text-[1.25vw] lg:leading-[2vw] ${isFa ? "yekan-bakh-font" : "font-PoppinsLight"}`}>{article.excerpt}</p>}
       <div className="w-full rounded-xl lg:h-[67vh] overflow-hidden">

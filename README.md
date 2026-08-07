@@ -1,236 +1,202 @@
 # وب‌سایت گندم
 
-این پروژه با Next.js 15، Drizzle ORM و SQLite ساخته شده است. بخش‌های دیتابیسی پروژه شامل موارد زیر هستند:
-
-- احراز هویت و نشست امن ادمین
-- ذخیره فرم‌های تماس، همکاری و درخواست قرارداد
-- کامنت و پاسخ کامنت مقالات
-- فهرست اعضای تیم، About و Skills
-- آپلود و مدیریت تصاویر اعضای تیم
-- داشبورد فارسی در مسیر `/panel/admin`
+وب‌سایت چندزبانه گندم با Next.js 15، React، next-intl، Drizzle ORM و SQLite ساخته شده است. محتوای مقاله‌ها، اعضای تیم و متن‌های قابل‌مدیریت سایت از دیتابیس خوانده می‌شود و پنل مدیریت در مسیر `/panel/admin` قرار دارد.
 
 ## پیش‌نیازها
 
-- Node.js نسخه 20 یا 22
+- Node.js نسخه 20 یا 22 (نسخه 22 LTS پیشنهاد می‌شود)
 - npm
 - Git
-- یک سرور Linux با دیسک دائمی؛ Ubuntu 22.04 یا جدیدتر پیشنهاد می‌شود
-- Nginx برای Reverse Proxy
-- PM2 یا systemd برای زنده نگه‌داشتن برنامه
+- ابزارهای build بومی برای `better-sqlite3`
+- روی production: یک VPS لینوکس با دیسک دائمی، Nginx و PM2 یا systemd
 
-نسخه دقیق Node را بررسی کنید:
-
-```bash
-node --version
-npm --version
-```
-
-## ساختار داده‌های دائمی
-
-دو مسیر زیر حاوی اطلاعاتی هستند که باید روی سرور باقی بمانند:
-
-```text
-data/gandom.db               # دیتابیس SQLite
-public/uploads/team/         # تصاویر آپلودشده اعضای تیم
-```
-
-این مسیرها در Git ذخیره نمی‌شوند. هنگام Deploy جدید نباید آن‌ها را حذف یا با پوشه خالی جایگزین کنید.
-
-## اجرای محیط توسعه
+## راه‌اندازی محیط توسعه
 
 ```bash
-npm install
+git clone YOUR_REPOSITORY_URL gandom
+cd gandom
+cp .env.example .env
+npm ci
 npm run db:migrate
-npm run team:seed
+npm run db:seed
 npm run admin:create
 npm run dev
 ```
 
-سایت روی آدرس زیر در دسترس خواهد بود:
+سایت روی `http://localhost:3000` و پنل روی `http://localhost:3000/panel/admin/login` در دسترس است.
 
-```text
-http://localhost:3000
-```
-
-برای ورود ادمین:
-
-```text
-http://localhost:3000/panel/admin/login
-```
-
-## تنظیم فایل env
-
-در ریشه پروژه یک فایل `.env` بسازید:
+فایل `.env`:
 
 ```env
 PORT=3000
 DATABASE_PATH=./data/gandom.db
+NEXT_PUBLIC_SITE_URL=http://localhost:3000
 ```
 
-احراز هویت ادمین از دیتابیس انجام می‌شود و در اجرای عادی به `ADMIN_PASSWORD` نیاز نیست.
+`NEXT_PUBLIC_SITE_URL` باید URL کامل origin باشد، بدون اسلش انتهایی. این مقدار منبع canonical، Open Graph، JSON-LD، sitemap و robots است. در production حتماً مقدار واقعی HTTPS مانند `https://gandom.link` را وارد کنید.
 
-اگر قبلاً `ADMIN_PASSWORD` داشته‌اید، فقط برای انتقال یک‌باره رمز قدیمی به دیتابیس می‌توانید این دستور را اجرا کنید:
+## دیتابیس، migration و seed
+
+فایل اصلی SQLite به‌صورت پیش‌فرض در `data/gandom.db` است. migrationها داخل `drizzle/` نگهداری می‌شوند.
 
 ```bash
-npm run admin:create -- --from-env
+npm run db:generate   # پس از تغییر schema، migration جدید می‌سازد
+npm run db:migrate    # migrationهای اجرا نشده را اعمال می‌کند
+npm run db:studio     # فقط برای توسعه محلی
 ```
 
-بعد از انتقال موفق، `ADMIN_PASSWORD` را از `.env` حذف کنید.
+### محتوای seed
 
-فایل `.env` را هرگز commit نکنید یا در اختیار شخص دیگری قرار ندهید.
+`scripts/seed-current-data.mjs` snapshot فعلی تمام داده‌های قابل استقرار را در خود دارد:
 
-در نسخه‌های قدیمی این repository ممکن است `.env` قبلاً track شده باشد. یک‌بار دستور زیر را اجرا و سپس commit کنید:
+- ۷ عضو تیم
+- ۹ مقاله
+- ۱۴۹ رکورد محتوای سایت
+- ۲ کامنت عمومی مقاله
+
+برای جلوگیری از انتشار اطلاعات خصوصی، جدول‌های `Admin`، `AdminSession` و `FormSubmission` وارد seed نمی‌شوند و ایمیل کامنت‌ها در snapshot برابر `null` است. حساب ادمین باید جداگانه با `npm run admin:create` ساخته شود.
 
 ```bash
-git rm --cached .env
-git add .gitignore .env.example
-git commit -m "stop tracking environment secrets"
+npm run db:seed
 ```
 
-این دستور فایل محلی `.env` را پاک نمی‌کند و فقط آن را از Git خارج می‌کند. اگر رمز واقعی قبلاً داخل repository یا تاریخچه Git قرار گرفته، آن رمز را تغییر دهید؛ اضافه‌کردن فایل به `.gitignore` تاریخچه قبلی را پاک نمی‌کند.
+Seed با `ON CONFLICT DO NOTHING` اجرا می‌شود؛ بنابراین اجرای دوباره، محتوایی را که مدیر سایت ویرایش کرده بازنویسی نمی‌کند. Seed برای نصب اولیه است و در deployهای بعدی لازم نیست.
 
-## ساخت یا تغییر رمز ادمین
-
-دستور زیر هم حساب جدید می‌سازد و هم اگر نام کاربری موجود باشد رمز آن را تغییر می‌دهد:
+برای ساخت snapshot تازه از دیتابیس توسعه:
 
 ```bash
-npm run admin:create
+npm run db:seed:export
+git diff -- scripts/seed-current-data.mjs
 ```
 
-اسکریپت ابتدا نام کاربری و سپس رمز را دریافت می‌کند. رمز باید بین ۸ تا ۱۲۸ کاراکتر باشد.
+این فرمان فایل seed را بازتولید می‌کند. قبل از commit حتماً diff را بازبینی و سپس seed را روی یک دیتابیس خالی آزمایش کنید. snapshot را از دیتابیس production بدون بررسی وارد Git نکنید.
 
-## استقرار اولیه روی VPS لینوکس
+## SEO پیاده‌سازی‌شده
+
+- عنوان و description اختصاصی فارسی و انگلیسی برای صفحات اصلی
+- نرمال‌سازی Unicode، فاصله‌ها و حروف `ی/ک` در عنوان مقاله هنگام ذخیره و نمایش
+- canonical مطلق برای هر صفحه
+- hreflang برای `fa`، `en` و `x-default`
+- Open Graph و Twitter Card
+- metadata دیتابیس‌محور برای مقاله و عضو تیم
+- JSON-LD از نوع `BlogPosting` برای مقاله و `Person` برای اعضای تیم
+- `robots.txt` پویا و noindex برای پنل، API و صفحات آزمایشی/کم‌محتوا
+- `sitemap.xml` دیتابیس‌محور برای مقاله‌های فعال و اعضای فعال تیم
+- `lastModified` واقعی بر اساس `updatedAt`
+- redirect دائمی مسیرهای قدیمی و بدون locale برای حذف محتوای تکراری
+- noindex برای رکوردهای نامعتبر یا یافت‌نشده
+
+فایل‌های اصلی SEO:
+
+```text
+src/lib/seo.js
+src/lib/staticPageMetadata.js
+src/app/sitemap.js
+src/app/robots.js
+src/components/seo/json-ld.jsx
+```
+
+پس از deploy این URLها را کنترل کنید:
+
+```bash
+curl -I https://gandom.link/en
+curl -I https://gandom.link/fa
+curl -I https://gandom.link/article
+curl https://gandom.link/robots.txt
+curl https://gandom.link/sitemap.xml
+```
+
+در source یک مقاله وجود title، description، canonical، hreflang، `og:*` و `application/ld+json` را بررسی کنید. سپس sitemap را در Google Search Console و Bing Webmaster Tools ثبت کنید. تغییر دامنه بدون اصلاح `NEXT_PUBLIC_SITE_URL` باعث تولید canonical اشتباه می‌شود.
+
+## استقرار اولیه روی Ubuntu
 
 ### ۱. نصب ابزارها
-
-نمونه برای Ubuntu:
 
 ```bash
 sudo apt update
 sudo apt install -y git nginx sqlite3 build-essential python3 make g++
 ```
 
-Node.js نسخه LTS را با روش مورد اعتماد خود، مانند NodeSource یا nvm، نصب کنید. سپس PM2 را نصب کنید:
+Node.js 22 LTS را با روش مورد اعتماد خود نصب کنید و سپس:
 
 ```bash
 sudo npm install -g pm2
 ```
 
-### ۲. دریافت پروژه
+### ۲. ساخت کاربر و دریافت پروژه
+
+بهتر است برنامه با کاربر اختصاصی اجرا شود:
 
 ```bash
+sudo useradd --system --create-home --shell /bin/bash gandom
 sudo mkdir -p /var/www/gandom
-sudo chown -R $USER:$USER /var/www/gandom
-git clone YOUR_REPOSITORY_URL /var/www/gandom
+sudo chown -R gandom:gandom /var/www/gandom
+sudo -u gandom git clone YOUR_REPOSITORY_URL /var/www/gandom
 cd /var/www/gandom
 ```
 
-به‌جای `YOUR_REPOSITORY_URL` آدرس repository خودتان را قرار دهید.
-
-### ۳. نصب dependencyها
+### ۳. مسیرهای دائمی و env
 
 ```bash
-npm ci
+sudo -u gandom mkdir -p data public/uploads/team
+sudo chmod 750 data public/uploads/team
+sudo -u gandom nano .env
 ```
-
-در production از یک package manager استفاده کنید. چون فایل `package-lock.json` وجود دارد، پیشنهاد این پروژه npm است.
-
-### ۴. ساخت مسیرهای دائمی و تنظیم دسترسی
-
-```bash
-mkdir -p data
-mkdir -p public/uploads/team
-chmod 750 data public/uploads/team
-```
-
-کاربری که برنامه Node را اجرا می‌کند باید روی این دو پوشه اجازه نوشتن داشته باشد. برای نمونه اگر برنامه با کاربر `www-data` اجرا می‌شود:
-
-```bash
-sudo chown -R www-data:www-data /var/www/gandom/data
-sudo chown -R www-data:www-data /var/www/gandom/public/uploads/team
-```
-
-اگر PM2 را با کاربر دیگری اجرا می‌کنید، به‌جای `www-data` همان کاربر را بنویسید.
-
-### ۵. ساخت env
-
-```bash
-nano .env
-```
-
-محتوا:
 
 ```env
 PORT=3000
 DATABASE_PATH=/var/www/gandom/data/gandom.db
+NEXT_PUBLIC_SITE_URL=https://gandom.link
 ```
 
-### ۶. ساخت و به‌روزرسانی دیتابیس با Drizzle
+فایل دیتابیس و uploadها باید بین deployها باقی بمانند و کاربر `gandom` روی آن‌ها دسترسی نوشتن داشته باشد. فایل `.env` را commit نکنید.
 
-روی سرور production migrationهای Drizzle را اجرا کنید:
+### ۴. نصب، migration و نصب اولیه داده
 
 ```bash
-npm run db:migrate
+sudo -u gandom npm ci
+sudo -u gandom npm run db:migrate
+sudo -u gandom npm run db:seed
+sudo -u gandom npm run admin:create
+sudo -u gandom npm run build
 ```
 
-این دستور idempotent است و فقط migrationهایی را اجرا می‌کند که قبلاً اعمال نشده‌اند.
+`db:seed` فقط در نصب اولیه اجرا شود. در به‌روزرسانی‌های عادی، محتوای production منبع اصلی است.
 
-### ۷. واردکردن اعضای اولیه تیم
+### ۵. اجرا با PM2
 
 ```bash
-npm run team:seed
+sudo -u gandom pm2 start npm --name gandom -- start
+sudo -u gandom pm2 save
+sudo env PATH=$PATH:/usr/bin pm2 startup systemd -u gandom --hp /home/gandom
 ```
 
-این seed چندبار قابل اجراست و اطلاعات اعضایی را که از قبل در دیتابیس وجود دارند بازنویسی نمی‌کند.
-
-### ۸. ساخت حساب ادمین
+فرمانی را که `pm2 startup` نمایش می‌دهد اجرا کنید و وضعیت را ببینید:
 
 ```bash
-npm run admin:create
+sudo -u gandom pm2 status
+sudo -u gandom pm2 logs gandom --lines 100
 ```
 
-بعد از ساخت حساب، ورود را از مسیر `/panel/admin/login` آزمایش کنید.
+به‌دلیل استفاده از یک فایل SQLite، برنامه را فقط با یک instance و بدون cluster mode اجرا کنید.
 
-### ۹. Build برنامه
+## تنظیم Nginx و HTTPS
 
-```bash
-npm run build
-```
-
-### ۱۰. اجرای برنامه با PM2
-
-```bash
-PORT=3000 pm2 start npm --name gandom -- start
-pm2 save
-pm2 startup
-```
-
-دستور آخر یک فرمان دیگر نمایش می‌دهد؛ همان فرمان را با دسترسی sudo اجرا کنید تا PM2 پس از reboot نیز برنامه را بالا بیاورد.
-
-بررسی وضعیت:
-
-```bash
-pm2 status
-pm2 logs gandom
-```
-
-## تنظیم Nginx
-
-یک فایل تنظیمات بسازید:
-
-```bash
-sudo nano /etc/nginx/sites-available/gandom
-```
-
-نمونه تنظیمات:
+`/etc/nginx/sites-available/gandom`:
 
 ```nginx
 server {
     listen 80;
     listen [::]:80;
-    server_name example.com www.example.com;
+    server_name gandom.link www.gandom.link;
 
     client_max_body_size 6M;
+
+    location /_next/static/ {
+        proxy_pass http://127.0.0.1:3000;
+        proxy_set_header Host $host;
+        add_header Cache-Control "public, max-age=31536000, immutable";
+    }
 
     location / {
         proxy_pass http://127.0.0.1:3000;
@@ -245,147 +211,88 @@ server {
 }
 ```
 
-`example.com` را با دامنه واقعی عوض کنید، سپس:
-
 ```bash
 sudo ln -s /etc/nginx/sites-available/gandom /etc/nginx/sites-enabled/gandom
 sudo nginx -t
 sudo systemctl reload nginx
-```
-
-برای HTTPS می‌توانید از Certbot استفاده کنید:
-
-```bash
 sudo apt install -y certbot python3-certbot-nginx
-sudo certbot --nginx -d example.com -d www.example.com
+sudo certbot --nginx -d gandom.link -d www.gandom.link
 ```
 
-## روند Deploy نسخه‌های بعدی
+فقط یک hostname را canonical نگه دارید. اگر `gandom.link` canonical است، درخواست‌های `www` را با 301 به آن منتقل کنید و همان origin را در `NEXT_PUBLIC_SITE_URL` قرار دهید.
 
-قبل از هر Deploy از دیتابیس و تصاویر بکاپ بگیرید. سپس:
+## روند به‌روزرسانی سرور
+
+ابتدا backup بگیرید، سپس:
 
 ```bash
 cd /var/www/gandom
-git pull
+sudo -u gandom git pull --ff-only
+sudo -u gandom npm ci
+sudo -u gandom npm run db:migrate
+sudo -u gandom npm run build
+sudo -u gandom pm2 reload gandom --update-env
+sudo -u gandom pm2 logs gandom --lines 100
+```
+
+در deploy روزمره `db:seed` و `admin:create` را اجرا نکنید. اگر build شکست خورد، process فعلی را reload نکنید.
+
+## backup و بازیابی
+
+برای backup سازگار SQLite از دستور داخلی `.backup` استفاده کنید:
+
+```bash
+sudo mkdir -p /var/backups/gandom
+sudo sqlite3 /var/www/gandom/data/gandom.db ".backup '/var/backups/gandom/gandom.db'"
+sudo tar -czf /var/backups/gandom/team-uploads.tar.gz -C /var/www/gandom public/uploads/team
+```
+
+فایل‌های backup را با timestamp نگه دارید و یک نسخه را خارج از همان سرور ذخیره کنید. برای بازیابی:
+
+```bash
+sudo -u gandom pm2 stop gandom
+sudo cp /path/to/backup.db /var/www/gandom/data/gandom.db
+sudo chown gandom:gandom /var/www/gandom/data/gandom.db
+sudo -u gandom npm run db:migrate
+sudo -u gandom pm2 start gandom
+```
+
+## چک‌لیست هر release
+
+```bash
 npm ci
 npm run db:migrate
-npm run team:seed
 npm run build
-pm2 reload gandom --update-env
 ```
 
-`team:seed` اعضای موجود را تغییر نمی‌دهد و فقط داده‌های اولیه‌ای را که وجود ندارند اضافه می‌کند.
+- diff migration و seed بازبینی شده باشد.
+- از دیتابیس و uploadها backup معتبر وجود داشته باشد.
+- `NEXT_PUBLIC_SITE_URL` با دامنه production یکی باشد.
+- صفحه فارسی و انگلیسی، ورود مدیر و ثبت فرم آزمایش شوند.
+- `robots.txt` و `sitemap.xml` پاسخ 200 بدهند.
+- canonical یک مقاله و hreflangهای آن صحیح باشند.
+- redirect مسیرهای بدون locale پاسخ 308/301 بدهد.
+- sitemap در Search Console بدون URL پنل، API یا محتوای غیرفعال باشد.
 
-## بکاپ
+## نکات امنیتی و عملیاتی
 
-### بکاپ امن SQLite
+- `.env`، دیتابیس، sessionها و backupها را وارد Git نکنید.
+- Drizzle Studio را روی اینترنت عمومی باز نکنید.
+- دسترسی نوشتن فقط برای `data` و `public/uploads/team` لازم است.
+- حساب مدیر را با رمز قوی و منحصربه‌فرد بسازید.
+- SQLite برای یک instance مناسب است؛ برای چند instance یا ترافیک نوشتن بالا به PostgreSQL مهاجرت کنید.
+- نسخه فعلی به filesystem دائمی نیاز دارد و بدون انتقال دیتابیس و uploadها به سرویس‌های پایدار، مناسب Vercel/serverless نیست.
 
-```bash
-mkdir -p /var/backups/gandom
-sqlite3 data/gandom.db ".backup '/var/backups/gandom/gandom-$(date +%F-%H%M).db'"
-```
-
-### بکاپ تصاویر
-
-```bash
-tar -czf "/var/backups/gandom/team-images-$(date +%F-%H%M).tar.gz" public/uploads/team
-```
-
-پیشنهاد می‌شود این دو دستور با cron به‌صورت روزانه اجرا و بکاپ‌ها روی یک سرور یا فضای جداگانه نیز نگهداری شوند.
-
-### بازیابی دیتابیس
-
-ابتدا برنامه را متوقف کنید:
+## دستورات مهم
 
 ```bash
-pm2 stop gandom
-cp /path/to/backup.db data/gandom.db
-pm2 start gandom
-```
-
-مالکیت فایل بازیابی‌شده باید متعلق به کاربر اجراکننده برنامه باشد.
-
-## مدیریت تصاویر تیم
-
-- فرمت‌های مجاز: JPG، PNG و WebP
-- حداکثر حجم: ۵ مگابایت
-- محل ذخیره: `public/uploads/team`
-- با تغییر عکس عضو، عکس آپلودی قبلی بعد از ذخیره موفق اطلاعات حذف می‌شود.
-- با حذف عضو، عکس‌های آپلودی بدون استفاده او نیز حذف می‌شوند.
-- تصاویر اصلی داخل `public/webp` به‌صورت خودکار حذف نمی‌شوند.
-- اگر چند عضو از یک فایل استفاده کنند، تا زمانی که فایل مرجع دیگری دارد حذف نمی‌شود.
-
-Nginx باید `client_max_body_size` حداقل ۶ مگابایت داشته باشد؛ در غیر این صورت آپلود پیش از رسیدن به Next.js رد می‌شود.
-
-## نکات SQLite
-
-- فقط یک instance از برنامه را روی همین فایل SQLite اجرا کنید.
-- اجرای PM2 در حالت cluster برای این پروژه پیشنهاد نمی‌شود.
-- فایل `data/gandom.db` را حذف نکنید.
-- پوشه `data` باید برای کاربر برنامه writable باشد.
-- برای ترافیک بالا یا اجرای چند instance، دیتابیس را به PostgreSQL منتقل کنید.
-
-## Vercel و محیط‌های Serverless
-
-نسخه فعلی بدون تغییر برای Vercel مناسب نیست:
-
-- فایل SQLite روی filesystem موقت یا فقط‌خواندنی پایدار نمی‌ماند.
-- تصاویر داخل `public/uploads/team` بعد از deploy یا restart قابل اتکا نیستند.
-
-برای Vercel باید SQLite را با PostgreSQL مدیریت‌شده جایگزین و آپلود تصاویر را به S3، Cloudflare R2 یا سرویس مشابه منتقل کنید. برای نسخه فعلی، VPS با دیسک دائمی انتخاب مناسب‌تری است.
-
-## دستورات کاربردی
-
-```bash
-npm run dev                 # اجرای development
-npm run build               # ساخت production
-npm run start               # اجرای build
-npm run db:migrate          # اعمال migrationهای Drizzle
-npm run admin:create        # ساخت ادمین یا تغییر رمز
-npm run team:seed           # درج اعضای اولیه تیم
-npm run db:generate         # تولید migration بعد از تغییر schema
-npm run db:studio           # مشاهده دیتابیس با Drizzle Studio
-```
-
-Drizzle Studio را مستقیماً روی اینترنت عمومی باز نکنید.
-
-## عیب‌یابی
-
-### خطای Permission هنگام SQLite یا آپلود
-
-```bash
-sudo chown -R USER:USER data public/uploads/team
-chmod 750 data public/uploads/team
-```
-
-`USER` را با کاربر اجراکننده PM2 جایگزین کنید.
-
-### خطای migration
-
-```bash
+npm run dev
+npm run build
+npm run start
 npm run db:migrate
+npm run db:seed
+npm run db:seed:export
+npm run db:generate
+npm run db:studio
+npm run admin:create
 ```
-
-### خطای 413 هنگام آپلود
-
-مقدار زیر را در تنظیمات Nginx بررسی کنید:
-
-```nginx
-client_max_body_size 6M;
-```
-
-### سایت بعد از Deploy نسخه قدیمی را نشان می‌دهد
-
-```bash
-npm run build
-pm2 reload gandom --update-env
-pm2 logs gandom
-```
-
-### بررسی سلامت دیتابیس
-
-```bash
-sqlite3 data/gandom.db "PRAGMA integrity_check;"
-```
-
-خروجی سالم باید `ok` باشد.

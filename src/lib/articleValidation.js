@@ -2,6 +2,7 @@ import {
   normalizeTranslationRecord,
   stringifyTranslations,
 } from "./localizedContent"
+import { normalizeTitle } from "./seo"
 
 function clean(value, maxLength, required = false) {
   const result = typeof value === "string" ? value.trim().slice(0, maxLength) : ""
@@ -25,7 +26,8 @@ export function articleData(body) {
   const fallbackContent = clean(body?.content, 20000)
   const fallbackAuthor = clean(body?.author, 120)
 
-  const titleTranslations = normalizeTranslationRecord(body?.titleTranslations, { maxLength: 200, required: true, fallback: fallbackTitle })
+  const rawTitles = normalizeTranslationRecord(body?.titleTranslations, { maxLength: 200, required: true, fallback: fallbackTitle })
+  const titleTranslations = rawTitles && { en: normalizeTitle(rawTitles.en, "en"), fa: normalizeTitle(rawTitles.fa, "fa") }
   const excerptTranslations = normalizeTranslationRecord(body?.excerptTranslations, { maxLength: 1200, fallback: fallbackExcerpt })
   const contentTranslations = normalizeTranslationRecord(body?.contentTranslations, { maxLength: 20000, required: true, fallback: fallbackContent })
   const authorTranslations = normalizeTranslationRecord(body?.authorTranslations, { maxLength: 120, fallback: fallbackAuthor || "Gandom Team" })
