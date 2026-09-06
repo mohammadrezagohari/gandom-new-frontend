@@ -1,5 +1,5 @@
-import { inArray } from "drizzle-orm"
-import { db, sqlite } from "../src/db/index.mjs"
+import { inArray, sql } from "drizzle-orm"
+import { closeDatabasePool, db } from "../src/db/index.mjs"
 import { articles, siteContents } from "../src/db/schema.mjs"
 import { siteContentDefinitions } from "../src/content/siteDefaults.js"
 
@@ -59,12 +59,12 @@ authorTranslations:{fa:"گندم",en:"Gandom"},coverImage:"/wimg.png",publishedA
 
 try {
   for(const item of siteContentDefinitions){
-    db.insert(siteContents).values({...item,translations:JSON.stringify(item.translations)}).onConflictDoNothing({target:siteContents.key}).run()
+    await db.insert(siteContents).values({...item,translations:JSON.stringify(item.translations)}).onDuplicateKeyUpdate({set:{key:sql`${siteContents.key}`}})
   }
-  db.update(articles).set({isActive:false,updatedAt:new Date()}).where(inArray(articles.slug,retiredSeedSlugs)).run()
+  await db.update(articles).set({isActive:false,updatedAt:new Date()}).where(inArray(articles.slug,retiredSeedSlugs))
   for(const article of articleSeeds){
     const values={...article,titleTranslations:JSON.stringify(article.titleTranslations),excerptTranslations:JSON.stringify(article.excerptTranslations),contentTranslations:JSON.stringify(article.contentTranslations),authorTranslations:JSON.stringify(article.authorTranslations)}
-    db.insert(articles).values(values).onConflictDoUpdate({target:articles.slug,set:{...values,updatedAt:new Date()}}).run()
+    await db.insert(articles).values(values).onDuplicateKeyUpdate({set:{...values,updatedAt:new Date()}})
   }
   console.log("Agency site content and articles seeded.")
-} finally { sqlite.close() }
+} finally { await closeDatabasePool() }

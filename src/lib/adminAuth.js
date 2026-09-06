@@ -29,13 +29,13 @@ function tokenHash(token) {
 export async function createAdminSession(adminId) {
   const token = randomBytes(32).toString("base64url")
   const expiresAt = new Date(Date.now() + SESSION_AGE_SECONDS * 1000)
-  db.insert(adminSessions).values({ adminId, tokenHash: tokenHash(token), expiresAt }).run()
+  await db.insert(adminSessions).values({ adminId, tokenHash: tokenHash(token), expiresAt })
   return { token, expiresAt, maxAge: SESSION_AGE_SECONDS }
 }
 
 export async function getAdminFromToken(token) {
   if (!token) return null
-  const session = db.select({
+  const [session] = await db.select({
     sessionId: adminSessions.id,
     expiresAt: adminSessions.expiresAt,
     id: admins.id,
@@ -47,9 +47,9 @@ export async function getAdminFromToken(token) {
   }).from(adminSessions)
     .innerJoin(admins, eq(adminSessions.adminId, admins.id))
     .where(eq(adminSessions.tokenHash, tokenHash(token)))
-    .get()
+    .limit(1)
   if (!session || session.expiresAt <= new Date() || !session.isActive) {
-    if (session) db.delete(adminSessions).where(eq(adminSessions.id, session.sessionId)).run()
+    if (session) await db.delete(adminSessions).where(eq(adminSessions.id, session.sessionId))
     return null
   }
   const { sessionId, expiresAt, ...admin } = session
@@ -57,7 +57,7 @@ export async function getAdminFromToken(token) {
 }
 
 export async function deleteAdminSession(token) {
-  if (token) db.delete(adminSessions).where(eq(adminSessions.tokenHash, tokenHash(token))).run()
+  if (token) await db.delete(adminSessions).where(eq(adminSessions.tokenHash, tokenHash(token)))
 }
 
 export function adminCookieOptions(session) {

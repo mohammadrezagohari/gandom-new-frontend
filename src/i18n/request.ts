@@ -9,6 +9,6 @@ export default getRequestConfig(async ({ requestLocale }) => {
   const locale = hasLocale(routing.locales, requested) ? requested : routing.defaultLocale
   const baseMessages = structuredClone((await import(`../../messages/${locale}.json`)).default)
   mergeDeep(baseMessages, createDefaultSiteMessages(locale))
-  mergeDeep(baseMessages, getSiteContentMessages(locale))
+  mergeDeep(baseMessages, await getSiteContentMessages(locale))
   return { locale, messages: baseMessages }
 })

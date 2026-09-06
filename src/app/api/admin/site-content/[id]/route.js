@@ -12,7 +12,9 @@ export async function PUT(request,{params}) {
   const body=await request.json()
   const translations=normalizeTranslationRecord(body.translations,{maxLength:20000,required:true})
   if(!translations)return NextResponse.json({error:"Persian or English content is required."},{status:400})
-  if(!db.select().from(siteContents).where(eq(siteContents.id,id)).get())return NextResponse.json({error:"Content not found."},{status:404})
-  const item=db.update(siteContents).set({translations:JSON.stringify(translations),isActive:body.isActive!==false,updatedAt:new Date()}).where(eq(siteContents.id,id)).returning().get()
+  const [existing]=await db.select({id:siteContents.id}).from(siteContents).where(eq(siteContents.id,id)).limit(1)
+  if(!existing)return NextResponse.json({error:"Content not found."},{status:404})
+  await db.update(siteContents).set({translations:JSON.stringify(translations),isActive:body.isActive!==false,updatedAt:new Date()}).where(eq(siteContents.id,id))
+  const [item]=await db.select().from(siteContents).where(eq(siteContents.id,id)).limit(1)
   return NextResponse.json({content:serializeSiteContent(item)})
 }

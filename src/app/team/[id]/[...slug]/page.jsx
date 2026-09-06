@@ -9,9 +9,9 @@ export default async function TeamSinglePage({ params }) {
   const { id: paramId } = await params
   const id = Number(paramId)
   if (!Number.isInteger(id)) notFound()
-  const member = db.select().from(teamMembers)
+  const [member] = await db.select().from(teamMembers)
     .where(and(eq(teamMembers.id, id), eq(teamMembers.isActive, true)))
-    .get()
+    .limit(1)
   if (!member) notFound()
   return <TeamMemberProfile team={serializeTeamMember(member, "en")} locale="en" />
 }

@@ -12,11 +12,10 @@ import { serializeTeamMember } from "@/src/lib/team"
 export default async function AboutUs({ params }) {
   const { locale } = await params
   const t = await getTranslations({ locale, namespace: "about.team" })
-  const members = db.select().from(teamMembers)
+  const memberRows = await db.select().from(teamMembers)
     .where(eq(teamMembers.isActive, true))
     .orderBy(asc(teamMembers.isFormer), asc(teamMembers.sortOrder), asc(teamMembers.id))
-    .all()
-    .map((member) => serializeTeamMember(member, locale))
+  const members = memberRows.map((member) => serializeTeamMember(member, locale))
 
   const currentMembers = members.filter((member) => !member.isFormer)
   const formerMembers = members.filter((member) => member.isFormer)

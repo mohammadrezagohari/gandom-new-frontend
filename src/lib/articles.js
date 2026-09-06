@@ -33,29 +33,32 @@ function applyBaseOrdering(query) {
   return query.orderBy(desc(articles.publishedAt), asc(articles.sortOrder), desc(articles.id))
 }
 
-export function listArticles({ locale = "en", onlyActive = true, limit } = {}) {
+export async function listArticles({ locale = "en", onlyActive = true, limit } = {}) {
   let query = db.select().from(articles)
   if (onlyActive) query = query.where(eq(articles.isActive, true))
-  const rows = applyBaseOrdering(query).all()
+  let orderedQuery = applyBaseOrdering(query)
+  if (typeof limit === "number") orderedQuery = orderedQuery.limit(limit)
+  const rows = await orderedQuery
   const items = rows.map((article) => serializeArticle(article, locale))
-  return typeof limit === "number" ? items.slice(0, limit) : items
+  return items
 }
 
-export function getArticleById(id, { locale = "en", onlyActive = true } = {}) {
+export async function getArticleById(id, { locale = "en", onlyActive = true } = {}) {
   const numericId = Number(id)
   if (!Number.isInteger(numericId)) return null
   const conditions = [eq(articles.id, numericId)]
   if (onlyActive) conditions.push(eq(articles.isActive, true))
-  const row = db.select().from(articles).where(and(...conditions)).get()
+  const [row] = await db.select().from(articles).where(and(...conditions)).limit(1)
   return row ? serializeArticle(row, locale) : null
 }
 
-export function getRelatedArticles(currentArticleId, { locale = "en", limit = 3, onlyActive = true } = {}) {
+export async function getRelatedArticles(currentArticleId, { locale = "en", limit = 3, onlyActive = true } = {}) {
   const numericId = Number(currentArticleId)
   const conditions = []
   if (Number.isInteger(numericId)) conditions.push(ne(articles.id, numericId))
   if (onlyActive) conditions.push(eq(articles.isActive, true))
   let query = db.select().from(articles)
   if (conditions.length) query = query.where(and(...conditions))
-  return applyBaseOrdering(query).all().slice(0, limit).map((article) => serializeArticle(article, locale))
+  const rows = await applyBaseOrdering(query).limit(limit)
+  return rows.map((article) => serializeArticle(article, locale))
 }

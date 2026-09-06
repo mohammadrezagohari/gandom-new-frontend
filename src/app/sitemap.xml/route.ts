@@ -12,7 +12,7 @@ function escapeXml(value: unknown): string {
 }
 
 export async function GET() {
-  const entries = getSitemapEntries()
+  const entries = await getSitemapEntries()
   const urls = entries.map((item) => {
     const alternateLinks = Object.entries(item.alternates?.languages || {})
       .map(([language, url]) => `    <xhtml:link rel="alternate" hreflang="${escapeXml(language)}" href="${escapeXml(url)}" />`)

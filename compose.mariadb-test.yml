@@ -1,0 +1,21 @@
+services:
+  mariadb:
+    image: mariadb:11.4
+    environment:
+      MARIADB_DATABASE: gandom_test
+      MARIADB_USER: gandom_test
+      MARIADB_PASSWORD: test_password
+      MARIADB_ROOT_PASSWORD: root_test_password
+    command:
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+    ports:
+      - "33307:3306"
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 2s
+      timeout: 3s
+      retries: 30
+      start_period: 10s
+    tmpfs:
+      - /var/lib/mysql

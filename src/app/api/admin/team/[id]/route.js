@@ -13,9 +13,9 @@ async function authorized(request) {
 
 async function cleanupUnusedImages(paths) {
   for (const imagePath of new Set(paths.filter(isManagedTeamImage))) {
-    const references = db.select({ value: count() }).from(teamMembers)
+    const [referenceRow] = await db.select({ value: count() }).from(teamMembers)
       .where(or(eq(teamMembers.image, imagePath), eq(teamMembers.singlePageImage, imagePath)))
-      .get()?.value || 0
+    const references = referenceRow?.value || 0
     if (references === 0) await removeManagedTeamImage(imagePath)
   }
 }
@@ -28,13 +28,12 @@ export async function PUT(request, { params }) {
   try {
     const data = teamData(await request.json())
     if (!data) return NextResponse.json({ error: "Invalid team member data." }, { status: 400 })
-    const previous = db.select().from(teamMembers).where(eq(teamMembers.id, id)).get()
+    const [previous] = await db.select().from(teamMembers).where(eq(teamMembers.id, id)).limit(1)
     if (!previous) return NextResponse.json({ error: "Team member not found." }, { status: 404 })
-    const member = db.update(teamMembers)
+    await db.update(teamMembers)
       .set({ ...data, updatedAt: new Date() })
       .where(eq(teamMembers.id, id))
-      .returning()
-      .get()
+    const [member] = await db.select().from(teamMembers).where(eq(teamMembers.id, id)).limit(1)
     await cleanupUnusedImages([
       previous.image !== member.image ? previous.image : null,
       previous.singlePageImage !== member.singlePageImage ? previous.singlePageImage : null,
@@ -51,8 +50,9 @@ export async function DELETE(request, { params }) {
   const id = Number(paramId)
   if (!Number.isInteger(id)) return NextResponse.json({ error: "Invalid id." }, { status: 400 })
   try {
-    const member = db.delete(teamMembers).where(eq(teamMembers.id, id)).returning().get()
+    const [member] = await db.select().from(teamMembers).where(eq(teamMembers.id, id)).limit(1)
     if (!member) return NextResponse.json({ error: "Team member not found." }, { status: 404 })
+    await db.delete(teamMembers).where(eq(teamMembers.id, id))
     await cleanupUnusedImages([member.image, member.singlePageImage])
       .catch((error) => console.error("Could not clean deleted team images", error))
     return NextResponse.json({ success: true })

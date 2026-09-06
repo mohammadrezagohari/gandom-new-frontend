@@ -43,10 +43,9 @@ export async function POST(request) {
       return NextResponse.json({ success: false, error: "Email and CV are required." }, { status: 400 })
     }
 
-    const submission = db.insert(formSubmissions)
+    const [submission] = await db.insert(formSubmissions)
       .values({ formType, name, phone, email, content, cv })
-      .returning({ id: formSubmissions.id })
-      .get()
+      .$returningId()
     return NextResponse.json({ success: true, id: submission.id }, { status: 201 })
   } catch {
     return NextResponse.json({ success: false, error: "Could not save the form." }, { status: 500 })

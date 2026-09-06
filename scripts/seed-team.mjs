@@ -1,4 +1,5 @@
-import { db, sqlite } from "../src/db/index.mjs"
+import { sql } from "drizzle-orm"
+import { closeDatabasePool, db } from "../src/db/index.mjs"
 import { teamMembers } from "../src/db/schema.mjs"
 
 const members = [
@@ -66,7 +67,7 @@ const members = [
 
 try {
   for (const member of members) {
-    db.insert(teamMembers)
+    await db.insert(teamMembers)
       .values({
         ...member,
         skills: JSON.stringify(member.skills),
@@ -77,10 +78,9 @@ try {
         skillsTranslations: JSON.stringify(member.skillsTranslations),
         joinedAtTranslations: JSON.stringify(member.joinedAtTranslations),
       })
-      .onConflictDoNothing({ target: teamMembers.id })
-      .run()
+      .onDuplicateKeyUpdate({ set: { id: sql`${teamMembers.id}` } })
   }
   console.log("Team members seeded.")
 } finally {
-  sqlite.close()
+  await closeDatabasePool()
 }

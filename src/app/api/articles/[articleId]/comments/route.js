@@ -29,17 +29,15 @@ export async function GET(_request, { params }) {
     return NextResponse.json({ error: "Invalid article id." }, { status: 400 })
   }
   try {
-    const roots = db.select(publicFields).from(articleComments)
+    const roots = await db.select(publicFields).from(articleComments)
       .where(and(eq(articleComments.articleId, articleId), isNull(articleComments.parentId)))
       .orderBy(desc(articleComments.createdAt))
       .limit(200)
-      .all()
     const rootIds = roots.map((comment) => comment.id)
     const replies = rootIds.length
-      ? db.select(publicFields).from(articleComments)
+      ? await db.select(publicFields).from(articleComments)
         .where(inArray(articleComments.parentId, rootIds))
         .orderBy(asc(articleComments.createdAt))
-        .all()
       : []
     const comments = roots.map((comment) => ({
       ...comment,
@@ -70,20 +68,22 @@ export async function POST(request, { params }) {
       return NextResponse.json({ error: "Invalid comment data." }, { status: 400 })
     }
     if (parentId !== null) {
-      const parent = db.select({ id: articleComments.id }).from(articleComments)
+      const [parent] = await db.select({ id: articleComments.id }).from(articleComments)
         .where(and(
           eq(articleComments.id, parentId),
           eq(articleComments.articleId, articleId),
           isNull(articleComments.parentId),
         ))
-        .get()
+        .limit(1)
       if (!parent) return NextResponse.json({ error: "Parent comment not found." }, { status: 400 })
     }
 
-    const comment = db.insert(articleComments)
+    const [inserted] = await db.insert(articleComments)
       .values({ articleId, name, email, content, parentId })
-      .returning(publicFields)
-      .get()
+      .$returningId()
+    const [comment] = await db.select(publicFields).from(articleComments)
+      .where(eq(articleComments.id, inserted.id))
+      .limit(1)
     return NextResponse.json({ comment }, { status: 201 })
   } catch {
     return NextResponse.json({ error: "Could not save comment." }, { status: 500 })

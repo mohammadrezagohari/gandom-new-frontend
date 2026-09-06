@@ -1,22 +1,24 @@
-import Database from "better-sqlite3"
-import { drizzle } from "drizzle-orm/better-sqlite3"
-import { migrate } from "drizzle-orm/better-sqlite3/migrator"
-import { mkdirSync } from "node:fs"
+import "dotenv/config"
+import mysql from "mysql2/promise"
+import { drizzle } from "drizzle-orm/mysql2"
+import { migrate } from "drizzle-orm/mysql2/migrator"
 import path from "node:path"
+import connectionConfig from "../src/db/connectionConfig.cjs"
 
-const dataDirectory = path.join(process.cwd(), "data")
-mkdirSync(dataDirectory, { recursive: true })
-const databasePath = process.env.DATABASE_PATH
-  ? path.resolve(process.env.DATABASE_PATH)
-  : path.join(dataDirectory, "gandom.db")
+const { databaseConnectionOptions } = connectionConfig
+const databaseConfig = databaseConnectionOptions()
 
-const sqlite = new Database(databasePath)
-sqlite.pragma("journal_mode = WAL")
-sqlite.pragma("foreign_keys = ON")
+const connection = await mysql.createConnection({
+  ...(databaseConfig.url ? { uri: databaseConfig.url } : databaseConfig),
+  timezone: "Z",
+  charset: "utf8mb4",
+})
 
 try {
-  migrate(drizzle(sqlite), { migrationsFolder: path.join(process.cwd(), "drizzle") })
-  console.log(`Database migrations applied to ${databasePath}`)
+  await migrate(drizzle({ client: connection }), {
+    migrationsFolder: path.join(process.cwd(), "drizzle-mariadb"),
+  })
+  console.log("MariaDB migrations applied.")
 } finally {
-  sqlite.close()
+  await connection.end()
 }

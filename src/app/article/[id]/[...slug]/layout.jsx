@@ -5,8 +5,8 @@ import { getArticleById, listArticles } from "@/src/lib/articles"
 
 export default async function RootLayout({ children, params }) {
   const { id } = await params
-  const currentArticle = getArticleById(id, { locale: "en", onlyActive: true })
-  const data = listArticles({ locale: "en", onlyActive: true, limit: 6 })
+  const currentArticle = await getArticleById(id, { locale: "en", onlyActive: true })
+  const data = await listArticles({ locale: "en", onlyActive: true, limit: 6 })
 
   return (
     <div className="container relative grid max-w-none grid-cols-12 gap-8 lg:grid-cols-12">

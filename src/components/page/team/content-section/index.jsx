@@ -11,11 +11,10 @@ const labels = {
 
 export default async function ContentSection({ locale }) {
   const normalizedLocale = locale || "en"
-  const members = db.select().from(teamMembers)
+  const memberRows = await db.select().from(teamMembers)
     .where(eq(teamMembers.isActive, true))
     .orderBy(asc(teamMembers.sortOrder), asc(teamMembers.id))
-    .all()
-    .map((member) => serializeTeamMember(member, normalizedLocale))
+  const members = memberRows.map((member) => serializeTeamMember(member, normalizedLocale))
 
   const basePath = locale ? `/${locale}/team` : "/team"
   const copy = labels[normalizedLocale] || labels.en

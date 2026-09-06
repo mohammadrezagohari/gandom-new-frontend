@@ -9,7 +9,7 @@ const labels = {
 
 export default async function RelatedPostSection({ locale = "en", currentArticleId, basePath }) {
   const copy = labels[locale] || labels.en
-  const data = getRelatedArticles(currentArticleId, { locale, limit: 3, onlyActive: true })
+  const data = await getRelatedArticles(currentArticleId, { locale, limit: 3, onlyActive: true })
   const articleBasePath = basePath || (locale ? `/${locale}/article` : "/article")
 
   if (!data.length) return null

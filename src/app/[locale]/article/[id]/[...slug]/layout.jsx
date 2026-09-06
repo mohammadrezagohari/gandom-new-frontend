@@ -12,8 +12,8 @@ export default async function RootLayout({ children, params }) {
   const { id, locale } = await params
   const isFa = locale === "fa"
   const copy = labels[locale] || labels.en
-  const currentArticle = getArticleById(id, { locale, onlyActive: true })
-  const data = listArticles({ locale, onlyActive: true, limit: 6 })
+  const currentArticle = await getArticleById(id, { locale, onlyActive: true })
+  const data = await listArticles({ locale, onlyActive: true, limit: 6 })
 
   return (
     <div dir={isFa ? "rtl" : "ltr"} className="container relative grid max-w-none grid-cols-12 gap-8 lg:grid-cols-12">

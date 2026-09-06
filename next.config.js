@@ -8,7 +8,7 @@ const withNextIntl = createNextIntlPlugin(
 );
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  serverExternalPackages: ["better-sqlite3"],
+  serverExternalPackages: ["mysql2"],
   async redirects() {
     return [
       { source: "/article/:path*", destination: "/en/article/:path*", permanent: true },

@@ -1,202 +1,246 @@
 # وب‌سایت گندم
 
-وب‌سایت چندزبانه گندم با Next.js 15، React، next-intl، Drizzle ORM و SQLite ساخته شده است. محتوای مقاله‌ها، اعضای تیم و متن‌های قابل‌مدیریت سایت از دیتابیس خوانده می‌شود و پنل مدیریت در مسیر `/panel/admin` قرار دارد.
+پروژه با Next.js 15، Drizzle ORM و MariaDB اجرا می‌شود. دیتابیس runtime دیگر SQLite نیست؛ اتصال برنامه از طریق pool درایور `mysql2` انجام می‌شود و migrationها در `drizzle-mariadb/` نگهداری می‌شوند.
 
 ## پیش‌نیازها
 
-- Node.js نسخه 20 یا 22 (نسخه 22 LTS پیشنهاد می‌شود)
-- npm
-- Git
-- ابزارهای build بومی برای `better-sqlite3`
-- روی production: یک VPS لینوکس با دیسک دائمی، Nginx و PM2 یا systemd
+- Node.js 22 و npm
+- MariaDB 11.4 یا نسخه جدیدتر سازگار
+- دسترسی به یک دیتابیس و کاربر MariaDB با مجوزهای همان دیتابیس
+- برای تست integration: Docker و Docker Compose (اختیاری)
 
 ## راه‌اندازی محیط توسعه
 
 ```bash
-git clone YOUR_REPOSITORY_URL gandom
-cd gandom
-cp .env.example .env
 npm ci
-npm run db:migrate
-npm run db:seed
-npm run admin:create
-npm run dev
+cp .env.example .env
 ```
 
-سایت روی `http://localhost:3000` و پنل روی `http://localhost:3000/panel/admin/login` در دسترس است.
+یک دیتابیس محلی بسازید:
 
-فایل `.env`:
+```sql
+CREATE DATABASE gandomdb CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+CREATE USER 'gandomdb'@'localhost' IDENTIFIED BY 'A_STRONG_LOCAL_PASSWORD';
+GRANT ALL PRIVILEGES ON gandomdb.* TO 'gandomdb'@'localhost';
+FLUSH PRIVILEGES;
+```
 
-```env
+مشخصات اتصال را با متغیرهای `DB_*` در `.env` تنظیم کنید.
+
+```dotenv
 PORT=3000
-DATABASE_PATH=./data/gandom.db
-NEXT_PUBLIC_SITE_URL=http://localhost:3000
-```
-
-`NEXT_PUBLIC_SITE_URL` باید URL کامل origin باشد، بدون اسلش انتهایی. این مقدار منبع canonical، Open Graph، JSON-LD، sitemap و robots است. در production حتماً مقدار واقعی HTTPS مانند `https://gandom.link` را وارد کنید.
-
-## دیتابیس، migration و seed
-
-فایل اصلی SQLite به‌صورت پیش‌فرض در `data/gandom.db` است. migrationها داخل `drizzle/` نگهداری می‌شوند.
-
-```bash
-npm run db:generate   # پس از تغییر schema، migration جدید می‌سازد
-npm run db:migrate    # migrationهای اجرا نشده را اعمال می‌کند
-npm run db:studio     # فقط برای توسعه محلی
-```
-
-### محتوای seed
-
-`scripts/seed-current-data.mjs` snapshot فعلی تمام داده‌های قابل استقرار را در خود دارد:
-
-- ۷ عضو تیم
-- ۹ مقاله
-- ۱۴۹ رکورد محتوای سایت
-- ۲ کامنت عمومی مقاله
-
-برای جلوگیری از انتشار اطلاعات خصوصی، جدول‌های `Admin`، `AdminSession` و `FormSubmission` وارد seed نمی‌شوند و ایمیل کامنت‌ها در snapshot برابر `null` است. حساب ادمین باید جداگانه با `npm run admin:create` ساخته شود.
-
-```bash
-npm run db:seed
-```
-
-Seed با `ON CONFLICT DO NOTHING` اجرا می‌شود؛ بنابراین اجرای دوباره، محتوایی را که مدیر سایت ویرایش کرده بازنویسی نمی‌کند. Seed برای نصب اولیه است و در deployهای بعدی لازم نیست.
-
-برای ساخت snapshot تازه از دیتابیس توسعه:
-
-```bash
-npm run db:seed:export
-git diff -- scripts/seed-current-data.mjs
-```
-
-این فرمان فایل seed را بازتولید می‌کند. قبل از commit حتماً diff را بازبینی و سپس seed را روی یک دیتابیس خالی آزمایش کنید. snapshot را از دیتابیس production بدون بررسی وارد Git نکنید.
-
-## SEO پیاده‌سازی‌شده
-
-- عنوان و description اختصاصی فارسی و انگلیسی برای صفحات اصلی
-- نرمال‌سازی Unicode، فاصله‌ها و حروف `ی/ک` در عنوان مقاله هنگام ذخیره و نمایش
-- canonical مطلق برای هر صفحه
-- hreflang برای `fa`، `en` و `x-default`
-- Open Graph و Twitter Card
-- metadata دیتابیس‌محور برای مقاله و عضو تیم
-- JSON-LD از نوع `BlogPosting` برای مقاله و `Person` برای اعضای تیم
-- `robots.txt` پویا و noindex برای پنل، API و صفحات آزمایشی/کم‌محتوا
-- `sitemap.xml` دیتابیس‌محور برای مقاله‌های فعال و اعضای فعال تیم
-- `lastModified` واقعی بر اساس `updatedAt`
-- redirect دائمی مسیرهای قدیمی و بدون locale برای حذف محتوای تکراری
-- noindex برای رکوردهای نامعتبر یا یافت‌نشده
-
-فایل‌های اصلی SEO:
-
-```text
-src/lib/seo.js
-src/lib/staticPageMetadata.js
-src/app/sitemap.js
-src/app/robots.js
-src/components/seo/json-ld.jsx
-```
-
-پس از deploy این URLها را کنترل کنید:
-
-```bash
-curl -I https://gandom.link/en
-curl -I https://gandom.link/fa
-curl -I https://gandom.link/article
-curl https://gandom.link/robots.txt
-curl https://gandom.link/sitemap.xml
-```
-
-در source یک مقاله وجود title، description، canonical، hreflang، `og:*` و `application/ld+json` را بررسی کنید. سپس sitemap را در Google Search Console و Bing Webmaster Tools ثبت کنید. تغییر دامنه بدون اصلاح `NEXT_PUBLIC_SITE_URL` باعث تولید canonical اشتباه می‌شود.
-
-## استقرار اولیه روی Ubuntu
-
-### ۱. نصب ابزارها
-
-```bash
-sudo apt update
-sudo apt install -y git nginx sqlite3 build-essential python3 make g++
-```
-
-Node.js 22 LTS را با روش مورد اعتماد خود نصب کنید و سپس:
-
-```bash
-sudo npm install -g pm2
-```
-
-### ۲. ساخت کاربر و دریافت پروژه
-
-بهتر است برنامه با کاربر اختصاصی اجرا شود:
-
-```bash
-sudo useradd --system --create-home --shell /bin/bash gandom
-sudo mkdir -p /var/www/gandom
-sudo chown -R gandom:gandom /var/www/gandom
-sudo -u gandom git clone YOUR_REPOSITORY_URL /var/www/gandom
-cd /var/www/gandom
-```
-
-### ۳. مسیرهای دائمی و env
-
-```bash
-sudo -u gandom mkdir -p data public/uploads/team
-sudo chmod 750 data public/uploads/team
-sudo -u gandom nano .env
-```
-
-```env
-PORT=3000
-DATABASE_PATH=/var/www/gandom/data/gandom.db
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=gandomdb
+DB_USERNAME=gandomdb
+DB_PASSWORD=A_STRONG_LOCAL_PASSWORD
+DATABASE_POOL_SIZE=10
 NEXT_PUBLIC_SITE_URL=https://gandom.link
 ```
 
-فایل دیتابیس و uploadها باید بین deployها باقی بمانند و کاربر `gandom` روی آن‌ها دسترسی نوشتن داشته باشد. فایل `.env` را commit نکنید.
+`DB_HOST`، `DB_DATABASE` و `DB_USERNAME` الزامی هستند. مقدار پیش‌فرض `DB_CONNECTION` برابر `mysql` و مقدار پیش‌فرض `DB_PORT` برابر `3306` است؛ رمز عبور نیز می‌تواند خالی باشد. وقتی متغیرهای `DB_*` تنظیم شده باشند، برنامه، Drizzle CLI و اسکریپت migration همگی از همین مقادیر استفاده می‌کنند و نیازی به `DATABASE_URL` نیست.
 
-### ۴. نصب، migration و نصب اولیه داده
-
-```bash
-sudo -u gandom npm ci
-sudo -u gandom npm run db:migrate
-sudo -u gandom npm run db:seed
-sudo -u gandom npm run admin:create
-sudo -u gandom npm run build
-```
-
-`db:seed` فقط در نصب اولیه اجرا شود. در به‌روزرسانی‌های عادی، محتوای production منبع اصلی است.
-
-### ۵. اجرا با PM2
+سپس schema، داده اولیه و برنامه را اجرا کنید:
 
 ```bash
-sudo -u gandom pm2 start npm --name gandom -- start
-sudo -u gandom pm2 save
-sudo env PATH=$PATH:/usr/bin pm2 startup systemd -u gandom --hp /home/gandom
+npm run db:migrate
+npm run db:seed
+npm run dev
 ```
 
-فرمانی را که `pm2 startup` نمایش می‌دهد اجرا کنید و وضعیت را ببینید:
+ساخت یا به‌روزرسانی مدیر:
 
 ```bash
-sudo -u gandom pm2 status
-sudo -u gandom pm2 logs gandom --lines 100
+npm run admin:create -- admin 'A_STRONG_ADMIN_PASSWORD'
 ```
 
-به‌دلیل استفاده از یک فایل SQLite، برنامه را فقط با یک instance و بدون cluster mode اجرا کنید.
+## ساختار دیتابیس و queryها
 
-## تنظیم Nginx و HTTPS
+- schema در `src/db/schema.mjs` با `mysqlTable` تعریف شده است.
+- pool اتصال در `src/db/index.mjs` ساخته و در development بین hot reloadها reuse می‌شود.
+- تمام queryهای برنامه async هستند و باید `await` شوند.
+- برای شناسه رکورد تازه از `$returningId()` استفاده می‌شود؛ MariaDB/MySQL روی `INSERT`، `RETURNING` عمومی مشابه PostgreSQL ندارند.
+- همه جدول‌های متنی در migration اولیه به `utf8mb4_unicode_ci` تبدیل می‌شوند تا فارسی و emoji سالم ذخیره شوند.
+- زمان اتصال روی UTC تنظیم شده است؛ نمایش زمان باید در لایه رابط کاربری locale-aware باشد.
 
-`/etc/nginx/sites-available/gandom`:
+دستورات دیتابیس:
+
+```bash
+npm run db:generate   # ساخت migration پس از تغییر schema
+npm run db:migrate    # اعمال migrationهای ثبت‌نشده
+npm run db:studio     # رابط Drizzle Studio
+npm run db:seed       # seed idempotent محتوای فعلی
+npm run db:seed:export
+```
+
+seed اصلی در `scripts/seed-current-data.mjs` است و اطلاعات تیم، مقاله‌ها، محتوای سایت و دیدگاه‌های عمومی را وارد می‌کند. اطلاعات حساس مدیران، نشست‌ها و فرم‌های کاربران عمداً داخل seed عمومی export نمی‌شوند. اجرای چندباره seed رکورد تکراری تولید نمی‌کند.
+
+## انتقال همه داده‌های SQLite فعلی به MariaDB
+
+اسکریپت انتقال، هر هفت جدول `Admin`، `AdminSession`، `FormSubmission`، `ArticleComment`، `TeamMember`، `Article` و `SiteContent` را با IDهای فعلی کپی می‌کند. بنابراین hash رمز مدیر و داده‌های خصوصی فرم‌ها نیز منتقل می‌شوند؛ فایل و log خروجی را محرمانه نگه دارید.
+
+1. قبل از هر کاری از SQLite نسخه پشتیبان بگیرید و برنامه قدیمی را موقتاً در maintenance قرار دهید تا حین انتقال write جدیدی ثبت نشود.
+2. متغیرهای `DB_CONNECTION`، `DB_HOST`، `DB_PORT`، `DB_DATABASE`، `DB_USERNAME` و `DB_PASSWORD` را برای MariaDB مقصد تنظیم کنید.
+3. مقصد باید خالی باشد؛ ابتدا فقط migration را اجرا کنید.
+4. اسکریپت انتقال را با مسیر فایل قدیمی اجرا کنید.
+
+```bash
+npm run db:migrate
+npm run db:sqlite-to-mariadb -- --sqlite=/absolute/path/to/gandom.db
+```
+
+در ویندوز:
+
+```powershell
+npm run db:sqlite-to-mariadb -- --sqlite=D:\backup\gandom.db
+```
+
+برای جلوگیری از merge ناقص، انتقال داخل transaction انجام می‌شود و اگر هر جدول مقصد داده داشته باشد متوقف می‌شود. پس از موفقیت، تعداد رکوردهای هر جدول چاپ می‌شود. تعدادها را مستقل نیز بررسی کنید:
+
+```sql
+SELECT 'Admin' AS table_name, COUNT(*) AS total FROM Admin
+UNION ALL SELECT 'AdminSession', COUNT(*) FROM AdminSession
+UNION ALL SELECT 'FormSubmission', COUNT(*) FROM FormSubmission
+UNION ALL SELECT 'ArticleComment', COUNT(*) FROM ArticleComment
+UNION ALL SELECT 'TeamMember', COUNT(*) FROM TeamMember
+UNION ALL SELECT 'Article', COUNT(*) FROM Article
+UNION ALL SELECT 'SiteContent', COUNT(*) FROM SiteContent;
+```
+
+بعد از smoke test ورود مدیر، ارسال فرم، مقاله‌ها، تیم و sitemap، فایل SQLite را فوراً حذف نکنید؛ آن را به‌صورت رمزنگاری‌شده تا پایان دوره rollback نگه دارید.
+
+## تست‌ها
+
+تست‌های واحد، انتخاب driver/schema، migration و تنظیم `utf8mb4` را بررسی می‌کنند. تست integration روی MariaDB واقعی، migration، CRUD، فارسی، emoji، boolean، `$returningId()` و unique constraint را می‌سنجد.
+
+```bash
+npm test
+```
+
+برای تست MariaDB واقعی با Docker:
+
+```bash
+npm run test:db:up
+npm run test:db
+npm run test:db:down
+```
+
+سرویس تست روی پورت `33307` و دیتابیس موقت `gandom_test` بالا می‌آید. تست برای ایمنی فقط URL دیتابیسی را قبول می‌کند که نام آن به `_test` ختم شود. برای سرور تست اختصاصی می‌توانید `TEST_DATABASE_URL` را خودتان تعیین کنید.
+
+## SEO و sitemap
+
+- metadata، canonical و `hreflang` برای صفحات فارسی و انگلیسی تولید می‌شوند.
+- title و descriptionها قبل از خروجی نرمال می‌شوند تا فاصله، طول و پسوند برند کنترل شود.
+- JSON-LD سازمان، وب‌سایت، breadcrumb، مقاله و پروفایل اعضای تیم در صفحات مرتبط وجود دارد.
+- robots در `/robots.txt` در دسترس است و مسیرهای مدیریت و API را crawl نمی‌کند.
+- sitemap دیتابیس‌محور در آدرس `/sitemap.xml` است؛ URL مقاله‌های فعال و اعضای فعال تیم را از MariaDB می‌خواند و برای هر دو locale خروجی می‌دهد.
+- فایل `public/sitemap.xsl` فقط نمایش انسانی XML را زیباتر می‌کند و در پردازش موتور جست‌وجو دخالتی ندارد. خود endpoint همچنان XML استاندارد برمی‌گرداند.
+
+آدرس production:
+
+```text
+https://gandom.link/sitemap.xml
+```
+
+بعد از deploy، این دو آدرس را باز کنید و sitemap را در Google Search Console و Bing Webmaster Tools ثبت کنید:
+
+```text
+https://gandom.link/robots.txt
+https://gandom.link/sitemap.xml
+```
+
+مقدار `NEXT_PUBLIC_SITE_URL` باید دقیقاً origin نهایی و بدون slash انتهایی باشد؛ در غیر این صورت canonical و URLهای sitemap اشتباه می‌شوند.
+
+## استقرار روی Ubuntu
+
+### ۱. نصب سرویس‌ها
+
+Node.js 22، Nginx، Git، MariaDB Server و PM2 را نصب کنید. سپس MariaDB را امن‌سازی کنید:
+
+```bash
+sudo apt update
+sudo apt install -y git nginx mariadb-server
+sudo mariadb-secure-installation
+sudo systemctl enable --now mariadb nginx
+sudo npm install -g pm2
+```
+
+Node.js را با روش استاندارد تیم/سرور نصب کنید و نسخه‌ها را کنترل کنید:
+
+```bash
+node --version
+npm --version
+mariadb --version
+```
+
+### ۲. ساخت دیتابیس production
+
+```bash
+sudo mariadb
+```
+
+```sql
+CREATE DATABASE gandom CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+CREATE USER 'gandom_app'@'127.0.0.1' IDENTIFIED BY 'A_LONG_RANDOM_PASSWORD';
+GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, ALTER, INDEX, DROP, REFERENCES ON gandom.* TO 'gandom_app'@'127.0.0.1';
+FLUSH PRIVILEGES;
+```
+
+برای اصل least privilege می‌توان کاربر migration را از کاربر runtime جدا کرد؛ در آن حالت کاربر runtime فقط `SELECT, INSERT, UPDATE, DELETE` لازم دارد.
+
+### ۳. دریافت پروژه و env
+
+```bash
+sudo mkdir -p /var/www/gandom
+sudo chown -R "$USER":"$USER" /var/www/gandom
+git clone YOUR_REPOSITORY_URL /var/www/gandom/app
+cd /var/www/gandom/app
+cp .env.example .env
+chmod 600 .env
+```
+
+`.env` production:
+
+```dotenv
+PORT=3000
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=gandom
+DB_USERNAME=gandom_app
+DB_PASSWORD=A_STRONG_PRODUCTION_PASSWORD
+DATABASE_POOL_SIZE=10
+NEXT_PUBLIC_SITE_URL=https://gandom.link
+```
+
+فایل `.env`، dumpها و دیتابیس قدیمی نباید commit شوند.
+
+### ۴. نصب، migration، build و اجرا
+
+```bash
+cd /var/www/gandom/app
+npm ci
+npm run db:migrate
+npm run db:seed
+npm run build
+pm2 start npm --name gandom -- start
+pm2 save
+pm2 startup
+```
+
+دستور نهایی چاپ‌شده توسط `pm2 startup` را یک‌بار با sudo اجرا کنید. `db:seed` در deployهای معمول اختیاری است و فقط وقتی snapshot محتوای repository باید وارد شود اجرا می‌شود.
+
+### ۵. Nginx و HTTPS
+
+نمونه upstream:
 
 ```nginx
 server {
     listen 80;
-    listen [::]:80;
     server_name gandom.link www.gandom.link;
 
-    client_max_body_size 6M;
-
-    location /_next/static/ {
-        proxy_pass http://127.0.0.1:3000;
-        proxy_set_header Host $host;
-        add_header Cache-Control "public, max-age=31536000, immutable";
-    }
+    client_max_body_size 20m;
 
     location / {
         proxy_pass http://127.0.0.1:3000;
@@ -205,94 +249,68 @@ server {
         proxy_set_header X-Real-IP $remote_addr;
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         proxy_set_header X-Forwarded-Proto $scheme;
-        proxy_set_header Upgrade $http_upgrade;
-        proxy_set_header Connection "upgrade";
     }
 }
 ```
 
-```bash
-sudo ln -s /etc/nginx/sites-available/gandom /etc/nginx/sites-enabled/gandom
-sudo nginx -t
-sudo systemctl reload nginx
-sudo apt install -y certbot python3-certbot-nginx
-sudo certbot --nginx -d gandom.link -d www.gandom.link
-```
-
-فقط یک hostname را canonical نگه دارید. اگر `gandom.link` canonical است، درخواست‌های `www` را با 301 به آن منتقل کنید و همان origin را در `NEXT_PUBLIC_SITE_URL` قرار دهید.
+پس از فعال‌سازی config، با Certbot گواهی HTTPS بگیرید و redirect از HTTP به HTTPS را فعال کنید. سپس canonical، robots و sitemap را روی دامنه نهایی دوباره تست کنید.
 
 ## روند به‌روزرسانی سرور
 
-ابتدا backup بگیرید، سپس:
+قبل از migration از دیتابیس backup بگیرید. ترتیب امن release:
 
 ```bash
-cd /var/www/gandom
-sudo -u gandom git pull --ff-only
-sudo -u gandom npm ci
-sudo -u gandom npm run db:migrate
-sudo -u gandom npm run build
-sudo -u gandom pm2 reload gandom --update-env
-sudo -u gandom pm2 logs gandom --lines 100
-```
-
-در deploy روزمره `db:seed` و `admin:create` را اجرا نکنید. اگر build شکست خورد، process فعلی را reload نکنید.
-
-## backup و بازیابی
-
-برای backup سازگار SQLite از دستور داخلی `.backup` استفاده کنید:
-
-```bash
-sudo mkdir -p /var/backups/gandom
-sudo sqlite3 /var/www/gandom/data/gandom.db ".backup '/var/backups/gandom/gandom.db'"
-sudo tar -czf /var/backups/gandom/team-uploads.tar.gz -C /var/www/gandom public/uploads/team
-```
-
-فایل‌های backup را با timestamp نگه دارید و یک نسخه را خارج از همان سرور ذخیره کنید. برای بازیابی:
-
-```bash
-sudo -u gandom pm2 stop gandom
-sudo cp /path/to/backup.db /var/www/gandom/data/gandom.db
-sudo chown gandom:gandom /var/www/gandom/data/gandom.db
-sudo -u gandom npm run db:migrate
-sudo -u gandom pm2 start gandom
-```
-
-## چک‌لیست هر release
-
-```bash
+cd /var/www/gandom/app
+git pull --ff-only
 npm ci
 npm run db:migrate
 npm run build
+pm2 reload gandom --update-env
+pm2 status
+pm2 logs gandom --lines 100
 ```
 
-- diff migration و seed بازبینی شده باشد.
-- از دیتابیس و uploadها backup معتبر وجود داشته باشد.
-- `NEXT_PUBLIC_SITE_URL` با دامنه production یکی باشد.
-- صفحه فارسی و انگلیسی، ورود مدیر و ثبت فرم آزمایش شوند.
-- `robots.txt` و `sitemap.xml` پاسخ 200 بدهند.
-- canonical یک مقاله و hreflangهای آن صحیح باشند.
-- redirect مسیرهای بدون locale پاسخ 308/301 بدهد.
-- sitemap در Search Console بدون URL پنل، API یا محتوای غیرفعال باشد.
+Migration باید backward-compatible طراحی شود: ابتدا ستون/جدول جدید اضافه شود، سپس کد deploy شود و حذف ساختار قدیمی به release بعدی موکول شود. اجرای مستقیم `db:push` در production توصیه نمی‌شود؛ migrationهای versioned را commit و review کنید.
 
-## نکات امنیتی و عملیاتی
+## backup و بازیابی MariaDB
 
-- `.env`، دیتابیس، sessionها و backupها را وارد Git نکنید.
-- Drizzle Studio را روی اینترنت عمومی باز نکنید.
-- دسترسی نوشتن فقط برای `data` و `public/uploads/team` لازم است.
-- حساب مدیر را با رمز قوی و منحصربه‌فرد بسازید.
-- SQLite برای یک instance مناسب است؛ برای چند instance یا ترافیک نوشتن بالا به PostgreSQL مهاجرت کنید.
-- نسخه فعلی به filesystem دائمی نیاز دارد و بدون انتقال دیتابیس و uploadها به سرویس‌های پایدار، مناسب Vercel/serverless نیست.
+نمونه backup روزانه:
+
+```bash
+sudo install -d -m 700 /var/backups/gandom
+mariadb-dump --single-transaction --routines --triggers --events gandom | gzip > /var/backups/gandom/gandom-$(date +%F-%H%M).sql.gz
+```
+
+بازیابی را اول روی دیتابیس جداگانه تمرین کنید:
+
+```bash
+gunzip -c /var/backups/gandom/BACKUP.sql.gz | mariadb gandom_restore_test
+```
+
+صرف وجود فایل backup کافی نیست؛ restore دوره‌ای، retention، رمزنگاری و کپی خارج از همان سرور باید بررسی شود. پوشه uploadها نیز جداگانه backup شود چون داخل MariaDB نیست.
+
+## چک‌لیست release
+
+- `npm test` و در تغییرات دیتابیس `npm run test:db` موفق باشد.
+- migration قبل از build production روی staging اجرا شده باشد.
+- backup تازه و قابل restore وجود داشته باشد.
+- صفحه اصلی، ورود مدیر، فرم‌ها، مقاله و تیم smoke test شوند.
+- `/robots.txt` و `/sitemap.xml` با دامنه صحیح پاسخ 200 بدهند.
+- canonical و hreflang چند صفحه فارسی و انگلیسی بررسی شوند.
+- log برنامه و slow queryهای MariaDB بررسی شوند.
+- secretها، dump، SQLite قدیمی و `.env` داخل Git یا web root عمومی نباشند.
 
 ## دستورات مهم
 
 ```bash
 npm run dev
 npm run build
-npm run start
+npm start
+npm test
+npm run test:db
+npm run db:generate
 npm run db:migrate
 npm run db:seed
-npm run db:seed:export
-npm run db:generate
-npm run db:studio
-npm run admin:create
+npm run db:sqlite-to-mariadb -- --sqlite=/path/to/gandom.db
+npm run admin:create -- USERNAME PASSWORD
 ```

@@ -1,6 +1,6 @@
-import { db, sqlite } from "../src/db/index.mjs"
+import { closeDatabasePool, db } from "../src/db/index.mjs"
 import { articles, teamMembers } from "../src/db/schema.mjs"
-import { eq } from "drizzle-orm"
+import { eq, sql } from "drizzle-orm"
 
 const articleSeeds = [
   {
@@ -115,7 +115,7 @@ const teamTranslations = [
 
 try {
   for (const article of articleSeeds) {
-    db.insert(articles)
+    await db.insert(articles)
       .values({
         ...article,
         titleTranslations: JSON.stringify(article.titleTranslations),
@@ -123,14 +123,13 @@ try {
         contentTranslations: JSON.stringify(article.contentTranslations),
         authorTranslations: JSON.stringify(article.authorTranslations),
       })
-      .onConflictDoNothing({ target: articles.slug })
-      .run()
+      .onDuplicateKeyUpdate({ set: { slug: sql`${articles.slug}` } })
   }
 
   for (const item of teamTranslations) {
-    const member = db.select().from(teamMembers).where(eq(teamMembers.id, item.id)).get()
+    const [member] = await db.select().from(teamMembers).where(eq(teamMembers.id, item.id)).limit(1)
     if (!member) continue
-    db.update(teamMembers)
+    await db.update(teamMembers)
       .set({
         nameTranslations: JSON.stringify(item.nameTranslations),
         familyTranslations: JSON.stringify(item.familyTranslations),
@@ -141,10 +140,9 @@ try {
         updatedAt: new Date(),
       })
       .where(eq(teamMembers.id, item.id))
-      .run()
   }
 
   console.log("Multilingual content seeded.")
 } finally {
-  sqlite.close()
+  await closeDatabasePool()
 }

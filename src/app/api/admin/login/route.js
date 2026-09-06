@@ -17,13 +17,13 @@ export async function POST(request) {
       return NextResponse.json({ success: false, error: "Invalid username or password." }, { status: 401 })
     }
 
-    const admin = db.select().from(admins).where(eq(admins.username, username)).get()
+    const [admin] = await db.select().from(admins).where(eq(admins.username, username)).limit(1)
     const valid = admin?.isActive ? await verifyPassword(password, admin.passwordHash) : (await hashPassword(password), false)
     if (!valid) {
       return NextResponse.json({ success: false, error: "Invalid username or password." }, { status: 401 })
     }
 
-    db.delete(adminSessions).where(lt(adminSessions.expiresAt, new Date())).run()
+    await db.delete(adminSessions).where(lt(adminSessions.expiresAt, new Date()))
     const session = await createAdminSession(admin.id)
     const response = NextResponse.json({ success: true })
     response.cookies.set(ADMIN_COOKIE, session.token, adminCookieOptions(session))

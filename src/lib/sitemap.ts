@@ -42,9 +42,9 @@ function entry(locale: string, route: string, options: Partial<SitemapEntry> = {
   }
 }
 
-export function getSitemapEntries(): MetadataRoute.Sitemap {
-  const articleRows = db.select().from(articles).where(eq(articles.isActive, true)).all()
-  const memberRows = db.select().from(teamMembers).where(eq(teamMembers.isActive, true)).all()
+export async function getSitemapEntries(): Promise<MetadataRoute.Sitemap> {
+  const articleRows = await db.select().from(articles).where(eq(articles.isActive, true))
+  const memberRows = await db.select().from(teamMembers).where(eq(teamMembers.isActive, true))
   const result: MetadataRoute.Sitemap = []
 
   for (const locale of SUPPORTED_LOCALES) {

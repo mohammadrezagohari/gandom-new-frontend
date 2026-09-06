@@ -1,5 +1,5 @@
 import "dotenv/config"
-import { db, sqlite } from "../src/db/index.mjs"
+import { db, closeDatabasePool } from "../src/db/index.mjs"
 import { admins } from "../src/db/schema.mjs"
 import { randomBytes, scrypt as scryptCallback } from "node:crypto"
 import { promisify } from "node:util"
@@ -19,17 +19,13 @@ try {
   const salt = randomBytes(16).toString("hex")
   const derived = await scrypt(password, salt, 64)
   const passwordHash = `scrypt$${salt}$${Buffer.from(derived).toString("hex")}`
-  db.insert(admins).values({ username, passwordHash, isActive: true })
-    .onConflictDoUpdate({
-      target: admins.username,
-      set: { passwordHash, isActive: true, updatedAt: new Date() },
-    })
-    .run()
+  await db.insert(admins).values({ username, passwordHash, isActive: true })
+    .onDuplicateKeyUpdate({ set: { passwordHash, isActive: true, updatedAt: new Date() } })
   console.log(`Admin "${username}" was saved in the database.`)
 } catch (error) {
   console.error(error.message)
   process.exitCode = 1
 } finally {
   rl.close()
-  sqlite.close()
+  await closeDatabasePool()
 }

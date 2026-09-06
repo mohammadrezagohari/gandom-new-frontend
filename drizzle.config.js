@@ -1,10 +1,12 @@
+require("dotenv/config")
 const { defineConfig } = require("drizzle-kit")
+const { databaseConnectionOptions } = require("./src/db/connectionConfig.cjs")
 
 module.exports = defineConfig({
-  dialect: "sqlite",
+  dialect: "mysql",
   schema: "./src/db/schema.mjs",
-  out: "./drizzle",
-  dbCredentials: {
-    url: process.env.DATABASE_PATH || "./data/gandom.db",
-  },
+  out: "./drizzle-mariadb",
+  dbCredentials: databaseConnectionOptions(),
+  strict: true,
+  verbose: true,
 })
